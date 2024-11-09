@@ -11,21 +11,28 @@ export class UserController {
     getUsers() {
         return this.UserService.getUsers();
     }
+
+
     getUsersById(id: string) {
         return this.UserService.getUsersById(id);
     }
-    createUser(user) {
-        return this.UserService.createUser(user);
-    }
+   
+
     deleteUser(id: string) {
         return this.UserService.deleteUser(id);
     }
+
+
     changePassword(id: string, password: string) {
         return this.UserService.changePassword(id, password);
     }
+
+
     changeEmail(id: string, email: string) {
         return this.UserService.changeEmail(id, email);
     }
+
+    
     changeName(id: string, name: string) {
         return this.UserService.changeName(id, name);
     }

@@ -23,11 +23,11 @@ export class UserRepository {
 
     async createUser(user) {
         const newUser = await this.userRepository.save(user);
-        // crea un nuevo usuario
+     
         const dbUser: any = await this.userRepository.findOneBy({ user_id: newUser.user_id });
-        // busca el usuario en la base de datos
+      
         const { password,isAdmin, ...userNoPassword } = dbUser;
-        // devuelve el usuario sin el password
+    
         return userNoPassword;
       }
 
