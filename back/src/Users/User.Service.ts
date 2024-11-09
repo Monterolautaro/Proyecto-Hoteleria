@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserRepository } from './User.repository';
-import { UserEntity } from './User.Entity';
+import { UserRepository } from './user.repository';
 
 @Injectable()
 export class UserService {
@@ -12,7 +11,7 @@ export class UserService {
   getUsersById(id: string) {
     return this.userRepository.getUsersById(id);
   }
-  createUser(user: Partial<UserEntity>): Promise<Partial<UserEntity>> {
+  createUser(user) {
     return this.userRepository.createUser(user);
   }
 

@@ -1,6 +1,5 @@
 import { Controller, Get, HttpCode } from '@nestjs/common';
-import { UserService } from './User.Service';
-import { UserEntity } from './User.Entity';
+import { UserService } from './user.service';
 
 @Controller('users')
 export class UserController {
@@ -15,7 +14,7 @@ export class UserController {
     getUsersById(id: string) {
         return this.UserService.getUsersById(id);
     }
-    createUser(user: Partial<UserEntity>) {
+    createUser(user) {
         return this.UserService.createUser(user);
     }
     deleteUser(id: string) {
