@@ -11,9 +11,6 @@ export class UserService {
   getUsersById(id: string) {
     return this.userRepository.getUsersById(id);
   }
-  createUser(user) {
-    return this.userRepository.createUser(user);
-  }
 
   deleteUser(id: string) {
     return this.userRepository.deleteUser(id);

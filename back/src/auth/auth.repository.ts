@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AuthRepository {
-    register() {
+    signUp( name, lastname, birthday, username, email, password ) {
         return 'succesfully registered'
     }
-    login() {
+    signIn() {
         return 'succesfully logged in'
     }
 }
