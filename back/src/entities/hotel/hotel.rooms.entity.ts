@@ -1,6 +1,10 @@
-import { Column, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import {v4 as uuid} from 'uuid'
 import { RoomType } from './roomsType.entity'
+
+@Entity({
+    name: 'rooms'
+})
 export class Room {
 
     @PrimaryGeneratedColumn('uuid')

@@ -1,7 +1,11 @@
-import { Column, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import {v4 as uuid} from 'uuid'
 import { Room } from './hotel.rooms.entity';
 
+
+@Entity({
+    name: 'rooms_type'
+})
 export class RoomType {
     @PrimaryGeneratedColumn('uuid')
     room_type_id: string = uuid()
