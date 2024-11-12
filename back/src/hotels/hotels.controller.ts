@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { BadRequestException, Controller, Get } from '@nestjs/common';
 import { HotelsService } from './hotels.service';
 
 @Controller('hotels')
@@ -7,7 +7,11 @@ export class HotelsController {
 
     @Get('hotelSeeder')
     async addHotels(){
-        return this.hotelsService.addHotels();
+        try {
+            return this.hotelsService.addHotels();
+        } catch (error) {
+            throw new BadRequestException('Error loading hotels', error)
+        }
     }
 
 }
