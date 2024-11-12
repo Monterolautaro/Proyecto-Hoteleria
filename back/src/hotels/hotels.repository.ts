@@ -1,65 +1,68 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { getAccessToken } from 'src/config/api.config';
-import { HotelsService } from './hotels.service';
-import axios from 'axios';
+import * as fs from 'fs';
+import { Details } from 'src/entities/hotel/hotel.details.entity';
+import { Address } from 'src/entities/hotel/hotel.address.entity';
+import { Availability } from 'src/entities/hotel/hotel.availability.entity';
+import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
+import { Room } from 'src/entities/hotel/hotel.rooms.entity';
+import { RoomType } from 'src/entities/hotel/roomsType.entity';
+import { Hotel } from 'src/entities/hotel/hotel.entity';
+import { connectionSource } from 'src/config/typeorm';
+
 
 @Injectable()
 export class HotelsRepository {
-
-  async getHotels(accessToken) {
-    const hotelsUrl = 'https://test.api.amadeus.com/v2/shopping/hotels/by-hotel-id';
   
-    try {
-      const response = await axios.get(hotelsUrl, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-        params: {
-          hotelIds: 'id_del_hotel',  // Reemplazar con el ID del hotel
-        },
-      });
-  
-      console.log('Hotel data:', response.data);
-    } catch (error) {
-      throw new BadRequestException('Failed to obtain hotel data');
-    }
+  async addHotels(){
+  /*
+    ## No terminado
+                        */
+
+    // for (const hotelData of filePath) {
+    //   await connectionSource.transaction(async transactionalEntityManager => {
+        
+    //     const details = transactionalEntityManager.create(Details, hotelData.details);
+    //     await transactionalEntityManager.save(details);
+    
+    
+    //     const address = transactionalEntityManager.create(Address, hotelData.address);
+    //     await transactionalEntityManager.save(address);
+    
+    
+    //     const availability = transactionalEntityManager.create(Availability, hotelData.availability);
+    //     await transactionalEntityManager.save(availability);
+    
+
+    //     const amenities = transactionalEntityManager.create(Amenities, hotelData.amenities);
+    //     await transactionalEntityManager.save(amenities);
+    
+    //     // Crear y guardar `Rooms` y `RoomType`
+    //     const rooms = new Room();
+    //     await transactionalEntityManager.save(rooms);
+    
+    //     const roomTypes = Object.keys(hotelData.rooms).map(type => {
+    //       return transactionalEntityManager.create(RoomType, {
+    //         rooms,
+    //         type,
+    //         ...hotelData.rooms[type]
+    //       });
+    //     });
+    
+    //     await transactionalEntityManager.save(RoomType, roomTypes);
+    
+    //     // Crear y guardar `Hotel`
+    //     const hotel = transactionalEntityManager.create(Hotel, {
+    //       name: hotelData.name,
+    //       details,
+    //       address,
+    //       availability,
+    //       amenities,
+    //       rooms
+    //     });
+    //     await transactionalEntityManager.save(hotel);
+    
+    //     console.log("Hotel data saved successfully");
+    //   });
+    // }
   }
-
-
-    async addHotels(){
-        // const categories = await this.categoriesRepository.find();
-
-        const foundHotel = getAccessToken().then((token) => {
-            if (token) {
-              this.getHotels(token);
-            }});
-
-            console.log(foundHotel);
-            
-
-        // foundHotel?.map(async (element) => {
-        //     const category = categories.find(
-        //         (category) => category.name === element.category,
-        //     )
-        //     const hotel = new Hotel();
-            
-        //     hotel.name = element.name;
-        //     hotel.description = element.description;
-        //     hotel.price = element.price;
-        //     hotel.imgUrl = element.imgUrl
-        //     hotel.availableRooms = element.availableRooms
-        //     hotel.category = category
-
-        //     await this.hotelsRepository
-        //     .createQueryBuilder()
-        //     .insert()
-        //     .into(Hotel)
-        //     .values(hotel)
-        //     .orUpdate(['description', 'price', 'imgUrl', 'availableRooms'], ['name'])
-        //     .execute();
-        // })
-        return 'hoteles agregados'
-  }
-
-
 }
