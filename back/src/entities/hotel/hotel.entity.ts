@@ -5,6 +5,7 @@ import { Address } from './hotel.address.entity';
 import { Availability } from './hotel.availability.entity';
 
 
+
 @Entity({
     name: 'hotels'
 })

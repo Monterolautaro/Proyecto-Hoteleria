@@ -2,7 +2,6 @@ import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'ty
 import {v4 as uuid} from 'uuid'
 import { RoomType } from './roomsType.entity'
 
-
 @Entity({
     name: 'rooms'
 })

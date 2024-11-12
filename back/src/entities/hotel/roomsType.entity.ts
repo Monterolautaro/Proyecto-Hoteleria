@@ -3,7 +3,6 @@ import {v4 as uuid} from 'uuid'
 import { Room } from './hotel.rooms.entity';
 
 
-
 @Entity({
     name: 'rooms_type'
 })
