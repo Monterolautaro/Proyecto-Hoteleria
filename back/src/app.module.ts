@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import typeOrmConfig from './config/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { HotelsModule } from './hotels/hotels.module';
+import { IaModule } from './ia/ia.module';
 
 dotenvConfig({
   path: '.env'
@@ -20,9 +21,9 @@ dotenvConfig({
     inject: [ConfigService],
     useFactory: (configService: ConfigService) =>
       configService.get('typeorm')
-  }), HotelsModule ,AuthModule, UsersModule, JwtModule.register({
+  }), IaModule, HotelsModule ,AuthModule, UsersModule, JwtModule.register({
     global: true,
-    signOptions: { expiresIn: '1h' },
+    signOptions: { expiresIn: '15m' },
     secret: process.env.JWT_SECRET
   })],
   controllers: [],
