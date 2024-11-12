@@ -1,8 +1,8 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid'
 import { Details } from './hotel.details.entity';
 import { Address } from './hotel.address.entity';
 import { Availability } from './hotel.availability.entity';
+
 
 
 
