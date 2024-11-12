@@ -1,17 +1,37 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { getAccessToken } from 'src/config/api.config';
 import { HotelsService } from './hotels.service';
+import axios from 'axios';
 
 @Injectable()
 export class HotelsRepository {
-    constructor(private readonly hotelsService: HotelsService) {}
+
+  async getHotels(accessToken) {
+    const hotelsUrl = 'https://test.api.amadeus.com/v2/shopping/hotels/by-hotel-id';
+  
+    try {
+      const response = await axios.get(hotelsUrl, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+        params: {
+          hotelIds: 'id_del_hotel',  // Reemplazar con el ID del hotel
+        },
+      });
+  
+      console.log('Hotel data:', response.data);
+    } catch (error) {
+      throw new BadRequestException('Failed to obtain hotel data');
+    }
+  }
+
 
     async addHotels(){
         // const categories = await this.categoriesRepository.find();
 
         const foundHotel = getAccessToken().then((token) => {
             if (token) {
-              this.hotelsService.getHotels(token);
+              this.getHotels(token);
             }});
 
             console.log(foundHotel);
