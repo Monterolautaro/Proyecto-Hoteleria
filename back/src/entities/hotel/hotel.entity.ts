@@ -1,9 +1,13 @@
-import { Column, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid'
 import { Details } from './hotel.details.entity';
 import { Address } from './hotel.address.entity';
 import { Availability } from './hotel.availability.entity';
 
+
+@Entity({
+    name: 'hotels'
+})
 export class Hotel {
     @PrimaryGeneratedColumn('uuid')
     hotel_id: string = uuid();
