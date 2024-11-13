@@ -10,22 +10,29 @@ import { HotelsModule } from './hotels/hotels.module';
 import { IaModule } from './ia/ia.module';
 
 dotenvConfig({
-  path: '.env'
-})
+  path: '.env',
+});
 @Module({
-  imports: [ConfigModule.forRoot({
-    isGlobal: true,
-    load: [typeOrmConfig]
-  }),
-  TypeOrmModule.forRootAsync({
-    inject: [ConfigService],
-    useFactory: (configService: ConfigService) =>
-      configService.get('typeorm')
-  }), IaModule, HotelsModule ,AuthModule, UsersModule, JwtModule.register({
-    global: true,
-    signOptions: { expiresIn: '15m' },
-    secret: process.env.JWT_SECRET
-  })],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [typeOrmConfig],
+    }),
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) =>
+        configService.get('typeorm'),
+    }),
+    IaModule,
+    HotelsModule,
+    AuthModule,
+    UsersModule,
+    JwtModule.register({
+      global: true,
+      signOptions: { expiresIn: '15m' },
+      secret: process.env.JWT_SECRET,
+    }),
+  ],
   controllers: [],
   providers: [],
 })

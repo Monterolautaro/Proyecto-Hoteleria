@@ -1,49 +1,54 @@
-import { v4 as uuid } from 'uuid'
+import { v4 as uuid } from 'uuid';
 import { Details } from './hotel.details.entity';
 import { Address } from './hotel.address.entity';
 import { Availability } from './hotel.availability.entity';
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Booking } from '../booking.entity';
 import { Amenities } from './hotel.amenities.entity';
 import { Room } from './hotel.rooms.entity';
 
-
-
-
-
-
-
 @Entity({
-    name: 'hotels'
+  name: 'hotels',
 })
 export class Hotel {
-    @PrimaryGeneratedColumn('uuid')
-    hotel_id: string = uuid();
-    
-    @Column()
-    name: string;
+  @PrimaryGeneratedColumn('uuid')
+  hotel_id: string = uuid();
 
-    @OneToOne(() => Amenities, amenities => amenities.hotel, { onDelete: 'CASCADE' })
-    @JoinColumn({ name: 'amenities_id'})
-    amenities!: Amenities
+  @Column()
+  name: string;
 
-    @OneToOne(() => Details, detail => detail.hotel, { onDelete: 'CASCADE' })
-    @JoinColumn({ name: 'detail_id'})
-    details!: Details
+  @OneToOne(() => Amenities, (amenities) => amenities.hotel, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'amenities_id' })
+  amenities!: Amenities;
 
-    @OneToOne(() => Address, address => address.hotel, { onDelete: 'CASCADE' })
-    @JoinColumn({ name: 'address_id'})
-    address!: Address
+  @OneToOne(() => Details, (detail) => detail.hotel, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'detail_id' })
+  details!: Details;
 
-    @OneToOne(() => Availability, availability => availability.hotel, { onDelete: 'CASCADE' })
-    @JoinColumn({ name: 'availability_id'})
-    availability!: Availability
+  @OneToOne(() => Address, (address) => address.hotel, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'address_id' })
+  address!: Address;
 
-    @OneToMany(() => Room, room => room.hotel, { onDelete: 'CASCADE' })
-    @JoinColumn({ name: 'room_id'})
-    room!: Room[];
+  @OneToOne(() => Availability, (availability) => availability.hotel, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'availability_id' })
+  availability!: Availability;
 
-    @OneToMany(() => Booking, booking => booking.hotel, { onDelete: 'CASCADE' })
-    @JoinColumn()
-    booking!: Booking[]
+  @OneToMany(() => Room, (room) => room.hotel, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'room_id' })
+  room!: Room[];
+
+  @OneToMany(() => Booking, (booking) => booking.hotel, { onDelete: 'CASCADE' })
+  @JoinColumn()
+  booking!: Booking[];
 }

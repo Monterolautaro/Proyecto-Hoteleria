@@ -1,32 +1,38 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { v4 as uuid } from 'uuid'
-import { User } from "./user.entity";
-import { Hotel } from "./hotel/hotel.entity";
-import { BookingMetrics } from "./metrics/booking.metric.entity";
-
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { v4 as uuid } from 'uuid';
+import { User } from './user.entity';
+import { Hotel } from './hotel/hotel.entity';
+import { BookingMetrics } from './metrics/booking.metric.entity';
 
 @Entity({
-    name: 'booking'
+  name: 'booking',
 })
 export class Booking {
-    @PrimaryGeneratedColumn('uuid')
-    booking_id: string = uuid()
+  @PrimaryGeneratedColumn('uuid')
+  booking_id: string = uuid();
 
-    @Column('uuid')
-    room_id: string;
+  @Column('uuid')
+  room_id: string;
 
-    @Column('date')
-    checkIn: Date;
+  @Column('date')
+  checkIn: Date;
 
-    @Column('date')
-    checkOut: Date;
+  @Column('date')
+  checkOut: Date;
 
-    @ManyToOne(() => User, user => user.bookings)
-    user!: User
+  @ManyToOne(() => User, (user) => user.bookings)
+  user!: User;
 
-    @ManyToOne(() => Hotel, hotel => hotel.booking)
-    hotel!: Hotel
+  @ManyToOne(() => Hotel, (hotel) => hotel.booking)
+  hotel!: Hotel;
 
-    @OneToOne(() => BookingMetrics, bookingMetrics => bookingMetrics.booking)
-    booking_metrics!: BookingMetrics;
+  @OneToOne(() => BookingMetrics, (bookingMetrics) => bookingMetrics.booking)
+  booking_metrics!: BookingMetrics;
 }
