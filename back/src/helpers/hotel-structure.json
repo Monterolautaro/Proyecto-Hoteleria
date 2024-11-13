@@ -1,5 +1,4 @@
 {
-    "id": 0,
     "name": "",
     "details": {
         "stars": 0,
@@ -16,36 +15,44 @@
         "available": false,
         "totalRoomsLeft": 0
     },
-    "rooms": {
-        "single": {
+    "room": [
+        {
+          "type": "single",
+          "room_type": {
             "price": 0,
-            "currency": 0,
-            "type": 0,
-            "roomsLeft": 0,
+            "currency": "",
+            "rooms_left": 0,
             "description": ""
+          }
         },
-        "double": {
+        {
+          "type": "double",
+          "room_type": {
             "price": 0,
-            "currency": 0,
-            "type": 0,
-            "roomsLeft": 0,
+            "currency": "",
+            "rooms_left": 0,
             "description": ""
+          }
         },
-        "triple": {
+        {
+          "type": "triple",
+          "room_type": {
             "price": 0,
-            "currency": 0,
-            "type": 0,
-            "roomsLeft": 0,
+            "currency": "",
+            "rooms_left": 0,
             "description": ""
+          }
         },
-        "suite": {
+        {
+          "type": "suite",
+          "room_type": {
             "price": 0,
-            "currency": 0,
-            "type": 0,
-            "roomsLeft": 0,
+            "currency": "",
+            "rooms_left": 0,
             "description": ""
+          }
         }
-    },
+      ],
     "amenities": {
         "pool": false,
         "spa": false,
