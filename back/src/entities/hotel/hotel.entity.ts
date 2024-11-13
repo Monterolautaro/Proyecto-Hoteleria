@@ -10,6 +10,9 @@ import { Room } from './hotel.rooms.entity';
 
 
 
+
+
+
 @Entity({
     name: 'hotels'
 })
