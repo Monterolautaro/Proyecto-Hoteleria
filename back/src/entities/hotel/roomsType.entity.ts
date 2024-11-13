@@ -1,35 +1,33 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
-import {v4 as uuid} from 'uuid'
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { v4 as uuid } from 'uuid';
 import { Room } from './hotel.rooms.entity';
 
-
 @Entity({
-    name: 'rooms_type'
+  name: 'rooms_type',
 })
 export class RoomType {
-    @PrimaryGeneratedColumn('uuid')
-    room_type_id: string = uuid()
+  @PrimaryGeneratedColumn('uuid')
+  room_type_id: string = uuid();
 
-    @Column()
-    rooms_id: string = uuid()
+  @Column()
+  price: number;
 
-    @Column()
-    type: string;
+  @Column()
+  currency: string;
 
-    @Column()
-    price: number;
+  @Column()
+  rooms_left: number;
 
-    @Column()
-    currency: string;
+  @Column()
+  description: string;
 
-    @Column()
-    rooms_left: number;
-
-    @Column()
-    description: string;
-
-    @OneToOne(() => Room, room => room.room_type)
-    @JoinColumn({ name: 'room_id' })
-    room!: Room
-
+  @OneToMany(() => Room, (room) => room.room_type)
+  @JoinColumn({ name: 'room_id' })
+  rooms!: Room[];
 }

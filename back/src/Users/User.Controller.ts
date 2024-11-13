@@ -3,38 +3,31 @@ import { UserService } from './user.service';
 
 @Controller('users')
 export class UserController {
-    constructor(private readonly UserService: UserService) {}
+  constructor(private readonly UserService: UserService) {}
 
+  @HttpCode(200)
+  @Get()
+  getUsers() {
+    return this.UserService.getUsers();
+  }
 
-    @HttpCode(200)
-    @Get()
-    getUsers() {
-        return this.UserService.getUsers();
-    }
+  getUsersById(id: string) {
+    return this.UserService.getUsersById(id);
+  }
 
+  deleteUser(id: string) {
+    return this.UserService.deleteUser(id);
+  }
 
-    getUsersById(id: string) {
-        return this.UserService.getUsersById(id);
-    }
-   
+  changePassword(id: string, password: string) {
+    return this.UserService.changePassword(id, password);
+  }
 
-    deleteUser(id: string) {
-        return this.UserService.deleteUser(id);
-    }
+  changeEmail(id: string, email: string) {
+    return this.UserService.changeEmail(id, email);
+  }
 
-
-    changePassword(id: string, password: string) {
-        return this.UserService.changePassword(id, password);
-    }
-
-
-    changeEmail(id: string, email: string) {
-        return this.UserService.changeEmail(id, email);
-    }
-
-    
-    changeName(id: string, name: string) {
-        return this.UserService.changeName(id, name);
-    }
+  changeName(id: string, name: string) {
+    return this.UserService.changeName(id, name);
+  }
 }
-

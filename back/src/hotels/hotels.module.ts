@@ -12,17 +12,19 @@ import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
 import { Address } from 'src/entities/hotel/hotel.address.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([
-  Hotel, 
-  Room,
-  RoomType,
-  Details,
-  Availability,
-  Amenities,
-  Address
-  ])],
+  imports: [
+    TypeOrmModule.forFeature([
+      Hotel,
+      Room,
+      RoomType,
+      Details,
+      Availability,
+      Amenities,
+      Address,
+    ]),
+  ],
   controllers: [HotelsController],
   providers: [HotelsService, HotelsRepository],
-  exports:[HotelsService]
+  exports: [HotelsService],
 })
 export class HotelsModule {}
