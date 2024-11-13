@@ -11,6 +11,7 @@ import { Credentials } from './credentials.entity';
 import { Booking } from './booking.entity';
 import { VisitsMetrics } from './metrics/visits.metric.entity';
 import { TimeMetrics } from './metrics/time.metrics.entity';
+import { Payment } from './payments.entity';
 
 @Entity({
   name: 'users',
@@ -54,4 +55,8 @@ export class User {
   @OneToMany(() => TimeMetrics, (timeMetrics) => timeMetrics.user)
   @JoinColumn({ name: 'time_metrics_id' })
   time_metrics: TimeMetrics[];
+
+  @OneToOne(() => Payment, (payment) => payment.user)
+  @JoinColumn({ name: 'payment_id' })
+  payment!: Payment;
 }
