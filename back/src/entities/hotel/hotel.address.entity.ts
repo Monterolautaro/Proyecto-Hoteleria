@@ -11,9 +11,6 @@ export class Address {
     address_id: string = uuid()
 
     @Column()
-    hotel_id: string = uuid()
-
-    @Column()
     city: string
 
     @Column()
@@ -22,7 +19,6 @@ export class Address {
     @Column()
     street: string
 
-    @OneToOne(() => Hotel, hotel => hotel.address)
-    @JoinColumn({ name: 'hotel_id' })
+    @OneToOne(() => Hotel, hotel => hotel.address, {onDelete: 'CASCADE'})
     hotel!: Hotel
 }
