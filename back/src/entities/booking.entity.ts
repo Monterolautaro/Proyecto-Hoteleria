@@ -28,9 +28,11 @@ export class Booking {
   checkOut: Date;
 
   @ManyToOne(() => User, (user) => user.bookings)
+  @JoinColumn({ name: 'user_id' })
   user!: User;
 
   @ManyToOne(() => Hotel, (hotel) => hotel.booking)
+  @JoinColumn({ name: 'hotel_id' })
   hotel!: Hotel;
 
   @OneToOne(() => BookingMetrics, (bookingMetrics) => bookingMetrics.booking)
