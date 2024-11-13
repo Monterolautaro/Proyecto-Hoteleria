@@ -10,15 +10,11 @@ export class Availability {
     availability_id: string = uuid()
 
     @Column()
-    hotel_id: string = uuid()
-
-    @Column()
     available: boolean;
 
     @Column()
     totalRoomsLeft: number
 
-    @OneToOne(() => Hotel, hotel => hotel.availability_id)
-    @JoinColumn({ name: 'hotel_id' })
+    @OneToOne(() => Hotel, hotel => hotel.availability, {onDelete: 'CASCADE'})
     hotel!: Hotel
 }

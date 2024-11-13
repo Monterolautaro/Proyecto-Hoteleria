@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import {v4 as uuid} from 'uuid'
 import { Hotel } from './hotel.entity'
 
@@ -8,9 +8,6 @@ import { Hotel } from './hotel.entity'
 export class Details {
     @PrimaryGeneratedColumn('uuid')
     detail_id: string = uuid()
-
-    @Column()
-    hotel_id: string = uuid()
 
     @Column()
     stars: number
@@ -25,6 +22,5 @@ export class Details {
     description: string
 
     @OneToOne(()=> Hotel, hotel => hotel.details)
-    @JoinColumn({name: 'hotel_id'})
     hotel!: Hotel
 }

@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import {v4 as uuid} from 'uuid'
 import { RoomType } from './roomsType.entity'
+import { Hotel } from './hotel.entity';
 
 @Entity({
     name: 'rooms'
@@ -11,9 +12,13 @@ export class Room {
     room_id: string = uuid()
 
     @Column()
-    hotel_id: string = uuid()
+    type: string;
 
-    @OneToOne(() => RoomType, room_type => room_type.rooms_id)
+    @ManyToOne(() => RoomType, room_type => room_type.rooms, {onDelete: 'CASCADE'} )
     @JoinColumn({ name: 'room_type_id' })
     room_type!: RoomType
+
+    @ManyToOne(() => Hotel, hotel => hotel.room, {onDelete: 'CASCADE'})
+    @JoinColumn({ name: 'hotel_id' })
+    hotel!: Hotel
 }

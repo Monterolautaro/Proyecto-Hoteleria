@@ -3,15 +3,13 @@ import {v4 as uuid} from 'uuid'
 import { Hotel } from './hotel.entity';
 
 
+
 @Entity({
     name: 'amenities'
 })
 export class Amenities {
     @PrimaryGeneratedColumn('uuid')
     amenities_id: string = uuid()
-
-    @Column()
-    hotel_id: string = uuid()
 
     @Column()
     pool: boolean;
@@ -28,8 +26,6 @@ export class Amenities {
     @Column()
     bar: boolean;
 
-
-    @OneToOne(() => Hotel, hotel => hotel.amenities_id)
-    @JoinColumn({ name: 'hotel_id' })
+    @OneToOne(() => Hotel, hotel => hotel.amenities, {onDelete: 'CASCADE'})
     hotel!: Hotel
 }
