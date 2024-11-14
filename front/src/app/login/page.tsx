@@ -1,4 +1,5 @@
 import Login from "@/view/loginView/loginView"
+
 const page = () => {
   return (
     <>
