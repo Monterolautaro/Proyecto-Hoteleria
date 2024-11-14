@@ -1,14 +1,30 @@
-import { BadRequestException, Controller, Get } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Post,
+} from '@nestjs/common';
 import { HotelsService } from './hotels.service';
 
 @Controller('hotels')
 export class HotelsController {
   constructor(private readonly hotelsService: HotelsService) {}
 
-  @Get('hotelSeeder')
-  async addHotels() {
+  @Post('/batch')
+  async insertHotel(@Body() hotelData: any) {
     try {
-      return this.hotelsService.addHotels();
+      return this.hotelsService.inserHotel(hotelData);
+    } catch (error) {
+      throw new BadRequestException('Error loading hotels', error);
+    }
+  }
+
+  @Get('/')
+  async getHotels() {
+    try {
+      // return await this.hotelsService.getHotels();
+      return 'hola mundo';
     } catch (error) {
       throw new BadRequestException('Error loading hotels', error);
     }
