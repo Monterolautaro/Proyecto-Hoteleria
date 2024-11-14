@@ -26,8 +26,8 @@ export class UserService {
     return this.userRepository.changeEmail(id, email);
   }
 
-  changeName(id: string, name: string) {
-    return this.userRepository.changeName(id, name);
+  changeUsername(id: string, username: string) {
+    return this.userRepository.changeUsername(id, username);
   }
 
 

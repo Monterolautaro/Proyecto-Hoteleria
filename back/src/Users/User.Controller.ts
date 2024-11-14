@@ -29,8 +29,8 @@ export class UserController {
     return this.UserService.changeEmail(id, email);
   }
   @Put(":id")
-  changeName(id: string, name: string) {
-    return this.UserService.changeName(id, name);
+  changeUsername(id: string, username: string) {
+    return this.UserService.changeUsername(id, username);
   }
 
   @Post()
