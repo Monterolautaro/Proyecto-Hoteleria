@@ -10,6 +10,7 @@ import { connectionSource } from 'src/config/typeorm';
 import { Details } from 'src/entities/hotel/hotel.details.entity';
 import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
 import { NotFoundException } from '@nestjs/common';
+import { BadRequestException } from '@nestjs/common';
 
 @Injectable()
 export class HotelsRepository {
@@ -143,17 +144,22 @@ export class HotelsRepository {
   }
 
   async getHotels() {
-    const hotels = await this.hotelRepository.find({
-      relations: {
-        address: true,
-        availability: true,
-        details: true,
-        amenities: true,
-        room: {
-          room_type: true,
-      },
-    },
-    });
-    return hotels;
+    try {
+      const hotels = await this.hotelRepository.find({
+        relations: {
+          address: true,
+          availability: true,
+          details: true,
+          amenities: true,
+          room: {
+            room_type: true,
+          },
+        },
+      });
+      return hotels;
+    } catch (error) {
+    
+      throw new BadRequestException('Error loading hotels', error); 
+    }
   }
 }

@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities/user.entity';
 import { Repository } from 'typeorm';
+import { CreateUserDto } from 'src/DTO´s/User.dto';
+import { NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class UserRepository {
@@ -21,7 +23,7 @@ export class UserRepository {
     return user;
   }
 
-  async createUser(user : User) {
+  async createUser(user: CreateUserDto) {
     const newUser = await this.userRepository.save(user);
 
     const dbUser: any = await this.userRepository.findOneBy({
@@ -46,7 +48,20 @@ export class UserRepository {
     return 'change email';
   }
 
-  async changeName(id: string, name: string) {
-    return 'change name';
+  async changeUsername(userId: string, newUsername: string): Promise<User> {
+    const user = await this.userRepository.findOne({
+      where: { user_id: userId },
+      relations: ['credential'],
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    // Actualizar el username en la tabla Credential
+    user.credential.username = newUsername;
+   //  await this.credentialRepository.save(user.credential);
+    
+    return user;
   }
 }
