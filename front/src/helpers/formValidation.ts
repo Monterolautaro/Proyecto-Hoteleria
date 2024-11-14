@@ -39,11 +39,11 @@ export const validateEmail = (email: string): string | undefined => {
   };
   
   export const validatePhone = (phone: string): string | undefined => {
-    const phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/; // Ejemplo: (123) 456-7890
+    const phoneRegex = /^\d{7,15}$/; // Acepta solo números entre 7 y 15 dígitos
     if (!phone) {
       return "Phone number is required";
     } else if (!phoneRegex.test(phone)) {
-      return "Please enter a valid phone number (e.g., (123) 456-7890)";
+      return "Please enter a valid phone number with 7 to 15 digits";
     }
     return undefined;
   };
