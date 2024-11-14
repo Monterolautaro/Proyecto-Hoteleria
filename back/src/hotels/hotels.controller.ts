@@ -23,8 +23,17 @@ export class HotelsController {
   @Get('/')
   async getHotels() {
     try {
-      // return await this.hotelsService.getHotels();
-      return 'hola mundo';
+     return await this.hotelsService.getHotels();
+      ;
+    } catch (error) {
+      throw new BadRequestException('Error loading hotels', error);
+    }
+  }
+
+  @Get('/:id')
+  async getHotelById(@Body() id: string) {
+    try {
+      return await this.hotelsService.getHotelById(id);
     } catch (error) {
       throw new BadRequestException('Error loading hotels', error);
     }

@@ -1,5 +1,6 @@
-import { Controller, Get, HttpCode } from '@nestjs/common';
+import { Controller, Delete, Get, HttpCode, Post, Put } from '@nestjs/common';
 import { UserService } from './user.service';
+import { User } from 'src/entities/user.entity';
 
 @Controller('users')
 export class UserController {
@@ -10,24 +11,29 @@ export class UserController {
   getUsers() {
     return this.UserService.getUsers();
   }
-
+  @Get(":id")
   getUsersById(id: string) {
     return this.UserService.getUsersById(id);
   }
-
+  @Delete(":id")
   deleteUser(id: string) {
     return this.UserService.deleteUser(id);
   }
-
+  @Put(":id")
   changePassword(id: string, password: string) {
     return this.UserService.changePassword(id, password);
   }
-
+  @Put(":id")
   changeEmail(id: string, email: string) {
     return this.UserService.changeEmail(id, email);
   }
-
+  @Put(":id")
   changeName(id: string, name: string) {
     return this.UserService.changeName(id, name);
+  }
+
+  @Post()
+  createUser(user : User) {
+    return this.UserService.createUser(user);
   }
 }

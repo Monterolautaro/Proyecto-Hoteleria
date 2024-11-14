@@ -21,7 +21,7 @@ export class UserRepository {
     return user;
   }
 
-  async createUser(user) {
+  async createUser(user : User) {
     const newUser = await this.userRepository.save(user);
 
     const dbUser: any = await this.userRepository.findOneBy({
