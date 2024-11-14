@@ -12,7 +12,7 @@ export class Details {
   @Column()
   stars: number;
 
-  @Column()
+  @Column('float')
   rating: number;
 
   @Column()

@@ -5,9 +5,9 @@ import { HotelsRepository } from './hotels.repository';
 export class HotelsService {
   constructor(private readonly hotelsRepository: HotelsRepository) {}
 
-  async addHotels() {
+  async inserHotel(hotelData: any) {
     try {
-      return await this.hotelsRepository.addHotels();
+      return await this.hotelsRepository.insertHotel(hotelData);
     } catch (error) {
       throw new BadRequestException('Error loading hotels', error);
     }
