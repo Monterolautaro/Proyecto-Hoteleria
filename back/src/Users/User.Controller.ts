@@ -1,5 +1,6 @@
-import { Controller, Delete, Get, HttpCode, Put } from '@nestjs/common';
+import { Controller, Delete, Get, HttpCode, Post, Put } from '@nestjs/common';
 import { UserService } from './user.service';
+import { User } from 'src/entities/user.entity';
 
 @Controller('users')
 export class UserController {
@@ -29,5 +30,10 @@ export class UserController {
   @Put(":id")
   changeName(id: string, name: string) {
     return this.UserService.changeName(id, name);
+  }
+
+  @Post()
+  createUser(user : User) {
+    return this.UserService.createUser(user);
   }
 }
