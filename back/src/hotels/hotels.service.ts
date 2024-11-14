@@ -12,4 +12,20 @@ export class HotelsService {
       throw new BadRequestException('Error loading hotels', error);
     }
   }
+
+  async getHotels() {
+    try {
+      return await this.hotelsRepository.getHotels();
+    } catch (error) {
+      throw new BadRequestException('Error loading hotels', error);
+    }
+  }
+
+  async getHotelById(id: string) {
+    try {
+      return await this.hotelsRepository.getHotelById(id);
+    } catch (error) {
+      throw new BadRequestException('Error loading hotels', error);
+    }
+  }
 }

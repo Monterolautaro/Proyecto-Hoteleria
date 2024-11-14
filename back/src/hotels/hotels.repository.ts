@@ -9,7 +9,8 @@ import { Repository } from 'typeorm';
 import { connectionSource } from 'src/config/typeorm';
 import { Details } from 'src/entities/hotel/hotel.details.entity';
 import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
-import { error } from 'console';
+import { NotFoundException } from '@nestjs/common';
+import { BadRequestException } from '@nestjs/common';
 
 @Injectable()
 export class HotelsRepository {
@@ -122,6 +123,43 @@ export class HotelsRepository {
       // Libero el runner (tanto si hubo error o no)
 
       await queryRunner.release();
+    }
+  }
+
+  async getHotelById(id: string) {
+    const hotel = await this.hotelRepository.findOne({ where: { hotel_id: id }, 
+      relations: {
+        address: true,
+        availability: true,
+        details: true,
+        amenities: true,
+        room: {
+          room_type: true,
+        },
+      }});
+    if (!hotel) {
+      throw new NotFoundException('Hotel not found');
+    }
+    return hotel;
+  }
+
+  async getHotels() {
+    try {
+      const hotels = await this.hotelRepository.find({
+        relations: {
+          address: true,
+          availability: true,
+          details: true,
+          amenities: true,
+          room: {
+            room_type: true,
+          },
+        },
+      });
+      return hotels;
+    } catch (error) {
+    
+      throw new BadRequestException('Error loading hotels', error); 
     }
   }
 }
