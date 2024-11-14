@@ -11,7 +11,7 @@ export class AuthController {
   }
 
   @Post('login')
-  async signIn() {
-    return this.authService.signIn();
+  async signIn(email: string, password: string) {
+    return this.authService.signIn(email, password);
   }
 }
