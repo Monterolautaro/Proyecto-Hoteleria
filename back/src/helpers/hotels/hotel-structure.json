@@ -61,3 +61,17 @@
         "bar": false
     }
 }
+
+
+"price": 840000,
+            "currency": "COP",
+            "roomsLeft": 10,
+            "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+        
+
+
+        "price": 1350000,
+            "currency": "COP",
+            "roomsLeft": 5,
+            "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+        

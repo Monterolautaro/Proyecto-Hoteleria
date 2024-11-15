@@ -1,13 +1,13 @@
-import WelcomeMessage from "@/components/wellcomeMessage/wellcomeMessage";
-
+import ComponentSlider from "@/components/slider/slider";
+import TravelGrid from "@/components/travelGrid/TravelGrid";
 
 const HomeView = () => {
   return (
-   <>
-   <WelcomeMessage />
-   </>
+    <>
+      <ComponentSlider />
+      <TravelGrid />
+    </>
   );
 };
 
 export default HomeView;
-

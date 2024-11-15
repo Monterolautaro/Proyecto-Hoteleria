@@ -15,7 +15,7 @@ export class RoomType {
   @PrimaryGeneratedColumn('uuid')
   room_type_id: string = uuid();
 
-  @Column()
+  @Column({type: 'decimal', precision: 10, scale: 2, default: 0.0 })
   price: number;
 
   @Column()
