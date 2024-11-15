@@ -24,6 +24,7 @@ export class HotelsRepository {
     @InjectRepository(RoomType) private roomTypeRepository: Repository<RoomType>,
   ) {}
   async insertHotel(hotelData: any) {
+  hotelData.map(async (hotelData) => {
     // Inicio query runner e inicio transaccion
     const queryRunner = connectionSource.createQueryRunner();
     await queryRunner.connect();
@@ -124,6 +125,7 @@ export class HotelsRepository {
 
       await queryRunner.release();
     }
+  })
   }
 
   async getHotelById(id: string) {

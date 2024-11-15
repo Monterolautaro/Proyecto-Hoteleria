@@ -15,15 +15,17 @@ async function uploadBatches() {
     for (let i = 0; i < hotels.length; i += BATCH_SIZE) {
 
         const batch = hotels.slice(i, i + BATCH_SIZE);
-        console.log('Enviando lote de hoteles:', batch);
+      
         try {
             // hago una petición para ejecutar el controlador del hotel, POST a /hotels/batch
-      
          const response = await axios.post(API_URL, batch);
-         console.log('Response', response);
 
          if(response.status === 400){
-            console.error('Error:', response.data);
+           throw new Error('Error loading lote 1:', response.status)
+         }
+         if(response.status === 200){
+          console.log(`Lote ${i / BATCH_SIZE + 1} successfully loaded`);
+          
          }
         } catch (error) {
             if (error.response) {
