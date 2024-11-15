@@ -4,7 +4,7 @@ const WelcomeMessage: React.FC = () => {
   return (
     <div
       style={{ backgroundImage: "url('/assets/img1.jpg')" }}
-      className="relative h-[70vh] bg-cover bg-center flex flex-col justify-center items-center text-white px-4"
+      className="relative h-[95vh] bg-cover bg-center flex flex-col justify-center items-center text-white px-4"
     >
    <div className="absolute inset-0 bg-green-900 opacity-50"></div>
 
