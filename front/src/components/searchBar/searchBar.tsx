@@ -6,7 +6,7 @@ import SearchBarResults from './searchBarResults'
 const SearchBar = () => {
 const [result, setResult] = useState<string[]>([""])
 const handleChange = async (e: string) => {
-    if (e.length >= 3) {
+    if (e.length >= 1) {
        const result = await getResult(e)
         console.log(result)
         setResult(result)
