@@ -12,6 +12,7 @@ import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
 import { NotFoundException } from '@nestjs/common';
 import { BadRequestException } from '@nestjs/common';
 
+
 @Injectable()
 export class HotelsRepository {
   constructor(
@@ -128,28 +129,44 @@ export class HotelsRepository {
     });
   }
 
-  async getHotelById(id: string) {
-    const hotel = await this.hotelRepository.findOne({
-      where: { hotel_id: id },
-      relations: {
-        address: true,
-        availability: true,
-        details: true,
-        amenities: true,
-        room: {
-          room_type: true,
+
+
+
+  async getHotelById(id: Hotel['hotel_id']): Promise<Hotel> {
+
+    try {
+
+      const hotel = await this.hotelRepository.findOne({
+        where: { hotel_id: id },
+        relations: {
+          address: true,
+          availability: true,
+          details: true,
+          amenities: true,
+          room: {
+            room_type: true,
+          },
         },
-      },
-    });
-    if (!hotel) {
-      throw new NotFoundException('Hotel not found');
+      });
+
+      if (!hotel) {
+        throw new NotFoundException('Hotel not found');
+      }
+      return hotel;
+
+    } catch (error) {
+      throw new BadRequestException(`Error getting hotel with ID ${id}`, error.message);
     }
-    return hotel;
   }
 
-  async getHotels() {
+
+  async getHotels(page, limit): Promise<Hotel[]> {
     try {
+      const skip = (page - 1)*limit;
+
       const hotels = await this.hotelRepository.find({
+        take: limit,
+        skip: skip,
         relations: {
           address: true,
           availability: true,
@@ -162,7 +179,7 @@ export class HotelsRepository {
       });
       return hotels;
     } catch (error) {
-      throw new BadRequestException('Error loading hotels', error);
+      throw new BadRequestException('Error getting hotels', error.message);
     }
   }
 }
