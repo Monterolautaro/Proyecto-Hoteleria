@@ -6,7 +6,7 @@ const HotelMockup: IHotel[] = [
       name: "Hotel Buenos Aires",
       details: {
         stars: 4,
-        rating: 4.3,
+        
         imgUrl: "https://osepmendoza.com.ar/web/wp-content/uploads/2018/12/buenos-aires.jpg-1.jpg",
         description: "Hotel elegante en el centro de la ciudad de Buenos Aires.",
       },
@@ -51,7 +51,7 @@ const HotelMockup: IHotel[] = [
       name: "Hotel Mendoza",
       details: {
         stars: 4,
-        rating: 4.2,
+        
         imgUrl: "https://www.mendozahotel.com/wp-content/uploads/2020/10/hotel-mendoza.jpg",
         description: "Hotel cómodo y moderno en el corazón de Mendoza.",
       },
@@ -75,6 +75,37 @@ const HotelMockup: IHotel[] = [
         country: "Argentina",
         street: "Juan Manuel de Rosas 625, 8400 Bariloche",
       },
+    },
+    {
+      id: 5,
+      name: "Hotel Bariloche",
+      details: {
+        stars: 3,
+        
+        imgUrl: "https://www.barilochehotel.com/images/exterior.jpg",
+        description: "Acogedor hotel con vistas al lago Nahuel Huapi.",
+      },
+      address: {
+        city: "San Carlos de Bariloche",
+        country: "Argentina",
+        street: "Juan Manuel de Rosas 625, 8400 Bariloche",
+      },
+    },
+    {
+      id: 5,
+      name: "Hotel Bariloche",
+      details: {
+        stars: 3,
+        rating: 4.1,
+        imgUrl: "https://www.barilochehotel.com/images/exterior.jpg",
+        description: "Acogedor hotel con vistas al lago Nahuel Huapi.",
+      },
+      address: {
+        city: "San Carlos de Bariloche",
+        country: "Argentina",
+        street: "Juan Manuel de Rosas 625, 8400 Bariloche",
+      },
     }
   ]
     
+  export default HotelMockup;
