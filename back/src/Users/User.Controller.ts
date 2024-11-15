@@ -1,7 +1,15 @@
-import { Body, Controller, Delete, Get, HttpCode, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from 'src/entities/user.entity';
-import { CreateUserDto } from 'src/DTO´s/User.dto';
+import { CreateUserDto } from 'src/dto/User.dto';
 
 @Controller('users')
 export class UserController {
@@ -12,29 +20,29 @@ export class UserController {
   getUsers() {
     return this.UserService.getUsers();
   }
-  @Get(":id")
+  @Get(':id')
   getUsersById(id: string) {
     return this.UserService.getUsersById(id);
   }
-  @Delete(":id")
+  @Delete(':id')
   deleteUser(id: string) {
     return this.UserService.deleteUser(id);
   }
-  @Put(":id")
+  @Put(':id')
   changePassword(id: string, password: string) {
     return this.UserService.changePassword(id, password);
   }
-  @Put(":id")
+  @Put(':id')
   changeEmail(id: string, email: string) {
     return this.UserService.changeEmail(id, email);
   }
-  @Put(":id")
+  @Put(':id')
   changeUsername(id: string, username: string) {
     return this.UserService.changeUsername(id, username);
   }
 
   @Post()
-  createUser(@Body() user : CreateUserDto) {
+  createUser(@Body() user: CreateUserDto) {
     return this.UserService.createUser(user);
   }
 }

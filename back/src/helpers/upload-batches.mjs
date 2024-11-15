@@ -9,24 +9,32 @@ async function uploadBatches() {
 
     // Esto lee el archivo, lo parsea y lo guarda en una variable
     const hotels = JSON.parse(fs.readFileSync(PATH, 'utf-8'));
-    console.log('Hotels cargados:', hotels);
     
 
     // Itero los hoteles en grupos de 5
     for (let i = 0; i < hotels.length; i += BATCH_SIZE) {
 
         const batch = hotels.slice(i, i + BATCH_SIZE);
-
+        console.log('Enviando lote de hoteles:', batch);
         try {
             // hago una petición para ejecutar el controlador del hotel, POST a /hotels/batch
-            await axios.post(API_URL, batch);
-            console.log(`Lote ${i / BATCH_SIZE + 1} cargado con éxito`);
+      
+         const response = await axios.post(API_URL, batch);
+         console.log('Response', response);
 
+         if(response.status === 400){
+            console.error('Error:', response.data);
+         }
         } catch (error) {
-
-            throw new Error(`Error al cargar el lote ${i / BATCH_SIZE + 1}:`, error.message);
-
-        }
+            if (error.response) {
+              console.error('Error de respuesta del servidor:', error.response.status, error.response.data);
+            } else if (error.request) {
+              console.error('Error de conexión:', error.request);
+            } else {
+              console.error('Error desconocido:', error);
+            }
+            throw new Error(`Error al cargar el lote ${i / BATCH_SIZE + 1}: ${error.message}`);
+          }
     }
 }
 // Usar ' node src/helpers/upload-batches.mjs  '
