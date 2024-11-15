@@ -1,0 +1,3038 @@
+[
+    {
+      "name": "Hotel La Campiña",
+      "details": {
+        "stars": 4,
+        "rating": 8.9,
+        "imgUrl": "https://la-campina-club-spa.hotels-argentina.net/data/Pics/OriginalPhoto/2266/226655/226655528/la-campina-club-hotel-spa-santa-rosa-la-pampa-pic-1.JPEG",
+        "description": "Un hotel acogedor ubicado en el corazón de La Pampa, ideal para quienes buscan un ambiente tranquilo y relajante."
+      },
+      "address": {
+        "city": "Santa Rosa",
+        "country": "Argentina",
+        "street": "Av. San Martín 1234"
+      },
+      "availability": {
+        "available": true,
+        "totalRoomsLeft": 15
+      },
+      "room": [
+        {
+          "type": "single",
+          "room_type": {
+            "price": 16000,
+            "currency": "ARS",
+            "rooms_left": 5,
+            "description": "Habitación individual con cama simple, ideal para viajeros solitarios."
+          }
+        },
+        {
+          "type": "double",
+          "room_type": {
+            "price": 28000,
+            "currency": "ARS",
+            "rooms_left": 7,
+            "description": "Habitación doble con cama matrimonial, perfecta para parejas."
+          }
+        },
+        {
+          "type": "triple",
+          "room_type": {
+            "price": 36000,
+            "currency": "ARS",
+            "rooms_left": 3,
+            "description": "Habitación triple con tres camas simples, ideal para grupos pequeños."
+          }
+        },
+        {
+          "type": "suite",
+          "room_type": {
+            "price": 50000,
+            "currency": "ARS",
+            "rooms_left": 0,
+            "description": "Suite de lujo con vista panorámica, equipada con jacuzzi."
+          }
+        }
+      ],
+      "amenities": {
+        "pool": true,
+        "spa": false,
+        "gym": true,
+        "restaurant": true,
+        "bar": true
+      }
+    },
+    {
+      "name": "Gran Hotel del Oeste",
+      "details": {
+        "stars": 3,
+        "rating": 8.1,
+        "imgUrl": "https://pico.hotels-argentina.net/data/Pics/OriginalPhoto/7563/756388/756388954/hotel-pico-6360-general-pico-pic-14.JPEG",
+        "description": "Hotel moderno y funcional en General Pico, con cómodas instalaciones para estadías cortas."
+      },
+      "address": {
+        "city": "General Pico",
+        "country": "Argentina",
+        "street": "Calle 9 N°456"
+      },
+      "availability": {
+        "available": true,
+        "totalRoomsLeft": 10
+      },
+      "room": [
+        {
+          "type": "single",
+          "room_type": {
+            "price": 12000,
+            "currency": "ARS",
+            "rooms_left": 4,
+            "description": "Habitación individual sencilla con escritorio."
+          }
+        },
+        {
+          "type": "double",
+          "room_type": {
+            "price": 20000,
+            "currency": "ARS",
+            "rooms_left": 3,
+            "description": "Habitación doble con baño privado."
+          }
+        },
+        {
+          "type": "triple",
+          "room_type": {
+            "price": 28000,
+            "currency": "ARS",
+            "rooms_left": 2,
+            "description": "Habitación triple con camas confortables."
+          }
+        },
+        {
+          "type": "suite",
+          "room_type": {
+            "price": 40000,
+            "currency": "ARS",
+            "rooms_left": 1,
+            "description": "Suite con living y comedor privado."
+          }
+        }
+      ],
+      "amenities": {
+        "pool": false,
+        "spa": false,
+        "gym": true,
+        "restaurant": false,
+        "bar": false
+      }
+    },
+    {
+      "name": "Posada El Calden",
+      "details": {
+        "stars": 5,
+        "rating": 9.5,
+        "imgUrl": "https://ss-static-01.esmsv.com/id/72127/galeriaimagenes/obtenerimagen/?id=89&tipoEscala=stretch&width=2048&height=1365",
+        "description": "Una experiencia de lujo en un entorno natural, ideal para desconectar del estrés diario."
+      },
+      "address": {
+        "city": "Victorica",
+        "country": "Argentina",
+        "street": "Ruta 10, Km 12"
+      },
+      "availability": {
+        "available": true,
+        "totalRoomsLeft": 5
+      },
+      "room": [
+        {
+          "type": "single",
+          "room_type": {
+            "price": 18000,
+            "currency": "ARS",
+            "rooms_left": 2,
+            "description": "Habitación individual con vistas al campo."
+          }
+        },
+        {
+          "type": "double",
+          "room_type": {
+            "price": 32000,
+            "currency": "ARS",
+            "rooms_left": 2,
+            "description": "Habitación doble con cama king size."
+          }
+        },
+        {
+          "type": "triple",
+          "room_type": {
+            "price": 42000,
+            "currency": "ARS",
+            "rooms_left": 1,
+            "description": "Amplia habitación triple con sala de estar."
+          }
+        },
+        {
+          "type": "suite",
+          "room_type": {
+            "price": 60000,
+            "currency": "ARS",
+            "rooms_left": 0,
+            "description": "Suite presidencial con terraza privada."
+          }
+        }
+      ],
+      "amenities": {
+        "pool": true,
+        "spa": true,
+        "gym": true,
+        "restaurant": true,
+        "bar": true
+      }
+    },
+    {
+      "name": "Hotel Patagonia",
+      "details": {
+        "stars": 4,
+        "rating": 8.7,
+        "imgUrl": "https://images.pxsol.com/3090/company/library/user/489674424008fd8e212c5fa211b9e7f7320b4d77ab.jpg?auto=format&browser=Google%20Bot&h=1000&ixlib=php-3.3.1&w=1900&s=f77a768754394820c41e68438e0aa202",
+        "description": "Ubicado en Toay, este hotel ofrece una mezcla de modernidad y confort para los viajeros."
+      },
+      "address": {
+        "city": "Toay",
+        "country": "Argentina",
+        "street": "Av. Belgrano 786"
+      },
+      "availability": {
+        "available": true,
+        "totalRoomsLeft": 8
+      },
+      "room": [
+        {
+          "type": "single",
+          "room_type": {
+            "price": 15000,
+            "currency": "ARS",
+            "rooms_left": 3,
+            "description": "Habitación individual con desayuno incluido."
+          }
+        },
+        {
+          "type": "double",
+          "room_type": {
+            "price": 25000,
+            "currency": "ARS",
+            "rooms_left": 5,
+            "description": "Habitación doble con balcón privado."
+          }
+        }
+      ],
+      "amenities": {
+        "pool": true,
+        "spa": false,
+        "gym": true,
+        "restaurant": true,
+        "bar": true
+      }
+    },
+    {
+      "name": "Hostería Las Pampas",
+      "details": {
+        "stars": 3,
+        "rating": 7.9,
+        "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/441889161.jpg?k=118ccd8e5752f8127b02545b818eaf0f691ef3ce31d701cde9408cad2171d2f0&o=&hp=1",
+        "description": "Una opción económica en Eduardo Castex, ideal para viajeros de paso."
+      },
+      "address": {
+        "city": "Eduardo Castex",
+        "country": "Argentina",
+        "street": "Ruta Nacional 35 Km 456"
+      },
+      "availability": {
+        "available": false,
+        "totalRoomsLeft": 0
+      },
+      "room": [
+        {
+          "type": "double",
+          "room_type": {
+            "price": 18000,
+            "currency": "ARS",
+            "rooms_left": 0,
+            "description": "Habitación doble con vista al jardín."
+          }
+        }
+      ],
+      "amenities": {
+        "pool": false,
+        "spa": false,
+        "gym": false,
+        "restaurant": false,
+        "bar": false
+      }
+    },
+        {
+          "name": "Hotel el cortijo",
+          "details": {
+            "stars": 4,
+            "rating": 8.9,
+            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/71456267.webp?k=7845c6032847eed60993307c7c92c909f8b156416593d41f55584a122fa851e1&o=",
+            "description": "Un hotel moderno y cómodo en el centro de Neuquén, con todas las comodidades necesarias para una estadía placentera."
+          },
+          "address": {
+            "city": "Neuquén",
+            "country": "Argentina",
+            "street": "Av. Argentina 1200"
+          },
+          "availability": {
+            "available": true,
+            "totalRoomsLeft": 10
+          },
+          "room": [
+            {
+              "type": "single",
+              "room_type": {
+                "price": 32000,
+                "currency": "ARS",
+                "rooms_left": 4,
+                "description": "Habitación individual con cama simple, ideal para viajeros solitarios."
+              }
+            },
+            {
+              "type": "double",
+              "room_type": {
+                "price": 50000,
+                "currency": "ARS",
+                "rooms_left": 5,
+                "description": "Habitación doble con cama matrimonial, perfecta para parejas."
+              }
+            },
+            {
+              "type": "triple",
+              "room_type": {
+                "price": 65000,
+                "currency": "ARS",
+                "rooms_left": 1,
+                "description": "Habitación triple con tres camas simples, ideal para grupos pequeños."
+              }
+            },
+            {
+              "type": "suite",
+              "room_type": {
+                "price": 85000,
+                "currency": "ARS",
+                "rooms_left": 0,
+                "description": "Suite de lujo con vistas panorámicas y jacuzzi."
+              }
+            }
+          ],
+          "amenities": {
+            "pool": true,
+            "spa": true,
+            "gym": true,
+            "restaurant": true,
+            "bar": true
+          }
+        },
+        {
+          "name": "Hotel Comahue Business",
+          "details": {
+            "stars": 3,
+            "rating": 8.3,
+            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/568117415.webp?k=df63c2e033a025938c6dfb4324086b43b75de7aecf689caedd1a9200f32f8626&o=",
+            "description": "Ubicado en una zona tranquila de Neuquén, este hotel ofrece servicios de calidad a un precio accesible."
+          },
+          "address": {
+            "city": "Neuquén",
+            "country": "Argentina",
+            "street": "Calle San Martín 150"
+          },
+          "availability": {
+            "available": true,
+            "totalRoomsLeft": 8
+          },
+          "room": [
+            {
+              "type": "single",
+              "room_type": {
+                "price": 22000,
+                "currency": "ARS",
+                "rooms_left": 3,
+                "description": "Habitación individual cómoda, ideal para viajes de negocios."
+              }
+            },
+            {
+              "type": "double",
+              "room_type": {
+                "price": 35000,
+                "currency": "ARS",
+                "rooms_left": 4,
+                "description": "Habitación doble con baño privado y amenities."
+              }
+            },
+            {
+              "type": "triple",
+              "room_type": {
+                "price": 45000,
+                "currency": "ARS",
+                "rooms_left": 1,
+                "description": "Habitación triple con camas adicionales, perfecta para familias."
+              }
+            },
+            {
+              "type": "suite",
+              "room_type": {
+                "price": 65000,
+                "currency": "ARS",
+                "rooms_left": 0,
+                "description": "Suite de lujo con sala de estar separada y vista a la ciudad."
+              }
+            }
+          ],
+          "amenities": {
+            "pool": false,
+            "spa": false,
+            "gym": true,
+            "restaurant": true,
+            "bar": false
+          }
+        },
+        {
+          "name": "Hotel Del Comahue",
+          "details": {
+            "stars": 2,
+            "rating": 7.8,
+            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/351074724.webp?k=eef3ea76cd87bef477ddf33522c8172ff68742759ae2bf917fc3b557a5f199a4&o=",
+            "description": "Un hotel sencillo y funcional en pleno centro de Neuquén, ideal para estancias cortas."
+          },
+          "address": {
+            "city": "Neuquén",
+            "country": "Argentina",
+            "street": "Av. Olascoaga 765"
+          },
+          "availability": {
+            "available": true,
+            "totalRoomsLeft": 12
+          },
+          "room": [
+            {
+              "type": "single",
+              "room_type": {
+                "price": 14500,
+                "currency": "ARS",
+                "rooms_left": 4,
+                "description": "Habitación individual sencilla, ideal para viajes rápidos."
+              }
+            },
+            {
+              "type": "double",
+              "room_type": {
+                "price": 22000,
+                "currency": "ARS",
+                "rooms_left": 6,
+                "description": "Habitación doble con cama matrimonial, cómoda y accesible."
+              }
+            },
+            {
+              "type": "triple",
+              "room_type": {
+                "price": 30000,
+                "currency": "ARS",
+                "rooms_left": 2,
+                "description": "Habitación triple con camas individuales."
+              }
+            },
+            {
+              "type": "suite",
+              "room_type": {
+                "price": 55000,
+                "currency": "ARS",
+                "rooms_left": 0,
+                "description": "Suite con jacuzzi privado y sala de estar."
+              }
+            }
+          ],
+          "amenities": {
+            "pool": false,
+            "spa": false,
+            "gym": false,
+            "restaurant": true,
+            "bar": false
+          }
+        },
+        {
+          "name": "Huemul",
+          "details": {
+            "stars": 3,
+            "rating": 7.0,
+            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/286012274.webp?k=857e3c67c1edd8e5bb07133e8b5c0e99e4d2c86d5f986a7da174e19356f1d0e8&o=",
+            "description": "Alojamiento económico en el corazón de Neuquén, ideal para aquellos que buscan un lugar cómodo y accesible."
+          },
+          "address": {
+            "city": "Neuquén",
+            "country": "Argentina",
+            "street": "Calle Rivadavia 480"
+          },
+          "availability": {
+            "available": true,
+            "totalRoomsLeft": 6
+          },
+          "room": [
+            {
+              "type": "single",
+              "room_type": {
+                "price": 10000,
+                "currency": "ARS",
+                "rooms_left": 3,
+                "description": "Habitación individual sencilla con servicios básicos."
+              }
+            },
+            {
+              "type": "double",
+              "room_type": {
+                "price": 16000,
+                "currency": "ARS",
+                "rooms_left": 2,
+                "description": "Habitación doble con cama matrimonial, sencilla y accesible."
+              }
+            },
+            {
+              "type": "triple",
+              "room_type": {
+                "price": 22000,
+                "currency": "ARS",
+                "rooms_left": 1,
+                "description": "Habitación triple con camas individuales."
+              }
+            }
+          ],
+          "amenities": {
+            "pool": false,
+            "spa": false,
+            "gym": false,
+            "restaurant": false,
+            "bar": false
+          }
+        },
+        {
+          "name": "BLACK BEAR Hotel",
+          "details": {
+            "stars": 3,
+            "rating": 7.5,
+            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/566279306.webp?k=ad408c8952568d405ba9de209821420f13557c20b4b883c176db1fc5f2194902&o=",
+            "description": "Ubicada en un entorno natural, esta hostería ofrece una opción tranquila para quienes visitan Neuquén."
+          },
+          "address": {
+            "city": "Neuquén",
+            "country": "Argentina",
+            "street": "Ruta 40, Km 1800"
+          },
+          "availability": {
+            "available": true,
+            "totalRoomsLeft": 4
+          },
+          "room": [
+            {
+              "type": "single",
+              "room_type": {
+                "price": 12500,
+                "currency": "ARS",
+                "rooms_left": 2,
+                "description": "Habitación individual con cama simple y vista al jardín."
+              }
+            },
+            {
+              "type": "double",
+              "room_type": {
+                "price": 18500,
+                "currency": "ARS",
+                "rooms_left": 2,
+                "description": "Habitación doble con cama matrimonial y vistas panorámicas."
+              }
+            }
+          ],
+          "amenities": {
+            "pool": true,
+            "spa": false,
+            "gym": false,
+            "restaurant": true,
+            "bar": true
+          }
+        },
+        {
+            "name": "Hotel Bait",
+            "details": {
+              "stars": 3,
+              "rating": 8.4,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/322981994.webp?k=ebaf53b5e3a2129bcda9af0716d0c9037e27714f31e06c9a05c7a69f92dfc5b7&o=",
+              "description": "Ubicado en el centro de Viedma, Hotel Belgrano es una opción cómoda con desayuno incluido y conexión Wi-Fi gratuita."
+            },
+            "address": {
+              "city": "Viedma",
+              "country": "Argentina",
+              "street": "Av. Belgrano 1400"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 5
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 20000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación individual con cama simple, ideal para estadías cortas."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 28000,
+                  "currency": "ARS",
+                  "rooms_left": 4,
+                  "description": "Habitación doble con cama matrimonial, ideal para parejas."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 35000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con tres camas individuales."
+                }
+              },
+              {
+                "type": "suite",
+                "room_type": {
+                  "price": 45000,
+                  "currency": "ARS",
+                  "rooms_left": 0,
+                  "description": "Suite de lujo con salón privado y jacuzzi."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": true,
+              "gym": true,
+              "restaurant": true,
+              "bar": true
+            }
+          },
+          {
+            "name": "Hotel Colonos",
+            "details": {
+              "stars": 4,
+              "rating": 8.7,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/121876372.webp?k=fedd5f070133addee42277adff390b4f853a72af928fb596485085d8689f528c&o=",
+              "description": "Con una ubicación excelente en Cipolletti, Ramada Hotel & Suites ofrece alojamiento de lujo con desayuno buffet."
+            },
+            "address": {
+              "city": "Cipolletti",
+              "country": "Argentina",
+              "street": "Calle Roca 1000"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 6
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 29000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación individual moderna con todos los servicios."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 42000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación doble amplia con cama matrimonial y minibar."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 52000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con cama king size y una individual."
+                }
+              },
+              {
+                "type": "suite",
+                "room_type": {
+                  "price": 75000,
+                  "currency": "ARS",
+                  "rooms_left": 0,
+                  "description": "Suite de lujo con vista al río y sala de estar privada."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": true,
+              "spa": true,
+              "gym": true,
+              "restaurant": true,
+              "bar": true
+            }
+          },
+          {
+            "name": "Hotel Milan",
+            "details": {
+              "stars": 3,
+              "rating": 7.9,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/75753504.webp?k=e69f981063a81b8e209305f92f86563abb16f235ed627e397f74d08c18de96ce&o=",
+              "description": "Ubicado en el corazón de la ciudad de General Roca, Hotel Patagónico es una opción accesible para quienes buscan calidad y confort."
+            },
+            "address": {
+              "city": "General Roca",
+              "country": "Argentina",
+              "street": "Av. Roca 400"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 10
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 18000,
+                  "currency": "ARS",
+                  "rooms_left": 4,
+                  "description": "Habitación sencilla con cama individual y todos los servicios básicos."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 26000,
+                  "currency": "ARS",
+                  "rooms_left": 5,
+                  "description": "Habitación doble con cama matrimonial y desayuno incluido."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 32000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación triple con tres camas simples."
+                }
+              },
+              {
+                "type": "suite",
+                "room_type": {
+                  "price": 50000,
+                  "currency": "ARS",
+                  "rooms_left": 0,
+                  "description": "Suite premium con jacuzzi, vistas panorámicas y servicios exclusivos."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": false,
+              "gym": true,
+              "restaurant": true,
+              "bar": true
+            }
+          },
+          {
+            "name": "Hotel y Casino Del Río - General Roca",
+            "details": {
+              "stars": 2,
+              "rating": 7.5,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/148467429.webp?k=9aa6e5a86fe813915d5f9a075a8887f040f2b916bbabc4dcc05f9a77da953e8f&o=",
+              "description": "Alojamiento económico en San Carlos de Bariloche, con excelente ubicación y cómodas instalaciones."
+            },
+            "address": {
+              "city": "San Carlos de Bariloche",
+              "country": "Argentina",
+              "street": "Calle Loma 123"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 7
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 13000,
+                  "currency": "ARS",
+                  "rooms_left": 4,
+                  "description": "Habitación económica individual con todas las comodidades."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 18000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación doble con cama matrimonial y baño privado."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": false,
+              "gym": false,
+              "restaurant": true,
+              "bar": false
+            }
+          },
+          {
+            "name": "Hotel y Casino Del Río - Cipolletti",
+            "details": {
+              "stars": 4,
+              "rating": 9.1,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/73191894.webp?k=b7f2bb6cd18d82ce16d881d0aa57ecbb6df926debc4ae312dae01a8c5e9aa711&o=",
+              "description": "Hotel de lujo ubicado en Bariloche, con vista al lago, gimnasio, spa y restaurante de alta gama."
+            },
+            "address": {
+              "city": "San Carlos de Bariloche",
+              "country": "Argentina",
+              "street": "Av. Bustillo 700"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 6
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 35000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación individual con vista al lago, moderna y elegante."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 50000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación doble con cama king size y vista panorámica al lago."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 60000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con camas individuales y vista directa al lago."
+                }
+              },
+              {
+                "type": "suite",
+                "room_type": {
+                  "price": 80000,
+                  "currency": "ARS",
+                  "rooms_left": 0,
+                  "description": "Suite de lujo con jacuzzi privado y acceso exclusivo al spa."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": true,
+              "spa": true,
+              "gym": true,
+              "restaurant": true,
+              "bar": true
+            }
+          }, {
+            "name": "hosteria las cachi alojamiento",
+            "details": {
+              "stars": 4,
+              "rating": 8.5,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/576244057.webp?k=8d5b7ac60ffe432a0fa4c8ce0186653e28576559c1d46a5e3a7d35698ef728a1&o=",
+              "description": "Ubicado en la ciudad de Puerto Madryn, con vista al mar y un restaurante de alta gama, este hotel ofrece una experiencia única con comodidades de lujo."
+            },
+            "address": {
+              "city": "Puerto Madryn",
+              "country": "Argentina",
+              "street": "Av. Julio A. Roca 64"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 4
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 30000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación individual moderna, con vista parcial al mar."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 45000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación doble con cama matrimonial, vista al mar y desayuno incluido."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 60000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con tres camas individuales y vista panorámica."
+                }
+              },
+              {
+                "type": "suite",
+                "room_type": {
+                  "price": 90000,
+                  "currency": "ARS",
+                  "rooms_left": 0,
+                  "description": "Suite de lujo con jacuzzi, sala de estar y vista privilegiada al océano."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": true,
+              "spa": true,
+              "gym": true,
+              "restaurant": true,
+              "bar": true
+            }
+          },
+          {
+            "name": "Dormís Acá",
+            "details": {
+              "stars": 3,
+              "rating": 8.1,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/326764577.webp?k=7bf33baa41be7679d441daae4f50729f207006a81c368049d4a98842e84dacce&o=",
+              "description": "Situado a pasos de la playa, este hotel ofrece un ambiente relajado y cómodo, ideal para familias y turistas que visitan Puerto Madryn."
+            },
+            "address": {
+              "city": "Puerto Madryn",
+              "country": "Argentina",
+              "street": "Av. Costanera 100"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 8
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 21000,
+                  "currency": "ARS",
+                  "rooms_left": 5,
+                  "description": "Habitación simple, económica, con vista parcial al mar."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 30000,
+                  "currency": "ARS",
+                  "rooms_left": 4,
+                  "description": "Habitación doble con cama matrimonial y vista a la costanera."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 40000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación triple con tres camas simples, ideal para grupos."
+                }
+              },
+              {
+                "type": "suite",
+                "room_type": {
+                  "price": 70000,
+                  "currency": "ARS",
+                  "rooms_left": 0,
+                  "description": "Suite de lujo con jacuzzi privado y vista al mar."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": true,
+              "spa": false,
+              "gym": false,
+              "restaurant": true,
+              "bar": true
+            }
+          },
+          {
+            "name": "My Pod House",
+            "details": {
+              "stars": 2,
+              "rating": 7.6,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/364217567.webp?k=72dc1185f9d0cd27970ffd9c03a0c8369c19e3f0459167589ecee57540cefec3&o=",
+              "description": "Hotel familiar en Trelew, con una ubicación privilegiada cerca de los principales atractivos turísticos de la ciudad."
+            },
+            "address": {
+              "city": "Trelew",
+              "country": "Argentina",
+              "street": "Calle 9 de Julio 850"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 6
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 14000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación individual sencilla, ideal para estancias cortas."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 21000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación doble con cama matrimonial, sencilla y cómoda."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 27000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con tres camas simples, ideal para grupos pequeños."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": false,
+              "gym": true,
+              "restaurant": false,
+              "bar": false
+            }
+          },
+          {
+            "name": "Yene hue",
+            "details": {
+              "stars": 3,
+              "rating": 7.8,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/523035140.webp?k=89bc36e1b269baf3e080547b4f92916b97c741bc713668853ee0faee83ebb860&o=",
+              "description": "Ubicado en Puerto Pirámides, este hotel es perfecto para los viajeros que buscan explorar la Península Valdés y disfrutar de la fauna local."
+            },
+            "address": {
+              "city": "Puerto Pirámides",
+              "country": "Argentina",
+              "street": "Ruta 2, Km 26"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 3
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 17000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación individual simple, ideal para una estadía tranquila en la naturaleza."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 23000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación doble con cama matrimonial, tranquila y cómoda."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 30000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con tres camas simples y vistas al mar."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": false,
+              "gym": false,
+              "restaurant": true,
+              "bar": false
+            }
+          },
+          {
+            "name": "Hotel Sur Sur Patagónico",
+            "details": {
+              "stars": 3,
+              "rating": 8.0,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/584888054.webp?k=cbf8705e9c9a0932f528ca544a5576fdd8c4ed9785a1a806414f2c11fde557fe&o=",
+              "description": "Ubicado en la ciudad de Esquel, este hotel ofrece un ambiente cálido y confortable, ideal para los viajeros que disfrutan de la naturaleza y actividades al aire libre."
+            },
+            "address": {
+              "city": "Esquel",
+              "country": "Argentina",
+              "street": "Calle San Martín 300"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 4
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 20000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación simple con cama individual, ideal para viajeros solitarios."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 28000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación doble con cama matrimonial, amplia y cómoda."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 35000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con tres camas individuales y un espacio acogedor."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": true,
+              "gym": true,
+              "restaurant": true,
+              "bar": false
+            }
+          },{
+            "name": "Hotel America",
+            "details": {
+              "stars": 4,
+              "rating": 8.7,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/150097745.webp?k=ecd93297f80295be97804e76a05a2f2c4209dc68a20ef685f79e92a23f6326ce&o=",
+              "description": "Este hotel de lujo en Calafate ofrece impresionantes vistas del Lago Argentino, un spa completo y un restaurante gourmet. Ideal para quienes visitan el Parque Nacional Los Glaciares."
+            },
+            "address": {
+              "city": "El Calafate",
+              "country": "Argentina",
+              "street": "Calle 16 de Octubre 1311"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 3
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 25000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación individual con vista al lago, decorada en estilo patagónico."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 40000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación doble con cama matrimonial y balcón con vista panorámica."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 55000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con tres camas individuales y vista al jardín."
+                }
+              },
+              {
+                "type": "suite",
+                "room_type": {
+                  "price": 90000,
+                  "currency": "ARS",
+                  "rooms_left": 0,
+                  "description": "Suite con jacuzzi, sala de estar y una vista privilegiada al lago y los glaciares."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": true,
+              "spa": true,
+              "gym": true,
+              "restaurant": true,
+              "bar": true
+            }
+          },
+          {
+            "name": "Hotel Camino Real",
+            "details": {
+              "stars": 3,
+              "rating": 8.1,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/590680508.webp?k=c607824a6468cdb8175e0512f824732fbcc5e0e0468eb86951f7a2abc8b4d22a&o=",
+              "description": "Ubicado en el centro de El Calafate, este hotel ofrece una excelente relación calidad-precio, con habitaciones cómodas y un restaurante que sirve platos locales."
+            },
+            "address": {
+              "city": "El Calafate",
+              "country": "Argentina",
+              "street": "Av. Libertador 1234"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 5
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 16000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación sencilla, ideal para viajeros solitarios, con todas las comodidades necesarias."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 25000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación doble con cama matrimonial, vista al jardín y desayuno incluido."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 33000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con tres camas individuales, perfecta para grupos de amigos o familias."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": false,
+              "gym": true,
+              "restaurant": true,
+              "bar": false
+            }
+          },
+          {
+            "name": "TRYP by Wyndham Santa Cruz",
+            "details": {
+              "stars": 2,
+              "rating": 7.5,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/300278066.webp?k=04c35e41b3f8f23ccff6455549e8addaf5324073fe6ec0dfb362a9bc54887582&o=",
+              "description": "Este pequeño hotel familiar en El Calafate es perfecto para quienes buscan una estancia económica y confortable cerca del centro de la ciudad."
+            },
+            "address": {
+              "city": "El Calafate",
+              "country": "Argentina",
+              "street": "Calle 2 de Abril 1250"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 6
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 12000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación individual sencilla, con cama individual y baño privado."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 18000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación doble con cama matrimonial, decoración sencilla pero acogedora."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 25000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple, ideal para grupos, con tres camas individuales."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": false,
+              "gym": false,
+              "restaurant": true,
+              "bar": false
+            }
+          },
+          {
+            "name": "LP Equipetrol",
+            "details": {
+              "stars": 3,
+              "rating": 7.8,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/547424135.webp?k=e21377ba6eacf413c137ad60d7c92bb7e50d39d213030160a783fe4e9c15629d&o=",
+              "description": "Un hotel de estilo rústico en El Chaltén, en las cercanías del Parque Nacional Los Glaciares, ideal para quienes buscan aventura y comodidad."
+            },
+            "address": {
+              "city": "El Chaltén",
+              "country": "Argentina",
+              "street": "Calle Los Cóndores 350"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 4
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 13000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación individual sencilla, cómoda, ideal para estancias cortas."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 19000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación doble con cama matrimonial, cálida y confortable."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 25000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con tres camas individuales, ideal para familias o grupos."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": false,
+              "gym": false,
+              "restaurant": true,
+              "bar": false
+            }
+          },
+          {
+            "name": "Marriott Santa Cruz de la Sierra Hote",
+            "details": {
+              "stars": 3,
+              "rating": 8.3,
+              "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/430816783.webp?k=89bfd55c03888d0b2e214e5a893016daa7a0d0b96d5c7d20c75eb4a978e36c9b&o=",
+              "description": "Situado en Río Gallegos, este hotel es ideal para quienes buscan una opción cómoda para descansar antes de continuar su viaje por la región patagónica."
+            },
+            "address": {
+              "city": "Río Gallegos",
+              "country": "Argentina",
+              "street": "Av. San Martín 1520"
+            },
+            "availability": {
+              "available": true,
+              "totalRoomsLeft": 5
+            },
+            "room": [
+              {
+                "type": "single",
+                "room_type": {
+                  "price": 10000,
+                  "currency": "ARS",
+                  "rooms_left": 3,
+                  "description": "Habitación sencilla, perfecta para viajeros de paso, con cama individual."
+                }
+              },
+              {
+                "type": "double",
+                "room_type": {
+                  "price": 16000,
+                  "currency": "ARS",
+                  "rooms_left": 2,
+                  "description": "Habitación doble con cama matrimonial, ideal para estancias más largas."
+                }
+              },
+              {
+                "type": "triple",
+                "room_type": {
+                  "price": 21000,
+                  "currency": "ARS",
+                  "rooms_left": 1,
+                  "description": "Habitación triple con tres camas individuales, muy acogedora."
+                }
+              }
+            ],
+            "amenities": {
+              "pool": false,
+              "spa": false,
+              "gym": false,
+              "restaurant": true,
+              "bar": true
+            }
+          },
+            {
+              "name": "Hotel y Cabañas Pulegan",
+              "details": {
+                "stars": 5,
+                "rating": 9.3,
+                "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/501641603.webp?k=5b511986365ee316a977cba05b475bb17c582b065ea14bff6b6c7f09f706b1f4&o=",
+                "description": "Un hotel de lujo frente al Canal Beagle, con vistas espectaculares, spa, restaurante gourmet y actividades al aire libre. Ideal para una experiencia única en Ushuaia."
+              },
+              "address": {
+                "city": "Ushuaia",
+                "country": "Argentina",
+                "street": "Ruta 40 km 2965"
+              },
+              "availability": {
+                "available": true,
+                "totalRoomsLeft": 2
+              },
+              "room": [
+                {
+                  "type": "single",
+                  "room_type": {
+                    "price": 45000,
+                    "currency": "ARS",
+                    "rooms_left": 1,
+                    "description": "Habitación individual de lujo con vista al mar y acceso al spa."
+                  }
+                },
+                {
+                  "type": "double",
+                  "room_type": {
+                    "price": 65000,
+                    "currency": "ARS",
+                    "rooms_left": 1,
+                    "description": "Habitación doble con cama matrimonial, balcón privado y vista panorámica."
+                  }
+                },
+                {
+                  "type": "triple",
+                  "room_type": {
+                    "price": 80000,
+                    "currency": "ARS",
+                    "rooms_left": 0,
+                    "description": "Habitación triple con tres camas individuales y acceso al spa."
+                  }
+                },
+                {
+                  "type": "suite",
+                  "room_type": {
+                    "price": 120000,
+                    "currency": "ARS",
+                    "rooms_left": 0,
+                    "description": "Suite exclusiva con jacuzzi, salón privado y vistas inigualables del Canal Beagle."
+                  }
+                }
+              ],
+              "amenities": {
+                "pool": true,
+                "spa": true,
+                "gym": true,
+                "restaurant": true,
+                "bar": true
+              }
+            },
+            {
+              "name": "victoria",
+              "details": {
+                "stars": 4,
+                "rating": 8.5,
+                "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/525851608.webp?k=db9137a1c41ea68161248cbcf5ea4b501caccec8c371f33a315476751735e2d2&o=",
+                "description": "Situado en el centro de Ushuaia, Hotel Albatros es ideal para quienes buscan comodidad, excelente servicio y una ubicación estratégica."
+              },
+              "address": {
+                "city": "Ushuaia",
+                "country": "Argentina",
+                "street": "San Martín 798"
+              },
+              "availability": {
+                "available": true,
+                "totalRoomsLeft": 4
+              },
+              "room": [
+                {
+                  "type": "single",
+                  "room_type": {
+                    "price": 20000,
+                    "currency": "ARS",
+                    "rooms_left": 2,
+                    "description": "Habitación sencilla, cómoda, ideal para una estancia corta en el centro de Ushuaia."
+                  }
+                },
+                {
+                  "type": "double",
+                  "room_type": {
+                    "price": 30000,
+                    "currency": "ARS",
+                    "rooms_left": 3,
+                    "description": "Habitación doble con cama matrimonial, equipada con todos los servicios y desayuno incluido."
+                  }
+                },
+                {
+                  "type": "triple",
+                  "room_type": {
+                    "price": 38000,
+                    "currency": "ARS",
+                    "rooms_left": 1,
+                    "description": "Habitación triple con tres camas individuales, ideal para familias o grupos."
+                  }
+                }
+              ],
+              "amenities": {
+                "pool": false,
+                "spa": false,
+                "gym": true,
+                "restaurant": true,
+                "bar": true
+              }
+            },
+            {
+              "name": "Cabañas Porvenir Tierra del Fuego",
+              "details": {
+                "stars": 3,
+                "rating": 8.0,
+                "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/523757315.webp?k=3c5bafd366240736cc23aab772fe483055b3dd64adc842ba3ad493b88d7c3c3e&o=",
+                "description": "Una acogedora hostería en Ushuaia, rodeada de montañas y bosques, perfecta para quienes buscan un lugar tranquilo y cálido en la ciudad más austral del mundo."
+              },
+              "address": {
+                "city": "Ushuaia",
+                "country": "Argentina",
+                "street": "Av. Los Ñires 3045"
+              },
+              "availability": {
+                "available": true,
+                "totalRoomsLeft": 5
+              },
+              "room": [
+                {
+                  "type": "single",
+                  "room_type": {
+                    "price": 12000,
+                    "currency": "ARS",
+                    "rooms_left": 3,
+                    "description": "Habitación sencilla con una cama individual y vista al jardín."
+                  }
+                },
+                {
+                  "type": "double",
+                  "room_type": {
+                    "price": 18000,
+                    "currency": "ARS",
+                    "rooms_left": 2,
+                    "description": "Habitación doble con cama matrimonial y baño privado."
+                  }
+                },
+                {
+                  "type": "triple",
+                  "room_type": {
+                    "price": 24000,
+                    "currency": "ARS",
+                    "rooms_left": 1,
+                    "description": "Habitación triple con tres camas individuales, ideal para grupos o familias."
+                  }
+                }
+              ],
+              "amenities": {
+                "pool": false,
+                "spa": false,
+                "gym": false,
+                "restaurant": true,
+                "bar": false
+              }
+            },
+            {
+              "name": "Apart Fueguina",
+              "details": {
+                "stars": 3,
+                "rating": 7.8,
+                "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/413288855.webp?k=6b69dc32769118493f60471e9115038e213e2e7a1cc9f6122a5b651d8750cc0f&o=",
+                "description": "Ubicado a las afueras de Ushuaia, este hotel es ideal para quienes buscan una estancia tranquila, pero con fácil acceso a la ciudad y las principales atracciones turísticas."
+              },
+              "address": {
+                "city": "Ushuaia",
+                "country": "Argentina",
+                "street": "Calle Löffler 1050"
+              },
+              "availability": {
+                "available": true,
+                "totalRoomsLeft": 3
+              },
+              "room": [
+                {
+                  "type": "single",
+                  "room_type": {
+                    "price": 10000,
+                    "currency": "ARS",
+                    "rooms_left": 2,
+                    "description": "Habitación individual con cama individual y acceso a todos los servicios del hotel."
+                  }
+                },
+                {
+                  "type": "double",
+                  "room_type": {
+                    "price": 15000,
+                    "currency": "ARS",
+                    "rooms_left": 2,
+                    "description": "Habitación doble con cama matrimonial, decoración rústica y acogedora."
+                  }
+                },
+                {
+                  "type": "triple",
+                  "room_type": {
+                    "price": 20000,
+                    "currency": "ARS",
+                    "rooms_left": 1,
+                    "description": "Habitación triple con tres camas individuales, ideal para familias."
+                  }
+                }
+              ],
+              "amenities": {
+                "pool": false,
+                "spa": false,
+                "gym": false,
+                "restaurant": true,
+                "bar": true
+              }
+            },
+            {
+              "name": "Yendegaia House",
+              "details": {
+                "stars": 2,
+                "rating": 7.2,
+                "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/219172428.webp?k=884c4a94727f343efd728352c44608946bada93e0f74fc90554298b379483788&o=",
+                "description": "Un hotel de dos estrellas con una excelente ubicación en el centro de Ushuaia, ideal para viajeros que buscan opciones más económicas sin sacrificar comodidad."
+              },
+              "address": {
+                "city": "Ushuaia",
+                "country": "Argentina",
+                "street": "Calle Rivadavia 232"
+              },
+              "availability": {
+                "available": true,
+                "totalRoomsLeft": 6
+              },
+              "room": [
+                {
+                  "type": "single",
+                  "room_type": {
+                    "price": 8000,
+                    "currency": "ARS",
+                    "rooms_left": 3,
+                    "description": "Habitación individual sencilla, con cama individual y baño privado."
+                  }
+                },
+                {
+                  "type": "double",
+                  "room_type": {
+                    "price": 12000,
+                    "currency": "ARS",
+                    "rooms_left": 3,
+                    "description": "Habitación doble con cama matrimonial, ideal para estancias cortas."
+                  }
+                },
+                {
+                  "type": "triple",
+                  "room_type": {
+                    "price": 16000,
+                    "currency": "ARS",
+                    "rooms_left": 1,
+                    "description": "Habitación triple con tres camas individuales, económica y cómoda."
+                  }
+                }
+              ],
+              "amenities": {
+                "pool": false,
+                "spa": false,
+                "gym": false,
+                "restaurant": true,
+                "bar": false
+              }
+            },{
+                "name": "Hotel Tulmas",
+                "details": {
+                  "stars": 4,
+                  "rating": 8.8,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/484830285.webp?k=497b3ea60fc716798ad1d9ae634b588372e2047606bb8b01c9b7b148baf27825&o=",
+                  "description": "Ubicado en las colinas de San Salvador de Jujuy, este hotel ofrece un entorno tranquilo y vistas panorámicas, con instalaciones de lujo, incluyendo spa y restaurante gourmet."
+                },
+                "address": {
+                  "city": "San Salvador de Jujuy",
+                  "country": "Argentina",
+                  "street": "Calle Los Perales 3500"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 3
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 22000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación individual con vistas al valle, cama cómoda y baño privado."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 35000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, aire acondicionado y acceso a todas las comodidades del hotel."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 45000,
+                      "currency": "ARS",
+                      "rooms_left": 0,
+                      "description": "Habitación triple con tres camas individuales, ideal para grupos o familias."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": true,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "CasaCalma Hotel Boutique",
+                "details": {
+                  "stars": 3,
+                  "rating": 8.0,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/539907807.webp?k=8e40fd3bb3de8fec7e8e309663c9aa6fa756b00f57b6e6677976dd01fb64f55f&o=",
+                  "description": "Este tranquilo hotel en Purmamarca se encuentra rodeado por las impresionantes montañas de la Quebrada de Humahuaca. Ofrece una experiencia única en la naturaleza, con un spa y un restaurante que sirve cocina regional."
+                },
+                "address": {
+                  "city": "Purmamarca",
+                  "country": "Argentina",
+                  "street": "Calle de los Pueblos 510"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 4
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 14000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación individual con vista a las montañas y baño privado."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 25000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, decorada con estilo local y desayuno incluido."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 32000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple con tres camas individuales y vistas a las montañas."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": true,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "Caminos Hostal",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.5,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/284156174.webp?k=f8369558a2895bb4c9149817d096a9c56f2220a5163f206d6b90c7203f38cacf&o=",
+                  "description": "Un hotel sencillo y acogedor, con una excelente ubicación en el centro de San Salvador de Jujuy, ideal para quienes buscan una opción económica sin perder comodidad."
+                },
+                "address": {
+                  "city": "San Salvador de Jujuy",
+                  "country": "Argentina",
+                  "street": "Av. 19 de Abril 1030"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 6
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 7000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación individual sencilla con todas las comodidades básicas para una estancia cómoda."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 12000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial y baño privado."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 16000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple con tres camas individuales, ideal para grupos pequeños."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },
+              {
+                "name": "La Paleta del Pintor Hosteria",
+                "details": {
+                  "stars": 3,
+                  "rating": 8.3,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/359599761.webp?k=06fe29df3c7d6ced9b3207e8fefe09acf510f248d671f3e35df473d0cb180e38&o=",
+                  "description": "Situado en un entorno natural en las afueras de San Salvador de Jujuy, este hotel combina confort y tranquilidad, con un restaurante que ofrece platos regionales y un entorno único."
+                },
+                "address": {
+                  "city": "San Salvador de Jujuy",
+                  "country": "Argentina",
+                  "street": "Calle Tumbaya 2760"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 4
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 8000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación sencilla, ideal para estancias cortas, con cama individual y baño privado."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 13000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial y acceso a la piscina."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 17000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple, ideal para familias o grupos, con tres camas individuales."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },
+              {
+                "name": "Hosteria Maimará",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.0,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/284790209.webp?k=07cb2f4c4bd93c3198427b99f7b5bde9c58b0be2129239fb99b610e8cdc351f4&o=",
+                  "description": "Un hotel pequeño pero acogedor en el corazón de Tilcara, en la Quebrada de Humahuaca, ideal para quienes buscan un ambiente cálido y familiar."
+                },
+                "address": {
+                  "city": "Tilcara",
+                  "country": "Argentina",
+                  "street": "Calle La Pampa 560"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 5
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 5000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación sencilla con cama individual y baño compartido."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 8000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación doble con cama matrimonial y baño privado."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 11000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple con tres camas individuales."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },{
+                "name": "Luxor Hotel & Spa",
+                "details": {
+                  "stars": 5,
+                  "rating": 9.5,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/38104628.webp?k=9e2140c0897aabb173d77d6ef1ae82333109390355ac6466b8eabc984441a8c5&o=",
+                  "description": "Un hotel boutique de lujo en el corazón de Salta, donde se fusionan el estilo clásico y moderno, con atención personalizada y un ambiente acogedor. Ideal para disfrutar de la ciudad."
+                },
+                "address": {
+                  "city": "Salta",
+                  "country": "Argentina",
+                  "street": "Calle Caseros 101"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 3
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 25000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación individual de lujo con detalles elegantes y una vista impresionante a las montañas."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 35000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, decorada con estilo contemporáneo y todas las comodidades."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 60000,
+                      "currency": "ARS",
+                      "rooms_left": 0,
+                      "description": "Suite de lujo con salón privado, jacuzzi y vistas panorámicas a la ciudad."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": true,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "Gran Hotel Presidente",
+                "details": {
+                  "stars": 4,
+                  "rating": 8.8,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/513386587.webp?k=b337479ccd7c3bfb387b81bf47281148e00c70174fdfe95a3b8dabd83c1dfc0d&o=",
+                  "description": "Un elegante hotel en el centro histórico de Salta, perfecto para quienes buscan una experiencia de alta calidad con fácil acceso a los principales atractivos turísticos de la ciudad."
+                },
+                "address": {
+                  "city": "Salta",
+                  "country": "Argentina",
+                  "street": "Calle España 500"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 4
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 18000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación individual con diseño moderno, ideal para estancias cortas."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 28000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, aire acondicionado y un toque elegante."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 45000,
+                      "currency": "ARS",
+                      "rooms_left": 0,
+                      "description": "Suite de lujo con amplia sala de estar, baño de mármol y vista a la Plaza 9 de Julio."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": true,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "Hotel Ankara Suites",
+                "details": {
+                  "stars": 3,
+                  "rating": 8.3,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/133236771.webp?k=30902f0d550c19bc6796962920e29640c83e1e192d4ccf38b4f24349d42de006&o=",
+                  "description": "Un hotel boutique encantador, con un ambiente acogedor y una decoración única. Situado en el centro de Salta, es perfecto para aquellos que desean explorar la ciudad con comodidad."
+                },
+                "address": {
+                  "city": "Salta",
+                  "country": "Argentina",
+                  "street": "Calle Balcarce 999"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 5
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 10000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación individual con estilo cálido y confortable."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 16000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial y decoración sencilla pero elegante."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 22000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple, ideal para familias o grupos pequeños, con tres camas individuales."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "Hotel Inkai",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.5,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/220575473.webp?k=f95dbca76d7f25325ad5794da90462ebf3aa015a295ec8a773eba026f6c78360&o=",
+                  "description": "Ubicado en el centro de Salta, este hotel ofrece comodidad y buena ubicación a precios accesibles. Ideal para quienes buscan una opción económica sin renunciar a la calidad."
+                },
+                "address": {
+                  "city": "Salta",
+                  "country": "Argentina",
+                  "street": "Calle Balcarce 445"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 6
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 6000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación sencilla con todas las comodidades básicas, ideal para viajeros individuales."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 10000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, en una zona tranquila del hotel."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 15000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple con tres camas individuales, económica y práctica."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },
+              {
+                "name": "Wilson Hotel",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.2,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/2994786.webp?k=54dc05ed5d3e29f9fb9fc76a9acee5757069b157cd99462f7c4bb24b949fdf84&o=",
+                  "description": "Un alojamiento sencillo, perfecto para quienes buscan una opción económica y tranquila. Situada en una zona residencial de Salta, es ideal para una estancia relajante."
+                },
+                "address": {
+                  "city": "Salta",
+                  "country": "Argentina",
+                  "street": "Calle La Cabaña 123"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 4
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 4000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación sencilla con cama individual y baño compartido."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 7000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación doble con cama matrimonial, ideal para estancias cortas."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 10000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple con tres camas individuales."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": false,
+                  "bar": false
+                }
+              },{
+                "name": "Hotel Plaza",
+                "details": {
+                  "stars": 4,
+                  "rating": 8.7,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/561038652.webp?k=c2187e5982eab1d2db941dbd8c51e8e653253f279b9995aaf53c424db4f10fd4&o=",
+                  "description": "Ubicado en una zona estratégica de Formosa, este hotel cuenta con modernas instalaciones, un excelente restaurante y servicios pensados para todo tipo de viajero."
+                },
+                "address": {
+                  "city": "Formosa",
+                  "country": "Argentina",
+                  "street": "Avenida Gendarmería Nacional 1350"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 4
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 14000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación individual, cómoda y moderna, con vista a la ciudad."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 20000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, estilo moderno y excelentes comodidades."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 35000,
+                      "currency": "ARS",
+                      "rooms_left": 0,
+                      "description": "Suite de lujo con jacuzzi y salón privado, ideal para una estancia de relax."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": true,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "DEPARTAMENTOS A METROS DE LA UNAF",
+                "details": {
+                  "stars": 3,
+                  "rating": 8.2,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/545972503.webp?k=729d7fe5cb3df6a5847afdaeb79dcd37995c75e1ea3ce49ccfe50d1aa2f1e181&o=",
+                  "description": "Un hotel sencillo pero cómodo, ubicado cerca del centro de Formosa. Ideal para quienes necesitan una opción accesible y tranquila."
+                },
+                "address": {
+                  "city": "Formosa",
+                  "country": "Argentina",
+                  "street": "Calle Belgrano 823"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 5
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 7000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación individual básica, con cama cómoda y baño privado."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 10000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, ideal para una estancia relajante."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 13000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple, perfecta para familias o grupos pequeños."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },
+              {
+                "name": "Acogedor departamento con cochera y excelente ubicación",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.8,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/598461126.webp?k=44fbaf637a631f90107e8c9d3f08206b911d87e009c08d12a2a1c3719b908866&o=",
+                  "description": "Situado en una ubicación conveniente en Formosa, este hotel ofrece una experiencia sencilla pero de calidad, con servicios básicos y personal atento."
+                },
+                "address": {
+                  "city": "Formosa",
+                  "country": "Argentina",
+                  "street": "Avenida 25 de Mayo 455"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 6
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 5000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación individual con servicios básicos, perfecta para estancias cortas."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 8000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación doble económica, con todos los servicios esenciales para una buena estadía."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 10000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación triple con tres camas individuales y baño privado."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },
+              {
+                "name": "Casa de Chelo",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.5,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/547094691.webp?k=990464f04650b849e678b07374a6ea4062041cd672828ab36b8ec7d68c8cd57e&o=",
+                  "description": "Ubicada en un ambiente tranquilo, esta hostería es ideal para aquellos que buscan paz y descanso en Formosa. Con una excelente atención y precios accesibles."
+                },
+                "address": {
+                  "city": "Formosa",
+                  "country": "Argentina",
+                  "street": "Calle Eva Perón 456"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 4
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 4000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación sencilla, ideal para viajeros individuales con servicios básicos."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 6000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación doble con cama matrimonial, perfecta para descansar tras un largo día."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 8000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple con tres camas individuales, ideal para pequeños grupos o familias."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },
+              {
+                "name": "El Catorce Departamento Temporario",
+                "details": {
+                  "stars": 3,
+                  "rating": 8.0,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/503706270.webp?k=ab1846afaabe2cd9dda2e2245cf072fc4a564bc04646a9384a05d7360725278e&o=",
+                  "description": "Un hotel familiar y acogedor, con un restaurante de cocina local y un excelente servicio. Ideal para quienes desean estar cerca de la naturaleza y explorar los alrededores."
+                },
+                "address": {
+                  "city": "Formosa",
+                  "country": "Argentina",
+                  "street": "Calle Pueyrredón 1234"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 5
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 6000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación individual con cama cómoda y baño privado."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 9000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble, con cama matrimonial, perfecta para parejas."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 15000,
+                      "currency": "ARS",
+                      "rooms_left": 0,
+                      "description": "Suite con habitación separada, ideal para viajeros que buscan más privacidad y comodidad."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },{
+                "name": "Howard Johnson Plaza La Ribera",
+                "details": {
+                  "stars": 3,
+                  "rating": 8.0,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/482667290.webp?k=947446b3b760317d8d255961283242a8f3324f6c698d385a127ce2fd14a3961e&o=",
+                  "description": "Ubicado en el centro de Resistencia, Hotel Gualok ofrece confort y servicios de calidad, con un restaurante destacado y una excelente ubicación para los negocios."
+                },
+                "address": {
+                  "city": "Resistencia",
+                  "country": "Argentina",
+                  "street": "Avenida Sarmiento 1234"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 4
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 7000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación individual con servicios básicos, ideal para viajeros de negocios."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 11000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, cómoda y moderna."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 18000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Suite de lujo con vista panorámica de la ciudad y jacuzzi privado."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": true,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "Edificio Resistencia",
+                "details": {
+                  "stars": 4,
+                  "rating": 9.2,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/598847624.webp?k=f4d71c4ec632a07d9a25595be6e2386f7b6109bf0ad3ded043d4832c536257e5&o=",
+                  "description": "Un hotel moderno y lujoso, en una ubicación privilegiada de Resistencia. Ideal para quienes buscan confort, lujo y excelentes servicios."
+                },
+                "address": {
+                  "city": "Resistencia",
+                  "country": "Argentina",
+                  "street": "Calle 9 de Julio 2050"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 5
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 8000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación individual elegante, equipada con cama doble y baño privado."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 13000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama king-size y diseño moderno."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 25000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Suite presidencial, con amplio salón y jacuzzi, ideal para estancias lujosas."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": true,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "Departamento en zona centro",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.6,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/386679000.webp?k=3dea1cd98657738c8c012bfa826cb6eadee2418849a9c4efb4252e90eb7b3cdc&o=",
+                  "description": "Hotel familiar y accesible, en una excelente ubicación en Resistencia. Con atención personalizada y un servicio cómodo a precios muy competitivos."
+                },
+                "address": {
+                  "city": "Resistencia",
+                  "country": "Argentina",
+                  "street": "Calle Belgrano 679"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 6
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 5000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación individual básica con una cama cómoda y baño privado."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 8000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, ideal para parejas o viajeros en grupo."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 11000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple con tres camas individuales, ideal para grupos pequeños o familias."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },
+              {
+                "name": "LIZARRA Monoambiente RESISTENCIA- 100 mts peatonal",
+                "details": {
+                  "stars": 3,
+                  "rating": 8.4,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/262331776.webp?k=01058d3211033b5a3c71e56366feee776977ae0e800df222cec4aa4b2cac83ed&o=",
+                  "description": "Este hotel ofrece una buena relación calidad-precio. Ubicado en el corazón de la ciudad, es ideal tanto para viajeros de negocios como para turistas."
+                },
+                "address": {
+                  "city": "Resistencia",
+                  "country": "Argentina",
+                  "street": "Avenida 25 de Mayo 460"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 3
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 6000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación individual, sencilla pero cómoda, con acceso a Wi-Fi gratuito."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 9500,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble, ideal para parejas o dos personas, equipada con todo lo necesario."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 18000,
+                      "currency": "ARS",
+                      "rooms_left": 0,
+                      "description": "Suite con salón privado y jacuzzi, perfecta para un descanso total."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": false,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "Departamento Céntrico Resistencia",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.9,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/598258906.webp?k=30cc70a19bd83fbf3e31fae23eff5644ecee5d2b117b19bb5a5212474d0aaa5e&o=",
+                  "description": "Hotel económico con una ubicación estratégica en Resistencia. Es una opción ideal para quienes buscan una estancia cómoda y accesible."
+                },
+                "address": {
+                  "city": "Resistencia",
+                  "country": "Argentina",
+                  "street": "Avenida Marconi 1445"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 5
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 4000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación sencilla con una cama individual, perfecta para un viaje de paso."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 7000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, ideal para parejas o viajeros que buscan comodidad."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 9000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación triple con tres camas individuales, ideal para familias o pequeños grupos."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },{
+                "name": "Hotel Solano",
+                "details": {
+                  "stars": 3,
+                  "rating": 8.3,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/210835243.webp?k=ca5cbfb16d47c1b1928eb38dbe41bddfc57b412c6231a7900c9b197362fb9ae0&o=",
+                  "description": "Ubicado en el centro de la ciudad, el Hotel Centro Santiago ofrece una opción cómoda y accesible para aquellos que visitan la ciudad. Ideal para viajeros de negocios y turistas."
+                },
+                "address": {
+                  "city": "Santiago del Estero",
+                  "country": "Argentina",
+                  "street": "Avenida Belgrano 245"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 4
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 6000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación individual con cama doble y baño privado. Ideal para estancias cortas."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 9500,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, perfecta para parejas o dos personas."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 15000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Suite con salón privado y vista panorámica de la ciudad, ideal para un descanso lujoso."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": false,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "Hilton Garden Inn Santiago Del Estero - HILTON HOTELS",
+                "details": {
+                  "stars": 4,
+                  "rating": 9.1,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/486114281.webp?k=859586368d7a728af035796bb1b5aa23cf8f93f82987d3c2f1b0eeb3a0a40554&o=",
+                  "description": "Un elegante hotel con una ubicación estratégica en el centro de Santiago del Estero, ideal para viajes de negocios o turismo. Ofrece servicios de alta calidad."
+                },
+                "address": {
+                  "city": "Santiago del Estero",
+                  "country": "Argentina",
+                  "street": "Calle Rivadavia 420"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 6
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 7000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación individual con cama de lujo y baño privado, ideal para viajeros de negocios."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 12000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama king-size y todos los servicios necesarios para una estancia cómoda."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 22000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Suite de lujo con jacuzzi, sala de estar privada y vista al centro de la ciudad."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": true,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": true
+                }
+              },
+              {
+                "name": "NH Santiago del Estero",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.5,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/471046176.webp?k=81b677297a839d94539cb2f29e8113cde9e4cdb0887cf12573ddee8e2baac2b7&o=",
+                  "description": "Una opción económica con buena ubicación, perfecta para aquellos que buscan una estancia sencilla y confortable."
+                },
+                "address": {
+                  "city": "Santiago del Estero",
+                  "country": "Argentina",
+                  "street": "Avenida Sarmiento 1045"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 5
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 4000,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación sencilla con cama individual, perfecta para quienes necesitan una estancia rápida y económica."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 7000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial y servicios básicos, ideal para dos personas."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },
+              {
+                "name": "Apartamento Céntrico para 4 personas con Patio",
+                "details": {
+                  "stars": 3,
+                  "rating": 8.0,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/611788969.webp?k=4fc8f1888534dc211f56f45d743ae3164131dfbc66ed27a7ed3a12f0011e2d67&o=",
+                  "description": "Hotel sencillo y confortable, en la ribera del río Dulce. Una opción accesible y agradable para familias o viajeros en busca de relax."
+                },
+                "address": {
+                  "city": "Santiago del Estero",
+                  "country": "Argentina",
+                  "street": "Rivadavia 1020"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 4
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 5500,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación individual con una cama cómoda, perfecta para estancias de negocios o descanso."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 9500,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, equipada con aire acondicionado y televisión."
+                    }
+                  },
+                  {
+                    "type": "suite",
+                    "room_type": {
+                      "price": 17000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Suite privada con jacuzzi y balcón con vista al río, ideal para una escapada romántica."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": true,
+                  "spa": false,
+                  "gym": true,
+                  "restaurant": true,
+                  "bar": false
+                }
+              },
+              {
+                "name": "ALOJAMIENTO NORTE 1",
+                "details": {
+                  "stars": 2,
+                  "rating": 7.8,
+                  "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/540891666.webp?k=2abc033acdc4ccbb6108230519f532e79009958365be2b9cbcdb5cade84b8ef1&o=",
+                  "description": "Un hotel accesible y cómodo, con un excelente servicio al cliente. Perfecto para quienes viajan por negocios o por turismo."
+                },
+                "address": {
+                  "city": "Santiago del Estero",
+                  "country": "Argentina",
+                  "street": "Calle Alsina 432"
+                },
+                "availability": {
+                  "available": true,
+                  "totalRoomsLeft": 6
+                },
+                "room": [
+                  {
+                    "type": "single",
+                    "room_type": {
+                      "price": 4500,
+                      "currency": "ARS",
+                      "rooms_left": 3,
+                      "description": "Habitación sencilla con cama individual, ideal para aquellos que buscan un lugar tranquilo."
+                    }
+                  },
+                  {
+                    "type": "double",
+                    "room_type": {
+                      "price": 7000,
+                      "currency": "ARS",
+                      "rooms_left": 2,
+                      "description": "Habitación doble con cama matrimonial, perfecta para parejas o dos personas."
+                    }
+                  },
+                  {
+                    "type": "triple",
+                    "room_type": {
+                      "price": 9000,
+                      "currency": "ARS",
+                      "rooms_left": 1,
+                      "description": "Habitación triple con tres camas individuales, ideal para grupos o familias."
+                    }
+                  }
+                ],
+                "amenities": {
+                  "pool": false,
+                  "spa": false,
+                  "gym": false,
+                  "restaurant": true,
+                  "bar": false
+                }
+              }
+          ]
+  
