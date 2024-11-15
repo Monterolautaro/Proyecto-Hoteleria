@@ -9,8 +9,8 @@ export class SearchService {
     try {
       return await this.searchRepository.searchBar(query);
     } catch (error) {
-        console.log(error, 'service');
-    
+      console.log(error, 'service');
+
       throw error;
     }
   }

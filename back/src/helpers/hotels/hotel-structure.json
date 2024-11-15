@@ -15,44 +15,32 @@
         "available": false,
         "totalRoomsLeft": 0
     },
-    "room": [
-        {
-          "type": "single",
-          "room_type": {
+    "rooms": { 
+        "single": {
+            "price": 0,
+            "currency": "",
+            "rooms_left": 0,
+            "description": ""
+          },
+          "double":{
+            "price": 0,
+            "currency": "",
+            "rooms_left": 0,
+            "description": ""
+          },
+          "triple":{
+            "price": 0,
+            "currency": "",
+            "rooms_left": 0,
+            "description": ""
+          },
+         "suite":{
             "price": 0,
             "currency": "",
             "rooms_left": 0,
             "description": ""
           }
         },
-        {
-          "type": "double",
-          "room_type": {
-            "price": 0,
-            "currency": "",
-            "rooms_left": 0,
-            "description": ""
-          }
-        },
-        {
-          "type": "triple",
-          "room_type": {
-            "price": 0,
-            "currency": "",
-            "rooms_left": 0,
-            "description": ""
-          }
-        },
-        {
-          "type": "suite",
-          "room_type": {
-            "price": 0,
-            "currency": "",
-            "rooms_left": 0,
-            "description": ""
-          }
-        }
-      ],
     "amenities": {
         "pool": false,
         "spa": false,
@@ -61,17 +49,3 @@
         "bar": false
     }
 }
-
-
-"price": 840000,
-            "currency": "COP",
-            "roomsLeft": 10,
-            "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-        
-
-
-        "price": 1350000,
-            "currency": "COP",
-            "roomsLeft": 5,
-            "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-        
