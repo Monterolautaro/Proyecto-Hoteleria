@@ -1,17 +1,14 @@
+import axios from 'axios'
+
 const getResult = async (query: string) => {
 
 try {
 
-    const response = await fetch( `http://localhost:3000/search/bar?query=${encodeURIComponent(query)}`, {
-        method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-
-    })
-    console.log(response)
-    if (response.ok) {
-        const data = await response.json();
+    const response = await axios.post(`http://localhost:3000/search/bar?query=${query}`)
+    
+    if (response) {
+      console.log(response)
+        const data = await response.data;
         return Array.isArray(data) ? data : []; 
       } else {
         console.error("Error en la respuesta del servidor");
