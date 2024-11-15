@@ -8,6 +8,7 @@ import typeOrmConfig from './config/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { HotelsModule } from './hotels/hotels.module';
 import { IaModule } from './ia/ia.module';
+import { SearchModule } from './search/search.module';
 
 dotenvConfig({
   path: '.env',
@@ -23,6 +24,7 @@ dotenvConfig({
       useFactory: (configService: ConfigService) =>
         configService.get('typeorm'),
     }),
+    SearchModule,
     IaModule,
     HotelsModule,
     AuthModule,

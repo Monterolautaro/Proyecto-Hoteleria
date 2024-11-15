@@ -5,7 +5,7 @@ export class AuthRepository {
   signUp(name, lastname, birthday, username, email, password) {
     return 'succesfully registered';
   }
-  signIn() {
+  signIn(email, password) {
     return 'succesfully logged in';
   }
 }

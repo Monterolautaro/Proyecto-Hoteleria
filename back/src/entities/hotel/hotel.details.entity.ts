@@ -9,7 +9,7 @@ export class Details {
   @PrimaryGeneratedColumn('uuid')
   detail_id: string = uuid();
 
-  @Column()
+  @Column('float')
   stars: number;
 
   @Column('float')
