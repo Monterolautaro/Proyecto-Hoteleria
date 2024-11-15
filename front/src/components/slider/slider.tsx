@@ -100,16 +100,15 @@ export default function ComponentSlider(): JSX.Element {
   };
 
   return (
-    <div className="relative w-full mx-auto mt-4">
+    <div className="relative max-w-4xl mx-auto mt-4">
       {/* Título */}
       <h2 className="text-2xl font-bold ml-4 mb-4">Weekly Recommendations</h2>
 
       {/* Contenedor del carrusel */}
       <div
-        className="relative group flex justify-center space-x-4 px-[50px]"
+        className="relative group flex justify-center  h-fit pb-6"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
-        style={{ height: "70vh" }}
       >
         {/* Mostrar los componentes activos */}
         {getVisibleComponents().map((component, index) => (
