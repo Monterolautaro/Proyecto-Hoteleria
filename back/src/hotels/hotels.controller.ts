@@ -23,8 +23,7 @@ export class HotelsController {
   @Get('/')
   async getHotels() {
     try {
-     return await this.hotelsService.getHotels();
-      ;
+      return await this.hotelsService.getHotels();
     } catch (error) {
       throw new BadRequestException('Error loading hotels', error);
     }
