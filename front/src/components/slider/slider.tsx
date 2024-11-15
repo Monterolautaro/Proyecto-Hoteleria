@@ -66,11 +66,11 @@ export default function ComponentSlider(): JSX.Element {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   // Número de componentes visibles en el carrusel
-  const componentsToShow = 4;
+  const componentsToShow = currentIndex === 0 ? 4 : 3;
 
-  // Función para mostrar el componente siguiente
+  // Función para alternar entre las dos vistas (primero 4 y luego 3)
   const nextSlide = (): void => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % components.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % 2);
   };
 
   // useEffect hook para cambiar los componentes automáticamente
@@ -93,24 +93,10 @@ export default function ComponentSlider(): JSX.Element {
     setIsHovered(false);
   };
 
-  // Calcular el índice de inicio para los componentes visibles
+  // Obtener los componentes visibles según el índice actual
   const getVisibleComponents = () => {
-    const startIndex = currentIndex;
-    const visibleComponents = components.slice(
-      startIndex,
-      startIndex + componentsToShow
-    );
-
-    if (visibleComponents.length < componentsToShow) {
-      // Si el número de componentes visibles es menor que los solicitados, agregar desde el principio
-      const remainingComponents = components.slice(
-        0,
-        componentsToShow - visibleComponents.length
-      );
-      return visibleComponents.concat(remainingComponents);
-    }
-
-    return visibleComponents;
+    const startIndex = currentIndex === 0 ? 0 : 4;
+    return components.slice(startIndex, startIndex + componentsToShow);
   };
 
   return (
@@ -128,8 +114,6 @@ export default function ComponentSlider(): JSX.Element {
         {/* Mostrar los componentes activos */}
         {getVisibleComponents().map((component, index) => (
           <div key={index} className="w-1/5 px-2">
-            {" "}
-            {/* Reducción de tamaño de los componentes */}
             {component}
           </div>
         ))}
@@ -137,13 +121,13 @@ export default function ComponentSlider(): JSX.Element {
 
       {/* Indicadores de navegación como puntitos */}
       <div className="flex justify-center mt-4 space-x-2">
-        {components.map((_, index) => (
+        {[0, 1].map((index) => (
           <div
             key={index}
             className={`mb-9 h-3 w-3 rounded-full transition-all duration-500 ease-in-out cursor-pointer ${
-              index === currentIndex ? "bg-[#009375]" : "bg-[#b0b0b0]" // Usamos un gris más oscuro (#b0b0b0) para los puntos inactivos
+              index === currentIndex ? "bg-[#009375]" : "bg-[#b0b0b0]"
             }`}
-            onClick={() => setCurrentIndex(index)} // Hacer clic en los puntos de navegación
+            onClick={() => setCurrentIndex(index)}
           ></div>
         ))}
       </div>
