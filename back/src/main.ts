@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { config } from 'dotenv';
-import { connectionSource } from './config/typeorm';
+import { connectionSource } from './config/typeorm.config';
 config();
 
 async function bootstrap() {

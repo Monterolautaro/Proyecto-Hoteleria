@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { connectionSource } from 'src/config/typeorm';
+import { connectionSource } from 'src/config/typeorm.config';
 import { Address } from 'src/entities/hotel/hotel.address.entity';
 import { Hotel } from 'src/entities/hotel/hotel.entity';
 import { Like } from 'typeorm';
