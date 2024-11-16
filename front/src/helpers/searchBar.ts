@@ -1,10 +1,10 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const getResult = async (query: string) => {
 
 try {
 
-    const response = await axios.post(`http://localhost:3000/search/bar?query=${query}`)
+    const response = await axios.post(`http://localhost:3001/search/bar?query=${query}`)
     
     if (response) {
       console.log(response)

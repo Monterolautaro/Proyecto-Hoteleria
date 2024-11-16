@@ -1,17 +1,28 @@
 // components/HotelCard.tsx
+import { useRouter } from 'next/navigation'; // Importa useRouter de next/navigation
 import React from 'react';
 
 interface HotelCardProps {
+  id: string; // Agrega un ID para la navegación
   image: string;
   title: string;
   location: string;
-  rating?: number; // Puede ser opcional
+  rating?: number;
   price: string;
 }
 
-const HotelCard: React.FC<HotelCardProps> = ({ image, title, location, rating, price }) => {
+const HotelCard: React.FC<HotelCardProps> = ({ id, image, title, location, rating, price }) => {
+  const router = useRouter(); // Instancia de router
+
+  const handleCardClick = () => {
+    router.push(`/detailHotels/${id}`); // Navega a la página específica del hotel
+  };
+
   return (
-    <div className="max-w-sm bg-[#D0F6E9] rounded-lg shadow-md overflow-hidden border border-gray-200 h-96 flex flex-col justify-between">
+    <div
+      onClick={handleCardClick} // Añade el evento de clic
+      className="max-w-sm bg-[#D0F6E9] rounded-lg shadow-md overflow-hidden border border-gray-200 h-96 flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow duration-300"
+    >
       <img className="w-full h-48 object-cover" src={image} alt={title} />
       <div className="p-4 flex-grow">
         <div className="flex items-center justify-between mb-1">
@@ -30,7 +41,7 @@ const HotelCard: React.FC<HotelCardProps> = ({ image, title, location, rating, p
         <div className="flex items-center mb-3 h-6">
           {rating !== undefined && (
             <span className="text-yellow-500 text-xl">
-              {'★'.repeat(Math.floor(rating))} {/* Mostrar estrellas según la calificación */}
+              {'★'.repeat(Math.floor(rating))}
             </span>
           )}
         </div>
