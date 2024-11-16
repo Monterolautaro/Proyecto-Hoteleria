@@ -19,8 +19,8 @@ export class VisitsMetrics {
   @Column('float')
   total_visits: number;
 
-  @Column('float')
-  average_duration: number;
+  @Column('timestamp')
+  average_duration: string;
 
   @ManyToOne(() => Metrics, (metrics) => metrics.visits_metrics)
   @JoinColumn({ name: 'metrics_id' })

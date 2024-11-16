@@ -6,7 +6,7 @@ import { Hotel } from 'src/entities/hotel/hotel.entity';
 import { Room } from 'src/entities/hotel/hotel.rooms.entity';
 import { RoomType } from 'src/entities/hotel/roomsType.entity';
 import { Repository } from 'typeorm';
-import { connectionSource } from 'src/config/typeorm';
+import { connectionSource } from 'src/config/typeorm.config';
 import { Details } from 'src/entities/hotel/hotel.details.entity';
 import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
 import { NotFoundException } from '@nestjs/common';

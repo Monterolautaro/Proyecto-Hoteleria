@@ -4,11 +4,12 @@ import { UsersModule } from './Users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config as dotenvConfig } from 'dotenv';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import typeOrmConfig from './config/typeorm';
+import typeOrmConfig from './config/typeorm.config';
 import { JwtModule } from '@nestjs/jwt';
 import { HotelsModule } from './hotels/hotels.module';
 import { IaModule } from './ia/ia.module';
 import { SearchModule } from './search/search.module';
+import { FilesUploadModule } from './files-upload/files.module';
 
 dotenvConfig({
   path: '.env',
@@ -24,6 +25,7 @@ dotenvConfig({
       useFactory: (configService: ConfigService) =>
         configService.get('typeorm'),
     }),
+    FilesUploadModule,
     SearchModule,
     IaModule,
     HotelsModule,
@@ -31,7 +33,7 @@ dotenvConfig({
     UsersModule,
     JwtModule.register({
       global: true,
-      signOptions: { expiresIn: '15m' },
+      signOptions: { expiresIn: '60s' },
       secret: process.env.JWT_SECRET,
     }),
   ],
