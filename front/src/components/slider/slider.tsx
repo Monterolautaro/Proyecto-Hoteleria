@@ -10,54 +10,55 @@ const components = [
     title="Hotel Paradise"
     location="Cartagena, Colombia"
     rating={5}
-    price="COP 150,000" id={""}  />,
+    price="COP 150,000"
+  />,
   <HotelCard
     key={2}
     image="https://via.placeholder.com/600x400?text=Hotel+2"
     title="Hotel Ocean Breeze"
     location="Santa Marta, Colombia"
-    price="COP 120,000" id={""}  />,
+    price="COP 120,000"
+  />,
   <HotelCard
     key={3}
     image="https://via.placeholder.com/600x400?text=Hotel+3"
     title="Mountain Retreat"
     location="San Gil, Colombia"
     rating={4}
-    price="COP 100,000" id={""}  />,
+    price="COP 100,000"
+  />,
   <HotelCard
     key={4}
     image="https://via.placeholder.com/600x400?text=Hotel+4"
     title="Sunset Resort"
     location="San Andrés, Colombia"
     rating={3}
-    price="COP 80,000" id={""}  />,
+    price="COP 80,000"
+  />,
   <HotelCard
     key={5}
     image="https://via.placeholder.com/600x400?text=Hotel+5"
     title="Luxury Getaway"
     location="Medellín, Colombia"
     rating={5}
-    price="COP 200,000" id={""}  />,
+    price="COP 200,000"
+  />,
   <HotelCard
     key={6}
     image="https://via.placeholder.com/600x400?text=Hotel+6"
     title="Beachfront Hotel"
     location="Barranquilla, Colombia"
     rating={5}
-    price="COP 180,000" id={""}  />,
+    price="COP 180,000"
+  />,
   <HotelCard
     key={7}
     image="https://via.placeholder.com/600x400?text=Hotel+7"
     title="Cozy Stay"
     location="Cali, Colombia"
     rating={4}
-    price="COP 110,000" id={""}  />,
-    <HotelCard
-    key={8}
-    image="https://via.placeholder.com/600x400?text=Hotel+8"
-    title="CORDOBA"
-    location="ARGENTINA"
-    price="COP 110,000" id={""}  />,
+    price="COP 110,000"
+  />,
 ];
 
 export default function ComponentSlider(): JSX.Element {
@@ -65,9 +66,9 @@ export default function ComponentSlider(): JSX.Element {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   // Número de componentes visibles en el carrusel
-  const componentsToShow = 4;
+  const componentsToShow = currentIndex === 0 ? 4 : 3;
 
-  // Función para alternar entre las dos vistas (primero 4 y luego 4)
+  // Función para alternar entre las dos vistas (primero 4 y luego 3)
   const nextSlide = (): void => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % 2);
   };
@@ -94,7 +95,7 @@ export default function ComponentSlider(): JSX.Element {
 
   // Obtener los componentes visibles según el índice actual
   const getVisibleComponents = () => {
-    const startIndex = currentIndex * 4;
+    const startIndex = currentIndex === 0 ? 0 : 4;
     return components.slice(startIndex, startIndex + componentsToShow);
   };
 

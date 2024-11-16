@@ -12,5 +12,5 @@ export const fetchCards = async (): Promise<any[]> => {
       return []; // Devuelve un array vacío si ocurre un error
     }
   };
-
+  
 
