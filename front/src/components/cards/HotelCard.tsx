@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // components/HotelCard.tsx
 import { useRouter } from 'next/navigation'; // Importa useRouter de next/navigation
 import React from 'react';
@@ -26,7 +27,9 @@ const HotelCard: React.FC<HotelCardProps> = ({ id, image, title, location, ratin
       <img className="w-full h-48 object-cover" src={image} alt={title} />
       <div className="p-4 flex-grow">
         <div className="flex items-center justify-between mb-1">
-          <h2 className="text-xl font-semibold overflow-hidden text-ellipsis whitespace-nowrap">{title}</h2>
+          <h2 className="text-xl font-semibold overflow-hidden text-ellipsis whitespace-nowrap">
+            {title}
+          </h2>
           {rating !== undefined ? (
             <span className="bg-teal-600 text-white text-xs font-bold px-2 py-1 rounded-full">
               {rating}

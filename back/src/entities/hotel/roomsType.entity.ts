@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { Room } from './hotel.rooms.entity';
+import { RoomFile } from './rooms/room.file.entity';
 
 @Entity({
   name: 'rooms_type',
@@ -15,7 +16,7 @@ export class RoomType {
   @PrimaryGeneratedColumn('uuid')
   room_type_id: string = uuid();
 
-  @Column({type: 'decimal', precision: 10, scale: 2, default: 0.0 })
+  @Column({ type: 'decimal', precision: 10, scale: 2, default: 0.0 })
   price: number;
 
   @Column()
@@ -30,4 +31,8 @@ export class RoomType {
   @OneToMany(() => Room, (room) => room.room_type)
   @JoinColumn({ name: 'room_id' })
   rooms!: Room[];
+
+  @OneToMany(() => RoomFile, (file) => file.room_type_id)
+  @JoinColumn({ name: 'room_file_id' })
+  files!: RoomFile[];
 }

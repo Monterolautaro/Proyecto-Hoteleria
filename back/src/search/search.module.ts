@@ -7,9 +7,7 @@ import { Hotel } from 'src/entities/hotel/hotel.entity';
 import { Address } from 'src/entities/hotel/hotel.address.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature(
-    [Hotel, Address]
-)],
+  imports: [TypeOrmModule.forFeature([Hotel, Address])],
   controllers: [SearchController],
   providers: [SearchService, SearchRepository],
   exports: [],

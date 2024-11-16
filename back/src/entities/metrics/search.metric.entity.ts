@@ -21,6 +21,9 @@ export class SearchMetrics {
   @Column('float')
   searches_per_user: number;
 
+  @Column('float')
+  non_user_searches: number;
+
   @ManyToOne(() => Metrics, (metrics) => metrics.search_metrics)
   @JoinColumn({ name: 'metrics_id' })
   metrics: Metrics;

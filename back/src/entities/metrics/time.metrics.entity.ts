@@ -16,20 +16,20 @@ export class TimeMetrics {
   @PrimaryGeneratedColumn('uuid')
   time_metrics_id: string = uuid();
 
-  @Column('float')
-  session_starts: number;
-
-  @Column('float')
-  session_ends: number;
-
-  @Column('float')
-  session_duration: number;
+  @Column('timestamp')
+  session_starts: Date;
 
   @Column('timestamp')
-  session_start_time: Date;
+  session_ends: Date;
 
-  @Column('timestamp')
-  session_end_time: Date;
+  @Column('time')
+  session_duration: string;
+
+  @Column()
+  session_start_time: string;
+
+  @Column()
+  session_end_time: string;
 
   @ManyToOne(() => Metrics, (metrics) => metrics.time_metrics)
   @JoinColumn({ name: 'metrics_id' })

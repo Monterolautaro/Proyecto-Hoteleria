@@ -3,7 +3,10 @@ import {
   Body,
   Controller,
   Get,
+  Param,
+  ParseUUIDPipe,
   Post,
+  Query,
 } from '@nestjs/common';
 import { HotelsService } from './hotels.service';
 
@@ -21,16 +24,16 @@ export class HotelsController {
   }
 
   @Get('/')
-  async getHotels() {
+  async getHotels(@Query('page') page: number, @Query('limit') limit: number) {
     try {
-      return await this.hotelsService.getHotels();
+      return await this.hotelsService.getHotels(page, limit);
     } catch (error) {
       throw new BadRequestException('Error loading hotels', error);
     }
   }
 
   @Get('/:id')
-  async getHotelById(@Body() id: string) {
+  async getHotelById(@Param('id', ParseUUIDPipe) id: string) {
     try {
       return await this.hotelsService.getHotelById(id);
     } catch (error) {
