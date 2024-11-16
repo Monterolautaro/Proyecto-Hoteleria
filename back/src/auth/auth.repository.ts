@@ -2,7 +2,6 @@ import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/
 import { InjectRepository } from '@nestjs/typeorm';
 import { Credentials } from 'src/entities/credentials.entity';
 import { User } from 'src/entities/user.entity';
-import { UserRepository } from 'src/Users/user.repository';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 
