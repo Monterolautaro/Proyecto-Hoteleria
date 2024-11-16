@@ -12,14 +12,28 @@ export class FilesUploadController{
     async uploadImage(@Param('id') roomId: string, @UploadedFile(new ParseFilePipe({
         validators: [
             new MaxFileSizeValidator({
-                maxSize: 1000000,
+                maxSize: 1000000,  /*  1mb  */
                 message: 'file is too heavy'
             }),
             new FileTypeValidator({ fileType: /jpg|jpeg|png|gif|webp|svg/ }),
         ]
     })) file: Express.Multer.File) {
-        
-        return await this.filesUploadService.uploadImageToCloud(file, roomId)
+
+        return await this.filesUploadService.uploadImageToCloudById(file, roomId)
+    }
+
+    @Post('upload')
+    @UseInterceptors(FileInterceptor('file'))
+    async createRoomAndImage(@UploadedFile(new ParseFilePipe({
+        validators: [
+            new MaxFileSizeValidator({
+                maxSize: 1000000,  /*  1mb  */
+                message: 'file is too heavy'
+            }),
+            new FileTypeValidator({ fileType: /jpg|jpeg|png|gif|webp|svg/ }),
+        ]
+    })) file: Express.Multer.File) {
+        return await this.filesUploadService.createRoomAndImage(file)
     }
 
 }

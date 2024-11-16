@@ -33,8 +33,8 @@ export class HotelsRepository {
       const queryRunner = connectionSource.createQueryRunner();
       await queryRunner.connect();
       await queryRunner.startTransaction();
-
       try {
+      
         //  Inserto entidad hotel
 
         const hotel = this.hotelRepository.create({
