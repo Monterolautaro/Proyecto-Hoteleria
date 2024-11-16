@@ -31,8 +31,4 @@ export class RoomType {
   @OneToMany(() => Room, (room) => room.room_type)
   @JoinColumn({ name: 'room_id' })
   rooms!: Room[];
-
-  @OneToMany(() => RoomFile, (file) => file.room_type_id)
-  @JoinColumn({ name: 'room_file_id' })
-  files!: RoomFile[];
 }
