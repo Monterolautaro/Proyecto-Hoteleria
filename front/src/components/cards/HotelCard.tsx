@@ -1,8 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
-// components/HotelCard.tsx
+'use client'; // Asegúrate de que este componente sea cliente
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface HotelCardProps {
+  id: string; // ID del hotel para navegar a la vista de detalles
   image: string;
   title: string;
   location: string;
@@ -11,16 +12,26 @@ interface HotelCardProps {
 }
 
 const HotelCard: React.FC<HotelCardProps> = ({
+  id,
   image,
   title,
   location,
   rating,
   price,
 }) => {
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push(`/hotels/${id}`); // Redirige a la vista de detalles
+  };
+
   return (
-    <div className="max-w-[268px] bg-[#D0F6E9] rounded-lg shadow-md overflow-hidden border border-gray-200 h-[355px] flex flex-col justify-between">
+    <div
+      className="max-w-[400px] w-full bg-[#D0F6E9] rounded-lg shadow-md overflow-hidden border border-gray-200 h-[400px] flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow"
+      onClick={handleCardClick}
+    >
       <img
-        className="max-w-[244px] h-[224px] object-cover"
+        className="w-full h-[260px] object-cover"
         src={image}
         alt={title}
       />
@@ -43,8 +54,7 @@ const HotelCard: React.FC<HotelCardProps> = ({
         <div className="flex items-center mb-3 h-6">
           {rating !== undefined && (
             <span className="text-yellow-500 text-xl">
-              {"★".repeat(Math.floor(rating))}{" "}
-              {/* Mostrar estrellas según la calificación */}
+              {"★".repeat(Math.floor(rating))}
             </span>
           )}
         </div>
