@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities/user.entity';
 import { Repository } from 'typeorm';
-import { CreateUserDto } from 'src/DTO´s/User.dto';
+import { CreateUserDto } from 'src/dto/User.dto';
 import { NotFoundException } from '@nestjs/common';
 
 @Injectable()
@@ -60,8 +60,8 @@ export class UserRepository {
 
     // Actualizar el username en la tabla Credential
     user.credential.username = newUsername;
-   //  await this.credentialRepository.save(user.credential);
-    
+    //  await this.credentialRepository.save(user.credential);
+
     return user;
   }
 }

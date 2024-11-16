@@ -48,7 +48,6 @@ export class AuthRepository {
     }
 
     return credentials.user;
-
   }
 
 }

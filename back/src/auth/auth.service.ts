@@ -15,7 +15,9 @@ export class AuthService {
       password,
     );
   }
+
   signIn(email: string, password: string) {
+
     this.authRepository.signIn(email, password);
   }
 }

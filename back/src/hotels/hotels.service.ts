@@ -13,9 +13,9 @@ export class HotelsService {
     }
   }
 
-  async getHotels() {
+  async getHotels(page, limit) {
     try {
-      return await this.hotelsRepository.getHotels();
+      return await this.hotelsRepository.getHotels(page, limit);
     } catch (error) {
       throw new BadRequestException('Error loading hotels', error);
     }

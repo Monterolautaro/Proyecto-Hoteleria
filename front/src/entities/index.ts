@@ -3,7 +3,7 @@ id: number;
 name: string;
 details: {
     stars: number;
-    rating: number;
+    rating?: number;
     imgUrl: string;
     description: string;
 };
