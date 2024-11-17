@@ -1,9 +1,11 @@
-import { Controller, FileTypeValidator, MaxFileSizeValidator, Param, ParseFilePipe, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { Controller, FileTypeValidator, MaxFileSizeValidator, Param, ParseFilePipe, Post, UploadedFile, UseGuards, UseInterceptors } from "@nestjs/common";
 import { FilesUploadService } from "./files.service";
 import { FileInterceptor } from "@nestjs/platform-express";
+import { AuthGuard } from "src/auth/auth.guard";
 
 
 @Controller('files')
+@UseGuards(AuthGuard)
 export class FilesUploadController{
     constructor(private readonly filesUploadService: FilesUploadService) {}
 

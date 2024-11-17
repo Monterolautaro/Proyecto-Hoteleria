@@ -1,12 +1,10 @@
 import {
   IsBoolean,
   IsDate,
+  IsEmail,
   IsEmpty,
   IsNotEmpty,
-  IsNumber,
-  IsOptional,
   IsString,
-  IsUUID,
   Matches,
   MaxLength,
   MinLength,
@@ -14,23 +12,30 @@ import {
 import { Type } from 'class-transformer';
 
 export class CreateUserDto {
-  @IsUUID()
-  @IsOptional()
-  user_id?: string;
 
+  @IsNotEmpty()
   @IsString()
   name: string;
-
+  
+  @IsNotEmpty()
   @IsString()
   lastname: string;
 
+  @IsNotEmpty()
   @IsDate()
-  @Type(() => Date)
   birthday: Date;
 
   @IsBoolean()
   @IsEmpty()
-  isAdmin?: boolean;
+  isAdmin: boolean;
+
+  @IsNotEmpty()
+  @IsEmail()
+  email: string;
+
+  @IsNotEmpty()
+  @IsString()
+  username: string;
 
   @IsString()
   @IsNotEmpty()
