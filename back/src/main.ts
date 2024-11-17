@@ -16,7 +16,7 @@ async function bootstrap() {
     .initialize()
     .then(() => {
       console.log('Data source has been initialized!');
-      app.listen(process.env.PORT ?? 3000);
+      app.listen(process.env.PORT ?? process.env.ALTERNATIVE_PORT);
     })
     .catch((error) =>
       console.error('Error during Data Source initialization:', error),
