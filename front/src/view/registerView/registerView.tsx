@@ -2,13 +2,13 @@
 "use client";
 import React, { useState } from "react";
 import {
-  validateAddress,
   validateEmail,
   validateLastName,
   validateName,
   validatePassword,
-  validatePhone,
   validateConfirmPassword,
+
+ 
 } from "@/helpers/formValidation";
 import { registerUser } from "@/helpers/auth.helper";
 import { Toast } from "@/helpers/toast";
@@ -17,9 +17,9 @@ const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
+    birthday:"",
     email: "",
-    address: "",
-    phone: "",
+    username: "",
     password: "",
     confirmPassword: "",
   });
@@ -38,8 +38,6 @@ const Register = () => {
       name: validateName(formData.name),
       lastName: validateLastName(formData.lastName),
       email: validateEmail(formData.email),
-      address: validateAddress(formData.address),
-      phone: validatePhone(formData.phone),
       password: validatePassword(formData.password),
       confirmPassword: validateConfirmPassword(formData.password, formData.confirmPassword),
     };

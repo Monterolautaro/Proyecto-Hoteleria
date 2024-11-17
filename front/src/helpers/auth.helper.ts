@@ -1,12 +1,13 @@
 export const registerUser = async (userData: {
     name: string;
     lastName: string;
+    birthday: string;
     email: string;
-    address: string;
-    phone: string;
+    username: string;
     password: string;
+    confirmPassword: string;
   }) => {
-    const response = await fetch("/api/register", {
+    const response = await fetch("http://localhost:3000/auth/signUp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
