@@ -1,213 +1,112 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
+import React, { useState } from "react";
 import {
   validateAddress,
-  validateConfirmPassword,
   validateEmail,
   validateLastName,
   validateName,
   validatePassword,
   validatePhone,
+  validateConfirmPassword,
 } from "@/helpers/formValidation";
-import React, { useState } from "react";
+import { registerUser } from "@/helpers/auth.helper";
+import { Toast } from "@/helpers/toast";
 
 const Register = () => {
-  const [name, setName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [address, setAddress] = useState<string>("");
-  const [phone, setPhone] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [errors, setErrors] = useState<{
-    name?: string;
-    lastName?: string;
-    email?: string;
-    address?: string;
-    phone?: string;
-    password?: string;
-    confirmPassword?: string;
-  }>({});
+  const [formData, setFormData] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    address: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string | undefined>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const nameError = validateName(name);
-    const lastNameError = validateLastName(lastName);
-    const emailError = validateEmail(email);
-    const addressError = validateAddress(address);
-    const phoneError = validatePhone(phone);
-    const passwordError = validatePassword(password);
-    const confirmPasswordError = validateConfirmPassword(password, confirmPassword);
-
-    if (
-      nameError ||
-      lastNameError ||
-      emailError ||
-      addressError ||
-      phoneError ||
-      passwordError ||
-      confirmPasswordError
-    ) {
-      setErrors({
-        name: nameError,
-        lastName: lastNameError,
-        email: emailError,
-        address: addressError,
-        phone: phoneError,
-        password: passwordError,
-        confirmPassword: confirmPasswordError,
-      });
-      return;
-    }
-
-    // Aquí agregarías la lógica para registrar al usuario.
-    console.log({
-      name,
-      lastName,
-      email,
-      address,
-      phone,
-      password,
-      confirmPassword,
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const newErrors = {
+      name: validateName(formData.name),
+      lastName: validateLastName(formData.lastName),
+      email: validateEmail(formData.email),
+      address: validateAddress(formData.address),
+      phone: validatePhone(formData.phone),
+      password: validatePassword(formData.password),
+      confirmPassword: validateConfirmPassword(formData.password, formData.confirmPassword),
+    };
+
+    setErrors(newErrors);
+
+    if (Object.values(newErrors).some((error) => error)) return;
+
+    try {
+      setIsSubmitting(true);
+      const user = await registerUser(formData);
+      Toast.fire({
+        icon: "success",
+        title: "Registration successful!",
+    });
+      
+      localStorage.setItem("user", JSON.stringify(user));
+      setIsSubmitting(false);
+    } catch (error: any) {
+      alert(error.message);
+      setIsSubmitting(false);
+    }
+  };
+
+  const isFormIncomplete = Object.values(formData).some((value) => !value);
+
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
-        <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
+    <div className="flex justify-center items-center min-h-screen bg-[#F3FFFC]">
+      <div className="bg-green-100 p-8 rounded-lg shadow-lg w-full max-w-sm">
+        <h2 className="text-3xl font-semibold text-center mb-8">Register</h2>
         <form onSubmit={handleRegister}>
-          {/* Name */}
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              First Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md"
-              placeholder="your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
-          </div>
-
-          {/* Last Name */}
-          <div className="mb-4">
-            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
-              Last Name
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md"
-              placeholder="your lastname"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-            {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
-          </div>
-
-          {/* Email */}
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md"
-              placeholder="example@gmail.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-          </div>
-
-          {/* Address */}
-          <div className="mb-4">
-            <label htmlFor="address" className="block text-sm font-medium text-gray-700">
-              Address
-            </label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md"
-              placeholder="123 Main St"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              required
-            />
-            {errors.address && <p className="text-red-500 text-sm">{errors.address}</p>}
-          </div>
-
-          {/* Phone */}
-          <div className="mb-4">
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md"
-              placeholder="(123) 456-7890"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              required
-            />
-            {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
-          </div>
-
-          {/* Password */}
-          <div className="mb-4">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md"
-              placeholder="•••••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
-          </div>
-
-          {/* Confirm Password */}
-          <div className="mb-4">
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md"
-              placeholder="•••••••••••"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-            {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
-          </div>
-
-          {/* Submit Button */}
-          <button type="submit" className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+          {Object.keys(formData).map((key) => (
+            <div key={key} className="mb-6">
+              <input
+                type={key.includes("password") ? "password" : "text"}
+                id={key}
+                name={key}
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                placeholder={key
+                  .replace("confirmPassword", "Confirm Password")
+                  .replace(/([A-Z])/g, " $1")}
+                value={(formData as any)[key]}
+                onChange={handleChange}
+              />
+              {errors[key] && <p className="text-red-500 text-sm mt-1">{errors[key]}</p>}
+            </div>
+          ))}
+          <button
+            type="submit"
+            className="w-full py-3 px-4 bg-[#009375] text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
+            disabled={isSubmitting || isFormIncomplete}
+          >
             Register
           </button>
         </form>
+        <div className="flex items-center justify-center mt-6">
+          <span className="text-sm text-gray-600">or continue with</span>
+        </div>
+        <div className="flex justify-center mt-4">
+          <button className="flex items-center justify-center w-10 h-10 bg-white border border-gray-300 rounded-full hover:shadow-md">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+              alt="Google"
+              className="w-6 h-6"
+            />
+          </button>
+        </div>
       </div>
     </div>
   );
