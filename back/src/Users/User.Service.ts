@@ -30,6 +30,14 @@ export class UserService {
     }
   }
 
+  getUserByUsername(username: string) {
+    try {
+      return this.userRepository.getUserByUsername(username);
+    } catch (error) {
+      throw new BadRequestException('Something got wrong getting user', error.message)
+    }
+  }
+
   deleteUser(id: string) {
     try {
       return this.userRepository.deleteUser(id);

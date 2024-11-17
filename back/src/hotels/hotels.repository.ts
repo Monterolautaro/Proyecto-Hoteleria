@@ -26,7 +26,7 @@ export class HotelsRepository {
     @InjectRepository(Room) private roomRepository: Repository<Room>,
     @InjectRepository(RoomType)
     private roomTypeRepository: Repository<RoomType>,
-  ) {}
+  ) { }
   async insertHotel(hotelData: any) {
     hotelData.map(async (hotelData) => {
       // Inicio query runner e inicio transaccion
@@ -34,7 +34,7 @@ export class HotelsRepository {
       await queryRunner.connect();
       await queryRunner.startTransaction();
       try {
-      
+
         //  Inserto entidad hotel
 
         const hotel = this.hotelRepository.create({
@@ -86,7 +86,6 @@ export class HotelsRepository {
           roomsLeft: number;
           description: string;
         }
-        console.log(hotelData.rooms);
 
         //// Inserto tipos de habitación y habitaciónes
         for (const [roomTypeName, roomData] of Object.entries(
@@ -116,8 +115,7 @@ export class HotelsRepository {
         await queryRunner.commitTransaction();
         return savedHotel;
       } catch (error) {
-        console.log(error);
-
+        
         // Revierto la transacción si hay algun error
         await queryRunner.rollbackTransaction();
         throw error;
@@ -162,7 +160,7 @@ export class HotelsRepository {
 
   async getHotels(page, limit): Promise<Hotel[]> {
     try {
-      const skip = (page - 1)*limit;
+      const skip = (page - 1) * limit;
 
       const hotels = await this.hotelRepository.find({
         take: limit,
