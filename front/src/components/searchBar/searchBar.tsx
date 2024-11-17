@@ -5,7 +5,7 @@ import { useState } from 'react';
 const SearchBarResults = ({ results }: { results: string[] }) => {
   return (
     <div className="w-full max-w-3xl bg-teal-50 text-teal-700 rounded-lg shadow-md mt-2 overflow-hidden border border-teal-200">
-      {results.length > 0 ? (
+      {results.length > 1 ? (
         results.map((result, index) => (
           <div
             key={index}
@@ -29,7 +29,7 @@ const SearchBar = () => {
 
   const handleChange = async (e: string) => {
     setInputValue(e);
-    if (e.length >= 3) {
+    if (e.length >= 1) {
       setLoading(true);
       const result = await getResult(e);
       setResult(result);
@@ -58,7 +58,7 @@ const SearchBar = () => {
           </button>
         </div>
         {/* Renderiza los resultados o el mensaje de "No results found" */}
-        {inputValue.length >= 3 && (
+        {inputValue.length >= 1 && (
           <div className="absolute top-full left-0 right-0">
             <SearchBarResults results={loading ? ['Loading...'] : result} />
           </div>
