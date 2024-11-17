@@ -9,14 +9,12 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
-import { Type } from 'class-transformer';
 
 export class CreateUserDto {
-
   @IsNotEmpty()
   @IsString()
   name: string;
-  
+
   @IsNotEmpty()
   @IsString()
   lastname: string;

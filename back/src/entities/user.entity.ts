@@ -40,20 +40,19 @@ export class User {
   @Column('float', { default: 0 })
   average_session_duration: number;
 
-  @OneToOne(() => Credentials, (credential) => credential.user)
+  @OneToOne(() => Credentials, (credential) => credential.user, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'credential_id' })
   credential!: Credentials;
 
   @OneToMany(() => Booking, (booking) => booking.user)
-  @JoinColumn({ name: 'booking_id' })
   bookings!: Booking[];
 
   @OneToMany(() => VisitsMetrics, (visitMetrics) => visitMetrics.user)
-  @JoinColumn({ name: 'visit_metrics_id' })
   visit_metrics: VisitsMetrics[];
 
   @OneToMany(() => TimeMetrics, (timeMetrics) => timeMetrics.user)
-  @JoinColumn({ name: 'time_metrics_id' })
   time_metrics: TimeMetrics[];
 
   @OneToOne(() => Payment, (payment) => payment.user)

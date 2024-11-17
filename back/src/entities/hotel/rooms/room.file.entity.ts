@@ -1,22 +1,24 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { Room } from "../hotel.rooms.entity";
-
-
-
+import { Room } from '../hotel.rooms.entity';
 
 @Entity({
-    name: 'room_files'
+  name: 'room_files',
 })
 export class RoomFile {
-    @PrimaryGeneratedColumn('uuid')
-    room_file_id: string = uuid()
+  @PrimaryGeneratedColumn('uuid')
+  room_file_id: string = uuid();
 
-    @Column()
-    file_url: string;
+  @Column()
+  file_url: string;
 
-    @ManyToOne(() => Room, (room) => room.files)
-    @JoinColumn({ name: 'room_id' })
-    room: Room
-
+  @ManyToOne(() => Room, (room) => room.files)
+  @JoinColumn({ name: 'room_id' })
+  room: Room;
 }
