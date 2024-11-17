@@ -56,6 +56,5 @@ export class User {
   time_metrics: TimeMetrics[];
 
   @OneToOne(() => Payment, (payment) => payment.user)
-  @JoinColumn({ name: 'payment_id' })
   payment!: Payment;
 }
