@@ -10,8 +10,8 @@ const Header: React.FC = () => {
   return (
     <div>
       {pathname == "/" ? (
-        <div className="h-[90vh] bg-cover bg-center text-white bg-[url('/assets/img1.jpg')] ">
-          <div className="bg-gradient-to-b from-transparent to-[#009375] flex flex-col justify-between items-center w-full h-full pb-7">
+        <div className="h-[90vh] bg-contain bg-center text-white bg-[url('/assets/Hotels.jpg')] ">
+          <div className="bg-gradient-to-b from-[#111b] to-[#009375] flex flex-col justify-between items-center w-full h-full pb-7">
             <Navbar />
             <SearchBar />
 
@@ -28,11 +28,9 @@ const Header: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="h-[40vh] bg-cover bg-center text-white bg-green-900">
-          <div className="bg-gradient-to-b from-transparent to-[#009375] flex flex-col justify-between items-center w-full h-full">
-            <Navbar />
-            <SearchBar />
-          </div>
+        <div className="bg-gradient-to-b from-[#002019] to-[#005f4c] flex flex-col justify-between items-center w-full h-full">
+          <Navbar />
+          <SearchBar />
         </div>
       )}
     </div>
