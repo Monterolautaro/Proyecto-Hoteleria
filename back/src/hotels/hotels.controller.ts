@@ -7,8 +7,10 @@ import {
   ParseUUIDPipe,
   Post,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { HotelsService } from './hotels.service';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('hotels')
 export class HotelsController {
