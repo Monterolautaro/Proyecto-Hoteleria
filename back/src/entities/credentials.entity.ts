@@ -19,7 +19,6 @@ export class Credentials {
     unique: true,
     nullable: false,
     type: 'varchar',
-    length: 15,
   })
   username: string;
 
@@ -31,9 +30,11 @@ export class Credentials {
   email: string;
 
   @Column({
-    type: 'integer',
+    unique: false,
+    nullable: false,
+    type: 'varchar',
   })
-  password: number;
+  password: string;
 
   @OneToOne(() => User, (user) => user.credential)
   @JoinColumn({ name: 'user_id' })
