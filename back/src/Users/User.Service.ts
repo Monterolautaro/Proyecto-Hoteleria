@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { User } from 'src/entities/user.entity';
 import { CreateUserDto } from 'src/dto/User.dto';
@@ -8,29 +8,58 @@ export class UserService {
   constructor(private readonly userRepository: UserRepository) {}
 
   getUsers() {
-    return this.userRepository.getUsers();
+    try {
+      return this.userRepository.getUsers();
+    } catch (error) {
+      throw new BadRequestException('Something got wrong getting users', error.message)
+    }
   }
-  getUsersById(id: string) {
-    return this.userRepository.getUsersById(id);
+  getUserById(id: string) {
+    try {
+      return this.userRepository.getUserById(id);
+    } catch (error) {
+      throw new BadRequestException('Something got wrong getting user', error.message)
+    }
+  }
+
+  getUserByEmail(email: string) {
+    try {
+      return this.userRepository.getUserByEmail(email);
+    } catch (error) {
+      throw new BadRequestException('Something got wrong getting user', error.message)
+    }
   }
 
   deleteUser(id: string) {
-    return this.userRepository.deleteUser(id);
+    try {
+      return this.userRepository.deleteUser(id);
+    } catch (error) {
+      throw new BadRequestException('Something got wrong deleting user', error.message)
+    }
   }
 
   changePassword(id: string, password: string) {
-    return this.userRepository.changePassword(id, password);
+    try {
+      return this.userRepository.changePassword(id, password);
+    } catch (error) {
+      throw new BadRequestException('Something got wrong changing password', error.message)      
+    }
   }
 
   changeEmail(id: string, email: string) {
-    return this.userRepository.changeEmail(id, email);
+    try {
+      return this.userRepository.changeEmail(id, email);
+    } catch (error) {
+      throw new BadRequestException('Something got wrong changing email', error.message)
+    }
   }
 
   changeUsername(id: string, username: string) {
-    return this.userRepository.changeUsername(id, username);
+    try {
+      return this.userRepository.changeUsername(id, username);
+    } catch (error) {
+      throw new BadRequestException('Something got wrong changing username', error.message)
+    }
   }
 
-  createUser(user: CreateUserDto) {
-    return this.userRepository.createUser(user);
-  }
 }

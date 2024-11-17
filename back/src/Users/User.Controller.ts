@@ -1,15 +1,15 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
   Get,
   HttpCode,
-  Post,
+  Param,
+  ParseUUIDPipe,
   Put,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { User } from 'src/entities/user.entity';
-import { CreateUserDto } from 'src/dto/User.dto';
 
 @Controller('users')
 export class UserController {
@@ -18,31 +18,39 @@ export class UserController {
   @HttpCode(200)
   @Get()
   getUsers() {
-    return this.UserService.getUsers();
+    try {
+      return this.UserService.getUsers();
+    } catch (error) {
+      throw new BadRequestException('Something got wrong getting users', error.message)
+    }
   }
   @Get(':id')
-  getUsersById(id: string) {
-    return this.UserService.getUsersById(id);
-  }
-  @Delete(':id')
-  deleteUser(id: string) {
-    return this.UserService.deleteUser(id);
-  }
-  @Put(':id')
-  changePassword(id: string, password: string) {
-    return this.UserService.changePassword(id, password);
-  }
-  @Put(':id')
-  changeEmail(id: string, email: string) {
-    return this.UserService.changeEmail(id, email);
-  }
-  @Put(':id')
-  changeUsername(id: string, username: string) {
-    return this.UserService.changeUsername(id, username);
+  getUserById(@Param('id', ParseUUIDPipe) id: string) {
+      return this.UserService.getUserById(id);
   }
 
-  @Post()
-  createUser(@Body() user: CreateUserDto) {
-    return this.UserService.createUser(user);
+  @Get(':id')
+  getUserByEmail(@Param('id', ParseUUIDPipe) id: string) {
+    return this.UserService.getUserByEmail(id);
+  }
+
+  @Delete(':id')
+  deleteUser(@Param('id', ParseUUIDPipe) id: string) {
+      return this.UserService.deleteUser(id);
+  }
+
+  @Put(':id')
+  changePassword(@Param('id', ParseUUIDPipe) id: string, password: string) {
+    return this.UserService.changePassword(id, password);
+  }
+
+  @Put(':id')
+  changeEmail(@Param('id', ParseUUIDPipe) id: string, email: string) {
+    return this.UserService.changeEmail(id, email);
+  }
+
+  @Put(':id')
+  changeUsername(@Param('id', ParseUUIDPipe) id: string, username: string) {
+    return this.UserService.changeUsername(id, username);
   }
 }
