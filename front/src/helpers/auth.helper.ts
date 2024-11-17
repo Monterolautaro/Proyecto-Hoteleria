@@ -1,6 +1,6 @@
 export const registerUser = async (userData: {
     name: string;
-    lastName: string;
+    lastname: string;
     birthday: string;
     email: string;
     username: string;
@@ -14,6 +14,8 @@ export const registerUser = async (userData: {
       },
       body: JSON.stringify(userData),
     });
+    console.log(userData);
+    
   
     if (!response.ok) {
       const error = await response.json();
@@ -24,7 +26,7 @@ export const registerUser = async (userData: {
   };
   
   export const loginUser = async (credentials: { email: string; password: string }) => {
-    const response = await fetch("/api/login", {
+    const response = await fetch("http://localhost:3000/auth/signIn", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -13,6 +13,7 @@ import { CreateUserDto } from 'src/dto/User.dto';
 import { UserRepository } from 'src/Users/user.repository';
 import { JwtService } from '@nestjs/jwt';
 import { Repository } from 'typeorm';
+import { whenRegister } from 'src/config/nodemailer.config';
 
 @Injectable()
 export class AuthRepository {
@@ -65,6 +66,9 @@ export class AuthRepository {
       });
 
       await queryRunner.commitTransaction();
+
+      whenRegister(userData.email)
+
       return { status: 200, message: 'User created successfully' };
     } catch (error) {
       queryRunner.rollbackTransaction();
