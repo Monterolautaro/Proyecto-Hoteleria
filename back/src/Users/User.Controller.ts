@@ -17,7 +17,7 @@ import { AuthGuard } from 'src/auth/auth.guard';
 import { GetUserByEmailDto } from 'src/dto/getUserByEmail.dto';
 
 @Controller('users')
-// @UseGuards(AuthGuard)
+@UseGuards(AuthGuard)
 export class UserController {
   constructor(private readonly UserService: UserService) {}
 
