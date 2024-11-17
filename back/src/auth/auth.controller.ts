@@ -12,7 +12,7 @@ export class AuthController {
   }
 
   @Post('signIn')
-  async signIn(email: string, password: string): Promise<any> {
+  async signIn(@Body('email') email: string, @Body('password') password: string): Promise<any> {
     return this.authService.signIn(email, password);
   }
 
