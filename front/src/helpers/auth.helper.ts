@@ -1,7 +1,3 @@
-
-import { config } from "dotenv";
-config({ path: ".env" });
-
 export const registerUser = async (userData: {
   name: string;
   lastname: string;
@@ -11,17 +7,13 @@ export const registerUser = async (userData: {
   password: string;
   confirmPassword: string;
 }) => {
-  const response = await fetch(
-    `http://localhost:${process.env.BACKEND_PORT}/auth/signUp`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-
-    }
-  );
+  const response = await fetch(`http://localhost:3000/auth/signUp`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  });
 
   if (!response.ok) {
     const error = await response.json();
@@ -35,18 +27,13 @@ export const loginUser = async (credentials: {
   email: string;
   password: string;
 }) => {
-  const response = await fetch(
-    `http://localhost:${process.env.BACKEND_PORT}/auth/signIn`,
-    {
-
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-
-    }
-  );
+  const response = await fetch(`http://localhost:3000/auth/signIn`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  });
 
   if (!response.ok) {
     const error = await response.json();
@@ -55,4 +42,3 @@ export const loginUser = async (credentials: {
 
   return response.json();
 };
-
