@@ -9,6 +9,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { HotelsModule } from './hotels/hotels.module';
 import { IaModule } from './ia/ia.module';
 import { SearchModule } from './search/search.module';
+import { PaymentsModule } from './payments/payments.module';
 
 dotenvConfig({
   path: '.env',
@@ -25,6 +26,7 @@ dotenvConfig({
         configService.get('typeorm'),
     }),
     SearchModule,
+    PaymentsModule,
     IaModule,
     HotelsModule,
     AuthModule,
