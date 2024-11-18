@@ -28,15 +28,19 @@ const Login = () => {
 
     try {
       setIsSubmitting(true);
-      const user = await loginUser(formData);
+      const { token, user } = await loginUser(formData); // Desestructuramos el token y el usuario
+      localStorage.setItem("token", token); // Almacenamos el token en localStorage
+      localStorage.setItem("user", JSON.stringify(user)); // Almacenamos el usuario en localStorage
       Toast.fire({
         icon: "success",
         title: "Login successfully",
-    });
-      localStorage.setItem("user", JSON.stringify(user));
+      });
       setIsSubmitting(false);
     } catch (error: any) {
-      alert(error.message);
+      Toast.fire({
+        icon: "error",
+        title: error.message || "Login failed",
+      });
       setIsSubmitting(false);
     }
   };
@@ -45,7 +49,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#F3FFFC]">
-      <div className="bg-green-100 p-8 rounded-xl shadow-md border  w-full max-w-sm">
+      <div className="bg-green-100 p-8 rounded-xl shadow-md border w-full max-w-sm">
         <h2 className="text-xl font-semibold text-center mb-6">
           Sign in or create an account
         </h2>
@@ -56,8 +60,8 @@ const Login = () => {
                 type={key === "password" ? "password" : "text"}
                 id={key}
                 name={key}
-                className="w-full p-3 border  bg-green-50 rounded-lg focus:outline-none focus:ring-2 placeholder-gray-400"
-                placeholder={key.charAt(0).toUpperCase() + key.slice(1)} 
+                className="w-full p-3 border bg-green-50 rounded-lg focus:outline-none focus:ring-2 placeholder-gray-400"
+                placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
                 value={(formData as any)[key]}
                 onChange={handleChange}
               />
@@ -68,7 +72,7 @@ const Login = () => {
           ))}
           <button
             type="submit"
-            className="w-full py-3 px-4 bg-[#009375] text-white rounded-lg  disabled:opacity-50"
+            className="w-full py-3 px-4 bg-[#009375] text-white rounded-lg disabled:opacity-50"
             disabled={isSubmitting || isFormIncomplete}
           >
             Log In
@@ -85,5 +89,5 @@ const Login = () => {
       </div>
     </div>
   );
-}  
+};
 export default Login;

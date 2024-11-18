@@ -16,7 +16,7 @@ import { Toast } from "@/helpers/toast";
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
-    lastName: "",
+    lastname: "",
     birthday:"",
     email: "",
     username: "",
@@ -36,7 +36,7 @@ const Register = () => {
 
     const newErrors = {
       name: validateName(formData.name),
-      lastName: validateLastName(formData.lastName),
+      lastname: validateLastName(formData.lastname),
       email: validateEmail(formData.email),
       password: validatePassword(formData.password),
       confirmPassword: validateConfirmPassword(formData.password, formData.confirmPassword),
