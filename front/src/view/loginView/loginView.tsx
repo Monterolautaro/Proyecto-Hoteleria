@@ -28,9 +28,9 @@ const Login = () => {
 
     try {
       setIsSubmitting(true);
-      const { token, user } = await loginUser(formData); // Desestructuramos el token y el usuario
-      localStorage.setItem("token", token); // Almacenamos el token en localStorage
-      localStorage.setItem("user", JSON.stringify(user)); // Almacenamos el usuario en localStorage
+      const { token, user } = await loginUser(formData); 
+      localStorage.setItem("token", token); 
+      localStorage.setItem("user", JSON.stringify(user)); 
       Toast.fire({
         icon: "success",
         title: "Login successfully",
