@@ -1,9 +1,11 @@
 import axios from "axios";
+import { config} from "dotenv";
+config({path: '.env'});
 
 const getResult = async (query: string) => {
   try {
     const response = await axios.post(
-      `http://localhost:3000/search/bar?query=${query}`
+      `http://localhost:${process.env.BACKEND_PORT}/search/bar?query=${query}`
     );
 
     if (response) {
