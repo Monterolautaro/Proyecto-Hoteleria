@@ -11,22 +11,30 @@ export class PaymentsRepository {
   ) {}
 
   async GetPayments() {
-    return 'payment getPayments'; //await this.paymentRepository.find();
+    try {
+      return await this.paymentRepository.find();
+    } catch (error) {
+      throw error ;
+    }
   }
 
-  async CreatePayment(payment: any) {
-    return 'payment createPayment'; //await this.paymentRepository.save(payment);
+  async CreatePayment(payment: Partial<Payment> ) {
+    try {
+    return await this.paymentRepository.save(payment);
+    } catch (error) {
+      throw error ;
+    }
   }
 
-  async UpdatePayment(id: number, payment: any) {
-    return 'payment updatePayment'; //await this.paymentRepository.update(id, payment);
+  async UpdatePayment(id: string, payment: any) {
+    return await this.paymentRepository.update(id, payment);
   }
 
-  async DeletePayment(id: number) {
-    return 'payment deletePayment'; //await this.paymentRepository.delete(id);
+  async DeletePayment(id: string) {
+    return await this.paymentRepository.delete(id);
   }
 
-  async GetPaymentById(id: number) {
-    return 'payment getPaymentById'; //await this.paymentRepository.findOneBy({ id });
+  async GetPaymentById(id: string) {
+    return await this.paymentRepository.findOneBy({ payment_id: id });
   }
 }

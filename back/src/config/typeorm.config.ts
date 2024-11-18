@@ -6,8 +6,10 @@ dotenvConfig({
   path: '.env',
 });
 
+
                 // para correr docker, comentar el DB_HOST y descomentar el host: postgres
                 // para correr el entorno local, comentar postgres y descomentar el DB_HOST
+
 
 const config = {
   type: 'postgres',
