@@ -4,7 +4,7 @@ import { User } from 'src/entities/user.entity';
 import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 import { Credentials } from 'src/entities/credentials.entity';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UserRepository {
@@ -22,7 +22,7 @@ export class UserRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting users',
-        error.message,
+        error,
       );
     }
   }
@@ -38,7 +38,7 @@ export class UserRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting user by id',
-        error.message,
+        error,
       );
     }
   }
@@ -54,7 +54,7 @@ export class UserRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting user by email',
-        error.message,
+        error,
       );
     }
   }
@@ -69,7 +69,7 @@ export class UserRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting user by username',
-        error.message,
+        error,
       );
     }
   }
@@ -84,7 +84,7 @@ export class UserRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong deleting user',
-        error.message,
+        error,
       );
     }
   }
@@ -123,7 +123,7 @@ export class UserRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong changing password',
-        error.message,
+        error,
       );
     }
   }
@@ -147,7 +147,7 @@ export class UserRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong changing email',
-        error.message,
+        error,
       );
     }
   }
@@ -173,7 +173,7 @@ export class UserRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong changing username',
-        error.message,
+        error,
       );
     }
   }

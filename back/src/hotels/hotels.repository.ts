@@ -146,7 +146,7 @@ export class HotelsRepository {
     } catch (error) {
       throw new BadRequestException(
         `Error getting hotel with ID ${id}`,
-        error.message,
+        error
       );
     }
   }
@@ -170,7 +170,7 @@ export class HotelsRepository {
       });
       return hotels;
     } catch (error) {
-      throw new BadRequestException('Error getting hotels', error.message);
+      throw new BadRequestException('Error getting hotels', error);
     }
   }
 }

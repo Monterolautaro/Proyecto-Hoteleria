@@ -4,15 +4,13 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Credentials } from 'src/entities/credentials.entity';
 import { User } from 'src/entities/user.entity';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { connectionSource } from 'src/config/typeorm.config';
-import { CreateUserDto } from 'src/dto/User.dto';
-import { UserRepository } from 'src/Users/user.repository';
+import { CreateUserDto } from 'src/dto/user.dto';
+import { UserRepository } from 'src/users/user.repository';
 import { JwtService } from '@nestjs/jwt';
-import { Repository } from 'typeorm';
 import { whenRegister } from 'src/config/nodemailer.config';
 
 @Injectable()
@@ -77,7 +75,7 @@ export class AuthRepository {
 
       throw new BadRequestException(
         'An error has ocurred creating user',
-        error.message,
+        error,
       );
     } finally {
       queryRunner.release();
@@ -110,7 +108,7 @@ export class AuthRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong signing in',
-        error.message,
+        error,
       );
     }
   }
