@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { User } from './user.entity';
+import { PaymentDetails } from './payments/paymentdetails.entity';
 
 @Entity()
 export class Payment {
@@ -25,4 +26,8 @@ export class Payment {
   @OneToOne(() => User, (user) => user.payment)
   @JoinColumn({ name: 'user_id' })
   user: User;
+
+  @OneToOne(() => PaymentDetails, (paymentDetails) => paymentDetails.details)
+  @JoinColumn({ name: 'payment_details_id' })
+  payment_details: PaymentDetails;
 }
