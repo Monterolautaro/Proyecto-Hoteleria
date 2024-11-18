@@ -11,7 +11,11 @@ const SearchBar = () => {
 
   const handleChange = async (e: string) => {
     setInputValue(e);
+<<<<<<< Updated upstream
     if (e.length > 2) {
+=======
+    if (e.length >= 1) {
+>>>>>>> Stashed changes
       setLoading(true);
       const result = await getResult(e);
       setResult(result);
@@ -43,7 +47,11 @@ const SearchBar = () => {
       <div
         className={`w-full max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
       >
+<<<<<<< Updated upstream
         {results.length > 0 ? (
+=======
+        {results.length >= 1 ? (
+>>>>>>> Stashed changes
           results.map((result, index) => (
             <div
               key={index}
@@ -82,6 +90,7 @@ const SearchBar = () => {
           </Link>
         </div>
         {/* Renderiza los resultados o el mensaje de "No results found" */}
+<<<<<<< Updated upstream
         <div className="absolute top-full left-0 right-0">
           <SearchBarResults
             results={loading ? ["Loading..."] : result}
@@ -89,6 +98,13 @@ const SearchBar = () => {
             visible={visible}
           />
         </div>
+=======
+        {inputValue.length >= 1 && (
+          <div className="absolute top-full left-0 right-0">
+            <SearchBarResults results={loading ? ["Loading..."] : result} />
+          </div>
+        )}
+>>>>>>> Stashed changes
       </div>
     </div>
   );

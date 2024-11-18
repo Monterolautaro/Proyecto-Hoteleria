@@ -1,7 +1,7 @@
 // utils/fetchCards.ts
 export const fetchCards = async (): Promise<any[]> => {
     try {
-      const response = await fetch('https://api.example.com/hotels'); // Reemplaza con la URL de tu API
+      const response = await fetch('http://localhost:3000/hotels'); // Reemplaza con la URL de tu API
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
