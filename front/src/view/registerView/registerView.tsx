@@ -36,7 +36,7 @@ const Register = () => {
 
     const newErrors = {
       name: validateName(formData.name),
-      lastName: validateLastName(formData.lastname),
+      lastname: validateLastName(formData.lastname),
       email: validateEmail(formData.email),
       password: validatePassword(formData.password),
       confirmPassword: validateConfirmPassword(formData.password, formData.confirmPassword),

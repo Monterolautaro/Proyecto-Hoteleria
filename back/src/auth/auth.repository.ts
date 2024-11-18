@@ -35,9 +35,11 @@ export class AuthRepository {
         userData.username,
       );
 
-      if (foundEmail !== null) throw new BadRequestException('email already in use');
+      if (foundEmail !== null)
+        throw new BadRequestException('email already in use');
 
-      if (foundUsername !== null) throw new BadRequestException('username already in use');
+      if (foundUsername !== null)
+        throw new BadRequestException('username already in use');
 
       if (userData.password !== userData.confirmPassword)
         throw new BadRequestException('Passwords do not match');
@@ -86,14 +88,16 @@ export class AuthRepository {
     try {
       if (!email || !password) return 'data is required';
       const foundUser = await this.userRepository.getUserByEmail(email);
-      if (foundUser === null) throw new NotFoundException('User not registered');
+      if (foundUser === null)
+        throw new NotFoundException('User not registered');
 
       const isPasswordValid = await bcrypt.compare(
         password,
         foundUser.credential.password,
-      )
+      );
 
-      if (!isPasswordValid) throw new UnauthorizedException('Invalid credentials');
+      if (!isPasswordValid)
+        throw new UnauthorizedException('Invalid credentials');
 
       const payload = {
         id: foundUser.user_id,

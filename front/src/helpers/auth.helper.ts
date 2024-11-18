@@ -16,9 +16,7 @@ export const registerUser = async (userData: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userData),
-    });
-    console.log(userData);
-    
+    });    
   
     if (!response.ok) {
       const error = await response.json();
@@ -44,4 +42,3 @@ export const registerUser = async (userData: {
   
     return response.json();
   };
-  
