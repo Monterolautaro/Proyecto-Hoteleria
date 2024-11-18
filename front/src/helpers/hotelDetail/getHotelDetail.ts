@@ -1,11 +1,13 @@
-import { IHotelDetail } from "@/interfaces";
+import { IHotel } from "@/interfaces";
 import axios from "axios";
 
-const getHotelById = async (id: string) => {
+const API_URL = process.env.API_URL;
+
+const getHotelById = async (id: string): Promise<IHotel | undefined> => {
   try {
-    const hotelInfo: IHotelDetail | undefined = await axios.get(
-      `http://localhost:3000/hotels/${id}`
-    );
+    const response = await axios.get(`${API_URL}/hotels/${id}`);
+    const hotelInfo = response?.data;
+
     return hotelInfo;
   } catch (error) {
     console.log(error);

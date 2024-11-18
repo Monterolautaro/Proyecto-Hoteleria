@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             <Navbar />
             <SearchBar />
 
-            <div className="relative z-10 text-center">
+            <div className=" text-center">
               <h1 className="text-4xl font-extrabold mb-4">
                 WELCOME TO HOTELIFY!
               </h1>

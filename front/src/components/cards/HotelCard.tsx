@@ -1,4 +1,5 @@
-'use client'; // Asegúrate de que este componente sea cliente
+/* eslint-disable @next/next/no-img-element */
+"use client"; // Asegúrate de que este componente sea cliente
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -22,7 +23,7 @@ const HotelCard: React.FC<HotelCardProps> = ({
   const router = useRouter();
 
   const handleCardClick = () => {
-    router.push(`/hotels/${id}`); // Redirige a la vista de detalles
+    router.push(`/hotel-detail/${id}`); // Redirige a la vista de detalles
   };
 
   return (
@@ -30,11 +31,7 @@ const HotelCard: React.FC<HotelCardProps> = ({
       className="max-w-[400px] w-full bg-[#D0F6E9] rounded-lg shadow-md overflow-hidden border border-gray-200 h-[400px] flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow"
       onClick={handleCardClick}
     >
-      <img
-        className="w-full h-[260px] object-cover"
-        src={image}
-        alt={title}
-      />
+      <img className="w-full h-[260px] object-cover" src={image} alt={title} />
       <div className="p-4 flex-grow">
         <div className="flex items-center justify-between mb-1">
           <h2 className="text-xl font-semibold overflow-hidden text-ellipsis whitespace-nowrap">

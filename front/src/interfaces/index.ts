@@ -30,20 +30,3 @@ export interface IHotel {
     bar: boolean;
 }; */
 }
-
-export interface IHotelDetail {
-  id: string;
-  name: string;
-  stars: number;
-  rating: number;
-  imgUrl: string;
-  description: string;
-  city: string;
-  country: string;
-  street: string;
-  pool: boolean;
-  spa: boolean;
-  gym: boolean;
-  restaurant: boolean;
-  bar: boolean;
-}
