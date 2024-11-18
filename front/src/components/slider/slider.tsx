@@ -2,10 +2,10 @@
 import HotelCard from "@/components/cards/HotelCard"; // Importa el componente HotelCard
 import { useEffect, useState } from "react";
 
-// Array de componentes con variaciones
 const components = [
   <HotelCard
     key={1}
+    id="1"
     image="https://via.placeholder.com/600x400?text=Hotel+1"
     title="Hotel Paradise"
     location="Cartagena, Colombia"
@@ -14,6 +14,7 @@ const components = [
   />,
   <HotelCard
     key={2}
+    id="2"
     image="https://via.placeholder.com/600x400?text=Hotel+2"
     title="Hotel Ocean Breeze"
     location="Santa Marta, Colombia"
@@ -21,6 +22,7 @@ const components = [
   />,
   <HotelCard
     key={3}
+    id="3"
     image="https://via.placeholder.com/600x400?text=Hotel+3"
     title="Mountain Retreat"
     location="San Gil, Colombia"
@@ -29,6 +31,7 @@ const components = [
   />,
   <HotelCard
     key={4}
+    id="4"
     image="https://via.placeholder.com/600x400?text=Hotel+4"
     title="Sunset Resort"
     location="San Andrés, Colombia"
@@ -37,6 +40,7 @@ const components = [
   />,
   <HotelCard
     key={5}
+    id="5"
     image="https://via.placeholder.com/600x400?text=Hotel+5"
     title="Luxury Getaway"
     location="Medellín, Colombia"
@@ -45,6 +49,7 @@ const components = [
   />,
   <HotelCard
     key={6}
+    id="6"
     image="https://via.placeholder.com/600x400?text=Hotel+6"
     title="Beachfront Hotel"
     location="Barranquilla, Colombia"
@@ -53,11 +58,21 @@ const components = [
   />,
   <HotelCard
     key={7}
+    id="7"
     image="https://via.placeholder.com/600x400?text=Hotel+7"
     title="Cozy Stay"
     location="Cali, Colombia"
     rating={4}
     price="COP 110,000"
+  />,
+  <HotelCard
+    key={8}
+    id="8"
+    image="https://via.placeholder.com/600x400?text=Hotel+8"
+    title="Elegant Lodge"
+    location="Bogotá, Colombia"
+    rating={5}
+    price="COP 300,000"
   />,
 ];
 
@@ -65,15 +80,13 @@ export default function ComponentSlider(): JSX.Element {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  // Número de componentes visibles en el carrusel
-  const componentsToShow = currentIndex === 0 ? 4 : 3;
+  const componentsPerPage = 4;
 
-  // Función para alternar entre las dos vistas (primero 4 y luego 3)
   const nextSlide = (): void => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % 2);
+    const totalSlides = Math.ceil(components.length / componentsPerPage);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
   };
 
-  // useEffect hook para cambiar los componentes automáticamente
   useEffect(() => {
     if (!isHovered) {
       const interval = setInterval(() => {
@@ -83,52 +96,45 @@ export default function ComponentSlider(): JSX.Element {
     }
   }, [isHovered]);
 
-  // Manejar evento de mouse over
   const handleMouseOver = (): void => {
     setIsHovered(true);
   };
 
-  // Manejar evento de mouse leave
   const handleMouseLeave = (): void => {
     setIsHovered(false);
   };
 
-  // Obtener los componentes visibles según el índice actual
   const getVisibleComponents = () => {
-    const startIndex = currentIndex === 0 ? 0 : 4;
-    return components.slice(startIndex, startIndex + componentsToShow);
+    const startIndex = currentIndex * componentsPerPage;
+    return components.slice(startIndex, startIndex + componentsPerPage);
   };
 
   return (
-    <div className="relative max-w-4xl mx-auto mt-4">
-      {/* Título */}
+    <div className="relative max-w-6xl mx-auto mt-4">
       <h2 className="text-2xl font-bold ml-4 mb-4">Weekly Recommendations</h2>
-
-      {/* Contenedor del carrusel */}
       <div
-        className="relative group flex justify-center  h-fit pb-6"
+        className="relative group flex justify-center h-fit pb-6"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
-        {/* Mostrar los componentes activos */}
         {getVisibleComponents().map((component, index) => (
-          <div key={index} className="w-1/5 px-2">
+          <div key={index} className="w-1/4 px-2">
             {component}
           </div>
         ))}
       </div>
-
-      {/* Indicadores de navegación como puntitos */}
       <div className="flex justify-center mt-4 space-x-2">
-        {[0, 1].map((index) => (
-          <div
-            key={index}
-            className={`mb-9 h-3 w-3 rounded-full transition-all duration-500 ease-in-out cursor-pointer ${
-              index === currentIndex ? "bg-[#009375]" : "bg-[#b0b0b0]"
-            }`}
-            onClick={() => setCurrentIndex(index)}
-          ></div>
-        ))}
+        {Array.from({ length: Math.ceil(components.length / componentsPerPage) }).map(
+          (_, index) => (
+            <div
+              key={index}
+              className={`h-3 w-3 rounded-full cursor-pointer ${
+                index === currentIndex ? "bg-[#009375]" : "bg-[#b0b0b0]"
+              }`}
+              onClick={() => setCurrentIndex(index)}
+            ></div>
+          )
+        )}
       </div>
     </div>
   );

@@ -102,10 +102,7 @@
         "bar": true
     }
 },
-
-
 {
-   
     "name": "San Fernando Plaza Hotel",
     "details": {
         "stars": 5,
@@ -156,10 +153,7 @@
         "bar": true
     }
 },
-
-
 {
-    
     "name": "Dann Carlton Medellin Hotel",
     "details": {
         "stars": 5,
@@ -210,11 +204,7 @@
         "bar": true
     }
 },
-
-
-
 {
-   
     "name": "Golden Valley Hotel",
     "details": {
         "stars": 4,
@@ -265,12 +255,7 @@
         "bar": true
     }
 },
-
-
-
-
-{
-   
+{ 
     "name": "El Dorado Hotel",
     "details": {
         "stars": 3.5,
@@ -321,10 +306,7 @@
         "bar": true
     }
 },
-
-
 {
-   
     "name": "Decameron Marazul",
     "details": {
         "stars": 3,
@@ -375,10 +357,7 @@
         "bar": true
     }
 },
-
-
 {
-   
     "name": "Hotel Cocoplum Beach",
     "details": {
         "stars": 3,
@@ -429,10 +408,7 @@
         "bar": true
     }
 },
-
-
 {
-   
     "name": "Hotel Lord Pierre",
     "details": {
         "stars": 3,
@@ -483,9 +459,7 @@
         "bar": true
     }
 },
-
 {
-   
     "name": "Samawi Hotel",
     "details": {
         "stars": 4,
@@ -536,12 +510,7 @@
         "bar": true
     }
 },
-
-
-
-
 {
-   
     "name": "Hotel Majestic",
     "details": {
         "stars": 4,
@@ -592,10 +561,7 @@
         "bar": true
     }
 },
-
-
 {
-   
     "name": "Hotel Caribe 79",
     "details": {
         "stars": 3,
@@ -646,10 +612,7 @@
         "bar": true
     }
 },
-
-
 {
-   
     "name": "Hilton Garden Inn Barranquilla",
     "details": {
         "stars": 3,
@@ -700,10 +663,7 @@
         "bar": true
     }
 },
-
-
 {
-   
     "name": "ibis Barranquilla",
     "details": {
         "stars": 3,
@@ -754,10 +714,7 @@
         "bar": true
     }
 },
-
-
 {
-   
     "name": "Radisson Diamond Barranquilla",
     "details": {
         "stars": 5,

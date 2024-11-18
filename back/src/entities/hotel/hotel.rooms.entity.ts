@@ -3,12 +3,14 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { RoomType } from './roomsType.entity';
 import { Hotel } from './hotel.entity';
+import { RoomFile } from './rooms/room.file.entity';
 
 @Entity({
   name: 'rooms',
@@ -29,4 +31,8 @@ export class Room {
   @ManyToOne(() => Hotel, (hotel) => hotel.room, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'hotel_id' })
   hotel!: Hotel;
+
+  @OneToMany(() => RoomFile, (room_file) => room_file.room)
+  @JoinColumn({ name: 'room_file_id' })
+  files!: RoomFile[];
 }

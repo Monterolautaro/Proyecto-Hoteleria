@@ -1,0 +1,1560 @@
+[
+  {
+    "name": "Yrigoyen 111 Hotel",
+    "details": {
+      "stars": 4,
+      "rating": 9.2,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/35038115.jpg?k=1bab8c6261da8aa7eb3d1a8400315e635a6409c2911f3379afb55da78cf25072&o=&hp=1",
+      "description": "Hotel boutique que ofrece habitaciones de lujo que combinan un estilo clásico con detalles modernos. También cuenta con conexión de wifi gratis, pileta al aire libre y centro de fitness."
+    },
+    "address": {
+      "city": "Córdoba",
+      "country": "Argentina",
+      "street": "Av. Hipólito Yrigoyen 111, Nueva Córdoba"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 12
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 130000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación cómoda y moderna para una persona."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 166659,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación cómoda con dos camas individuales o con cama doble grande."
+        }
+      },
+      {
+        "type": "suit",
+        "room_type": {
+          "price": 179589,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Suit amplia con cama doble grande y un sofa cama."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": false,
+      "bar": true
+    }
+  },
+
+  {
+    "name": "Windsor Hotel & Tower",
+    "details": {
+      "stars": 4,
+      "rating": 9.0,
+      "imgUrl": "https://windsor-tower.allcordobahotels.com/data/Images/OriginalPhoto/11493/1149317/1149317380/image-cordoba-windsor-hotel-tower-30.JPEG",
+      "description": "El Windsor Hotel & Tower presenta un interior de lujo en mármol y ofrece wifi gratis, terraza con pileta climatizada y habitaciones con vistas a la ciudad. Se puede reservar un servicio de masajes. El gimnasio cuenta con entrenadores personales."
+    },
+    "address": {
+      "city": "Córdoba",
+      "country": "Argentina",
+      "street": "Buenos Aires 214, 5000 Córdoba, Argentina"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 8
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 180278,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Habitación de lujo con servicios exclusivos y cama doble."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 207082,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Habitación doublé superior con cama doble extragrande y cuna gratis disponible."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Howard Johnson La Cañada Hotel & Suites",
+    "details": {
+      "stars": 4,
+      "rating": 8.2,
+      "imgUrl": "https://www.alooja.com.ar/files/7/6/8/768-8603.jpg",
+      "description": "Hotel familiar con spa y excelente ubicación."
+    },
+    "address": {
+      "city": "Córdoba",
+      "country": "Argentina",
+      "street": "Figueroa Alcorta 20, Centro"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "room": [
+      {
+        "type": "double",
+        "room_type": {
+          "price": 115505,
+          "currency": "ARS",
+          "rooms_left": 6,
+          "description": "Habitación acogedora para parejas con cama doble extragrande."
+        }
+      },
+      {
+        "type": "triple",
+        "room_type": {
+          "price": 115505,
+          "currency": "ARS",
+          "rooms_left": 6,
+          "description": "Habitación con 2 camas dobles."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Quorum Córdoba Hotel, Resort Urbano",
+    "details": {
+      "stars": 4,
+      "rating": 8.2,
+      "imgUrl": "https://th.bing.com/th/id/OIP.55n6qeIw-eZHWQgsEU6-VAHaE1?rs=1&pid=ImgDetMain",
+      "description": "Complejo urbano con centro de convenciones y áreas deportivas."
+    },
+    "address": {
+      "city": "Córdoba",
+      "country": "Argentina",
+      "street": "Av. La Voz del Interior 7000"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 15
+    },
+    "room": [
+      {
+        "type": "double",
+        "room_type": {
+          "price": 179456,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitación con dos camas dobles."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 215348,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitacion superior con una cama doble extragrande."
+        }
+      },
+      {
+        "type": "triple",
+        "room_type": {
+          "price": 253898,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitacion triple con tres camas individuales o una cama individual y una cama doble"
+        }
+      }
+    ],
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Buen Pastor Capuchinos Hotel",
+    "details": {
+      "stars": 3,
+      "rating": 8.7,
+      "imgUrl": "https://th.bing.com/th/id/OIP.gg4qt50k0yH7ZimMUb6gawHaE7?rs=1&pid=ImgDetMain",
+      "description": "Hotel acogedor cerca de atracciones turísticas."
+    },
+    "address": {
+      "city": "Córdoba",
+      "country": "Argentina",
+      "street": "Av. Hipólito Yrigoyen 325, Nueva Córdoba"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 7
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 380000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación simple pero cómoda."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": false,
+      "bar": false
+    }
+  },
+  {
+    "name": "Cala Hotel Boutique",
+    "details": {
+      "stars": 4,
+      "rating": 8.8,
+      "imgUrl": "https://th.bing.com/th/id/OIP.BLvv0t7Vxwo1vg1sNOeyKAHaFj?rs=1&pid=ImgDetMain",
+      "description": "Hotel elegante con jardín y terraza, cerca del autódromo Rosendo Hernández."
+    },
+    "address": {
+      "city": "San Luis",
+      "country": "Argentina",
+      "street": "Av. del Viento 1234"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 20000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Cómoda habitación para 1 persona con vista al jardín."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 35000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación para 2 personas con balcón privado."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 50000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Amplia suite con sala de estar y jacuzzi."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "CHAKRAS Termas Hotel & Spa",
+    "details": {
+      "stars": 3,
+      "rating": 8.8,
+      "imgUrl": "https://th.bing.com/th/id/OIP.embwOHTGqmrCglLJbJBMLgHaDa?rs=1&pid=ImgDetMain",
+      "description": "Hotel termal con spa y restaurante, ideal para relajarse."
+    },
+    "address": {
+      "city": "San Luis",
+      "country": "Argentina",
+      "street": "Ruta Nacional 147 Km 16"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 25000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Habitación acogedora con acceso al spa."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 40000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Habitación espaciosa con vista al parque termal."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 65000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Suite premium con acceso exclusivo a termas privadas."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel Pueblo Huarpe",
+    "details": {
+      "stars": 3,
+      "rating": 7.9,
+      "imgUrl": "https://th.bing.com/th/id/OIP.x0lw8uG5a42miXW4Yc2l9AHaD4?rs=1&pid=ImgDetMain",
+      "description": "Alojamiento cómodo y tradicional, perfecto para familias."
+    },
+    "address": {
+      "city": "San Luis",
+      "country": "Argentina",
+      "street": "Calle Belgrano 1568"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 12
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 150000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación básica con servicios esenciales."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 280000,
+          "currency": "ARS",
+          "rooms_left": 6,
+          "description": "Habitación doble con baño privado."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Entre Cielos Wine & Wellness Hotel",
+    "details": {
+      "stars": 5,
+      "rating": 4.8,
+      "imgUrl": "https://th.bing.com/th/id/OIP.ut4-KqDGIffBcClyybl_iQHaE8?rs=1&pid=ImgDetMain",
+      "description": "Un hotel boutique rodeado de viñedos, ideal para el relax con spa y experiencias enológicas."
+    },
+    "address": {
+      "city": "Luján de Cuyo",
+      "country": "Argentina",
+      "street": "Guardia Vieja 1998"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 15
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 200000,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitación individual con vista a los Andes."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 300000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación doble con terraza privada."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 500,
+          "currency": "USD",
+          "rooms_left": 2,
+          "description": "Suite de lujo con jacuzzi y bodega privada."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Park Hyatt Mendoza",
+    "details": {
+      "stars": 5,
+      "rating": 4.6,
+      "imgUrl": "https://th.bing.com/th/id/OIP.XCRry36w9JP1JqTucbmbMwHaFj?rs=1&pid=ImgDetMain",
+      "description": "Lujoso hotel en el centro de Mendoza, con spa y casino."
+    },
+    "address": {
+      "city": "Mendoza",
+      "country": "Argentina",
+      "street": "Chile 1124"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 20
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 180,
+          "currency": "USD",
+          "rooms_left": 8,
+          "description": "Habitación estándar con vista a la ciudad."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 250000,
+          "currency": "ARS",
+          "rooms_left": 6,
+          "description": "Habitación doble con cama king y acceso al spa."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 450000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Suite con comedor y sala de estar independiente."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Argentino Hotel",
+    "details": {
+      "stars": 4,
+      "rating": 4.1,
+      "imgUrl": "https://th.bing.com/th/id/OIP.KKMiBqSQbRHgFrEZW7eINAHaE8?rs=1&pid=ImgDetMain",
+      "description": "Hotel acogedor frente a la Plaza Independencia, ideal para familias."
+    },
+    "address": {
+      "city": "Mendoza",
+      "country": "Argentina",
+      "street": "Espejo 455"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 90000,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitación sencilla con WiFi gratis."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 120000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación doble con desayuno incluido."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Diplomatic Hotel",
+    "details": {
+      "stars": 5,
+      "rating": 4.7,
+      "imgUrl": "https://th.bing.com/th/id/OIP.kLdGd1D4pi8-6rKHaaL1PQHaE8?rs=1&pid=ImgDetMain",
+      "description": "Hotel elegante con vistas a los Andes y gastronomía gourmet."
+    },
+    "address": {
+      "city": "Mendoza",
+      "country": "Argentina",
+      "street": "Belgrano 1041"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 12
+    },
+    "room": [
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 400000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Suite premium con balcón panorámico."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Sheraton Mendoza Hotel",
+    "details": {
+      "stars": 5,
+      "rating": 4.5,
+      "imgUrl": "https://th.bing.com/th/id/OIP.59GV3QVxBTtgVg6DY00FYAHaD4?rs=1&pid=ImgDetMain",
+      "description": "Ubicación céntrica con piscina interior y servicios de lujo."
+    },
+    "address": {
+      "city": "Mendoza",
+      "country": "Argentina",
+      "street": "Primitivo de la Reta 989"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 15
+    },
+    "room": [
+      {
+        "type": "double",
+        "room_type": {
+          "price": 220000,
+          "currency": "ARS",
+          "rooms_left": 6,
+          "description": "Habitación doble con vista a la ciudad."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 380000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Suite ejecutiva con sala de reuniones."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Alhambra",
+    "details": {
+      "stars": 3,
+      "rating": 7.4,
+      "imgUrl": "https://th.bing.com/th/id/OIP.XhXIOn3n9LtJ1EsDvwWgjQHaEe?rs=1&pid=ImgDetMain",
+      "description": "Hotel económico ubicado a 150 m del centro de San Juan, ideal para viajeros."
+    },
+    "address": {
+      "city": "San Juan",
+      "country": "Argentina",
+      "street": "Calle Principal 123"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "room": [
+      {
+        "type": "double",
+        "room_type": {
+          "price": 50000,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitación doble con desayuno incluido."
+        }
+      },
+      {
+        "type": "triple",
+        "room_type": {
+          "price": 70000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación triple con aire acondicionado."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Pircas de Puyuta",
+    "details": {
+      "stars": 4,
+      "rating": 9.9,
+      "imgUrl": "https://th.bing.com/th/id/OIP.riKMOmLJfXI5jBZIaMtOCAHaEC?rs=1&pid=ImgDetMain",
+      "description": "Hotel boutique rodeado de naturaleza, perfecto para desconectar."
+    },
+    "address": {
+      "city": "San Juan",
+      "country": "Argentina",
+      "street": "Ruta 40 km 12.2"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 8
+    },
+    "room": [
+      {
+        "type": "double",
+        "room_type": {
+          "price": 100000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación doble con vistas panorámicas."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Plaza San Juan",
+    "details": {
+      "stars": 4,
+      "rating": 8.5,
+      "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/1c/86/88/1b/hotel-plaza-san-juan.jpg",
+      "description": "Hotel moderno ubicado en pleno centro, con servicios de lujo."
+    },
+    "address": {
+      "city": "San Juan",
+      "country": "Argentina",
+      "street": "Sarmiento 344 (Sur)"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 15
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 60000,
+          "currency": "ARS",
+          "rooms_left": 7,
+          "description": "Habitación sencilla con WiFi gratis."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 150000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Suite amplia con jacuzzi privado."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Del Bono Park",
+    "details": {
+      "stars": 5,
+      "rating": 9.0,
+      "imgUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/61/8a/c6/del-bono-park-hotel-spa.jpg?w=700&h=-1&s=1",
+      "description": "Hotel de lujo con spa, restaurante gourmet y casino."
+    },
+    "address": {
+      "city": "San Juan",
+      "country": "Argentina",
+      "street": "Avenida Central 2345"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 20
+    },
+    "room": [
+      {
+        "type": "double",
+        "room_type": {
+          "price": 200000,
+          "currency": "ARS",
+          "rooms_left": 10,
+          "description": "Habitación doble de lujo con vistas a la ciudad."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 400000,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Suite premium con todas las comodidades."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Valle Fértil Hostería",
+    "details": {
+      "stars": 3,
+      "rating": 7.2,
+      "imgUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/4b/8b/d9/hosteria-vale-fertil.jpg?w=700&h=-1&s=1",
+      "description": "Hostería acogedora para disfrutar de paisajes rurales."
+    },
+    "address": {
+      "city": "Valle Fértil",
+      "country": "Argentina",
+      "street": "Ruta Provincial 510"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 12
+    },
+    "room": [
+      {
+        "type": "double",
+        "room_type": {
+          "price": 80000,
+          "currency": "ARS",
+          "rooms_left": 6,
+          "description": "Habitación doble con desayuno."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Maran Suites & Towers",
+    "details": {
+      "stars": 4,
+      "rating": 9.0,
+      "imgUrl": "https://th.bing.com/th/id/R.9ef9222a23b12ddd659342b775f453ee?rik=pbGMq8hVUrMOlw&pid=ImgRaw&r=0",
+      "description": "Ubicado en Paraná, este hotel ofrece pileta al aire libre, gimnasio y wifi gratuito."
+    },
+    "address": {
+      "city": "Paraná",
+      "country": "Argentina",
+      "street": "Av. Francisco Ramírez 1037"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 15
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 70000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación individual con vista a la ciudad."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 95000,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitación doble con acceso a la piscina."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 120000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Suite premium con balcón y vista al río."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Noha Casa de Campo",
+    "details": {
+      "stars": 4,
+      "rating": 9.4,
+      "imgUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/c5/36/b9/noha-casa-de-campo.jpg?w=900&h=600&s=1",
+      "description": "Hotel boutique en Colón con jardines amplios y desayuno incluido."
+    },
+    "address": {
+      "city": "Colón",
+      "country": "Argentina",
+      "street": "Ruta 135 km 6.5"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 80000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación individual rodeada de naturaleza."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 100000,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitación doble con desayuno gourmet."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 150000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Suite exclusiva con terraza privada."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hathor Hotels",
+    "details": {
+      "stars": 4,
+      "rating": 8.5,
+      "imgUrl": "https://th.bing.com/th/id/OIP.oND9p3iQXntR3hOzkc3rrAHaEK?rs=1&pid=ImgDetMain",
+      "description": "Hotel moderno con piscina al aire libre, gimnasio y restaurante. Ideal para quienes visitan las termas de Concordia."
+    },
+    "address": {
+      "city": "Concordia",
+      "country": "Argentina",
+      "street": "Av. San Lorenzo 234"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 12
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 200000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación individual con vistas al jardín."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 250000,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitación doble con balcón y acceso a la piscina."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Costarenas Hotel & Spa",
+    "details": {
+      "stars": 5,
+      "rating": 9.2,
+      "imgUrl": "https://th.bing.com/th/id/OIP.iKNNDjf-6HzX5QsVWfev3QHaE8?rs=1&pid=ImgDetMain",
+      "description": "Hotel de lujo con vistas al río Uruguay, spa, restaurante gourmet y piscina climatizada."
+    },
+    "address": {
+      "city": "Colón",
+      "country": "Argentina",
+      "street": "Ruta 26, Km 1"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 8
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 30000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación individual con vista al río."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 45000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Suite con jacuzzi y terraza privada."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Parque Hotel",
+    "details": {
+      "stars": 3,
+      "rating": 7.8,
+      "imgUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/ba/3d/5f/20170321-155315-largejpg.jpg?w=900&h=-1&s=1",
+      "description": "Hotel familiar con habitaciones cómodas y acceso a las termas locales."
+    },
+    "address": {
+      "city": "Villa Elisa",
+      "country": "Argentina",
+      "street": "Av. Las Termas 123"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "room": [
+      {
+        "type": "double",
+        "room_type": {
+          "price": 150000,
+          "currency": "ARS",
+          "rooms_left": 5,
+          "description": "Habitación doble con aire acondicionado."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel Land Plaza",
+    "details": {
+      "stars": 4,
+      "rating": 8.5,
+      "imgUrl": "https://th.bing.com/th/id/OIP.RH5wR6gFT9jsEv7JoMTn4gHaE8?rs=1&pid=ImgDetMain",
+      "description": "Un hotel moderno con excelentes servicios, ubicado en el centro de La Plata."
+    },
+    "address": {
+      "city": "La Plata",
+      "country": "Argentina",
+      "street": "Calle 50 555"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 120000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Habitación individual con vista al jardín."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 200000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Habitación doble con cama King Size."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 300000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Suite de lujo con jacuzzi."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Complejo Hueney",
+    "details": {
+      "stars": 3,
+      "rating": 9.5,
+      "imgUrl": "https://th.bing.com/th/id/OIP.sftrtqA0a7DbmGiuyk8u4QHaFj?rs=1&pid=ImgDetMain",
+      "description": "Complejo con pileta y servicios excelentes cerca de la playa de Mar de Ajó."
+    },
+    "address": {
+      "city": "Mar de Ajó",
+      "country": "Argentina",
+      "street": "Calle 36 123"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 100000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación individual simple."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 160000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación doble con vista al mar."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 250000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Suite con vista panorámica."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Estancia La Sofia",
+    "details": {
+      "stars": 5,
+      "rating": 9.7,
+      "imgUrl": "https://th.bing.com/th/id/OIP.49LYquc38SPLjd_k3IoCJQAAAA?rs=1&pid=ImgDetMain",
+      "description": "Una estancia boutique con un ambiente de polo y tranquilidad."
+    },
+    "address": {
+      "city": "San Andrés de Giles",
+      "country": "Argentina",
+      "street": "Ruta 8 Km 130"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 25000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Habitación individual decorada con estilo rústico."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 35000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Habitación doble con camas dobles y vistas al campo."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 50000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Suite de lujo con jacuzzi y vistas a la pista de polo."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Casa Camarón",
+    "details": {
+      "stars": 4,
+      "rating": 8.9,
+      "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/16/34/72/bf/frente-de-casa-camaron.jpg",
+      "description": "Un hotel boutique en Mar del Plata con un estilo surfer y moderno."
+    },
+    "address": {
+      "city": "Mar del Plata",
+      "country": "Argentina",
+      "street": "Gascón 604"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 180000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación individual acogedora."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 250000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Habitación doble con terraza y vista al mar."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Sierra de los Padres",
+    "details": {
+      "stars": 3,
+      "rating": 9.2,
+      "imgUrl": "https://th.bing.com/th/id/OIP.WdKZ4gL00weuXMvdsWLRMAHaFj?rs=1&pid=ImgDetMain",
+      "description": "Un hotel en Sierra de los Padres, ideal para quienes buscan paz y relax."
+    },
+    "address": {
+      "city": "Sierra de los Padres",
+      "country": "Argentina",
+      "street": "Avenida Central 234"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 8
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 120000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación individual tranquila."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 200000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación doble con vistas a las sierras."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Zarek",
+    "details": {
+      "stars": 3,
+      "rating": 4.5,
+      "imgUrl": "https://th.bing.com/th/id/OIP.3mYfyEYtl-otsJL5F0kOAgD9HC?rs=1&pid=ImgDetMain",
+      "description": "Hotel con restaurante, bar y habitaciones con aire acondicionado. Ideal para quienes buscan una opción funcional y cómoda."
+    },
+    "address": {
+      "city": "Posadas",
+      "country": "Argentina",
+      "street": "Calle Ficticia 123"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 35000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Habitación sencilla con aire acondicionado y acceso a internet."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 50000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación doble con cama queen size y vista a la ciudad."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 80000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Suite con cama king, balcón y baño privado de lujo."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Passaros Suite Hotel",
+    "details": {
+      "stars": 3,
+      "rating": 4.3,
+      "imgUrl": "https://th.bing.com/th/id/OIP.bxCQxtLuGC5ewoq1vHhjyAHaE7?rs=1&pid=ImgDetMain",
+      "description": "Alojamiento moderno y bien ubicado, con desayuno incluido y piscina exterior."
+    },
+    "address": {
+      "city": "Puerto Iguazú",
+      "country": "Argentina",
+      "street": "Av. Cataratas 500"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 8
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 40000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación individual con aire acondicionado y wifi."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 60000,
+          "currency": "ARS",
+          "rooms_left": 4,
+          "description": "Habitación doble con dos camas y desayuno incluido."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Gran Meliá Iguazú",
+    "details": {
+      "stars": 5,
+      "rating": 4.8,
+      "imgUrl": "https://th.bing.com/th/id/OIP.64BBoqXV-jZ0IUviDGcHkQHaEK?rs=1&pid=ImgDetMain",
+      "description": "Hotel de lujo con vistas impresionantes a las Cataratas del Iguazú, piscina infinita y spa."
+    },
+    "address": {
+      "city": "Puerto Iguazú",
+      "country": "Argentina",
+      "street": "Ruta 101, km 18"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 2
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 200000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Habitación de lujo con vistas a la selva y el río Iguazú."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 250000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Habitación doble de lujo con bañera de hidromasaje y balcón privado."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 350000,
+          "currency": "ARS",
+          "rooms_left": 0,
+          "description": "Suite presidencial con cama king, living room, y jacuzzi privado."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Tré Iguazú",
+    "details": {
+      "stars": 3,
+      "rating": 4.4,
+      "imgUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/11/76/b7/caption.jpg?w=700&h=-1&s=1",
+      "description": "Confortable y acogedor, cerca del centro de Puerto Iguazú y con buenos servicios."
+    },
+    "address": {
+      "city": "Puerto Iguazú",
+      "country": "Argentina",
+      "street": "Calle Yrigoyen 560"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 45000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación sencilla con cama individual y aire acondicionado."
+        }
+      },
+      {
+        "type": "double",
+        "room_type": {
+          "price": 65000,
+          "currency": "ARS",
+          "rooms_left": 3,
+          "description": "Habitación doble con cama queen y desayuno incluido."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Reserva Natural Iguazú - Pristine Luxury Camp",
+    "details": {
+      "stars": 5,
+      "rating": 5.0,
+      "imgUrl": "https://th.bing.com/th/id/OIP.tlFIykgtWLV0HxINeUifIQHaEK?rs=1&pid=ImgDetMain",
+      "description": "Una experiencia única de lujo en medio de la selva misionera. Ideal para quienes buscan contacto directo con la naturaleza."
+    },
+    "address": {
+      "city": "Iguazú",
+      "country": "Argentina",
+      "street": "Selva Iguazú, dentro de la Reserva Natural"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 3
+    },
+    "room": [
+      {
+        "type": "single",
+        "room_type": {
+          "price": 100000,
+          "currency": "ARS",
+          "rooms_left": 2,
+          "description": "Alojamiento individual de lujo con baño privado y vistas espectaculares."
+        }
+      },
+      {
+        "type": "suite",
+        "room_type": {
+          "price": 150000,
+          "currency": "ARS",
+          "rooms_left": 1,
+          "description": "Suite de lujo con cama king y terraza privada en medio de la selva."
+        }
+      }
+    ],
+    "amenities": {
+      "pool": false,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  }
+]

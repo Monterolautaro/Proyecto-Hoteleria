@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { config } from 'dotenv';
-import { connectionSource } from './config/typeorm';
+import { connectionSource } from './config/typeorm.config';
 config();
 
 async function bootstrap() {
@@ -16,7 +16,7 @@ async function bootstrap() {
     .initialize()
     .then(() => {
       console.log('Data source has been initialized!');
-      app.listen(process.env.PORT ?? 3000);
+      app.listen(process.env.PORT ?? process.env.ALTERNATIVE_PORT);
     })
     .catch((error) =>
       console.error('Error during Data Source initialization:', error),

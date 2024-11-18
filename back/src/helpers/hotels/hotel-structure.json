@@ -1,51 +1,51 @@
 {
-    "name": "",
-    "details": {
-        "stars": 0,
-        "rating": 0.0,
-        "imgUrl": "",
-        "description": ""
+  "name": "",
+  "details": {
+    "stars": 0,
+    "rating": 0.0,
+    "imgUrl": "",
+    "description": ""
+  },
+  "address": {
+    "city": "",
+    "country": "",
+    "street": ""
+  },
+  "availability": {
+    "available": false,
+    "totalRoomsLeft": 0
+  },
+  "rooms": {
+    "single": {
+      "price": 0,
+      "currency": "",
+      "rooms_left": 0,
+      "description": ""
     },
-    "address": {
-        "city": "",
-        "country": "",
-        "street": ""
+    "double": {
+      "price": 0,
+      "currency": "",
+      "rooms_left": 0,
+      "description": ""
     },
-    "availability": {
-        "available": false,
-        "totalRoomsLeft": 0
+    "triple": {
+      "price": 0,
+      "currency": "",
+      "rooms_left": 0,
+      "description": ""
     },
-    "rooms": { 
-        "single": {
-            "price": 0,
-            "currency": "",
-            "rooms_left": 0,
-            "description": ""
-          },
-          "double":{
-            "price": 0,
-            "currency": "",
-            "rooms_left": 0,
-            "description": ""
-          },
-          "triple":{
-            "price": 0,
-            "currency": "",
-            "rooms_left": 0,
-            "description": ""
-          },
-         "suite":{
-            "price": 0,
-            "currency": "",
-            "rooms_left": 0,
-            "description": ""
-          }
-        },
-    "amenities": {
-        "pool": false,
-        "spa": false,
-        "gym": false,
-        "restaurant": false,
-        "bar": false
+    "suite": {
+      "price": 0,
+      "currency": "",
+      "rooms_left": 0,
+      "description": ""
     }
+  },
+  "amenities": {
+    "pool": false,
+    "spa": false,
+    "gym": false,
+    "restaurant": false,
+    "bar": false
+  }
 }

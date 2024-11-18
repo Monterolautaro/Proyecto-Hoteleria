@@ -1,4 +1,6 @@
 import axios from "axios";
+import { config } from "dotenv";
+config({ path: ".env" });
 
 const getResult = async (query: string) => {
   try {

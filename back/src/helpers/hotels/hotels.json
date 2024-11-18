@@ -1,1640 +1,3656 @@
 [
-    {
-        "name": "Hotel Grand Bogotá",
-        "details": {
-            "stars": 5,
-            "rating": 4.5,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/194940355.jpg?k=6e9b887f4058280fa834039c4b570a55db0310626d62ce4d6c0205f934d18d95&o=",
-            "description": "A luxurious hotel offering an unparalleled experience with world-class service, elegant surroundings, and a range of top-notch amenities designed to ensure every guest enjoys their stay in complete comfort and style."
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Calle 24A # 57-60, Teusaquillo"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 100
-        },
-        "rooms": { 
-        "single": {
-            "price": 410000,
-            "currency": "COP",
-            "roomsLeft": 40,
-            "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-        },
-        "double": {
-            "price": 670000,
-            "currency": "COP",
-            "roomsLeft": 20,
-            "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-        },
-        "triple": {
-            "price": 940000,
-            "currency": "COP",
-            "roomsLeft": 10,
-            "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-        },
-        "suite": {
-            "price": 2350000,
-            "currency": "COP",
-            "roomsLeft": 5,
-            "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-        }
+  {
+    "name": "Hotel Grand Bogotá",
+    "details": {
+      "stars": 5,
+      "rating": 4.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/194940355.jpg?k=6e9b887f4058280fa834039c4b570a55db0310626d62ce4d6c0205f934d18d95&o=",
+      "description": "A luxurious hotel offering an unparalleled experience with world-class service, elegant surroundings, and a range of top-notch amenities designed to ensure every guest enjoys their stay in complete comfort and style."
     },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Calle 24A # 57-60, Teusaquillo"
     },
-    {
-        "name": "Hilton Bogotá",
-        "details": {
-            "stars": 4,
-            "rating": 4.6,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/484116537.jpg?k=8ae9be4951e95b741e3799d59746101b179e29bbf3c648aeac999758d9fbebb4&o=&hp=1",
-            "description": "An ideal hotel for relaxation, featuring modern facilities and stunning views of the city, providing guests with a peaceful escape from the hustle and bustle, while maintaining easy access to key attractions and events."
-
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Carrera 7 No. 72-41 , Chapinero"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 85
-        },
-        "rooms": {
-          "single": {
-              "price": 310000,
-              "currency": "COP",
-              "roomsLeft": 40,
-              "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-          },
-          "double": {
-              "price": 570000,
-              "currency": "COP",
-              "roomsLeft": 20,
-              "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-          },
-          "triple": {
-              "price": 840000,
-              "currency": "COP",
-              "roomsLeft": 10,
-              "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-          },
-          "suite": {
-              "price": 1350000,
-              "currency": "COP",
-              "roomsLeft": 5,
-              "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-          }
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 100
+    },
+    "rooms": {
+      "single": {
+        "price": 410000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
-        "amenities": {
-            "pool": true,
-            "spa": false,
-            "gym": true,
-            "restaurant": true,
-            "bar": false
-        }
-    },
-    {
-        "name": "Hyatt Place Bogotá Convention Center",
-        "details": {
-            "stars": 4,
-            "rating": 4.6,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506986473.jpg?k=812da8bbf750ba35a4c00268b0641043aa50737f990a2108e6d62276e33e172a&o=&hp=1",
-            "description": "Located in a central area with easy access to transport, this hotel provides a convenient base for both business and leisure travelers, offering comfortable accommodations and excellent service to ensure a pleasant stay."
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Avenida Calle 24 NR 40-51, Teusaquillo"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 45
-        },
-        "rooms": {
-          "single": {
-              "price": 210000,
-              "currency": "COP",
-              "roomsLeft": 40,
-              "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-          },
-          "double": {
-              "price": 470000,
-              "currency": "COP",
-              "roomsLeft": 20,
-              "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-          },
-          "triple": {
-              "price": 740000,
-              "currency": "COP",
-              "roomsLeft": 10,
-              "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-          },
-          "suite": {
-              "price": 3350000,
-              "currency": "COP",
-              "roomsLeft": 5,
-              "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-          }
+      "double": {
+        "price": 670000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
-        "amenities": {
-            "pool": false,
-            "spa": false,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hotel Dann Cartlon Bogota",
-        "details": {
-            "stars": 5,
-            "rating": 4.5,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/124782709.jpg?k=a1d1451f917e5daba5e93af66561957b0302390a1d9d149bc21e4e6d37c1d455&o=&hp=1",
-            "description": "This luxury hotel provides an exceptional experience with world-class service, offering an atmosphere of sophistication and exclusivity, designed to cater to every guest’s need for comfort, relaxation, and indulgence."
-
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Avenida 15 N 103 - 60, Usaquén"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 30
-        },
-        "rooms": {
-          "single": {
-              "price": 110000,
-              "currency": "COP",
-              "roomsLeft": 40,
-              "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-          },
-          "double": {
-              "price": 770000,
-              "currency": "COP",
-              "roomsLeft": 20,
-              "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-          },
-          "triple": {
-              "price": 1040000,
-              "currency": "COP",
-              "roomsLeft": 10,
-              "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-          },
-          "suite": {
-              "price": 4350000,
-              "currency": "COP",
-              "roomsLeft": 5,
-              "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-          }
+      "triple": {
+        "price": 940000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
+      "suite": {
+        "price": 2350000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
     },
-    {
-        "name": "AC Hotel Bogotá Zona T",
-        "details": {
-            "stars": 4,
-            "rating": 4.5,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/456055634.jpg?k=cb21bb20b695a45c5ada41d4ceae9a1cb96c57ab19f24aabb58d90467c7eaa7d&o=&hp=1",
-            "description": "A family-friendly hotel offering a wide range of activities and amenities for all ages, ensuring that every member of the family can enjoy their stay, with comfortable accommodations and a welcoming atmosphere throughout."
-
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Calle 85 No 12-66, Chapinero"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 60
-        },
-        "rooms": {
-          "single": {
-              "price": 3010000,
-              "currency": "COP",
-              "roomsLeft": 40,
-              "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-          },
-          "double": {
-              "price": 5700000,
-              "currency": "COP",
-              "roomsLeft": 20,
-              "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-          },
-          "triple": {
-              "price": 8400000,
-              "currency": "COP",
-              "roomsLeft": 10,
-              "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-          },
-          "suite": {
-              "price": 13500001,
-              "currency": "COP",
-              "roomsLeft": 5,
-              "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-          }
-      },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": false,
-            "restaurant": true,
-            "bar": false
-        }
-    },
-    {
-        "name": "NH Collection Bogotá Royal Teleport",
-        "details": {
-            "stars": 2,
-            "rating": 4.2,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/470824226.jpg?k=874e6336f9700dd8418f36f49fb4badaf32e2f4e2092e7f6a329469820227c50&o=&hp=1",
-            "description": "A great option for budget travelers, providing simple yet comfortable accommodations, essential amenities, and a convenient location, making it the perfect choice for those looking for affordable yet reliable lodging."
-
-        },
-        "address": {
-            "city": "",
-            "country": "",
-            "street": ""
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 70
-        },
-        "rooms": {
-          "single": {
-              "price": 3120000,
-              "currency": "COP",
-              "roomsLeft": 40,
-              "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-          },
-          "double": {
-              "price": 5740000,
-              "currency": "COP",
-              "roomsLeft": 20,
-              "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-          },
-          "triple": {
-              "price": 8450000,
-              "currency": "COP",
-              "roomsLeft": 10,
-              "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-          },
-          "suite": {
-              "price": 13560000,
-              "currency": "COP",
-              "roomsLeft": 5,
-              "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-          }
-      },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": false,
-            "restaurant": true,
-            "bar": false
-        }
-    },
-    {
-   
-        "name": "Cavalta Hotel",
-        "details": {
-            "stars": 5,
-            "rating": 8.4,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/266876356.jpg?k=db97e07ffe723ccd97c97a7dcab1e0dfa447ae83db3e7f973b782e1ef96b1a4d&o=&hp=1",
-            "description": "The Cavalta Hotel in Medellin offers a luxurious experience, combining modern design with comfort in a prime city location. Guests can enjoy elegant rooms, stunning views, and excellent service for both business and leisure travelers. The hotel provides convenient access to Medellín’s top attractions and vibrant nightlife."
-        },
-        "address": {
-            "city": "Medellin",
-            "country": "Colombia",
-            "street": "AV 33 65C 140, Laureles Estadio"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 85
-        },
-        "rooms": {
-            "single": {
-                "price": 310000,
-                "currency": "COP",
-                "roomsLeft": 40,
-                "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-            },
-            "double": {
-                "price": 570000,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-            },
-            "triple": {
-                "price": 840000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-            },
-            "suite": {
-                "price": 1350000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": false,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    
-    {
-        "name": "Sites Hotel",
-        "details": {
-            "stars": 3,
-            "rating": 4.5,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/122622929.jpg?k=3f161709adc7ec8353406e045b193f70cce7211a3bb5c09fda6de34839ae9bef&o=&hp=1",
-            "description": "Sites Hotel in Medellín is a modern and stylish aparthotel located in the peaceful Patio Bonito area of Poblado. It offers spacious, functional rooms with kitchenettes, perfect for families or long stays. Guests can enjoy a rooftop pool with stunning city views and a cozy library space"
-        },
-        "address": {
-            "city": "Medellin",
-            "country": "Colombia",
-            "street": "Carrera 45 No. 5 - 15"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 250
-        },
-        "rooms": {
-            "single": {
-                "price": 364000,
-                "currency": "COP",
-                "roomsLeft": 50,
-                "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-            },
-            "double": {
-                "price": 370000,
-                "currency": "COP",
-                "roomsLeft": 25,
-                "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-            },
-            "triple": {
-                "price": 400000,
-                "currency": "COP",
-                "roomsLeft": 15,
-                "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-            },
-            "suite": {
-                "price": 500000,
-                "currency": "COP",
-                "roomsLeft": 8,
-                "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": false,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "San Fernando Plaza Hotel",
-        "details": {
-            "stars": 5,
-            "rating": 4.6,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/40906282.jpg?k=ba9ca60322230495dfbb1099348a6fb9600657d26ca9780bf14f092ac57cb0a1&o=&hp=1",
-            "description": "The San Fernando Plaza Medellin Hotel is an elegant and modern accommodation located in the heart of the exclusive El Poblado area. It offers its guests a combination of comfort, luxury and high-quality services"
-        },
-        "address": {
-            "city": "Medellin",
-            "country": "Colombia",
-            "street": "Cra. 42A # 1-15, El Poblado"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 200
-        },
-        "rooms": {
-            "single": {
-                "price": 269000,
-                "currency": "COP",
-                "roomsLeft": 50,
-                "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-            },
-            "double": {
-                "price": 500000,
-                "currency": "COP",
-                "roomsLeft": 40,
-                "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-            },
-            "triple": {
-                "price": 950000,
-                "currency": "COP",
-                "roomsLeft": 4,
-                "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-            },
-            "suite": {
-                "price": 1800000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Dann Carlton Medellin Hotel",
-        "details": {
-            "stars": 5,
-            "rating": 8.8,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/6776399.jpg?k=9b0ac0bb93b0cef4473be54a0269eb5ec083ce06388602c5cadb3804df5da5ff&o=&hp=1",
-            "description": "The Dann Carlton Hotel is an elegant property offering a luxury experience in the heart of the city. With its sophisticated architecture, impeccable service, and prime location, it is ideal for both business travelers and those seeking a memorable stay in Medellin"
-        },
-        "address": {
-            "city": "Medellin",
-            "country": "Colombia",
-            "street": "Street 93B # 19-44"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 100
-        },
-        "rooms": {
-            "single": {
-                "price": 150000,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
-            },
-            "double": {
-                "price": 300000,
-                "currency": "COP",
-                "roomsLeft": 25,
-                "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
-            },
-            "triple": {
-                "price": 500000,
-                "currency": "COP",
-                "roomsLeft": 15,
-                "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
-            },
-            "suite": {
-                "price": 800000,
-                "currency": "COP",
-                "roomsLeft": 30,
-                "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Golden Valley Hotel",
-        "details": {
-            "stars": 4,
-            "rating": 8.9,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/587619189.jpg?k=890f2a2b1ac2e52d07ef0ad071474f0ee924c0ab01ca5885b017e049527cb44d&o=&hp=1",
-            "description": "Golden Valley Hotel offers a luxurious and relaxing stay with modern amenities in a prime location. Guests can enjoy comfortable rooms, an on-site restaurant, and easy access to nearby attractions. Ideal for both leisure and business travelers seeking a memorable experience."
-        },
-        "address": {
-            "city": "Medellin",
-            "country": "Colombia",
-            "street": "43c32 Calle 9, El Poblado"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 60
-        },
-        "rooms": {
-            "single": {
-                "price": 450000,
-                "currency": "COP",
-                "roomsLeft": 25,
-                "description": "Cozy single room with a comfortable bed, high-speed Wi-Fi, work desk, and LED TV."
-            },
-            "double": {
-                "price": 520000,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Elegant double room with a queen-sized bed, city view, modern bathroom, and minibar."
-            },
-            "triple": {
-                "price": 780000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Spacious triple room, ideal for groups, featuring three beds, private bathroom, and lounge area."
-            },
-            "suite": {
-                "price": 1280000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Exclusive suite with a king-size bed, private jacuzzi, balcony, and VIP lounge access."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    { 
-        "name": "El Dorado Hotel",
-        "details": {
-            "stars": 3.5,
-            "rating": 7.0,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/337357193.jpg?k=8c8cd9e5724837d5f4aa08dcd6ef4855c067988936700708d946539ab5047071&o=&hp=1",
-            "description": "El Dorado Hotel in San Andres offers a tropical paradise experience with ocean-view rooms, an outdoor pool, and easy beach access. Guests enjoy modern amenities, on-site dining, and vibrant island ambiance. Perfect for relaxation or adventure, it’s an ideal choice for an unforgettable stay."
-        },
-        "address": {
-            "city": "San Andres y Providencia",
-            "country": "Colombia",
-            "street": "Av. Colombia No 1A-25"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 60
-        },
-        "rooms": {
-            "single": {
-                "price": 1488580,
-                "currency": "COP",
-                "roomsLeft": 25,
-                "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
-            },
-            "double": {
-                "price": 1200000,
-                "currency": "COP",
-                "roomsLeft": 18,
-                "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
-            },
-            "triple": {
-                "price": 1250000,
-                "currency": "COP",
-                "roomsLeft": 8,
-                "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
-            },
-            "suite": {
-                "price": 1300000,
-                "currency": "COP",
-                "roomsLeft": 4,
-                "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Decameron Marazul",
-        "details": {
-            "stars": 3,
-            "rating": 8.0,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/79775677.jpg?k=d3682bef851e3728ea8249aaab912fb99be462afb48d4ba2db862d36f28663dd&o=&hp=1",
-            "description": "The Decameron Marazul in San Andres is a vibrant beachfront hotel offering a tropical escape with stunning Caribbean views, a private beach, and a variety of all-inclusive amenities for a relaxing and fun-filled stay."
-        },
-        "address": {
-            "city": "San Andres y Providencia",
-            "country": "Colombia",
-            "street": "Km 4 Via San Luis"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 150
-        },
-        "rooms": {
-            "single": {
-                "price": 1550000,
-                "currency": "COP",
-                "roomsLeft": 40,
-                "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
-            },
-            "double": {
-                "price": 1300000,
-                "currency": "COP",
-                "roomsLeft": 50,
-                "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
-            },
-            "triple": {
-                "price": 1350000,
-                "currency": "COP",
-                "roomsLeft":30,
-                "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
-            },
-            "suite": {
-                "price": 1450000,
-                "currency": "COP",
-                "roomsLeft": 30,
-                "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hotel Cocoplum Beach",
-        "details": {
-            "stars": 3,
-            "rating": 7.8,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/244479614.jpg?k=9ca4bd923470e5618726d101a09a073e5cae0ff1708bb7cf8c14d7ef9b2c1b04&o=&hp=1",
-            "description": "Cocoplum Beach Hotel in San Andrés offers a serene Caribbean escape with direct beach access, lush tropical surroundings, and comfortable accommodations. Guests enjoy ocean views, a beachfront restaurant, and activities like snorkeling, making it ideal for relaxation and adventure alike."
-        },
-        "address": {
-            "city": "San Andres y Providencia",
-            "country": "Colombia",
-            "street": "Vía a San Luis # 43-39"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 100
-        },
-        "rooms": {
-            "single": {
-                "price": 648000,
-                "currency": "COP",
-                "roomsLeft": 30,
-                "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
-            },
-            "double": {
-                "price": 1300000,
-                "currency": "COP",
-                "roomsLeft": 40,
-                "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
-            },
-            "triple": {
-                "price": 1350000,
-                "currency": "COP",
-                "roomsLeft":20,
-                "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
-            },
-            "suite": {
-                "price": 1450000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hotel Lord Pierre",
-        "details": {
-            "stars": 3,
-            "rating": 6.6,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/189390856.jpg?k=80a7e5f838bd062dfcdf9985a388f060548517e23a408cae8959c8ed63b4af9c&o=&hp=1",
-            "description": "The Lord Pierre Hotel in San Andres offers a tropical escape with beautiful sea views, comfortable accommodations, and direct access to the Caribbean waters. Ideal for relaxation and exploration, it provides a warm atmosphere and modern amenities in an idyllic island setting."
-        },
-        "address": {
-            "city": "San Andres y Providencia",
-            "country": "Colombia",
-            "street": "Av. Colombia No 1B-106"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 75
-        },
-        "rooms": {
-            "single": {
-                "price": 429920,
-                "currency": "COP",
-                "roomsLeft": 25,
-                "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
-            },
-            "double": {
-                "price": 500000,
-                "currency": "COP",
-                "roomsLeft": 30,
-                "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
-            },
-            "triple": {
-                "price": 550000,
-                "currency": "COP",
-                "roomsLeft":15,
-                "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
-            },
-            "suite": {
-                "price": 600000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Samawi Hotel",
-        "details": {
-            "stars": 4,
-            "rating": 8.2,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/345607824.jpg?k=6b765c28dc8de33e6c31e25ec393498ace4285b789eaf302d3c14f285ef4b477&o=&hp=1",
-            "description": "Samawi Hotel in San Andres offers a luxurious oceanfront experience with modern rooms, stunning sea views, and personalized service. Enjoy rooftop pools, gourmet dining, and proximity to the island's vibrant attractions, making it an ideal choice for a tropical getaway."
-        },
-        "address": {
-            "city": "San Andres y Providencia",
-            "country": "Colombia",
-            "street": "Cra. 1 #21, San Andres"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 100
-        },
-        "rooms": {
-            "single": {
-                "price": 797500,
-                "currency": "COP",
-                "roomsLeft": 35,
-                "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
-            },
-            "double": {
-                "price": 800000,
-                "currency": "COP",
-                "roomsLeft": 40,
-                "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
-            },
-            "triple": {
-                "price": 820000,
-                "currency": "COP",
-                "roomsLeft":20,
-                "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
-            },
-            "suite": {
-                "price": 900000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hotel Majestic",
-        "details": {
-            "stars": 4,
-            "rating": 8.1,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/107497692.jpg?k=c83c7d3dd2752dc6cebe20510cca31ac37721d4f942542f19c3e90bb30f8287a&o=&hp=1",
-            "description": "The Hotel Majestic in Barranquilla offers a unique blend of comfort and luxury, providing exceptional service and modern amenities. Located in the heart of the city, it is the perfect choice for both business and leisure travelers. Its elegant atmosphere and attentive staff ensure a memorable stay"
-        },
-        "address": {
-            "city": "Barranquilla",
-            "country": "Colombia",
-            "street": "Carrera 53 # 54 - 41"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 45
-        },
-        "rooms": {
-            "single": {
-                "price": 180760,
-                "currency": "COP",
-                "roomsLeft": 15,
-                "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
-            },
-            "double": {
-                "price": 200000,
-                "currency": "COP",
-                "roomsLeft": 12,
-                "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
-            },
-            "triple": {
-                "price": 250000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
-            },
-            "suite": {
-                "price": 400000,
-                "currency": "COP",
-                "roomsLeft": 8,
-                "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hotel Caribe 79",
-        "details": {
-            "stars": 3,
-            "rating": 9.1,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/333207023.jpg?k=204cb8f4e2f0fb889311584fcba5edbb2741ae69f4f82c40b8f55610622ea61f&o=&hp=1",
-            "description": "Hotel Caribe 79 in Barranquilla offers a charming blend of comfort and convenience, providing guests with a welcoming atmosphere. Its prime location makes it an ideal choice for both business and leisure travelers, with easy access to local attractions. The hotel is known for its exceptional service and cozy accommodations."
-        },
-        "address": {
-            "city": "Barranquilla",
-            "country": "Colombia",
-            "street": "Calle 79 No 49C - 33"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 30
-        },
-        "rooms": {
-            "single": {
-                "price": 120000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
-            },
-            "double": {
-                "price": 160000,
-                "currency": "COP",
-                "roomsLeft": 8,
-                "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
-            },
-            "triple": {
-                "price": 220000,
-                "currency": "COP",
-                "roomsLeft": 6,
-                "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
-            },
-            "suite": {
-                "price": 350000,
-                "currency": "COP",
-                "roomsLeft": 6,
-                "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hilton Garden Inn Barranquilla",
-        "details": {
-            "stars": 3,
-            "rating": 9.2,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/484121220.jpg?k=2284dd9bcaba0ae5b1b7ce4affefa481f5c32301c919d79a7f28fa584482df05&o=&hp=1",
-            "description": "The Hilton Garden Inn Barranquilla offers a modern and comfortable stay, featuring spacious rooms with contemporary amenities. Located in a prime area, it provides easy access to key attractions and business centers. Guests can enjoy exceptional service, a full-service restaurant, and well-equipped facilities for both leisure and business needs"
-        },
-        "address": {
-            "city": "Barranquilla",
-            "country": "Colombia",
-            "street": "Carrera 53 # 100-86"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 50
-        },
-        "rooms": {
-            "single": {
-                "price": 375060,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
-            },
-            "double": {
-                "price": 390000,
-                "currency": "COP",
-                "roomsLeft": 12,
-                "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
-            },
-            "triple": {
-                "price": 400000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
-            },
-            "suite": {
-                "price": 550000,
-                "currency": "COP",
-                "roomsLeft": 8,
-                "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "ibis Barranquilla",
-        "details": {
-            "stars": 3,
-            "rating": 8.6,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/141828853.jpg?k=848cf0e82462fa0c1bc452da0329deaca912ee6c1af3822115d0036057092faa&o=&hp=1",
-            "description": "The Ibis Hotel in Barranquilla offers a comfortable and modern stay, featuring well-appointed rooms and convenient amenities. Located in a prime area, it provides easy access to key attractions and business centers. Ideal for both leisure and business travelers, it promises a relaxing experience in the heart of the city."
-        },
-        "address": {
-            "city": "Barranquilla",
-            "country": "Colombia",
-            "street": "Calle 86 No 50 66"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 75
-        },
-        "rooms": {
-            "single": {
-                "price": 193040,
-                "currency": "COP",
-                "roomsLeft": 30,
-                "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
-            },
-            "double": {
-                "price": 390000,
-                "currency": "COP",
-                "roomsLeft": 18,
-                "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
-            },
-            "triple": {
-                "price": 400000,
-                "currency": "COP",
-                "roomsLeft": 12,
-                "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
-            },
-            "suite": {
-                "price": 550000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Radisson Diamond Barranquilla",
-        "details": {
-            "stars": 5,
-            "rating": 9.0,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/388592090.jpg?k=86657993055977550ed339dfb82c30a6dcac2ffad2da48f42b918b220b06cd26&o=&hp=1",
-            "description": "The Radisson Diamond Barranquilla offers a luxurious and modern stay with exceptional service. Located in the heart of the city, it provides guests with spacious rooms, upscale amenities, and stunning views. Perfect for both business and leisure travelers, it ensures a comfortable and memorable experience.."
-        },
-        "address": {
-            "city": "Barranquilla",
-            "country": "Colombia",
-            "street": "Calle 85 No 47-11"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 60
-        },
-        "rooms": {
-            "single": {
-                "price": 150000,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Cozy single room with a single bed, high-speed internet, work desk, and a flat-screen TV."
-            },
-            "double": {
-                "price": 280000,
-                "currency": "COP",
-                "roomsLeft": 15,
-                "description": "Modern double room with a king bed, ocean view, private bathroom, and a mini-fridge."
-            },
-            "triple": {
-                "price": 320000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Spacious room for three, featuring a king bed and two single beds, with a large wardrobe and an en-suite bathroom."
-            },
-            "suite": {
-                "price": 420000,
-                "currency": "COP",
-                "roomsLeft": 3,
-                "description": "Premium suite with a king bed, private terrace, infinity pool, and access to a VIP lounge"
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hotel Grand Bogotá",
-        "details": {
-            "stars": 5,
-            "rating": 4.5,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/194940355.jpg?k=6e9b887f4058280fa834039c4b570a55db0310626d62ce4d6c0205f934d18d95&o=",
-            "description": "A luxurious hotel offering an unparalleled experience with world-class service, elegant surroundings, and a range of top-notch amenities designed to ensure every guest enjoys their stay in complete comfort and style."
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Calle 24A # 57-60, Teusaquillo"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 100
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 520000,
-                "roomsLeft": 60,
-                "description": "Single room with all basic amenities."
-            },
-            "double": {
-                "price": 620000,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Double room for couples or friends."
-            },
-            "triple": {
-                "price": 740000,
-                "currency": "COP",
-                "roomsLeft": 15,
-                "description": "Spacious triple room with comfortable furnishings."
-            },
-            "suite": {
-                "price": 1200000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Luxury suite with panoramic views."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hilton Bogotá",
-        "details": {
-            "stars": 4,
-            "rating": 4.6,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/484116537.jpg?k=8ae9be4951e95b741e3799d59746101b179e29bbf3c648aeac999758d9fbebb4&o=&hp=1",
-            "description": "An ideal hotel for relaxation, featuring modern facilities and stunning views of the city, providing guests with a peaceful escape from the hustle and bustle, while maintaining easy access to key attractions and events."
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Carrera 7 No. 72-41 , Chapinero"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 85
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 120000,
-                "roomsLeft": 40,
-                "description": "Single room with all basic amenities."
-            },
-            "double": {
-                "price": 180000,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Double room perfect for couples."
-            },
-            "triple": {
-                "price": 250000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Spacious triple room with modern design."
-            },
-            "suite": {
-                "price": 450000,
-                "currency": "COP",
-                "roomsLeft": 15,
-                "description": "Luxury suite with panoramic views."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": false,
-            "gym": true,
-            "restaurant": true,
-            "bar": false
-        }
-    },
-    {
-        "name": "Hyatt Place Bogotá Convention Center",
-        "details": {
-            "stars": 4,
-            "rating": 4.6,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506986473.jpg?k=812da8bbf750ba35a4c00268b0641043aa50737f990a2108e6d62276e33e172a&o=&hp=1",
-            "description": "Located in a central area with easy access to transport, this hotel provides a convenient base for both business and leisure travelers, offering comfortable accommodations and excellent service to ensure a pleasant stay."
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Avenida Calle 24 NR 40-51, Teusaquillo"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 45
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 70000,
-                "roomsLeft": 25,
-                "description": "Affordable and functional single room."
-            },
-            "double": {
-                "price": 110000,
-                "currency": "COP",
-                "roomsLeft": 15,
-                "description": "Double room with essential services."
-            },
-            "triple": {
-                "price": 150000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Triple room ideal for small families."
-            },
-            "suite": {
-                "price": 300000,
-                "currency": "COP",
-                "roomsLeft": 0,
-                "description": "Modern suite with lounge area."
-            }
-        },
-        "amenities": {
-            "pool": false,
-            "spa": false,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hotel Dann Cartlon Bogota",
-        "details": {
-            "stars": 5,
-            "rating": 4.5,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/124782709.jpg?k=a1d1451f917e5daba5e93af66561957b0302390a1d9d149bc21e4e6d37c1d455&o=&hp=1",
-            "description": "This luxury hotel provides an exceptional experience with world-class service, offering an atmosphere of sophistication and exclusivity, designed to cater to every guest’s need for comfort, relaxation, and indulgence."
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Avenida 15 N 103 - 60, Usaquén"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 30
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 160000,
-                "roomsLeft": 10,
-                "description": "Elegant single room with premium amenities."
-            },
-            "double": {
-                "price": 220000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Double room with garden view."
-            },
-            "triple": {
-                "price": 300000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Luxury triple room."
-            },
-            "suite": {
-                "price": 600000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Presidential suite with private terrace."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "AC Hotel Bogotá Zona T",
-        "details": {
-            "stars": 4,
-            "rating": 4.5,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/456055634.jpg?k=cb21bb20b695a45c5ada41d4ceae9a1cb96c57ab19f24aabb58d90467c7eaa7d&o=&hp=1",
-            "description": "A family-friendly hotel offering a wide range of activities and amenities for all ages, ensuring that every member of the family can enjoy their stay, with comfortable accommodations and a welcoming atmosphere throughout."
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Calle 85 No 12-66, Chapinero"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 60
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 85000,
-                "roomsLeft": 30,
-                "description": "Budget-friendly single room with a comfortable bed."
-            },
-            "double": {
-                "price": 120000,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Double room with private balcony."
-            },
-            "triple": {
-                "price": 180000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Spacious triple room with modern amenities."
-            },
-            "suite": {
-                "price": 300000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Suite with ocean view and jacuzzi."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": false,
-            "restaurant": true,
-            "bar": false
-        }
-    },
-    {
-        "name": "NH Collection Bogotá Royal Teleport",
-        "details": {
-            "stars": 2,
-            "rating": 4.2,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/470824226.jpg?k=874e6336f9700dd8418f36f49fb4badaf32e2f4e2092e7f6a329469820227c50&o=&hp=1",
-            "description": "A great option for budget travelers, providing simple yet comfortable accommodations, essential amenities, and a convenient location, making it the perfect choice for those looking for affordable yet reliable lodging."
-        },
-        "address": {
-            "city": "Bogotá",
-            "country": "Colombia",
-            "street": "Avenida 18 N 117 - 50, Tilin"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 70
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 150000,
-                "roomsLeft": 26,
-                "description": "Simple single room without luxury."
-            },
-            "double": {
-                "price": 200000,
-                "currency": "COP",
-                "roomsLeft": 24,
-                "description": "Economical double room."
-            },
-            "triple": {
-                "price": 400000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Basic triple room for budget-conscious groups."
-            },
-            "suite": {
-                "price": 600000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Suite with minimalist design."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": false,
-            "restaurant": true,
-            "bar": false
-        }
-    },
-    {
-        "name": "Hotel Intercontinental Cartagena, an IHG Hotel",
-        "details": {
-            "stars": 5,
-            "rating": 4.8,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/286481677.jpg?k=1079d8d9ce61fd7503f2b144be6839a8defbfa920224d857da4ad3648fffbdec&o=",
-            "description": "A luxurious beachfront resort offering breathtaking ocean views, exceptional service, and elegant rooms designed for the ultimate comfort and relaxation, perfect for both couples and families."
-        },
-        "address": {
-            "city": "Cartagena",
-            "country": "Colombia",
-            "street": "Carrera 1 #5-01, Bocagrande"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 120
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 600000,
-                "roomsLeft": 40,
-                "description": "Single room with modern amenities and ocean view."
-            },
-            "double": {
-                "price": 800000,
-                "currency": "COP",
-                "roomsLeft": 50,
-                "description": "Spacious double room with king-sized bed and panoramic views."
-            },
-            "triple": {
-                "price": 1000000,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Triple room with large windows and a relaxing atmosphere."
-            },
-            "suite": {
-                "price": 1800000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Luxury suite with private terrace and stunning beach views."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Hyatt Regency Cartagena",
-        "details": {
-            "stars": 5,
-            "rating": 4.5,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/187027482.jpg?k=ddcbc9c5ca5acf94115eb8ccf70e5d81728478667a7c66c5b65edb9704ed9ffd&o=&hp=1",
-            "description": "An elegant boutique hotel offering stylish accommodations and personalized service, ideal for couples and small groups seeking a charming retreat in Cartagena."
-        },
-        "address": {
-            "city": "Cartagena",
-            "country": "Colombia",
-            "street": "carrera 1 #12-118, Bocagrande"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 45
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 350000,
-                "roomsLeft": 15,
-                "description": "Single room with stylish décor and comfortable amenities."
-            },
-            "double": {
-                "price": 500000,
-                "currency": "COP",
-                "roomsLeft": 20,
-                "description": "Double room featuring vintage furnishings and elegant details."
-            },
-            "triple": {
-                "price": 700000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Spacious triple room with modern design and classic touches."
-            },
-            "suite": {
-                "price": 1200000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Exclusive suite with luxury amenities and private terrace."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Sofitel Legend Santa Clara Cartagena",
-        "details": {
-            "stars": 5,
-            "rating": 4.4,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/251797233.jpg?k=3dc975903f8e145114e1da80becf6d4044a53770ace701c5f3f86cdd65f94b00&o=&hp=1",
-            "description": "A modern hotel with a prime location, offering comfortable rooms and high-end amenities, perfect for business travelers and tourists looking to explore Cartagena's vibrant culture."
-        },
-        "address": {
-            "city": "Cartagena",
-            "country": "Colombia",
-            "street": "Calle Del Torno, 39 - 29 Barrio San Diego"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 90
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 200000,
-                "roomsLeft": 40,
-                "description": "Contemporary single room with essential amenities for business travelers."
-            },
-            "double": {
-                "price": 400000,
-                "currency": "COP",
-                "roomsLeft": 30,
-                "description": "Double room with a spacious layout and modern furnishings."
-            },
-            "triple": {
-                "price": 600000,
-                "currency": "COP",
-                "roomsLeft": 15,
-                "description": "Triple room with city views and a comfortable setup."
-            },
-            "suite": {
-                "price": 1000000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Stylish suite with modern décor and a relaxing lounge area."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": true
-        }
-    },
-    {
-        "name": "Charleston Santa Teresa Cartagena",
-        "details": {
-            "stars": 4,
-            "rating": 4.3,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/471543919.jpg?k=d954478b789f7d9177abdd592745762fa059d4ed1dcf4751312f8a3e9a6f0def&o=&hp=1",
-            "description": "A charming hotel offering a relaxed atmosphere with modern rooms and exceptional service, perfect for guests seeking a tranquil retreat while still being close to Cartagena's main attractions."
-        },
-        "address": {
-            "city": "Cartagena",
-            "country": "Colombia",
-            "street": "Carrera 3 No 31-23, Centro"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 55
-        },
-        "rooms": {
-            "single": {
-                "currency": "COP",
-                "price": 250000,
-                "roomsLeft": 20,
-                "description": "Comfortable single room with minimalist décor."
-            },
-            "double": {
-                "price": 400000,
-                "currency": "COP",
-                "roomsLeft": 25,
-                "description": "Double room with relaxing atmosphere and modern furnishings."
-            },
-            "triple": {
-                "price": 550000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Spacious triple room with vibrant décor."
-            },
-            "suite": {
-                "price": 950000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Elegant suite with luxurious amenities and a private balcony."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": true,
-            "gym": true,
-            "restaurant": true,
-            "bar": false
-        }
-    },
-    {
-        "name": "Hotel las Americas Casa de Playa",
-        "details": {
-            "stars": 4,
-            "rating": 4.4,
-            "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/78716392.jpg?k=a5678fc8866450eaa71f70f9e52af30b8b74d6a0626a6a7aaf486e7ec3eb7a5e&o=&hp=1",
-            "description": "A charming hotel with a focus on comfort and affordability, providing cozy accommodations and a welcoming environment for guests who wish to explore Cartagena's rich history."
-        },
-        "address": {
-            "city": "Cartagena",
-            "country": "Colombia",
-            "street": "Anillo Vial Sector Cielo Mar, La Boquilla"
-        },
-        "availability": {
-            "available": true,
-            "totalRoomsLeft": 65
-        },
-        "rooms": {
-            "single": {
-                "price": 180000,
-                "currency": "COP",
-                "roomsLeft": 30,
-                "description": "Economical single room with functional amenities."
-            },
-            "double": {
-                "price": 300000,
-                "currency": "COP",
-                "roomsLeft": 25,
-                "description": "Comfortable double room with all the necessary conveniences."
-            },
-            "triple": {
-                "price": 450000,
-                "currency": "COP",
-                "roomsLeft": 10,
-                "description": "Spacious triple room with a cozy atmosphere."
-            },
-            "suite": {
-                "price": 800000,
-                "currency": "COP",
-                "roomsLeft": 5,
-                "description": "Simple suite with private bathroom and essential amenities."
-            }
-        },
-        "amenities": {
-            "pool": true,
-            "spa": false,
-            "gym": false,
-            "restaurant": true,
-            "bar": true
-        }
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
     }
+  },
+  {
+    "name": "Hilton Bogotá",
+    "details": {
+      "stars": 4,
+      "rating": 4.6,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/484116537.jpg?k=8ae9be4951e95b741e3799d59746101b179e29bbf3c648aeac999758d9fbebb4&o=&hp=1",
+      "description": "An ideal hotel for relaxation, featuring modern facilities and stunning views of the city, providing guests with a peaceful escape from the hustle and bustle, while maintaining easy access to key attractions and events."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Carrera 7 No. 72-41 , Chapinero"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 85
+    },
+    "rooms": {
+      "single": {
+        "price": 310000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 570000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
+      },
+      "triple": {
+        "price": 840000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+      },
+      "suite": {
+        "price": 1350000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hyatt Place Bogotá Convention Center",
+    "details": {
+      "stars": 4,
+      "rating": 4.6,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506986473.jpg?k=812da8bbf750ba35a4c00268b0641043aa50737f990a2108e6d62276e33e172a&o=&hp=1",
+      "description": "Located in a central area with easy access to transport, this hotel provides a convenient base for both business and leisure travelers, offering comfortable accommodations and excellent service to ensure a pleasant stay."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Avenida Calle 24 NR 40-51, Teusaquillo"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 45
+    },
+    "rooms": {
+      "single": {
+        "price": 210000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 470000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
+      },
+      "triple": {
+        "price": 740000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+      },
+      "suite": {
+        "price": 3350000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Dann Cartlon Bogota",
+    "details": {
+      "stars": 5,
+      "rating": 4.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/124782709.jpg?k=a1d1451f917e5daba5e93af66561957b0302390a1d9d149bc21e4e6d37c1d455&o=&hp=1",
+      "description": "This luxury hotel provides an exceptional experience with world-class service, offering an atmosphere of sophistication and exclusivity, designed to cater to every guest’s need for comfort, relaxation, and indulgence."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Avenida 15 N 103 - 60, Usaquén"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 30
+    },
+    "rooms": {
+      "single": {
+        "price": 110000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 770000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
+      },
+      "triple": {
+        "price": 1040000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+      },
+      "suite": {
+        "price": 4350000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "AC Hotel Bogotá Zona T",
+    "details": {
+      "stars": 4,
+      "rating": 4.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/456055634.jpg?k=cb21bb20b695a45c5ada41d4ceae9a1cb96c57ab19f24aabb58d90467c7eaa7d&o=&hp=1",
+      "description": "A family-friendly hotel offering a wide range of activities and amenities for all ages, ensuring that every member of the family can enjoy their stay, with comfortable accommodations and a welcoming atmosphere throughout."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Calle 85 No 12-66, Chapinero"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 60
+    },
+    "rooms": {
+      "single": {
+        "price": 3010000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 5700000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
+      },
+      "triple": {
+        "price": 8400000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+      },
+      "suite": {
+        "price": 13500001,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "NH Collection Bogotá Royal Teleport",
+    "details": {
+      "stars": 2,
+      "rating": 4.2,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/470824226.jpg?k=874e6336f9700dd8418f36f49fb4badaf32e2f4e2092e7f6a329469820227c50&o=&hp=1",
+      "description": "A great option for budget travelers, providing simple yet comfortable accommodations, essential amenities, and a convenient location, making it the perfect choice for those looking for affordable yet reliable lodging."
+    },
+    "address": {
+      "city": "",
+      "country": "",
+      "street": ""
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 70
+    },
+    "rooms": {
+      "single": {
+        "price": 3120000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 5740000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
+      },
+      "triple": {
+        "price": 8450000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+      },
+      "suite": {
+        "price": 13560000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Cavalta Hotel",
+    "details": {
+      "stars": 5,
+      "rating": 8.4,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/266876356.jpg?k=db97e07ffe723ccd97c97a7dcab1e0dfa447ae83db3e7f973b782e1ef96b1a4d&o=&hp=1",
+      "description": "The Cavalta Hotel in Medellin offers a luxurious experience, combining modern design with comfort in a prime city location. Guests can enjoy elegant rooms, stunning views, and excellent service for both business and leisure travelers. The hotel provides convenient access to Medellín’s top attractions and vibrant nightlife."
+    },
+    "address": {
+      "city": "Medellin",
+      "country": "Colombia",
+      "street": "AV 33 65C 140, Laureles Estadio"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 85
+    },
+    "rooms": {
+      "single": {
+        "price": 310000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 570000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
+      },
+      "triple": {
+        "price": 840000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+      },
+      "suite": {
+        "price": 1350000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Sites Hotel",
+    "details": {
+      "stars": 3,
+      "rating": 4.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/122622929.jpg?k=3f161709adc7ec8353406e045b193f70cce7211a3bb5c09fda6de34839ae9bef&o=&hp=1",
+      "description": "Sites Hotel in Medellín is a modern and stylish aparthotel located in the peaceful Patio Bonito area of Poblado. It offers spacious, functional rooms with kitchenettes, perfect for families or long stays. Guests can enjoy a rooftop pool with stunning city views and a cozy library space"
+    },
+    "address": {
+      "city": "Medellin",
+      "country": "Colombia",
+      "street": "Carrera 45 No. 5 - 15"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 250
+    },
+    "rooms": {
+      "single": {
+        "price": 364000,
+        "currency": "COP",
+        "roomsLeft": 50,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 370000,
+        "currency": "COP",
+        "roomsLeft": 25,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
+      },
+      "triple": {
+        "price": 400000,
+        "currency": "COP",
+        "roomsLeft": 15,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+      },
+      "suite": {
+        "price": 500000,
+        "currency": "COP",
+        "roomsLeft": 8,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "San Fernando Plaza Hotel",
+    "details": {
+      "stars": 5,
+      "rating": 4.6,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/40906282.jpg?k=ba9ca60322230495dfbb1099348a6fb9600657d26ca9780bf14f092ac57cb0a1&o=&hp=1",
+      "description": "The San Fernando Plaza Medellin Hotel is an elegant and modern accommodation located in the heart of the exclusive El Poblado area. It offers its guests a combination of comfort, luxury and high-quality services"
+    },
+    "address": {
+      "city": "Medellin",
+      "country": "Colombia",
+      "street": "Cra. 42A # 1-15, El Poblado"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 200
+    },
+    "rooms": {
+      "single": {
+        "price": 269000,
+        "currency": "COP",
+        "roomsLeft": 50,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 500000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
+      },
+      "triple": {
+        "price": 950000,
+        "currency": "COP",
+        "roomsLeft": 4,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+      },
+      "suite": {
+        "price": 1800000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Dann Carlton Medellin Hotel",
+    "details": {
+      "stars": 5,
+      "rating": 8.8,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/6776399.jpg?k=9b0ac0bb93b0cef4473be54a0269eb5ec083ce06388602c5cadb3804df5da5ff&o=&hp=1",
+      "description": "The Dann Carlton Hotel is an elegant property offering a luxury experience in the heart of the city. With its sophisticated architecture, impeccable service, and prime location, it is ideal for both business travelers and those seeking a memorable stay in Medellin"
+    },
+    "address": {
+      "city": "Medellin",
+      "country": "Colombia",
+      "street": "Street 93B # 19-44"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 100
+    },
+    "rooms": {
+      "single": {
+        "price": 150000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 300000,
+        "currency": "COP",
+        "roomsLeft": 25,
+        "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
+      },
+      "triple": {
+        "price": 500000,
+        "currency": "COP",
+        "roomsLeft": 15,
+        "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
+      },
+      "suite": {
+        "price": 800000,
+        "currency": "COP",
+        "roomsLeft": 30,
+        "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Golden Valley Hotel",
+    "details": {
+      "stars": 4,
+      "rating": 8.9,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/587619189.jpg?k=890f2a2b1ac2e52d07ef0ad071474f0ee924c0ab01ca5885b017e049527cb44d&o=&hp=1",
+      "description": "Golden Valley Hotel offers a luxurious and relaxing stay with modern amenities in a prime location. Guests can enjoy comfortable rooms, an on-site restaurant, and easy access to nearby attractions. Ideal for both leisure and business travelers seeking a memorable experience."
+    },
+    "address": {
+      "city": "Medellin",
+      "country": "Colombia",
+      "street": "43c32 Calle 9, El Poblado"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 60
+    },
+    "rooms": {
+      "single": {
+        "price": 450000,
+        "currency": "COP",
+        "roomsLeft": 25,
+        "description": "Cozy single room with a comfortable bed, high-speed Wi-Fi, work desk, and LED TV."
+      },
+      "double": {
+        "price": 520000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Elegant double room with a queen-sized bed, city view, modern bathroom, and minibar."
+      },
+      "triple": {
+        "price": 780000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Spacious triple room, ideal for groups, featuring three beds, private bathroom, and lounge area."
+      },
+      "suite": {
+        "price": 1280000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Exclusive suite with a king-size bed, private jacuzzi, balcony, and VIP lounge access."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "El Dorado Hotel",
+    "details": {
+      "stars": 3.5,
+      "rating": 7.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/337357193.jpg?k=8c8cd9e5724837d5f4aa08dcd6ef4855c067988936700708d946539ab5047071&o=&hp=1",
+      "description": "El Dorado Hotel in San Andres offers a tropical paradise experience with ocean-view rooms, an outdoor pool, and easy beach access. Guests enjoy modern amenities, on-site dining, and vibrant island ambiance. Perfect for relaxation or adventure, it’s an ideal choice for an unforgettable stay."
+    },
+    "address": {
+      "city": "San Andres y Providencia",
+      "country": "Colombia",
+      "street": "Av. Colombia No 1A-25"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 60
+    },
+    "rooms": {
+      "single": {
+        "price": 1488580,
+        "currency": "COP",
+        "roomsLeft": 25,
+        "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
+      },
+      "double": {
+        "price": 1200000,
+        "currency": "COP",
+        "roomsLeft": 18,
+        "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
+      },
+      "triple": {
+        "price": 1250000,
+        "currency": "COP",
+        "roomsLeft": 8,
+        "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
+      },
+      "suite": {
+        "price": 1300000,
+        "currency": "COP",
+        "roomsLeft": 4,
+        "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Decameron Marazul",
+    "details": {
+      "stars": 3,
+      "rating": 8.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/79775677.jpg?k=d3682bef851e3728ea8249aaab912fb99be462afb48d4ba2db862d36f28663dd&o=&hp=1",
+      "description": "The Decameron Marazul in San Andres is a vibrant beachfront hotel offering a tropical escape with stunning Caribbean views, a private beach, and a variety of all-inclusive amenities for a relaxing and fun-filled stay."
+    },
+    "address": {
+      "city": "San Andres y Providencia",
+      "country": "Colombia",
+      "street": "Km 4 Via San Luis"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 150
+    },
+    "rooms": {
+      "single": {
+        "price": 1550000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
+      },
+      "double": {
+        "price": 1300000,
+        "currency": "COP",
+        "roomsLeft": 50,
+        "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
+      },
+      "triple": {
+        "price": 1350000,
+        "currency": "COP",
+        "roomsLeft": 30,
+        "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
+      },
+      "suite": {
+        "price": 1450000,
+        "currency": "COP",
+        "roomsLeft": 30,
+        "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Cocoplum Beach",
+    "details": {
+      "stars": 3,
+      "rating": 7.8,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/244479614.jpg?k=9ca4bd923470e5618726d101a09a073e5cae0ff1708bb7cf8c14d7ef9b2c1b04&o=&hp=1",
+      "description": "Cocoplum Beach Hotel in San Andrés offers a serene Caribbean escape with direct beach access, lush tropical surroundings, and comfortable accommodations. Guests enjoy ocean views, a beachfront restaurant, and activities like snorkeling, making it ideal for relaxation and adventure alike."
+    },
+    "address": {
+      "city": "San Andres y Providencia",
+      "country": "Colombia",
+      "street": "Vía a San Luis # 43-39"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 100
+    },
+    "rooms": {
+      "single": {
+        "price": 648000,
+        "currency": "COP",
+        "roomsLeft": 30,
+        "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
+      },
+      "double": {
+        "price": 1300000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
+      },
+      "triple": {
+        "price": 1350000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
+      },
+      "suite": {
+        "price": 1450000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Lord Pierre",
+    "details": {
+      "stars": 3,
+      "rating": 6.6,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/189390856.jpg?k=80a7e5f838bd062dfcdf9985a388f060548517e23a408cae8959c8ed63b4af9c&o=&hp=1",
+      "description": "The Lord Pierre Hotel in San Andres offers a tropical escape with beautiful sea views, comfortable accommodations, and direct access to the Caribbean waters. Ideal for relaxation and exploration, it provides a warm atmosphere and modern amenities in an idyllic island setting."
+    },
+    "address": {
+      "city": "San Andres y Providencia",
+      "country": "Colombia",
+      "street": "Av. Colombia No 1B-106"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 75
+    },
+    "rooms": {
+      "single": {
+        "price": 429920,
+        "currency": "COP",
+        "roomsLeft": 25,
+        "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
+      },
+      "double": {
+        "price": 500000,
+        "currency": "COP",
+        "roomsLeft": 30,
+        "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
+      },
+      "triple": {
+        "price": 550000,
+        "currency": "COP",
+        "roomsLeft": 15,
+        "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
+      },
+      "suite": {
+        "price": 600000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Samawi Hotel",
+    "details": {
+      "stars": 4,
+      "rating": 8.2,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/345607824.jpg?k=6b765c28dc8de33e6c31e25ec393498ace4285b789eaf302d3c14f285ef4b477&o=&hp=1",
+      "description": "Samawi Hotel in San Andres offers a luxurious oceanfront experience with modern rooms, stunning sea views, and personalized service. Enjoy rooftop pools, gourmet dining, and proximity to the island's vibrant attractions, making it an ideal choice for a tropical getaway."
+    },
+    "address": {
+      "city": "San Andres y Providencia",
+      "country": "Colombia",
+      "street": "Cra. 1 #21, San Andres"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 100
+    },
+    "rooms": {
+      "single": {
+        "price": 797500,
+        "currency": "COP",
+        "roomsLeft": 35,
+        "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
+      },
+      "double": {
+        "price": 800000,
+        "currency": "COP",
+        "roomsLeft": 40,
+        "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
+      },
+      "triple": {
+        "price": 820000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
+      },
+      "suite": {
+        "price": 900000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Majestic",
+    "details": {
+      "stars": 4,
+      "rating": 8.1,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/107497692.jpg?k=c83c7d3dd2752dc6cebe20510cca31ac37721d4f942542f19c3e90bb30f8287a&o=&hp=1",
+      "description": "The Hotel Majestic in Barranquilla offers a unique blend of comfort and luxury, providing exceptional service and modern amenities. Located in the heart of the city, it is the perfect choice for both business and leisure travelers. Its elegant atmosphere and attentive staff ensure a memorable stay"
+    },
+    "address": {
+      "city": "Barranquilla",
+      "country": "Colombia",
+      "street": "Carrera 53 # 54 - 41"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 45
+    },
+    "rooms": {
+      "single": {
+        "price": 180760,
+        "currency": "COP",
+        "roomsLeft": 15,
+        "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
+      },
+      "double": {
+        "price": 200000,
+        "currency": "COP",
+        "roomsLeft": 12,
+        "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
+      },
+      "triple": {
+        "price": 250000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
+      },
+      "suite": {
+        "price": 400000,
+        "currency": "COP",
+        "roomsLeft": 8,
+        "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Caribe 79",
+    "details": {
+      "stars": 3,
+      "rating": 9.1,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/333207023.jpg?k=204cb8f4e2f0fb889311584fcba5edbb2741ae69f4f82c40b8f55610622ea61f&o=&hp=1",
+      "description": "Hotel Caribe 79 in Barranquilla offers a charming blend of comfort and convenience, providing guests with a welcoming atmosphere. Its prime location makes it an ideal choice for both business and leisure travelers, with easy access to local attractions. The hotel is known for its exceptional service and cozy accommodations."
+    },
+    "address": {
+      "city": "Barranquilla",
+      "country": "Colombia",
+      "street": "Calle 79 No 49C - 33"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 30
+    },
+    "rooms": {
+      "single": {
+        "price": 120000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 160000,
+        "currency": "COP",
+        "roomsLeft": 8,
+        "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
+      },
+      "triple": {
+        "price": 220000,
+        "currency": "COP",
+        "roomsLeft": 6,
+        "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
+      },
+      "suite": {
+        "price": 350000,
+        "currency": "COP",
+        "roomsLeft": 6,
+        "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hilton Garden Inn Barranquilla",
+    "details": {
+      "stars": 3,
+      "rating": 9.2,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/484121220.jpg?k=2284dd9bcaba0ae5b1b7ce4affefa481f5c32301c919d79a7f28fa584482df05&o=&hp=1",
+      "description": "The Hilton Garden Inn Barranquilla offers a modern and comfortable stay, featuring spacious rooms with contemporary amenities. Located in a prime area, it provides easy access to key attractions and business centers. Guests can enjoy exceptional service, a full-service restaurant, and well-equipped facilities for both leisure and business needs"
+    },
+    "address": {
+      "city": "Barranquilla",
+      "country": "Colombia",
+      "street": "Carrera 53 # 100-86"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 50
+    },
+    "rooms": {
+      "single": {
+        "price": 375060,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 390000,
+        "currency": "COP",
+        "roomsLeft": 12,
+        "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
+      },
+      "triple": {
+        "price": 400000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
+      },
+      "suite": {
+        "price": 550000,
+        "currency": "COP",
+        "roomsLeft": 8,
+        "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "ibis Barranquilla",
+    "details": {
+      "stars": 3,
+      "rating": 8.6,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/141828853.jpg?k=848cf0e82462fa0c1bc452da0329deaca912ee6c1af3822115d0036057092faa&o=&hp=1",
+      "description": "The Ibis Hotel in Barranquilla offers a comfortable and modern stay, featuring well-appointed rooms and convenient amenities. Located in a prime area, it provides easy access to key attractions and business centers. Ideal for both leisure and business travelers, it promises a relaxing experience in the heart of the city."
+    },
+    "address": {
+      "city": "Barranquilla",
+      "country": "Colombia",
+      "street": "Calle 86 No 50 66"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 75
+    },
+    "rooms": {
+      "single": {
+        "price": 193040,
+        "currency": "COP",
+        "roomsLeft": 30,
+        "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 390000,
+        "currency": "COP",
+        "roomsLeft": 18,
+        "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
+      },
+      "triple": {
+        "price": 400000,
+        "currency": "COP",
+        "roomsLeft": 12,
+        "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
+      },
+      "suite": {
+        "price": 550000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Radisson Diamond Barranquilla",
+    "details": {
+      "stars": 5,
+      "rating": 9.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/388592090.jpg?k=86657993055977550ed339dfb82c30a6dcac2ffad2da48f42b918b220b06cd26&o=&hp=1",
+      "description": "The Radisson Diamond Barranquilla offers a luxurious and modern stay with exceptional service. Located in the heart of the city, it provides guests with spacious rooms, upscale amenities, and stunning views. Perfect for both business and leisure travelers, it ensures a comfortable and memorable experience.."
+    },
+    "address": {
+      "city": "Barranquilla",
+      "country": "Colombia",
+      "street": "Calle 85 No 47-11"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 60
+    },
+    "rooms": {
+      "single": {
+        "price": 150000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Cozy single room with a single bed, high-speed internet, work desk, and a flat-screen TV."
+      },
+      "double": {
+        "price": 280000,
+        "currency": "COP",
+        "roomsLeft": 15,
+        "description": "Modern double room with a king bed, ocean view, private bathroom, and a mini-fridge."
+      },
+      "triple": {
+        "price": 320000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Spacious room for three, featuring a king bed and two single beds, with a large wardrobe and an en-suite bathroom."
+      },
+      "suite": {
+        "price": 420000,
+        "currency": "COP",
+        "roomsLeft": 3,
+        "description": "Premium suite with a king bed, private terrace, infinity pool, and access to a VIP lounge"
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Grand Bogotá",
+    "details": {
+      "stars": 5,
+      "rating": 4.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/194940355.jpg?k=6e9b887f4058280fa834039c4b570a55db0310626d62ce4d6c0205f934d18d95&o=",
+      "description": "A luxurious hotel offering an unparalleled experience with world-class service, elegant surroundings, and a range of top-notch amenities designed to ensure every guest enjoys their stay in complete comfort and style."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Calle 24A # 57-60, Teusaquillo"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 100
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 520000,
+        "roomsLeft": 60,
+        "description": "Single room with all basic amenities."
+      },
+      "double": {
+        "price": 620000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Double room for couples or friends."
+      },
+      "triple": {
+        "price": 740000,
+        "currency": "COP",
+        "roomsLeft": 15,
+        "description": "Spacious triple room with comfortable furnishings."
+      },
+      "suite": {
+        "price": 1200000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxury suite with panoramic views."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hilton Bogotá",
+    "details": {
+      "stars": 4,
+      "rating": 4.6,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/484116537.jpg?k=8ae9be4951e95b741e3799d59746101b179e29bbf3c648aeac999758d9fbebb4&o=&hp=1",
+      "description": "An ideal hotel for relaxation, featuring modern facilities and stunning views of the city, providing guests with a peaceful escape from the hustle and bustle, while maintaining easy access to key attractions and events."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Carrera 7 No. 72-41 , Chapinero"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 85
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 120000,
+        "roomsLeft": 40,
+        "description": "Single room with all basic amenities."
+      },
+      "double": {
+        "price": 180000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Double room perfect for couples."
+      },
+      "triple": {
+        "price": 250000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Spacious triple room with modern design."
+      },
+      "suite": {
+        "price": 450000,
+        "currency": "COP",
+        "roomsLeft": 15,
+        "description": "Luxury suite with panoramic views."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hyatt Place Bogotá Convention Center",
+    "details": {
+      "stars": 4,
+      "rating": 4.6,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/506986473.jpg?k=812da8bbf750ba35a4c00268b0641043aa50737f990a2108e6d62276e33e172a&o=&hp=1",
+      "description": "Located in a central area with easy access to transport, this hotel provides a convenient base for both business and leisure travelers, offering comfortable accommodations and excellent service to ensure a pleasant stay."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Avenida Calle 24 NR 40-51, Teusaquillo"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 45
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 70000,
+        "roomsLeft": 25,
+        "description": "Affordable and functional single room."
+      },
+      "double": {
+        "price": 110000,
+        "currency": "COP",
+        "roomsLeft": 15,
+        "description": "Double room with essential services."
+      },
+      "triple": {
+        "price": 150000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Triple room ideal for small families."
+      },
+      "suite": {
+        "price": 300000,
+        "currency": "COP",
+        "roomsLeft": 0,
+        "description": "Modern suite with lounge area."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Dann Cartlon Bogota",
+    "details": {
+      "stars": 5,
+      "rating": 4.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/124782709.jpg?k=a1d1451f917e5daba5e93af66561957b0302390a1d9d149bc21e4e6d37c1d455&o=&hp=1",
+      "description": "This luxury hotel provides an exceptional experience with world-class service, offering an atmosphere of sophistication and exclusivity, designed to cater to every guest’s need for comfort, relaxation, and indulgence."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Avenida 15 N 103 - 60, Usaquén"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 30
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 160000,
+        "roomsLeft": 10,
+        "description": "Elegant single room with premium amenities."
+      },
+      "double": {
+        "price": 220000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Double room with garden view."
+      },
+      "triple": {
+        "price": 300000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Luxury triple room."
+      },
+      "suite": {
+        "price": 600000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Presidential suite with private terrace."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "AC Hotel Bogotá Zona T",
+    "details": {
+      "stars": 4,
+      "rating": 4.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/456055634.jpg?k=cb21bb20b695a45c5ada41d4ceae9a1cb96c57ab19f24aabb58d90467c7eaa7d&o=&hp=1",
+      "description": "A family-friendly hotel offering a wide range of activities and amenities for all ages, ensuring that every member of the family can enjoy their stay, with comfortable accommodations and a welcoming atmosphere throughout."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Calle 85 No 12-66, Chapinero"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 60
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 85000,
+        "roomsLeft": 30,
+        "description": "Budget-friendly single room with a comfortable bed."
+      },
+      "double": {
+        "price": 120000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Double room with private balcony."
+      },
+      "triple": {
+        "price": 180000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Spacious triple room with modern amenities."
+      },
+      "suite": {
+        "price": 300000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Suite with ocean view and jacuzzi."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "NH Collection Bogotá Royal Teleport",
+    "details": {
+      "stars": 2,
+      "rating": 4.2,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/470824226.jpg?k=874e6336f9700dd8418f36f49fb4badaf32e2f4e2092e7f6a329469820227c50&o=&hp=1",
+      "description": "A great option for budget travelers, providing simple yet comfortable accommodations, essential amenities, and a convenient location, making it the perfect choice for those looking for affordable yet reliable lodging."
+    },
+    "address": {
+      "city": "Bogotá",
+      "country": "Colombia",
+      "street": "Avenida 18 N 117 - 50, Tilin"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 70
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 150000,
+        "roomsLeft": 26,
+        "description": "Simple single room without luxury."
+      },
+      "double": {
+        "price": 200000,
+        "currency": "COP",
+        "roomsLeft": 24,
+        "description": "Economical double room."
+      },
+      "triple": {
+        "price": 400000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Basic triple room for budget-conscious groups."
+      },
+      "suite": {
+        "price": 600000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Suite with minimalist design."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel Intercontinental Cartagena, an IHG Hotel",
+    "details": {
+      "stars": 5,
+      "rating": 4.8,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/286481677.jpg?k=1079d8d9ce61fd7503f2b144be6839a8defbfa920224d857da4ad3648fffbdec&o=",
+      "description": "A luxurious beachfront resort offering breathtaking ocean views, exceptional service, and elegant rooms designed for the ultimate comfort and relaxation, perfect for both couples and families."
+    },
+    "address": {
+      "city": "Cartagena",
+      "country": "Colombia",
+      "street": "Carrera 1 #5-01, Bocagrande"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 120
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 600000,
+        "roomsLeft": 40,
+        "description": "Single room with modern amenities and ocean view."
+      },
+      "double": {
+        "price": 800000,
+        "currency": "COP",
+        "roomsLeft": 50,
+        "description": "Spacious double room with king-sized bed and panoramic views."
+      },
+      "triple": {
+        "price": 1000000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Triple room with large windows and a relaxing atmosphere."
+      },
+      "suite": {
+        "price": 1800000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Luxury suite with private terrace and stunning beach views."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hyatt Regency Cartagena",
+    "details": {
+      "stars": 5,
+      "rating": 4.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/187027482.jpg?k=ddcbc9c5ca5acf94115eb8ccf70e5d81728478667a7c66c5b65edb9704ed9ffd&o=&hp=1",
+      "description": "An elegant boutique hotel offering stylish accommodations and personalized service, ideal for couples and small groups seeking a charming retreat in Cartagena."
+    },
+    "address": {
+      "city": "Cartagena",
+      "country": "Colombia",
+      "street": "carrera 1 #12-118, Bocagrande"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 45
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 350000,
+        "roomsLeft": 15,
+        "description": "Single room with stylish décor and comfortable amenities."
+      },
+      "double": {
+        "price": 500000,
+        "currency": "COP",
+        "roomsLeft": 20,
+        "description": "Double room featuring vintage furnishings and elegant details."
+      },
+      "triple": {
+        "price": 700000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Spacious triple room with modern design and classic touches."
+      },
+      "suite": {
+        "price": 1200000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Exclusive suite with luxury amenities and private terrace."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Sofitel Legend Santa Clara Cartagena",
+    "details": {
+      "stars": 5,
+      "rating": 4.4,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/251797233.jpg?k=3dc975903f8e145114e1da80becf6d4044a53770ace701c5f3f86cdd65f94b00&o=&hp=1",
+      "description": "A modern hotel with a prime location, offering comfortable rooms and high-end amenities, perfect for business travelers and tourists looking to explore Cartagena's vibrant culture."
+    },
+    "address": {
+      "city": "Cartagena",
+      "country": "Colombia",
+      "street": "Calle Del Torno, 39 - 29 Barrio San Diego"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 90
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 200000,
+        "roomsLeft": 40,
+        "description": "Contemporary single room with essential amenities for business travelers."
+      },
+      "double": {
+        "price": 400000,
+        "currency": "COP",
+        "roomsLeft": 30,
+        "description": "Double room with a spacious layout and modern furnishings."
+      },
+      "triple": {
+        "price": 600000,
+        "currency": "COP",
+        "roomsLeft": 15,
+        "description": "Triple room with city views and a comfortable setup."
+      },
+      "suite": {
+        "price": 1000000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Stylish suite with modern décor and a relaxing lounge area."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Charleston Santa Teresa Cartagena",
+    "details": {
+      "stars": 4,
+      "rating": 4.3,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/471543919.jpg?k=d954478b789f7d9177abdd592745762fa059d4ed1dcf4751312f8a3e9a6f0def&o=&hp=1",
+      "description": "A charming hotel offering a relaxed atmosphere with modern rooms and exceptional service, perfect for guests seeking a tranquil retreat while still being close to Cartagena's main attractions."
+    },
+    "address": {
+      "city": "Cartagena",
+      "country": "Colombia",
+      "street": "Carrera 3 No 31-23, Centro"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 55
+    },
+    "rooms": {
+      "single": {
+        "currency": "COP",
+        "price": 250000,
+        "roomsLeft": 20,
+        "description": "Comfortable single room with minimalist décor."
+      },
+      "double": {
+        "price": 400000,
+        "currency": "COP",
+        "roomsLeft": 25,
+        "description": "Double room with relaxing atmosphere and modern furnishings."
+      },
+      "triple": {
+        "price": 550000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Spacious triple room with vibrant décor."
+      },
+      "suite": {
+        "price": 950000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Elegant suite with luxurious amenities and a private balcony."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel las Americas Casa de Playa",
+    "details": {
+      "stars": 4,
+      "rating": 4.4,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/78716392.jpg?k=a5678fc8866450eaa71f70f9e52af30b8b74d6a0626a6a7aaf486e7ec3eb7a5e&o=&hp=1",
+      "description": "A charming hotel with a focus on comfort and affordability, providing cozy accommodations and a welcoming environment for guests who wish to explore Cartagena's rich history."
+    },
+    "address": {
+      "city": "Cartagena",
+      "country": "Colombia",
+      "street": "Anillo Vial Sector Cielo Mar, La Boquilla"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 65
+    },
+    "rooms": {
+      "single": {
+        "price": 180000,
+        "currency": "COP",
+        "roomsLeft": 30,
+        "description": "Economical single room with functional amenities."
+      },
+      "double": {
+        "price": 300000,
+        "currency": "COP",
+        "roomsLeft": 25,
+        "description": "Comfortable double room with all the necessary conveniences."
+      },
+      "triple": {
+        "price": 450000,
+        "currency": "COP",
+        "roomsLeft": 10,
+        "description": "Spacious triple room with a cozy atmosphere."
+      },
+      "suite": {
+        "price": 800000,
+        "currency": "COP",
+        "roomsLeft": 5,
+        "description": "Simple suite with private bathroom and essential amenities."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel La Campiña",
+    "details": {
+      "stars": 4,
+      "rating": 8.9,
+      "imgUrl": "https://la-campina-club-spa.hotels-argentina.net/data/Pics/OriginalPhoto/2266/226655/226655528/la-campina-club-hotel-spa-santa-rosa-la-pampa-pic-1.JPEG",
+      "description": "Un hotel acogedor ubicado en el corazón de La Pampa, ideal para quienes buscan un ambiente tranquilo y relajante."
+    },
+    "address": {
+      "city": "Santa Rosa",
+      "country": "Argentina",
+      "street": "Av. San Martín 1234"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 15
+    },
+    "rooms": {
+      "single": {
+        "price": 16000,
+        "currency": "ARS",
+        "roomsLeft": 5,
+        "description": "Habitación individual con cama simple, ideal para viajeros solitarios."
+      },
+      "double": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación doble con cama matrimonial, perfecta para parejas."
+      },
+      "triple": {
+        "price": 35000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación triple con tres camas simples, ideal para familias."
+      },
+      "suite": {
+        "price": 50000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Suite de lujo con jacuzzi y terraza privada, perfecta para una estancia especial."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Gran Hotel del Oeste",
+    "details": {
+      "stars": 3,
+      "rating": 8.1,
+      "imgUrl": "https://pico.hotels-argentina.net/data/Pics/OriginalPhoto/7563/756388/756388954/hotel-pico-6360-general-pico-pic-14.JPEG",
+      "description": "Hotel moderno y funcional en General Pico, con cómodas instalaciones para estadías cortas."
+    },
+    "address": {
+      "city": "General Pico",
+      "country": "Argentina",
+      "street": "Calle 9 N°456"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "rooms": {
+      "single": {
+        "price": 12000,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación individual sencilla con escritorio."
+      },
+      "double": {
+        "price": 20000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con baño privado."
+      },
+      "triple": {
+        "price": 28000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación triple con camas confortables."
+      },
+      "suite": {
+        "price": 40000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Suite con living y comedor privado."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": false,
+      "bar": false
+    }
+  },
+  {
+    "name": "Posada El Calden",
+    "details": {
+      "stars": 5,
+      "rating": 9.5,
+      "imgUrl": "https://ss-static-01.esmsv.com/id/72127/galeriaimagenes/obtenerimagen/?id=89&tipoEscala=stretch&width=2048&height=1365",
+      "description": "Una experiencia de lujo en un entorno natural, ideal para desconectar del estrés diario."
+    },
+    "address": {
+      "city": "Victorica",
+      "country": "Argentina",
+      "street": "Ruta 10, Km 12"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "rooms": {
+      "single": {
+        "price": 18000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual con vistas al campo."
+      },
+      "double": {
+        "price": 32000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama king size."
+      },
+      "triple": {
+        "price": 42000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Amplia habitación triple con sala de estar."
+      },
+      "suite": {
+        "price": 60000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite presidencial con terraza privada."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Patagonia",
+    "details": {
+      "stars": 4,
+      "rating": 8.7,
+      "imgUrl": "https://images.pxsol.com/3090/company/library/user/489674424008fd8e212c5fa211b9e7f7320b4d77ab.jpg?auto=format&browser=Google%20Bot&h=1000&ixlib=php-3.3.1&w=1900&s=f77a768754394820c41e68438e0aa202",
+      "description": "Ubicado en Toay, este hotel ofrece una mezcla de modernidad y confort para los viajeros."
+    },
+    "address": {
+      "city": "Toay",
+      "country": "Argentina",
+      "street": "Av. Belgrano 786"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 8
+    },
+    "rooms": {
+      "single": {
+        "price": 15000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual con desayuno incluido."
+      },
+      "double": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 5,
+        "description": "Habitación doble con balcón privado."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hostería Las Pampas",
+    "details": {
+      "stars": 3,
+      "rating": 7.9,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/441889161.jpg?k=118ccd8e5752f8127b02545b818eaf0f691ef3ce31d701cde9408cad2171d2f0&o=&hp=1",
+      "description": "Una opción económica en Eduardo Castex, ideal para viajeros de paso."
+    },
+    "address": {
+      "city": "Eduardo Castex",
+      "country": "Argentina",
+      "street": "Ruta Nacional 35 Km 456"
+    },
+    "availability": {
+      "available": false,
+      "totalRoomsLeft": 0
+    },
+    "rooms": {
+      "double": {
+        "price": 18000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Habitación doble con vista al jardín."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": false,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel El Cortijo",
+    "details": {
+      "stars": 4,
+      "rating": 8.9,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/71456267.webp?k=7845c6032847eed60993307c7c92c909f8b156416593d41f55584a122fa851e1&o=",
+      "description": "Un hotel moderno y cómodo en el centro de Neuquén, con todas las comodidades necesarias para una estadía placentera."
+    },
+    "address": {
+      "city": "Neuquén",
+      "country": "Argentina",
+      "street": "Av. Argentina 1200"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "rooms": {
+      "single": {
+        "price": 32000,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación individual con cama simple, ideal para viajeros solitarios."
+      },
+      "double": {
+        "price": 50000,
+        "currency": "ARS",
+        "roomsLeft": 5,
+        "description": "Habitación doble con cama matrimonial, perfecta para parejas."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Comahue Business",
+    "details": {
+      "stars": 3,
+      "rating": 8.3,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/568117415.webp?k=df63c2e033a025938c6dfb4324086b43b75de7aecf689caedd1a9200f32f8626&o=",
+      "description": "Ubicado en una zona tranquila de Neuquén, este hotel ofrece servicios de calidad a un precio accesible."
+    },
+    "address": {
+      "city": "Neuquén",
+      "country": "Argentina",
+      "street": "Calle San Martín 150"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 8
+    },
+    "rooms": {
+      "single": {
+        "price": 22000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual cómoda, ideal para viajes de negocios."
+      },
+      "double": {
+        "price": 35000,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación doble con baño privado y amenities."
+      },
+      "triple": {
+        "price": 45000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con camas adicionales, perfecta para familias."
+      },
+      "suite": {
+        "price": 65000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite de lujo con sala de estar separada y vista a la ciudad."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel Del Comahue",
+    "details": {
+      "stars": 2,
+      "rating": 7.8,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/351074724.webp?k=eef3ea76cd87bef477ddf33522c8172ff68742759ae2bf917fc3b557a5f199a4&o=",
+      "description": "Un hotel sencillo y funcional en pleno centro de Neuquén, ideal para estancias cortas."
+    },
+    "address": {
+      "city": "Neuquén",
+      "country": "Argentina",
+      "street": "Av. Olascoaga 765"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 12
+    },
+    "rooms": {
+      "single": {
+        "price": 14500,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación individual sencilla, ideal para viajes rápidos."
+      },
+      "double": {
+        "price": 22000,
+        "currency": "ARS",
+        "roomsLeft": 6,
+        "description": "Habitación doble con cama matrimonial, cómoda y accesible."
+      },
+      "triple": {
+        "price": 30000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación triple con camas individuales."
+      },
+      "suite": {
+        "price": 55000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite con jacuzzi privado y sala de estar."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Huemul",
+    "details": {
+      "stars": 3,
+      "rating": 7.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/286012274.webp?k=857e3c67c1edd8e5bb07133e8b5c0e99e4d2c86d5f986a7da174e19356f1d0e8&o=",
+      "description": "Alojamiento económico en el corazón de Neuquén, ideal para aquellos que buscan un lugar cómodo y accesible."
+    },
+    "address": {
+      "city": "Neuquén",
+      "country": "Argentina",
+      "street": "Calle Rivadavia 480"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "rooms": {
+      "single": {
+        "price": 10000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual sencilla con servicios básicos."
+      },
+      "double": {
+        "price": 16000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, sencilla y accesible."
+      },
+      "triple": {
+        "price": 22000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con camas individuales."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": false,
+      "bar": false
+    }
+  },
+  {
+    "name": "BLACK BEAR Hotel",
+    "details": {
+      "stars": 3,
+      "rating": 7.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/566279306.webp?k=ad408c8952568d405ba9de209821420f13557c20b4b883c176db1fc5f2194902&o=",
+      "description": "Ubicada en un entorno natural, esta hostería ofrece una opción tranquila para quienes visitan Neuquén."
+    },
+    "address": {
+      "city": "Neuquén",
+      "country": "Argentina",
+      "street": "Ruta 40, Km 1800"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "rooms": {
+      "single": {
+        "price": 12500,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual con cama simple y vista al jardín."
+      },
+      "double": {
+        "price": 18500,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial y vistas panorámicas."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Comahue Business",
+    "details": {
+      "stars": 3,
+      "rating": 8.3,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/568117415.webp?k=df63c2e033a025938c6dfb4324086b43b75de7aecf689caedd1a9200f32f8626&o=",
+      "description": "Ubicado en una zona tranquila de Neuquén, este hotel ofrece servicios de calidad a un precio accesible."
+    },
+    "address": {
+      "city": "Neuquén",
+      "country": "Argentina",
+      "street": "Calle San Martín 150"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 8
+    },
+    "rooms": {
+      "single": {
+        "price": 22000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual cómoda, ideal para viajes de negocios."
+      },
+      "double": {
+        "price": 35000,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación doble con baño privado y amenities."
+      },
+      "triple": {
+        "price": 45000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con camas adicionales, perfecta para familias."
+      },
+      "suite": {
+        "price": 65000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite de lujo con sala de estar separada y vista a la ciudad."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel Del Comahue",
+    "details": {
+      "stars": 2,
+      "rating": 7.8,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/351074724.webp?k=eef3ea76cd87bef477ddf33522c8172ff68742759ae2bf917fc3b557a5f199a4&o=",
+      "description": "Un hotel sencillo y funcional en pleno centro de Neuquén, ideal para estancias cortas."
+    },
+    "address": {
+      "city": "Neuquén",
+      "country": "Argentina",
+      "street": "Av. Olascoaga 765"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 12
+    },
+    "rooms": {
+      "single": {
+        "price": 14500,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación individual sencilla, ideal para viajes rápidos."
+      },
+      "double": {
+        "price": 22000,
+        "currency": "ARS",
+        "roomsLeft": 6,
+        "description": "Habitación doble con cama matrimonial, cómoda y accesible."
+      },
+      "triple": {
+        "price": 30000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación triple con camas individuales."
+      },
+      "suite": {
+        "price": 55000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite con jacuzzi privado y sala de estar."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Huemul",
+    "details": {
+      "stars": 3,
+      "rating": 7.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/286012274.webp?k=857e3c67c1edd8e5bb07133e8b5c0e99e4d2c86d5f986a7da174e19356f1d0e8&o=",
+      "description": "Alojamiento económico en el corazón de Neuquén, ideal para aquellos que buscan un lugar cómodo y accesible."
+    },
+    "address": {
+      "city": "Neuquén",
+      "country": "Argentina",
+      "street": "Calle Rivadavia 480"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "rooms": {
+      "single": {
+        "price": 10000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual sencilla con servicios básicos."
+      },
+      "double": {
+        "price": 16000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, sencilla y accesible."
+      },
+      "triple": {
+        "price": 22000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con camas individuales."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": false,
+      "bar": false
+    }
+  },
+  {
+    "name": "BLACK BEAR Hotel",
+    "details": {
+      "stars": 3,
+      "rating": 7.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/566279306.webp?k=ad408c8952568d405ba9de209821420f13557c20b4b883c176db1fc5f2194902&o=",
+      "description": "Ubicada en un entorno natural, esta hostería ofrece una opción tranquila para quienes visitan Neuquén."
+    },
+    "address": {
+      "city": "Neuquén",
+      "country": "Argentina",
+      "street": "Ruta 40, Km 1800"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "rooms": {
+      "single": {
+        "price": 12500,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual con cama simple y vista al jardín."
+      },
+      "double": {
+        "price": 18500,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial y vistas panorámicas."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Colonos",
+    "details": {
+      "stars": 4,
+      "rating": 8.7,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/121876372.webp?k=fedd5f070133addee42277adff390b4f853a72af928fb596485085d8689f528c&o=",
+      "description": "Con una ubicación excelente en Cipolletti, Ramada Hotel & Suites ofrece alojamiento de lujo con desayuno buffet."
+    },
+    "address": {
+      "city": "Cipolletti",
+      "country": "Argentina",
+      "street": "Calle Roca 1000"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "rooms": {
+      "single": {
+        "price": 29000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual moderna con todos los servicios."
+      },
+      "double": {
+        "price": 42000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble amplia con cama matrimonial y minibar."
+      },
+      "triple": {
+        "price": 52000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con cama king size y una individual."
+      },
+      "suite": {
+        "price": 75000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite de lujo con vista al río y sala de estar privada."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Milan",
+    "details": {
+      "stars": 3,
+      "rating": 7.9,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/75753504.webp?k=e69f981063a81b8e209305f92f86563abb16f235ed627e397f74d08c18de96ce&o=",
+      "description": "Ubicado en el corazón de la ciudad de General Roca, Hotel Patagónico es una opción accesible para quienes buscan calidad y confort."
+    },
+    "address": {
+      "city": "General Roca",
+      "country": "Argentina",
+      "street": "Av. Roca 400"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 10
+    },
+    "rooms": {
+      "single": {
+        "price": 18000,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación sencilla con cama individual y todos los servicios básicos."
+      },
+      "double": {
+        "price": 26000,
+        "currency": "ARS",
+        "roomsLeft": 5,
+        "description": "Habitación doble con cama matrimonial y desayuno incluido."
+      },
+      "triple": {
+        "price": 32000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación triple con tres camas simples."
+      },
+      "suite": {
+        "price": 50000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite premium con jacuzzi, vistas panorámicas y servicios exclusivos."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel y Casino Del Río - General Roca",
+    "details": {
+      "stars": 2,
+      "rating": 7.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/148467429.webp?k=9aa6e5a86fe813915d5f9a075a8887f040f2b916bbabc4dcc05f9a77da953e8f&o=",
+      "description": "Alojamiento económico en San Carlos de Bariloche, con excelente ubicación y cómodas instalaciones."
+    },
+    "address": {
+      "city": "San Carlos de Bariloche",
+      "country": "Argentina",
+      "street": "Calle Loma 123"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 7
+    },
+    "rooms": {
+      "single": {
+        "price": 13000,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación económica individual con todas las comodidades."
+      },
+      "double": {
+        "price": 18000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama matrimonial y baño privado."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel y Casino Del Río - Cipolletti",
+    "details": {
+      "stars": 4,
+      "rating": 9.1,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/73191894.webp?k=b7f2bb6cd18d82ce16d881d0aa57ecbb6df926debc4ae312dae01a8c5e9aa711&o=",
+      "description": "Hotel de lujo ubicado en Bariloche, con vista al lago, gimnasio, spa y restaurante de alta gama."
+    },
+    "address": {
+      "city": "San Carlos de Bariloche",
+      "country": "Argentina",
+      "street": "Av. Bustillo 700"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "rooms": {
+      "single": {
+        "price": 35000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual con vista al lago, moderna y elegante."
+      },
+      "double": {
+        "price": 50000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama king size y vista panorámica al lago."
+      },
+      "triple": {
+        "price": 60000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con camas individuales y vista directa al lago."
+      },
+      "suite": {
+        "price": 80000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite de lujo con jacuzzi privado y acceso exclusivo al spa."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "hosteria las cachi alojamiento",
+    "details": {
+      "stars": 4,
+      "rating": 8.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/576244057.webp?k=8d5b7ac60ffe432a0fa4c8ce0186653e28576559c1d46a5e3a7d35698ef728a1&o=",
+      "description": "Ubicado en la ciudad de Puerto Madryn, con vista al mar y un restaurante de alta gama, este hotel ofrece una experiencia única con comodidades de lujo."
+    },
+    "address": {
+      "city": "Puerto Madryn",
+      "country": "Argentina",
+      "street": "Av. Julio A. Roca 64"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "rooms": {
+      "single": {
+        "price": 30000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual moderna, con vista parcial al mar."
+      },
+      "double": {
+        "price": 45000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama matrimonial, vista al mar y desayuno incluido."
+      },
+      "triple": {
+        "price": 60000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales y vista panorámica."
+      },
+      "suite": {
+        "price": 90000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite de lujo con jacuzzi, sala de estar y vista privilegiada al océano."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Dormís Acá",
+    "details": {
+      "stars": 3,
+      "rating": 8.1,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/326764577.webp?k=7bf33baa41be7679d441daae4f50729f207006a81c368049d4a98842e84dacce&o=",
+      "description": "Situado a pasos de la playa, este hotel ofrece un ambiente relajado y cómodo, ideal para familias y turistas que visitan Puerto Madryn."
+    },
+    "address": {
+      "city": "Puerto Madryn",
+      "country": "Argentina",
+      "street": "Av. Costanera 100"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 8
+    },
+    "rooms": {
+      "single": {
+        "price": 21000,
+        "currency": "ARS",
+        "roomsLeft": 5,
+        "description": "Habitación simple, económica, con vista parcial al mar."
+      },
+      "double": {
+        "price": 30000,
+        "currency": "ARS",
+        "roomsLeft": 4,
+        "description": "Habitación doble con cama matrimonial y vista a la costanera."
+      },
+      "triple": {
+        "price": 40000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación triple con tres camas simples, ideal para grupos."
+      },
+      "suite": {
+        "price": 70000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite de lujo con jacuzzi privado y vista al mar."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "My Pod House",
+    "details": {
+      "stars": 2,
+      "rating": 7.6,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/364217567.webp?k=72dc1185f9d0cd27970ffd9c03a0c8369c19e3f0459167589ecee57540cefec3&o=",
+      "description": "Hotel familiar en Trelew, con una ubicación privilegiada cerca de los principales atractivos turísticos de la ciudad."
+    },
+    "address": {
+      "city": "Trelew",
+      "country": "Argentina",
+      "street": "Calle 9 de Julio 850"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "rooms": {
+      "single": {
+        "price": 14000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual sencilla, ideal para estancias cortas."
+      },
+      "double": {
+        "price": 21000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama matrimonial, sencilla y cómoda."
+      },
+      "triple": {
+        "price": 27000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas simples, ideal para grupos pequeños."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": false,
+      "bar": false
+    }
+  },
+  {
+    "name": "Yene hue",
+    "details": {
+      "stars": 3,
+      "rating": 7.8,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/523035140.webp?k=89bc36e1b269baf3e080547b4f92916b97c741bc713668853ee0faee83ebb860&o=",
+      "description": "Ubicado en Puerto Pirámides, este hotel es perfecto para los viajeros que buscan explorar la Península Valdés y disfrutar de la fauna local."
+    },
+    "address": {
+      "city": "Puerto Pirámides",
+      "country": "Argentina",
+      "street": "Ruta 2, Km 26"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 3
+    },
+    "rooms": {
+      "single": {
+        "price": 17000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación individual simple, ideal para una estadía tranquila en la naturaleza."
+      },
+      "double": {
+        "price": 23000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, tranquila y cómoda."
+      },
+      "triple": {
+        "price": 30000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas simples y vistas al mar."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel Sur Sur Patagónico",
+    "details": {
+      "stars": 3,
+      "rating": 8.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/584888054.webp?k=cbf8705e9c9a0932f528ca544a5576fdd8c4ed9785a1a806414f2c11fde557fe&o=",
+      "description": "Ubicado en la ciudad de Esquel, este hotel ofrece un ambiente cálido y confortable, ideal para los viajeros que disfrutan de la naturaleza y actividades al aire libre."
+    },
+    "address": {
+      "city": "Esquel",
+      "country": "Argentina",
+      "street": "Calle San Martín 300"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "rooms": {
+      "single": {
+        "price": 20000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación simple con cama individual, ideal para viajeros solitarios."
+      },
+      "double": {
+        "price": 28000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, amplia y cómoda."
+      },
+      "triple": {
+        "price": 35000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales y un espacio acogedor."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel America",
+    "details": {
+      "stars": 4,
+      "rating": 8.7,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/150097745.webp?k=ecd93297f80295be97804e76a05a2f2c4209dc68a20ef685f79e92a23f6326ce&o=",
+      "description": "Este hotel de lujo en Calafate ofrece impresionantes vistas del Lago Argentino, un spa completo y un restaurante gourmet. Ideal para quienes visitan el Parque Nacional Los Glaciares."
+    },
+    "address": {
+      "city": "El Calafate",
+      "country": "Argentina",
+      "street": "Calle 16 de Octubre 1311"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 3
+    },
+    "rooms": {
+      "single": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación individual con vista al lago, decorada en estilo patagónico."
+      },
+      "double": {
+        "price": 40000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial y balcón con vista panorámica."
+      },
+      "triple": {
+        "price": 55000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales y vista al jardín."
+      },
+      "suite": {
+        "price": 90000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite con jacuzzi, sala de estar y una vista privilegiada al lago y los glaciares."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel Camino Real",
+    "details": {
+      "stars": 3,
+      "rating": 8.1,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/590680508.webp?k=c607824a6468cdb8175e0512f824732fbcc5e0e0468eb86951f7a2abc8b4d22a&o=",
+      "description": "Ubicado en el centro de El Calafate, este hotel ofrece una excelente relación calidad-precio, con habitaciones cómodas y un restaurante que sirve platos locales."
+    },
+    "address": {
+      "city": "El Calafate",
+      "country": "Argentina",
+      "street": "Av. Libertador 1234"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "rooms": {
+      "single": {
+        "price": 16000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación sencilla, ideal para viajeros solitarios, con todas las comodidades necesarias."
+      },
+      "double": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama matrimonial, vista al jardín y desayuno incluido."
+      },
+      "triple": {
+        "price": 33000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, perfecta para grupos de amigos o familias."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "TRYP by Wyndham Santa Cruz",
+    "details": {
+      "stars": 2,
+      "rating": 7.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/300278066.webp?k=04c35e41b3f8f23ccff6455549e8addaf5324073fe6ec0dfb362a9bc54887582&o=",
+      "description": "Este pequeño hotel familiar en El Calafate es perfecto para quienes buscan una estancia económica y confortable cerca del centro de la ciudad."
+    },
+    "address": {
+      "city": "El Calafate",
+      "country": "Argentina",
+      "street": "Calle 2 de Abril 1250"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "rooms": {
+      "single": {
+        "price": 12000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual sencilla, con cama individual y baño privado."
+      },
+      "double": {
+        "price": 18000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, decoración sencilla pero acogedora."
+      },
+      "triple": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple, ideal para grupos, con tres camas individuales."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "LP Equipetrol",
+    "details": {
+      "stars": 3,
+      "rating": 7.8,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/547424135.webp?k=e21377ba6eacf413c137ad60d7c92bb7e50d39d213030160a783fe4e9c15629d&o=",
+      "description": "Un hotel de estilo rústico en El Chaltén, en las cercanías del Parque Nacional Los Glaciares, ideal para quienes buscan aventura y comodidad."
+    },
+    "address": {
+      "city": "El Chaltén",
+      "country": "Argentina",
+      "street": "Calle Los Cóndores 350"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "rooms": {
+      "single": {
+        "price": 13000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual sencilla, cómoda, ideal para estancias cortas."
+      },
+      "double": {
+        "price": 19000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama matrimonial, cálida y confortable."
+      },
+      "triple": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, ideal para familias o grupos."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Marriott Santa Cruz de la Sierra Hotel",
+    "details": {
+      "stars": 3,
+      "rating": 8.3,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/430816783.webp?k=89bfd55c03888d0b2e214e5a893016daa7a0d0b96d5c7d20c75eb4a978e36c9b&o=",
+      "description": "Situado en Río Gallegos, este hotel es ideal para quienes buscan una opción cómoda para descansar antes de continuar su viaje por la región patagónica."
+    },
+    "address": {
+      "city": "Río Gallegos",
+      "country": "Argentina",
+      "street": "Av. San Martín 1520"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "rooms": {
+      "single": {
+        "price": 10000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación sencilla, perfecta para viajeros de paso, con cama individual."
+      },
+      "double": {
+        "price": 16000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, ideal para estancias más largas."
+      },
+      "triple": {
+        "price": 21000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, muy acogedora."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Hotel y Cabañas Pulegan",
+    "details": {
+      "stars": 5,
+      "rating": 9.3,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/501641603.webp?k=5b511986365ee316a977cba05b475bb17c582b065ea14bff6b6c7f09f706b1f4&o=",
+      "description": "Un hotel de lujo frente al Canal Beagle, con vistas espectaculares, spa, restaurante gourmet y actividades al aire libre. Ideal para una experiencia única en Ushuaia."
+    },
+    "address": {
+      "city": "Ushuaia",
+      "country": "Argentina",
+      "street": "Ruta 40 km 2965"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 2
+    },
+    "rooms": {
+      "single": {
+        "price": 45000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación individual de lujo con vista al mar y acceso al spa."
+      },
+      "double": {
+        "price": 65000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación doble con cama matrimonial, balcón privado y vista panorámica."
+      },
+      "triple": {
+        "price": 80000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Habitación triple con tres camas individuales y acceso al spa."
+      },
+      "suite": {
+        "price": 120000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite exclusiva con jacuzzi, salón privado y vistas inigualables del Canal Beagle."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "victoria",
+    "details": {
+      "stars": 4,
+      "rating": 8.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/525851608.webp?k=db9137a1c41ea68161248cbcf5ea4b501caccec8c371f33a315476751735e2d2&o=",
+      "description": "Situado en el centro de Ushuaia, Hotel Albatros es ideal para quienes buscan comodidad, excelente servicio y una ubicación estratégica."
+    },
+    "address": {
+      "city": "Ushuaia",
+      "country": "Argentina",
+      "street": "San Martín 798"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "rooms": {
+      "single": {
+        "price": 20000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación sencilla, cómoda, ideal para una estancia corta en el centro de Ushuaia."
+      },
+      "double": {
+        "price": 30000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama matrimonial, equipada con todos los servicios y desayuno incluido."
+      },
+      "triple": {
+        "price": 38000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, ideal para familias o grupos."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Cabañas Porvenir Tierra del Fuego",
+    "details": {
+      "stars": 3,
+      "rating": 8.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/523757315.webp?k=3c5bafd366240736cc23aab772fe483055b3dd64adc842ba3ad493b88d7c3c3e&o=",
+      "description": "Una acogedora hostería en Ushuaia, rodeada de montañas y bosques, perfecta para quienes buscan un lugar tranquilo y cálido en la ciudad más austral del mundo."
+    },
+    "address": {
+      "city": "Ushuaia",
+      "country": "Argentina",
+      "street": "Av. Los Ñires 3045"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "rooms": {
+      "single": {
+        "price": 12000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación sencilla con una cama individual y vista al jardín."
+      },
+      "double": {
+        "price": 18000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial y baño privado."
+      },
+      "triple": {
+        "price": 24000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, ideal para grupos o familias."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Apart Fueguina",
+    "details": {
+      "stars": 3,
+      "rating": 7.8,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/413288855.webp?k=6b69dc32769118493f60471e9115038e213e2e7a1cc9f6122a5b651d8750cc0f&o=",
+      "description": "Ubicado a las afueras de Ushuaia, este hotel es ideal para quienes buscan una estancia tranquila, pero con fácil acceso a la ciudad y las principales atracciones turísticas."
+    },
+    "address": {
+      "city": "Ushuaia",
+      "country": "Argentina",
+      "street": "Calle Löffler 1050"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 3
+    },
+    "rooms": {
+      "single": {
+        "price": 10000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual con cama individual y acceso a todos los servicios del hotel."
+      },
+      "double": {
+        "price": 15000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, decoración rústica y acogedora."
+      },
+      "triple": {
+        "price": 20000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, ideal para familias."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Yendegaia House",
+    "details": {
+      "stars": 2,
+      "rating": 7.2,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/219172428.webp?k=884c4a94727f343efd728352c44608946bada93e0f74fc90554298b379483788&o=",
+      "description": "Un hotel de dos estrellas con una excelente ubicación en el centro de Ushuaia, ideal para viajeros que buscan opciones más económicas sin sacrificar comodidad."
+    },
+    "address": {
+      "city": "Ushuaia",
+      "country": "Argentina",
+      "street": "Calle Rivadavia 232"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "rooms": {
+      "single": {
+        "price": 8000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual sencilla, con cama individual y baño privado."
+      },
+      "double": {
+        "price": 12000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama matrimonial, ideal para estancias cortas."
+      },
+      "triple": {
+        "price": 16000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, económica y cómoda."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hotel Tulmas",
+    "details": {
+      "stars": 4,
+      "rating": 8.8,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/484830285.webp?k=497b3ea60fc716798ad1d9ae634b588372e2047606bb8b01c9b7b148baf27825&o=",
+      "description": "Ubicado en las colinas de San Salvador de Jujuy, este hotel ofrece un entorno tranquilo y vistas panorámicas, con instalaciones de lujo, incluyendo spa y restaurante gourmet."
+    },
+    "address": {
+      "city": "San Salvador de Jujuy",
+      "country": "Argentina",
+      "street": "Calle Los Perales 3500"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 3
+    },
+    "rooms": {
+      "single": {
+        "price": 22000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación individual con vistas al valle, cama cómoda y baño privado."
+      },
+      "double": {
+        "price": 35000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, aire acondicionado y acceso a todas las comodidades del hotel."
+      },
+      "triple": {
+        "price": 45000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Habitación triple con tres camas individuales, ideal para grupos o familias."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "CasaCalma Hotel Boutique",
+    "details": {
+      "stars": 3,
+      "rating": 8.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/539907807.webp?k=8e40fd3bb3de8fec7e8e309663c9aa6fa756b00f57b6e6677976dd01fb64f55f&o=",
+      "description": "Este tranquilo hotel en Purmamarca se encuentra rodeado por las impresionantes montañas de la Quebrada de Humahuaca. Ofrece una experiencia única en la naturaleza, con un spa y un restaurante que sirve cocina regional."
+    },
+    "address": {
+      "city": "Purmamarca",
+      "country": "Argentina",
+      "street": "Calle de los Pueblos 510"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "rooms": {
+      "single": {
+        "price": 14000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual con vista a las montañas y baño privado."
+      },
+      "double": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, decorada con estilo local y desayuno incluido."
+      },
+      "triple": {
+        "price": 32000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, ideal para grupos pequeños."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Caminos Hostal",
+    "details": {
+      "stars": 2,
+      "rating": 7.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/284156174.webp?k=f8369558a2895bb4c9149817d096a9c56f2220a5163f206d6b90c7203f38cacf&o=",
+      "description": "Un hotel sencillo y acogedor, con una excelente ubicación en el centro de San Salvador de Jujuy, ideal para quienes buscan una opción económica sin perder comodidad."
+    },
+    "address": {
+      "city": "San Salvador de Jujuy",
+      "country": "Argentina",
+      "street": "Av. 19 de Abril 1030"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "rooms": {
+      "single": {
+        "price": 7000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual sencilla con todas las comodidades básicas para una estancia cómoda."
+      },
+      "double": {
+        "price": 12000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial y baño privado."
+      },
+      "triple": {
+        "price": 16000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, ideal para grupos pequeños."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "La Paleta del Pintor Hosteria",
+    "details": {
+      "stars": 3,
+      "rating": 8.3,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/359599761.webp?k=06fe29df3c7d6ced9b3207e8fefe09acf510f248d671f3e35df473d0cb180e38&o=",
+      "description": "Situado en un entorno natural en las afueras de San Salvador de Jujuy, este hotel combina confort y tranquilidad, con un restaurante que ofrece platos regionales y un entorno único."
+    },
+    "address": {
+      "city": "San Salvador de Jujuy",
+      "country": "Argentina",
+      "street": "Calle Tumbaya 2760"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "rooms": {
+      "single": {
+        "price": 8000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación sencilla, ideal para estancias cortas, con cama individual y baño privado."
+      },
+      "double": {
+        "price": 13000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial y acceso a la piscina."
+      },
+      "triple": {
+        "price": 17000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple, ideal para familias o grupos, con tres camas individuales."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hosteria Maimará",
+    "details": {
+      "stars": 2,
+      "rating": 7.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/284790209.webp?k=07cb2f4c4bd93c3198427b99f7b5bde9c58b0be2129239fb99b610e8cdc351f4&o=",
+      "description": "Un hotel pequeño pero acogedor en el corazón de Tilcara, en la Quebrada de Humahuaca, ideal para quienes buscan un ambiente cálido y familiar."
+    },
+    "address": {
+      "city": "Tilcara",
+      "country": "Argentina",
+      "street": "Calle La Pampa 560"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "rooms": {
+      "single": {
+        "price": 5000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación sencilla con cama individual y baño compartido."
+      },
+      "double": {
+        "price": 8000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama matrimonial y baño privado."
+      },
+      "triple": {
+        "price": 11000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Luxor Hotel & Spa",
+    "details": {
+      "stars": 5,
+      "rating": 9.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/38104628.webp?k=9e2140c0897aabb173d77d6ef1ae82333109390355ac6466b8eabc984441a8c5&o=",
+      "description": "Un hotel boutique de lujo en el corazón de Salta, donde se fusionan el estilo clásico y moderno, con atención personalizada y un ambiente acogedor. Ideal para disfrutar de la ciudad."
+    },
+    "address": {
+      "city": "Salta",
+      "country": "Argentina",
+      "street": "Calle Caseros 101"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 3
+    },
+    "rooms": {
+      "single": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación individual de lujo con detalles elegantes y una vista impresionante a las montañas."
+      },
+      "double": {
+        "price": 35000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, decorada con estilo contemporáneo y todas las comodidades."
+      },
+      "suite": {
+        "price": 60000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite de lujo con salón privado, jacuzzi y vistas panorámicas a la ciudad."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "CasaCalma Hotel Boutique",
+    "details": {
+      "stars": 3,
+      "rating": 8.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/539907807.webp?k=8e40fd3bb3de8fec7e8e309663c9aa6fa756b00f57b6e6677976dd01fb64f55f&o=",
+      "description": "Este tranquilo hotel en Purmamarca se encuentra rodeado por las impresionantes montañas de la Quebrada de Humahuaca. Ofrece una experiencia única en la naturaleza, con un spa y un restaurante que sirve cocina regional."
+    },
+    "address": {
+      "city": "Purmamarca",
+      "country": "Argentina",
+      "street": "Calle de los Pueblos 510"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "rooms": {
+      "single": {
+        "price": 14000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación individual con vista a las montañas y baño privado."
+      },
+      "double": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, decorada con estilo local y desayuno incluido."
+      },
+      "triple": {
+        "price": 32000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, ideal para grupos pequeños."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": false,
+      "restaurant": true,
+      "bar": true
+    }
+  },
+  {
+    "name": "Caminos Hostal",
+    "details": {
+      "stars": 2,
+      "rating": 7.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/284156174.webp?k=f8369558a2895bb4c9149817d096a9c56f2220a5163f206d6b90c7203f38cacf&o=",
+      "description": "Un hotel sencillo y acogedor, con una excelente ubicación en el centro de San Salvador de Jujuy, ideal para quienes buscan una opción económica sin perder comodidad."
+    },
+    "address": {
+      "city": "San Salvador de Jujuy",
+      "country": "Argentina",
+      "street": "Av. 19 de Abril 1030"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 6
+    },
+    "rooms": {
+      "single": {
+        "price": 7000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación individual sencilla con todas las comodidades básicas para una estancia cómoda."
+      },
+      "double": {
+        "price": 12000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial y baño privado."
+      },
+      "triple": {
+        "price": 16000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales, ideal para grupos pequeños."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "La Paleta del Pintor Hosteria",
+    "details": {
+      "stars": 3,
+      "rating": 8.3,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/359599761.webp?k=06fe29df3c7d6ced9b3207e8fefe09acf510f248d671f3e35df473d0cb180e38&o=",
+      "description": "Situado en un entorno natural en las afueras de San Salvador de Jujuy, este hotel combina confort y tranquilidad, con un restaurante que ofrece platos regionales y un entorno único."
+    },
+    "address": {
+      "city": "San Salvador de Jujuy",
+      "country": "Argentina",
+      "street": "Calle Tumbaya 2760"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 4
+    },
+    "rooms": {
+      "single": {
+        "price": 8000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación sencilla, ideal para estancias cortas, con cama individual y baño privado."
+      },
+      "double": {
+        "price": 13000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial y acceso a la piscina."
+      },
+      "triple": {
+        "price": 17000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple, ideal para familias o grupos, con tres camas individuales."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Hosteria Maimará",
+    "details": {
+      "stars": 2,
+      "rating": 7.0,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/284790209.webp?k=07cb2f4c4bd93c3198427b99f7b5bde9c58b0be2129239fb99b610e8cdc351f4&o=",
+      "description": "Un hotel pequeño pero acogedor en el corazón de Tilcara, en la Quebrada de Humahuaca, ideal para quienes buscan un ambiente cálido y familiar."
+    },
+    "address": {
+      "city": "Tilcara",
+      "country": "Argentina",
+      "street": "Calle La Pampa 560"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 5
+    },
+    "rooms": {
+      "single": {
+        "price": 5000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación sencilla con cama individual y baño compartido."
+      },
+      "double": {
+        "price": 8000,
+        "currency": "ARS",
+        "roomsLeft": 3,
+        "description": "Habitación doble con cama matrimonial y baño privado."
+      },
+      "triple": {
+        "price": 11000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación triple con tres camas individuales."
+      }
+    },
+    "amenities": {
+      "pool": false,
+      "spa": false,
+      "gym": false,
+      "restaurant": true,
+      "bar": false
+    }
+  },
+  {
+    "name": "Luxor Hotel & Spa",
+    "details": {
+      "stars": 5,
+      "rating": 9.5,
+      "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/38104628.webp?k=9e2140c0897aabb173d77d6ef1ae82333109390355ac6466b8eabc984441a8c5&o=",
+      "description": "Un hotel boutique de lujo en el corazón de Salta, donde se fusionan el estilo clásico y moderno, con atención personalizada y un ambiente acogedor. Ideal para disfrutar de la ciudad."
+    },
+    "address": {
+      "city": "Salta",
+      "country": "Argentina",
+      "street": "Calle Caseros 101"
+    },
+    "availability": {
+      "available": true,
+      "totalRoomsLeft": 3
+    },
+    "rooms": {
+      "single": {
+        "price": 25000,
+        "currency": "ARS",
+        "roomsLeft": 1,
+        "description": "Habitación individual de lujo con detalles elegantes y una vista impresionante a las montañas."
+      },
+      "double": {
+        "price": 35000,
+        "currency": "ARS",
+        "roomsLeft": 2,
+        "description": "Habitación doble con cama matrimonial, decorada con estilo contemporáneo y todas las comodidades."
+      },
+      "suite": {
+        "price": 60000,
+        "currency": "ARS",
+        "roomsLeft": 0,
+        "description": "Suite de lujo con salón privado, jacuzzi y vistas panorámicas a la ciudad."
+      }
+    },
+    "amenities": {
+      "pool": true,
+      "spa": true,
+      "gym": true,
+      "restaurant": true,
+      "bar": true
+    }
+  }
 ]

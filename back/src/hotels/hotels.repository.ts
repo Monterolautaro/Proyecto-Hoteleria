@@ -6,12 +6,11 @@ import { Hotel } from 'src/entities/hotel/hotel.entity';
 import { Room } from 'src/entities/hotel/hotel.rooms.entity';
 import { RoomType } from 'src/entities/hotel/roomsType.entity';
 import { Repository } from 'typeorm';
-import { connectionSource } from 'src/config/typeorm';
+import { connectionSource } from 'src/config/typeorm.config';
 import { Details } from 'src/entities/hotel/hotel.details.entity';
 import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
 import { NotFoundException } from '@nestjs/common';
 import { BadRequestException } from '@nestjs/common';
-
 
 @Injectable()
 export class HotelsRepository {
@@ -33,7 +32,6 @@ export class HotelsRepository {
       const queryRunner = connectionSource.createQueryRunner();
       await queryRunner.connect();
       await queryRunner.startTransaction();
-
       try {
         //  Inserto entidad hotel
 
@@ -86,7 +84,6 @@ export class HotelsRepository {
           roomsLeft: number;
           description: string;
         }
-        console.log(hotelData.rooms);
 
         //// Inserto tipos de habitación y habitaciónes
         for (const [roomTypeName, roomData] of Object.entries(
@@ -116,8 +113,6 @@ export class HotelsRepository {
         await queryRunner.commitTransaction();
         return savedHotel;
       } catch (error) {
-        console.log(error);
-
         // Revierto la transacción si hay algun error
         await queryRunner.rollbackTransaction();
         throw error;
@@ -129,13 +124,8 @@ export class HotelsRepository {
     });
   }
 
-
-
-
   async getHotelById(id: Hotel['hotel_id']): Promise<Hotel> {
-
     try {
-
       const hotel = await this.hotelRepository.findOne({
         where: { hotel_id: id },
         relations: {
@@ -153,16 +143,17 @@ export class HotelsRepository {
         throw new NotFoundException('Hotel not found');
       }
       return hotel;
-
     } catch (error) {
-      throw new BadRequestException(`Error getting hotel with ID ${id}`, error.message);
+      throw new BadRequestException(
+        `Error getting hotel with ID ${id}`,
+        error.message,
+      );
     }
   }
 
-
   async getHotels(page, limit): Promise<Hotel[]> {
     try {
-      const skip = (page - 1)*limit;
+      const skip = (page - 1) * limit;
 
       const hotels = await this.hotelRepository.find({
         take: limit,

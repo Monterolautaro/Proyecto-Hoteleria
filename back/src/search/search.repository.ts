@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { connectionSource } from 'src/config/typeorm';
+import { connectionSource } from 'src/config/typeorm.config';
 import { Address } from 'src/entities/hotel/hotel.address.entity';
 import { Hotel } from 'src/entities/hotel/hotel.entity';
 import { Like } from 'typeorm';
@@ -9,7 +9,6 @@ const addressRepository = connectionSource.getRepository(Address);
 
 @Injectable()
 export class SearchRepository {
-
   async searchBar(query: any) {
     try {
       const names = await hotelsRepository.find({
@@ -43,7 +42,8 @@ export class SearchRepository {
       });
 
       const partial_results = [name_results, city_results, found_country]
-        .filter((item) => item !== undefined && item !== null).flat()
+        .filter((item) => item !== undefined && item !== null)
+        .flat();
 
       const results = [...new Set(partial_results)];
 
@@ -58,6 +58,4 @@ export class SearchRepository {
       throw new NotFoundException('Error loading hotels', error);
     }
   }
-
-
-}  /* cierre */
+} /* cierre */

@@ -30,23 +30,8 @@ export const validateEmail = (email: string): string | undefined => {
     }
     return undefined;
   };
+
   
-  export const validateAddress = (address: string): string | undefined => {
-    if (!address) {
-      return "Address is required";
-    }
-    return undefined;
-  };
-  
-  export const validatePhone = (phone: string): string | undefined => {
-    const phoneRegex = /^\d{7,15}$/; // Acepta solo números entre 7 y 15 dígitos
-    if (!phone) {
-      return "Phone number is required";
-    } else if (!phoneRegex.test(phone)) {
-      return "Please enter a valid phone number with 7 to 15 digits";
-    }
-    return undefined;
-  };
   
   export const validateConfirmPassword = (
     password: string,
