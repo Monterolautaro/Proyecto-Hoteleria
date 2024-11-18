@@ -19,8 +19,8 @@ const Filters = () => (
       <label className="block mb-2">
         <input type="checkbox" className="mr-2" /> +800000 COP
       </label>
-   
-    <hr></hr>
+
+      <hr></hr>
       <h3 className="text-md font-semibold mb-2">Country</h3>
       <label className="block mb-2">
         <input type="checkbox" className="mr-2" /> Colombia
@@ -45,9 +45,9 @@ const Filters = () => (
         <input type="checkbox" className="mr-2" /> San Andres
       </label>
       <button className="text-teal-600 text-sm mt-2">Show more</button>
- 
-   <hr></hr>
- 
+
+      <hr></hr>
+
       <h3 className="text-md font-semibold mb-2">Amenities</h3>
       <label className="block mb-2">
         <input type="checkbox" className="mr-2" /> Pool
@@ -76,7 +76,9 @@ const HotelCard = () => (
     <div className="ml-4 flex-grow">
       <h3 className="text-lg font-bold">Hotel Marriot Bogota</h3>
       <p className="text-sm text-gray-500">Bogota, Colombia</p>
-      <p className="text-sm text-teal-600 mt-2">4.8 ★ Excellent (999 reviews)</p>
+      <p className="text-sm text-teal-600 mt-2">
+        4.8 ★ Excellent (999 reviews)
+      </p>
     </div>
     <div className="text-right">
       <p className="text-lg font-semibold text-teal-600">400000 COP</p>
@@ -97,7 +99,9 @@ const ResultsList = () => (
           <option>Sort by Price</option>
         </select>
         <div className="flex items-center bg-gray-100 px-2 py-1 rounded-md">
-          <span className="text-sm font-medium mr-2">400000 COP - 800000 COP</span>
+          <span className="text-sm font-medium mr-2">
+            400000 COP - 800000 COP
+          </span>
           <span className="text-sm font-medium mr-2">Colombia</span>
           <span className="text-sm font-medium">Bogota</span>
         </div>

@@ -1,13 +1,15 @@
-import { IHotelDetail } from "@/interfaces";
+import { IHotel } from "@/interfaces";
 import axios from "axios";
 import { config} from "dotenv";
 config({path: '.env'});
 
-const getHotelById = async (id: string) => {
+const API_URL = process.env.API_URL;
+
+const getHotelById = async (id: string): Promise<IHotel | undefined> => {
   try {
-    const hotelInfo: IHotelDetail | undefined = await axios.get(
-      `http://localhost:${process.env.BACKEND_PORT}/hotels/${id}`
-    );
+
+    const response = await axios.get(`${API_URL}/hotels/${id}`);
+    const hotelInfo = response?.data;
     return hotelInfo;
   } catch (error) {
     console.log(error);

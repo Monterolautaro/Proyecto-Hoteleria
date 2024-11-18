@@ -1,35 +1,16 @@
-'use client';
-import getResult from '@/helpers/searchBar';
-import { useState } from 'react';
-
-const SearchBarResults = ({ results }: { results: string[] }) => {
-  return (
-    <div className="w-full max-w-3xl bg-teal-50 text-teal-700 rounded-lg shadow-md mt-2 overflow-hidden border border-teal-200">
-      {results.length > 1 ? (
-        results.map((result, index) => (
-          <div
-            key={index}
-            className="px-4 py-3 hover:bg-teal-100 cursor-pointer border-b border-teal-200 last:border-b-0"
-            onClick={() => alert(`Selected: ${result}`)} // Aquí puedes manejar la acción al seleccionar
-          >
-            {result}
-          </div>
-        ))
-      ) : (
-        <div className="px-4 py-3 text-teal-500">No results found</div>
-      )}
-    </div>
-  );
-};
+"use client";
+import getResult from "@/helpers/searchBar";
+import Link from "next/link";
+import { useState } from "react";
 
 const SearchBar = () => {
   const [result, setResult] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleChange = async (e: string) => {
     setInputValue(e);
-    if (e.length >= 1) {
+    if (e.length >= 3) {
       setLoading(true);
       const result = await getResult(e);
       setResult(result);
@@ -37,6 +18,34 @@ const SearchBar = () => {
     } else {
       setResult([]);
     }
+  };
+  const SearchBarResults = ({ results }: { results: string[] }) => {
+    const [displayState, setDisplayState] = useState("block");
+    const handleClick = (result: string) => {
+      setInputValue(result);
+      setDisplayState("none");
+      console.log(displayState);
+    };
+    return (
+      <div
+        className={`w-full max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px] `}
+        style={{ display: displayState }}
+      >
+        {results.length >= 3 ? (
+          results.map((result, index) => (
+            <div
+              key={index}
+              className="px-4 py-3 hover:bg-teal-100 cursor-pointer border-b border-teal-200 last:border-b-0"
+              onClick={() => handleClick(result)}
+            >
+              {result}
+            </div>
+          ))
+        ) : (
+          <div className="px-4 py-3 text-teal-500">No results found</div>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -53,14 +62,17 @@ const SearchBar = () => {
             value={inputValue}
             onChange={(e) => handleChange(e.target.value)}
           />
-          <button className="bg-teal-600 text-white font-semibold px-6 py-2 rounded-full border border-white hover:bg-teal-500">
+          <Link
+            href="/search-results"
+            className="bg-teal-600 text-white font-semibold px-6 py-2 rounded-full border border-white hover:bg-teal-500"
+          >
             Explore
-          </button>
+          </Link>
         </div>
         {/* Renderiza los resultados o el mensaje de "No results found" */}
-        {inputValue.length >= 1 && (
+        {inputValue.length >= 3 && (
           <div className="absolute top-full left-0 right-0">
-            <SearchBarResults results={loading ? ['Loading...'] : result} />
+            <SearchBarResults results={loading ? ["Loading..."] : result} />
           </div>
         )}
       </div>
