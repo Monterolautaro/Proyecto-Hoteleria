@@ -46,8 +46,7 @@ export class FilesUploadService {
       };
     } catch (error) {
       throw new BadRequestException(
-        'Error in logic service' + error.message,
-        error.stack,
+        'Error in logic service' + error
       );
     }
   }
