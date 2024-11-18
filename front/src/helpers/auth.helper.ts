@@ -1,3 +1,4 @@
+
 import { config } from "dotenv";
 config({ path: ".env" });
 
@@ -18,6 +19,7 @@ export const registerUser = async (userData: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userData),
+
     }
   );
 
@@ -36,11 +38,13 @@ export const loginUser = async (credentials: {
   const response = await fetch(
     `http://localhost:${process.env.BACKEND_PORT}/auth/signIn`,
     {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(credentials),
+
     }
   );
 
@@ -51,3 +55,4 @@ export const loginUser = async (credentials: {
 
   return response.json();
 };
+

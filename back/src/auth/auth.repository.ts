@@ -13,6 +13,7 @@ import { CreateUserDto } from 'src/dto/User.dto';
 import { UserRepository } from 'src/Users/user.repository';
 import { JwtService } from '@nestjs/jwt';
 import { Repository } from 'typeorm';
+import { whenRegister } from 'src/config/nodemailer.config';
 
 @Injectable()
 export class AuthRepository {
@@ -36,6 +37,7 @@ export class AuthRepository {
 
       if (foundEmail !== null)
         throw new BadRequestException('email already in use');
+
       if (foundUsername !== null)
         throw new BadRequestException('username already in use');
 
@@ -66,6 +68,9 @@ export class AuthRepository {
       });
 
       await queryRunner.commitTransaction();
+
+      whenRegister(userData.email)
+
       return { status: 200, message: 'User created successfully' };
     } catch (error) {
       queryRunner.rollbackTransaction();
@@ -83,12 +88,14 @@ export class AuthRepository {
     try {
       if (!email || !password) return 'data is required';
       const foundUser = await this.userRepository.getUserByEmail(email);
-      if (!foundUser) throw new NotFoundException('User not registered');
+      if (foundUser === null)
+        throw new NotFoundException('User not registered');
 
       const isPasswordValid = await bcrypt.compare(
         password,
         foundUser.credential.password,
       );
+
       if (!isPasswordValid)
         throw new UnauthorizedException('Invalid credentials');
 

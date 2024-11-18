@@ -2,7 +2,9 @@
 import axios from 'axios';
 import fs from 'fs';
 
-const PATH = "C:\\Users\\santi\\Desktop\\Proyecto-Hoteleria\\back\\src\\helpers\\hotels\\hotels.json";
+
+const PATH = '/Users/macbook/Desktop/Hotelify/Proyecto-Hoteleria/back/src/helpers/hotels/hotels.json';
+
 const BATCH_SIZE = 5;
 const API_URL = 'http://localhost:3000/hotels/batch';
 
