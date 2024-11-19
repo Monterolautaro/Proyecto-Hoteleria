@@ -2,49 +2,44 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 import { config as dotenvConfig } from 'dotenv';
 import { registerAs } from '@nestjs/config';
 
+
 dotenvConfig({
   path: '.env',
 });
 
+ // Si se trabaja en localhost y se requiere usar docker, el host es:     postgresdb
 
-                // para correr docker, comentar el DB_HOST y descomentar el host: postgres
-                // para correr el entorno local, comentar postgres y descomentar el DB_HOST
+ // para iniciar la api localmente:             NODE_ENV=development npm run dev
 
-
-const config = {
-  type: 'postgres',
-  database: process.env.DB_NAME,
-  host: process.env.DB_HOST,                 
-  // host: 'postgresdb',                             
-  port: process.env.DB_PORT as unknown as number,
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  entities: ['dist/**/*.entity{.ts,.js}'],
-  autoLoadEntities: true,
-  synchronize: true,
-  //dropSchema: true,
-  logging: true,
-};
+ // para iniciar la api en produccion:           NODE_ENV=production npm run dev
 
 
-/*                                CONFIG PARA DEPLOY
-             comentar siempre que se trabaje localmente con base de datos LOCAL.           */
 
-// const config = {
-//   type: 'postgres',
-//   database: process.env.RENDER_DB_NAME,
-//   host: process.env.RENDER_DB_HOST,                                            
-//   port: process.env.RENDER_DB_PORT as unknown as number,
-//   username: process.env.RENDER_DB_USERNAME,
-//   password: process.env.RENDER_DB_PASSWORD,
-//   entities: [__dirname + '/entities/**/*.entity{.ts,.js}'],
-//   autoLoadEntities: true,
-//   synchronize: true,
-//   //dropSchema: true,
-//   logging: true,
-// };
 
+export const getDatabaseConfig = (): DataSourceOptions => {
+  const isProduction = process.env.NODE_ENV === 'production';
+
+  return {
+    type: 'postgres',
+    host: isProduction ? process.env.DB_HOST_PROD : process.env.DB_HOST_LOCAL,
+    port: isProduction ? Number(process.env.DB_PORT_PROD) : Number(process.env.DB_PORT_LOCAL),
+    username: isProduction ? process.env.DB_USERNAME_PROD : process.env.DB_USERNAME_LOCAL,
+    password: isProduction ? process.env.DB_PASSWORD_PROD : process.env.DB_PASSWORD_LOCAL,
+    database: isProduction ? process.env.DB_NAME_PROD : process.env.DB_NAME_LOCAL,
+    entities: ['dist/**/*.entity{.ts,.js}'],
+    autoLoadEntities: true,
+    synchronize: false,
+    // dropSchema: true,
+    logging: true,
+    ssl: isProduction
+      ? { rejectUnauthorized: false }
+      : false,
+  } as DataSourceOptions;
+}
+
+const config = getDatabaseConfig();
 
 export default registerAs('typeorm', () => config);
 
-export const connectionSource = new DataSource(config as DataSourceOptions);
+export const connectionSource = new DataSource(config);
+
