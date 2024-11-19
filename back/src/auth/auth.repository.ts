@@ -7,21 +7,22 @@ import {
 import { Credentials } from 'src/entities/credentials.entity';
 import { User } from 'src/entities/user.entity';
 import * as bcrypt from 'bcryptjs';
-import { connectionSource } from 'src/config/typeorm.config';
 import { CreateUserDto } from 'src/dto/user.dto';
 import { UserRepository } from 'src/users/user.repository';
 import { JwtService } from '@nestjs/jwt';
 import { whenRegister } from 'src/config/nodemailer.config';
+import { DataSource } from 'typeorm';
 
 @Injectable()
 export class AuthRepository {
   constructor(
+    private readonly dataSource: DataSource,
     private readonly userRepository: UserRepository,
     private readonly jwtService: JwtService,
   ) {}
 
   async signUp(userData: CreateUserDto): Promise<any> {
-    const queryRunner = connectionSource.createQueryRunner();
+    const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
 

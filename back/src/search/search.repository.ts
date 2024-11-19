@@ -1,17 +1,18 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { connectionSource } from 'src/config/typeorm.config';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Address } from 'src/entities/hotel/hotel.address.entity';
 import { Hotel } from 'src/entities/hotel/hotel.entity';
-import { Like } from 'typeorm';
-
-const hotelsRepository = connectionSource.getRepository(Hotel);
-const addressRepository = connectionSource.getRepository(Address);
+import { Like, Repository } from 'typeorm';
 
 @Injectable()
 export class SearchRepository {
+  constructor(
+    @InjectRepository(Hotel) private hotelsRepository: Repository<Hotel>,
+    @InjectRepository(Address) private addressRepository: Repository<Address>,
+  ){}
   async searchBar(query: any) {
     try {
-      const names = await hotelsRepository.find({
+      const names = await this.hotelsRepository.find({
         where: { name: Like(`%${query}%`) },
       });
 
@@ -20,7 +21,7 @@ export class SearchRepository {
       });
 
       // City - Address
-      const cities = await addressRepository.find({
+      const cities = await this.addressRepository.find({
         where: { city: Like(`%${query}%`) },
       });
 
@@ -29,7 +30,7 @@ export class SearchRepository {
       });
 
       // Country - Address
-      const countries = await addressRepository.find({
+      const countries = await this.addressRepository.find({
         where: { country: Like(`%${query}%`) },
       });
 
