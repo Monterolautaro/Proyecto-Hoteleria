@@ -11,6 +11,7 @@ import { JwtService } from '@nestjs/jwt';
 import { whenRegister } from 'src/config/nodemailer.config';
 import { DataSource } from 'typeorm';
 import { UserRepository } from 'src/users/users.repository';
+import { CreateUserDto } from 'src/dto/user.dto';
 
 @Injectable()
 export class AuthRepository {
