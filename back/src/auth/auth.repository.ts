@@ -9,7 +9,7 @@ import { User } from 'src/entities/user.entity';
 import * as bcrypt from 'bcryptjs';
 import { connectionSource } from 'src/config/typeorm.config';
 import { CreateUserDto } from 'src/dto/user.dto';
-import { UserRepository } from 'src/users/user.repository';
+import { UserRepository } from 'src/users/user.Repository';
 import { JwtService } from '@nestjs/jwt';
 import { whenRegister } from 'src/config/nodemailer.config';
 
