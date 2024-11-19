@@ -12,7 +12,6 @@ import {
   } from '@nestjs/common';
   import { User } from 'src/entities/user.entity';
   import { AuthGuard } from 'src/auth/auth.guard';
-  import { GetUserByEmailDto } from 'src/dto/getUserByEmail.dto';
 import { UserService } from './users.service';
   
   @Controller('users')
