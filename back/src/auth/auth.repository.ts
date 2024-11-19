@@ -8,10 +8,10 @@ import { Credentials } from 'src/entities/credentials.entity';
 import { User } from 'src/entities/user.entity';
 import * as bcrypt from 'bcryptjs';
 import { CreateUserDto } from 'src/dto/user.dto';
-import { UserRepository } from 'src/users/user.repository';
 import { JwtService } from '@nestjs/jwt';
 import { whenRegister } from 'src/config/nodemailer.config';
 import { DataSource } from 'typeorm';
+import { UserRepository } from 'src/users/users.repository';
 
 @Injectable()
 export class AuthRepository {

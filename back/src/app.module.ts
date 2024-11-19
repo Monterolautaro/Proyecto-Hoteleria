@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config as dotenvConfig } from 'dotenv';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -11,6 +10,7 @@ import { IaModule } from './ia/ia.module';
 import { SearchModule } from './search/search.module';
 import { PaymentsModule } from './payments/payments.module';
 import { FilesUploadModule } from './files-upload/files.module';
+import { UsersModule } from './users/users.module';
 
 dotenvConfig({
   path: '.env',
