@@ -8,7 +8,7 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "./node_modules/.bin/nest start",
+    "start": "nest start",
     "start:vercel": "nest build && node dist/main.js",
     "deploy": "vercel --prod",
     "dev": "nest start --watch",
