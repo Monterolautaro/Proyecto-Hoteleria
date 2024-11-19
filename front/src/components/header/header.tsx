@@ -10,16 +10,16 @@ const Header: React.FC = () => {
   return (
     <div>
       {pathname == "/" ? (
-        <div className="h-[90vh] bg-contain bg-center text-white bg-[url('/assets/Hotels.jpg')] ">
-          <div className="bg-gradient-to-b from-[#111b] to-[#009375] flex flex-col justify-between items-center w-full h-full pb-7">
+        <div className="h-[100vh] mb-[50px] bg-contain bg-center text-white bg-[url('/assets/Hotels.jpg')] ">
+          <div className="bg-gradient-to-b from-[#111b] to-[#009375] flex flex-col justify-between items-center w-full h-full pb-[80px]">
             <Navbar />
             <SearchBar />
 
-            <div className=" text-center">
-              <h1 className="text-4xl font-extrabold mb-4">
+            <div className=" text-center mb-8">
+              <h1 className="text-[60px] font-semibold mb-4 w-[600px] m-auto leading-[70px]">
                 WELCOME TO HOTELIFY!
               </h1>
-              <p className="text-lg max-w-lg mx-auto">
+              <p className="text-[24px] w-[800px] mx-auto text-pretty font-light">
                 Discover exceptional comfort, curated just for you. Experience
                 seamless service and unforgettable stays with us. Enjoy your
                 journey!
@@ -28,7 +28,6 @@ const Header: React.FC = () => {
           </div>
         </div>
       ) : (
-        
         <div className="h-[40vh] bg-cover bg-center text-white bg-[#00352A]">
           <div className="bg-gradient-to-b from-transparent to-[#009375] flex flex-col justify-between items-center w-full h-full">
             <Navbar />

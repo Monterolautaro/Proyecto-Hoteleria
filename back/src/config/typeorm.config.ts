@@ -7,11 +7,14 @@ dotenvConfig({
   path: '.env',
 });
 
- // Si se trabaj en localhost y se requiere usar docker, el host es:     postgresdb
+ // Si se trabaja en localhost y se requiere usar docker, el host es:     postgresdb
 
  // para iniciar la api localmente:             NODE_ENV=development npm run dev
 
  // para iniciar la api en produccion:           NODE_ENV=production npm run dev
+
+
+
 
 export const getDatabaseConfig = (): DataSourceOptions => {
   const isProduction = process.env.NODE_ENV === 'production';

@@ -11,9 +11,9 @@ const Navbar: React.FC = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
-                src="/assets/Hotelify.png"
+                src="/assets/HotelifyWhite.png"
                 alt="Hotelify Logo"
-                className="w-[100px] h-[40px] hover:filter hover:drop-shadow-[0_4px_3px_rgba(255,255,255,0.5)] transition ease-in-out duration-300"
+                className="w-[100px] h-[40px] hover:filter hover:drop-shadow-[0_4px_3px_rgba(14, 148, 136, 1)] transition ease-in-out duration-300"
                 width={100}
                 height={40}
               />

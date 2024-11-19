@@ -11,17 +11,17 @@ export class PaymentsController {
   }
 
   @Get(':id')
-  getPaymentById(id: number) {
+  getPaymentById(id: string) {
     return this.paymentsService.getPaymentById(id);
   }
 
   @Delete(':id')
-  deletePayment(id: number) {
+  deletePayment(id: string) {
     return this.paymentsService.deletePayment(id);
   }
 
   @Put(':id')
-  updatePayment(id: number, payment: any) {
+  updatePayment(id: string, payment: any) {
     return this.paymentsService.updatePayment(id, payment);
   }
 

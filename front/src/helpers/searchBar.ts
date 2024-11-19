@@ -1,12 +1,14 @@
 import axios from "axios";
-import { config} from "dotenv";
-config({path: '.env'});
+import { config } from "dotenv";
+
+config({ path: ".env" });
+// const API_URL = process.env.API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 
 const getResult = async (query: string) => {
   try {
-    const response = await axios.post(
-      `http://localhost:${process.env.BACKEND_PORT}/search/bar?query=${query}`
-    );
+    const response = await axios.post(`${API_URL}/search/bar?query=${query}`);
 
     if (response) {
       console.log(response);

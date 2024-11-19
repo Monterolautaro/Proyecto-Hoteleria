@@ -9,7 +9,7 @@ export class PaymentsService {
     return this.paymentsRepository.GetPayments();
   }
 
-  getPaymentById(id: number) {
+  getPaymentById(id: string) {
     return this.paymentsRepository.GetPaymentById(id);
   }
 
@@ -17,11 +17,11 @@ export class PaymentsService {
     return this.paymentsRepository.CreatePayment(payment);
   }
 
-  updatePayment(id: number, payment: any) {
+  updatePayment(id: string, payment: any) {
     return this.paymentsRepository.UpdatePayment(id, payment);
   }
 
-  deletePayment(id: number) {
+  deletePayment(id: string) {
     return this.paymentsRepository.DeletePayment(id);
   }
 }

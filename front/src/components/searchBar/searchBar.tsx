@@ -7,36 +7,50 @@ const SearchBar = () => {
   const [result, setResult] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(false);
 
   const handleChange = async (e: string) => {
     setInputValue(e);
-    if (e.length >= 3) {
+    if (e.length >= 1) {
       setLoading(true);
       const result = await getResult(e);
       setResult(result);
+      setVisible(true); // Muestra los resultados
       setLoading(false);
     } else {
       setResult([]);
+      setVisible(false); // Oculta los resultados si aun no hay 3 caracteres
     }
   };
-  const SearchBarResults = ({ results }: { results: string[] }) => {
-    const [displayState, setDisplayState] = useState("block");
-    const handleClick = (result: string) => {
-      setInputValue(result);
-      setDisplayState("none");
-      console.log(displayState);
-    };
+
+  const handleSelectResult = (selected: string) => {
+    setInputValue(selected); // Cambia el valor del input por la opción seleccionada
+    setVisible(false); // Oculta la lista de resultados
+  };
+
+  const SearchBarResults = ({
+    results,
+    onSelectResult,
+    visible,
+  }: {
+    results: string[];
+    onSelectResult: (result: string) => void;
+    visible: boolean;
+  }) => {
+    if (!visible) return null; // No renderiza nada si no es visible
+
     return (
       <div
-        className={`w-full max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px] `}
-        style={{ display: displayState }}
+        className={`w-full max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
       >
-        {results.length >= 3 ? (
+
+        {results.length >= 1 ? (
+
           results.map((result, index) => (
             <div
               key={index}
               className="px-4 py-3 hover:bg-teal-100 cursor-pointer border-b border-teal-200 last:border-b-0"
-              onClick={() => handleClick(result)}
+              onClick={() => onSelectResult(result)}
             >
               {result}
             </div>
@@ -70,11 +84,14 @@ const SearchBar = () => {
           </Link>
         </div>
         {/* Renderiza los resultados o el mensaje de "No results found" */}
-        {inputValue.length >= 3 && (
-          <div className="absolute top-full left-0 right-0">
-            <SearchBarResults results={loading ? ["Loading..."] : result} />
-          </div>
-        )}
+
+        <div className="absolute top-full left-0 right-0">
+          <SearchBarResults
+            results={loading ? ["Loading..."] : result}
+            onSelectResult={handleSelectResult}
+            visible={visible}
+          />
+        </div>
       </div>
     </div>
   );
