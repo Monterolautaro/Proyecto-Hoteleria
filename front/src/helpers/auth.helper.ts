@@ -1,12 +1,9 @@
-<<<<<<< Updated upstream
-=======
 
 import { config } from "dotenv";
 config({ path: ".env" });
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;;
 
->>>>>>> Stashed changes
 export const registerUser = async (userData: {
   name: string;
   lastname: string;
@@ -16,15 +13,6 @@ export const registerUser = async (userData: {
   password: string;
   confirmPassword: string;
 }) => {
-<<<<<<< Updated upstream
-  const response = await fetch(`http://localhost:3000/auth/signUp`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  });
-=======
   const response = await fetch(
     `${API_URL}/auth/signUp`,
     {
@@ -36,7 +24,6 @@ export const registerUser = async (userData: {
 
     }
   );
->>>>>>> Stashed changes
 
   if (!response.ok) {
     const error = await response.json();
@@ -50,7 +37,7 @@ export const loginUser = async (credentials: {
   email: string;
   password: string;
 }) => {
-  const response = await fetch(`http://localhost:3000/auth/signIn`, {
+  const response = await fetch(`${API_URL}/auth/signIn`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
