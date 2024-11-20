@@ -1,0 +1,45 @@
+
+services:
+  postgresdb:
+    image: "postgres:latest"
+    container_name: proyecti-hoteleria-postgresdb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 213454
+      POSTGRES_DB: hotelify
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - ./front/.env
+    restart: always
+
+  backend:
+    build: 
+      context: ./back 
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./back:/app
+    env_file:
+      - ./back/.env
+    depends_on:
+      - postgresdb
+
+  frontend:
+    build: 
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front:/app
+    env_file:
+      - ./front/.env
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

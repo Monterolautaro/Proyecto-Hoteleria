@@ -4,26 +4,27 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Credentials } from 'src/entities/credentials.entity';
 import { User } from 'src/entities/user.entity';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { connectionSource } from 'src/config/typeorm.config';
-import { CreateUserDto } from 'src/dto/User.dto';
-import { UserRepository } from 'src/Users/user.repository';
+
 import { JwtService } from '@nestjs/jwt';
-import { Repository } from 'typeorm';
 import { whenRegister } from 'src/config/nodemailer.config';
+import { DataSource } from 'typeorm';
+import { UserRepository } from 'src/users/users.repository';
+import { CreateUserDto } from 'src/dto/user.dto';
 
 @Injectable()
 export class AuthRepository {
   constructor(
+    private readonly dataSource: DataSource,
     private readonly userRepository: UserRepository,
     private readonly jwtService: JwtService,
   ) {}
 
   async signUp(userData: CreateUserDto): Promise<any> {
-    const queryRunner = connectionSource.createQueryRunner();
+    const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
 
@@ -77,7 +78,7 @@ export class AuthRepository {
 
       throw new BadRequestException(
         'An error has ocurred creating user',
-        error.message,
+        error,
       );
     } finally {
       queryRunner.release();
@@ -110,7 +111,7 @@ export class AuthRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong signing in',
-        error.message,
+        error,
       );
     }
   }

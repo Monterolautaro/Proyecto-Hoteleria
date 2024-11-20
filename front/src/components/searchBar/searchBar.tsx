@@ -11,7 +11,7 @@ const SearchBar = () => {
 
   const handleChange = async (e: string) => {
     setInputValue(e);
-    if (e.length > 2) {
+    if (e.length >= 1) {
       setLoading(true);
       const result = await getResult(e);
       setResult(result);
@@ -43,7 +43,9 @@ const SearchBar = () => {
       <div
         className={`w-full max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
       >
-        {results.length > 0 ? (
+
+        {results.length >= 1 ? (
+
           results.map((result, index) => (
             <div
               key={index}
@@ -82,6 +84,7 @@ const SearchBar = () => {
           </Link>
         </div>
         {/* Renderiza los resultados o el mensaje de "No results found" */}
+
         <div className="absolute top-full left-0 right-0">
           <SearchBarResults
             results={loading ? ["Loading..."] : result}

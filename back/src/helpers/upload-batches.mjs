@@ -2,11 +2,10 @@
 import axios from 'axios';
 import fs from 'fs';
 
-
 const PATH = '/Users/macbook/Desktop/Hotelify/Proyecto-Hoteleria/back/src/helpers/hotels/hotels.json';
 
 const BATCH_SIZE = 5;
-const API_URL = 'http://localhost:3000/hotels/batch';
+const API_URL = 'https://hotelify-3yic.onrender.com/hotels/batch';
 
 async function uploadBatches() {
   // Esto lee el archivo, lo parsea y lo guarda en una variable

@@ -4,10 +4,14 @@ import { config } from 'dotenv';
 import { connectionSource } from './config/typeorm.config';
 config();
 
+// se dividen las url's por comas, y se pasan a un array
+
+const allowedOrigins = process.env.URL_FRONT?.split(',') || [];
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: 'http://localhost:3001',
+    origin: allowedOrigins,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
   });

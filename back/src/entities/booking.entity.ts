@@ -10,6 +10,7 @@ import { v4 as uuid } from 'uuid';
 import { User } from './user.entity';
 import { Hotel } from './hotel/hotel.entity';
 import { BookingMetrics } from './metrics/booking.metric.entity';
+import { PaymentDetails } from './payments/paymentdetails.entity';
 
 @Entity({
   name: 'booking',
@@ -37,4 +38,10 @@ export class Booking {
 
   @OneToOne(() => BookingMetrics, (bookingMetrics) => bookingMetrics.booking)
   booking_metrics!: BookingMetrics;
+
+  //conexion uno a uno con paymentsdetails
+  @OneToOne(() => PaymentDetails, (paymentsDetails) => paymentsDetails.booking)
+  @JoinColumn({ name: 'payments_details_id' })
+  payments_details!: PaymentDetails;
+
 }

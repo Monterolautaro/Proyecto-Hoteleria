@@ -1,8 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { UserRepository } from './user.repository';
-import { User } from 'src/entities/user.entity';
-import { CreateUserDto } from 'src/dto/User.dto';
-import { string } from 'cohere-ai/core/schemas';
+import { UserRepository } from './users.repository';
 
 @Injectable()
 export class UserService {
@@ -14,7 +11,7 @@ export class UserService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting users',
-        error.message,
+        error,
       );
     }
   }
@@ -24,7 +21,7 @@ export class UserService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting user',
-        error.message,
+        error,
       );
     }
   }
@@ -36,7 +33,7 @@ export class UserService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting user',
-        error.message,
+        error,
       );
     }
   }
@@ -47,7 +44,7 @@ export class UserService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting user',
-        error.message,
+        error,
       );
     }
   }
@@ -58,7 +55,7 @@ export class UserService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong deleting user',
-        error.message,
+        error,
       );
     }
   }
@@ -69,7 +66,7 @@ export class UserService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong changing password',
-        error.message,
+        error,
       );
     }
   }
@@ -80,7 +77,7 @@ export class UserService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong changing email',
-        error.message,
+        error,
       );
     }
   }
@@ -91,7 +88,7 @@ export class UserService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong changing username',
-        error.message,
+        error,
       );
     }
   }

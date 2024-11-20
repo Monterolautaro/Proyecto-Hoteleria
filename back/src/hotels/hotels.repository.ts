@@ -5,8 +5,7 @@ import { Availability } from 'src/entities/hotel/hotel.availability.entity';
 import { Hotel } from 'src/entities/hotel/hotel.entity';
 import { Room } from 'src/entities/hotel/hotel.rooms.entity';
 import { RoomType } from 'src/entities/hotel/roomsType.entity';
-import { Repository } from 'typeorm';
-import { connectionSource } from 'src/config/typeorm.config';
+import { DataSource, Repository } from 'typeorm';
 import { Details } from 'src/entities/hotel/hotel.details.entity';
 import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
 import { NotFoundException } from '@nestjs/common';
@@ -15,6 +14,7 @@ import { BadRequestException } from '@nestjs/common';
 @Injectable()
 export class HotelsRepository {
   constructor(
+    private readonly dataSource: DataSource,
     @InjectRepository(Hotel) private hotelRepository: Repository<Hotel>,
     @InjectRepository(Amenities)
     private amenitiesRepository: Repository<Amenities>,
@@ -29,7 +29,7 @@ export class HotelsRepository {
   async insertHotel(hotelData: any) {
     hotelData.map(async (hotelData) => {
       // Inicio query runner e inicio transaccion
-      const queryRunner = connectionSource.createQueryRunner();
+      const queryRunner = this.dataSource.createQueryRunner();
       await queryRunner.connect();
       await queryRunner.startTransaction();
       try {
@@ -146,7 +146,7 @@ export class HotelsRepository {
     } catch (error) {
       throw new BadRequestException(
         `Error getting hotel with ID ${id}`,
-        error.message,
+        error
       );
     }
   }
@@ -170,7 +170,7 @@ export class HotelsRepository {
       });
       return hotels;
     } catch (error) {
-      throw new BadRequestException('Error getting hotels', error.message);
+      throw new BadRequestException('Error getting hotels', error);
     }
   }
 }
