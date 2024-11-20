@@ -11,7 +11,7 @@ config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: 'https://proyecto-hoteleria-pjut38ksy-monterolautaros-projects.vercel.app',
+    origin: 'https://proyecto-hoteleria-m3sgbl0uy-monterolautaros-projects.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
   });
