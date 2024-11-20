@@ -10,7 +10,7 @@ const allowedOrigins = process.env.URL_FRONT?.split(',') || [];
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: allowedOrigins,
+    origin: 'https://proyecto-hoteleria-pjut38ksy-monterolautaros-projects.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
   });
