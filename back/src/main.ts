@@ -5,7 +5,8 @@ import { connectionSource } from './config/typeorm.config';
 config();
 
 // se dividen las url's por comas, y se pasan a un array
-const allowedOrigins = process.env.URL_FRONT?.split(',') || [];
+
+// const allowedOrigins = process.env.URL_FRONT?.split(',') || [];
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
