@@ -6,12 +6,12 @@ config();
 
 // se dividen las url's por comas, y se pasan a un array
 
-// const allowedOrigins = process.env.URL_FRONT?.split(',') || [];
+const allowedOrigins = process.env.URL_FRONT?.split(',') || [];
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: 'https://proyecto-hoteleria-m3sgbl0uy-monterolautaros-projects.vercel.app',
+    origin: allowedOrigins,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
   });
