@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 import { Credentials } from 'src/entities/credentials.entity';
 import * as bcrypt from 'bcryptjs';
+import { Roles } from 'roles.enum';
 
 @Injectable()
 export class UserRepository {
@@ -173,6 +174,33 @@ export class UserRepository {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong changing username',
+        error,
+      );
+    }
+  }
+
+  async makeAdmin(user_id: string): Promise<any> {
+    try {
+
+      const user = await this.userRepository.findOneBy({
+        user_id,
+      });
+
+      if (!user) throw new NotFoundException(`User ${user_id} not found`);
+
+      await this.userRepository.update(
+        { user_id },
+        { role: [Roles.admin] },
+      );
+
+      return {
+        status: 200,
+        message: `User ${user_id} has been made admin`,
+      };
+      
+    } catch (error) {
+      throw new BadRequestException(
+        'Something got wrong making user an admin',
         error,
       );
     }
