@@ -10,7 +10,6 @@ interface HotelCardProps {
 }
 
 const HotelCard: React.FC<HotelCardProps> = ({
-  id,
   image,
   title,
   location,
