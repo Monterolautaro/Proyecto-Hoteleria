@@ -1,14 +1,15 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios';
 import fs from 'fs';
-import data from './hotels/hotels.json' with { type: 'json' };
+
+const PATH = '/Users/macbook/Desktop/Hotelify/Proyecto-Hoteleria/back/src/helpers/hotels/hotels.json';
 
 const BATCH_SIZE = 5;
-const API_URL = 'http://localhost:3000/hotels/batch';
+const API_URL = 'https://hotelify-3yic.onrender.com/hotels/batch';
 
 async function uploadBatches() {
   // Esto lee el archivo, lo parsea y lo guarda en una variable
-  const hotels = JSON.parse(fs.readFileSync(data, 'utf-8'));
+  const hotels = JSON.parse(fs.readFileSync(PATH, 'utf-8'));
 
   // Itero los hoteles en grupos de 5
   for (let i = 0; i < hotels.length; i += BATCH_SIZE) {
