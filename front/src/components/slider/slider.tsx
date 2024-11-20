@@ -3,6 +3,9 @@ import HotelCard from "@/components/cards/HotelCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export default function ComponentSlider(): JSX.Element {
   const [hotels, setHotels] = useState<any[]>([]); 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -12,7 +15,7 @@ export default function ComponentSlider(): JSX.Element {
 
   const fetchHotels = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/hotels", {
+      const response = await axios.get(`${API_URL}/hotels`, {
         params: { page: 1, limit: 8 },
       });
 
