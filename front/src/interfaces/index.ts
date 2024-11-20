@@ -1,3 +1,24 @@
+export interface IRooms {
+  room_id: string;
+  room_type: {
+    currency: string;
+    description: string;
+    price: string;
+    room_type_id: string;
+    rooms_left: number;
+  };
+  type: string;
+}
+
+export interface IAmenities {
+  amenities_id: string;
+  pool: boolean;
+  spa: boolean;
+  gym: boolean;
+  restaurant: boolean;
+  bar: boolean;
+}
+
 export interface IHotel {
   id: number;
   name: string;
@@ -16,17 +37,6 @@ export interface IHotel {
     available: boolean;
     totalRoomsLeft: number;
 }; */
-  /* rooms: {
-    single: RoomDetails;
-    double: RoomDetails;
-    triple: RoomDetails;
-    suite: RoomDetails;
-}; */
-  /* amenities: {
-    pool: boolean;
-    spa: boolean;
-    gym: boolean;
-    restaurant: boolean;
-    bar: boolean;
-}; */
+  room: IRooms[];
+  amenities: IAmenities;
 }
