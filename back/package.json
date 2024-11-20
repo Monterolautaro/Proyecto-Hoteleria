@@ -40,6 +40,7 @@
     "cohere-ai": "^7.14.0",
     "dotenv": "^16.4.5",
     "helmet": "^8.0.0",
+    "mercadopago": "^2.0.15",
     "nodemailer": "^6.9.16",
     "pg": "^8.13.1",
     "postgres": "^3.4.5",

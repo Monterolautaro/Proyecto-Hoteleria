@@ -7,6 +7,8 @@ import {
 import { Credentials } from 'src/entities/credentials.entity';
 import { User } from 'src/entities/user.entity';
 import * as bcrypt from 'bcryptjs';
+import { connectionSource } from 'src/config/typeorm.config';
+
 import { JwtService } from '@nestjs/jwt';
 import { whenRegister } from 'src/config/nodemailer.config';
 import { DataSource } from 'typeorm';
