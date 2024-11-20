@@ -2,7 +2,6 @@ import { MercadoPagoConfig, Payment } from 'mercadopago';
 import { v4 as uuid } from 'uuid';
 import { config as dotenvConfig } from 'dotenv'; dotenvConfig({ path: 'D:\Escritorio\Proyecto-Hoteleria\back\.env' });
 
-console.log('Access Token:', process.env.MERCADOPAGO_TEST_ACCESS_TOKEN);
 export const client = new MercadoPagoConfig({
     accessToken: process.env.MERCADOPAGO_TEST_ACCESS_TOKEN,
     options: {

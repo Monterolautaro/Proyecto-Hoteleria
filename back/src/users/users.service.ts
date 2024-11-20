@@ -92,4 +92,15 @@ export class UserService {
       );
     }
   }
+
+  makeAdmin(id: string) {
+    try {
+      return this.userRepository.makeAdmin(id);
+    } catch (error) {
+      throw new BadRequestException(
+        'Something got wrong making admin',
+        error,
+      );
+    }
+  }
 }
