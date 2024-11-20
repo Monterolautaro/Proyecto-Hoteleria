@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
     <header className="w-full bg-transparent py-4">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+       
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
@@ -20,7 +20,6 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Links Centrados */}
           <ul className="hidden md:flex gap-8">
             <li>
               <Link
@@ -40,7 +39,6 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
 
-          {/* Login y Register */}
           <ul className="flex gap-6">
             <li>
               <Link
