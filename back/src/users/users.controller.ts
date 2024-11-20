@@ -13,6 +13,9 @@ import {
   import { User } from 'src/entities/user.entity';
   import { AuthGuard } from 'src/auth/auth.guard';
 import { UserService } from './users.service';
+import { RolesGuard } from 'src/auth/roles.guard';
+import { Roles } from 'roles.enum';
+import { RolesDecorator } from 'decorators/roles.decorator';
   
   @Controller('users')
   @UseGuards(AuthGuard)
@@ -21,11 +24,17 @@ import { UserService } from './users.service';
   
     @HttpCode(200)
     @Get()
+    @RolesDecorator(Roles.admin)
+    @UseGuards(AuthGuard)
+    @UseGuards(RolesGuard)
     getUsers(): Promise<User[]> {
       return this.UserService.getUsers();
     }
   
     @Get(':id')
+    @RolesDecorator(Roles.admin)
+    @UseGuards(AuthGuard)
+    @UseGuards(RolesGuard)
     getUserById(@Param('id', ParseUUIDPipe) id: string): Promise<User> {
       return this.UserService.getUserById(id);
     }
@@ -41,11 +50,17 @@ import { UserService } from './users.service';
     }
   
     @Delete(':id')
+    @RolesDecorator(Roles.admin, Roles.user)
+    @UseGuards(AuthGuard)
+    @UseGuards(RolesGuard)
     deleteUser(@Param('id', ParseUUIDPipe) id: string): Promise<any> {
       return this.UserService.deleteUser(id);
     }
   
     @Put('/changePassword/:id')
+    @RolesDecorator(Roles.admin, Roles.user)
+    @UseGuards(AuthGuard)
+    @UseGuards(RolesGuard)
     changePassword(
       @Param('id', ParseUUIDPipe) user_id: string,
       @Body('password') password: string,
@@ -55,6 +70,9 @@ import { UserService } from './users.service';
     }
   
     @Put('/changeEmail/:id')
+    @RolesDecorator(Roles.admin, Roles.user)
+    @UseGuards(AuthGuard)
+    @UseGuards(RolesGuard)
     changeEmail(
       @Param('id', ParseUUIDPipe) id: string,
       @Body('email') email: string,
@@ -63,6 +81,9 @@ import { UserService } from './users.service';
     }
   
     @Put(':id')
+    @RolesDecorator(Roles.admin, Roles.user)
+    @UseGuards(AuthGuard)
+    @UseGuards(RolesGuard)
     changeUsername(
       @Param('id', ParseUUIDPipe) id: string,
       @Body('username') username: string,

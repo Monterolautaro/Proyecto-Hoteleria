@@ -14,6 +14,7 @@ import { whenRegister } from 'src/config/nodemailer.config';
 import { DataSource } from 'typeorm';
 import { UserRepository } from 'src/users/users.repository';
 import { CreateUserDto } from 'src/dto/user.dto';
+import { Roles } from 'roles.enum';
 
 @Injectable()
 export class AuthRepository {
@@ -51,6 +52,7 @@ export class AuthRepository {
         name: userData.name,
         lastname: userData.lastname,
         birthday: userData.birthday,
+        role: [Roles.user]
       });
 
       await queryRunner.manager.save(user);
@@ -85,6 +87,7 @@ export class AuthRepository {
     }
   }
 
+
   async signIn(email: string, password: string) {
     try {
       if (!email || !password) return 'data is required';
@@ -103,7 +106,7 @@ export class AuthRepository {
       const payload = {
         id: foundUser.user_id,
         email,
-        isAdmin: foundUser.isAdmin,
+        role: foundUser.role,
       };
 
       const token = this.jwtService.sign(payload);

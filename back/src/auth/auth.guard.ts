@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { JwtService } from '@nestjs/jwt';
+import { Roles } from 'roles.enum';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -21,13 +22,15 @@ export class AuthGuard implements CanActivate {
 
       if (!token) throw new ForbiddenException('No token provided');
       const secret = process.env.JWT_SECRET;
-      const user = this.jwtService.verify(token, { secret });
-      request.iat = new Date(user.iat * 1000);
-      request.exp = new Date(user.exp * 1000);
-
-      // user.roles = user.isAdmin ? [Role.Admin] : [Role.User];
-
-      request.user = user;
+      const payload = this.jwtService.verify(token, { secret });
+      request.iat = new Date(payload.iat * 1000);
+      request.exp = new Date(payload.exp * 1000);
+      
+      request.user = {
+        id: payload.id,
+        email: payload.email,
+        roles: payload.role,
+      };
 
       return true;
     } catch (error) {
