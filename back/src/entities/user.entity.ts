@@ -12,6 +12,7 @@ import { Booking } from './booking.entity';
 import { VisitsMetrics } from './metrics/visits.metric.entity';
 import { TimeMetrics } from './metrics/time.metrics.entity';
 import { Payment } from './payments.entity';
+import { Roles } from 'roles.enum';
 
 @Entity({
   name: 'users',
@@ -29,16 +30,14 @@ export class User {
   @Column()
   birthday: Date;
 
-  @Column({
-    default: false,
-  })
-  isAdmin: boolean;
-
   @Column('float', { default: 0 })
   total_visits: number;
 
   @Column('float', { default: 0 })
   average_session_duration: number;
+
+  @Column('simple-array')
+  role: Roles[]
 
   @OneToOne(() => Credentials, (credential) => credential.user, {
     onDelete: 'CASCADE',

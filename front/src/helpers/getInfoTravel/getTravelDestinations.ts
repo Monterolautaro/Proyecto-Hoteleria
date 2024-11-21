@@ -4,6 +4,8 @@ export interface TravelDestination {
     image: string;
     location: string;
   }
+
+  // const API_URL = process.env.NEXT_PUBLIC_API_URL;      <= usar en fetch
   
   export const getTravelDestinations = async (): Promise<TravelDestination[]> => {
     try {

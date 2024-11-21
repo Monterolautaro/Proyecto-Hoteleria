@@ -29,7 +29,7 @@ dotenvConfig({
     }),
     FilesUploadModule,
     SearchModule,
-    PaymentsModule,
+    // PaymentsModule,
     IaModule,
     HotelsModule,
     AuthModule,

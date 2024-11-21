@@ -11,12 +11,18 @@ import {
 } from '@nestjs/common';
 import { HotelsService } from './hotels.service';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { RolesDecorator } from 'decorators/roles.decorator';
+import { RolesGuard } from 'src/auth/roles.guard';
+import { Roles } from 'roles.enum';
 
 @Controller('hotels')
 export class HotelsController {
   constructor(private readonly hotelsService: HotelsService) {}
 
   @Post('/batch')
+  @RolesDecorator(Roles.admin)
+  @UseGuards(AuthGuard)
+  @UseGuards(RolesGuard)
   async insertHotel(@Body() hotelData: any) {
     try {
       return this.hotelsService.inserHotel(hotelData);
@@ -42,4 +48,7 @@ export class HotelsController {
       throw new BadRequestException('Error loading hotels', error);
     }
   }
+
+
+
 }

@@ -12,6 +12,9 @@ import {
 import { FilesUploadService } from './files.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { RolesDecorator } from 'decorators/roles.decorator';
+import { Roles } from 'roles.enum';
+import { RolesGuard } from 'src/auth/roles.guard';
 
 @Controller('files')
 @UseGuards(AuthGuard)
@@ -19,6 +22,9 @@ export class FilesUploadController {
   constructor(private readonly filesUploadService: FilesUploadService) {}
 
   @Post('upload/:id')
+  @RolesDecorator(Roles.admin, Roles.hotel_owner)
+  @UseGuards(AuthGuard)
+  @UseGuards(RolesGuard)
   @UseInterceptors(FileInterceptor('file'))
   async uploadImage(
     @Param('id') roomId: string,
@@ -40,6 +46,9 @@ export class FilesUploadController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
+  @RolesDecorator(Roles.admin, Roles.hotel_owner)
+  @UseGuards(AuthGuard)
+  @UseGuards(RolesGuard)
   async createRoomAndImage(
     @UploadedFile(
       new ParseFilePipe({
