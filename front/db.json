@@ -1,0 +1,22 @@
+{
+    "hotels": [
+      {
+        "id": 1,
+        "imageUrl": "https://via.placeholder.com/150",
+        "title": "Hotel Marryot Bogota",
+        "location": "Bogota, Colombia",
+        "description": "A modern hotel in the heart of the city.",
+        "price": 400000,
+        "rating": 4.8
+      },
+      {
+        "id": 2,
+        "imageUrl": "https://via.placeholder.com/150",
+        "title": "Hotel Cartagena Dreams",
+        "location": "Cartagena, Colombia",
+        "description": "Enjoy luxury near the beach.",
+        "price": 800000,
+        "rating": 4.7
+      }
+    ]
+  }
