@@ -25,10 +25,10 @@ export class PaymentsController {
     return this.paymentsService.updatePayment(id, payment);
   }
 
-  @Post()
+  /*@Post()
   createPayment(@Body() payment: any) {
     return this.paymentsService.createPayment(payment);
-  }
+  }*/
 
   @Post('webhook')
   webhook(@Body() body: any) {

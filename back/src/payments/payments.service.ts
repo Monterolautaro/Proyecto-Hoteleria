@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PaymentsRepository } from './payments.repository';
-import { client, payment } from './mercadopago.config';
+import { client,  } from './mercadopago.config';
 import { v4 as uuid } from 'uuid';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class PaymentsService {
     return this.paymentsRepository.GetPaymentById(id);
   }
 
-  async createPayment(paymentDetails: any) {
+  /*async createPayment(paymentDetails: any) {
     const body = {
       transaction_amount: paymentDetails.amount,
       description: paymentDetails.description,
@@ -37,7 +37,7 @@ export class PaymentsService {
       .catch((error) => {
         throw new Error(`Error al crear el pago: ${error.message}`);
       });
-  }
+  }*/
 
   async updatePayment(id: string, payment: any) {
     return this.paymentsRepository.UpdatePayment(id, payment);
