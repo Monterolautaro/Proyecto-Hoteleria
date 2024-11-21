@@ -1,23 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState } from "react";
+import { registerUser } from "@/helpers/auth.helper";
 import {
+  validateConfirmPassword,
   validateEmail,
   validateLastName,
   validateName,
   validatePassword,
-  validateConfirmPassword,
-
- 
 } from "@/helpers/formValidation";
-import { registerUser } from "@/helpers/auth.helper";
 import { Toast } from "@/helpers/toast";
+import React, { useState } from "react";
 
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     lastname: "",
-    birthday:"",
+    birthday: "",
     email: "",
     username: "",
     password: "",
@@ -26,9 +24,49 @@ const Register = () => {
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Formateo del campo birthday
+  const formatBirthday = (value: string) => {
+    const numbersOnly = value.replace(/\D/g, ""); // Eliminar cualquier caracter no numérico
+    let formattedValue = numbersOnly.slice(0, 4); // Año (4 caracteres)
+    if (numbersOnly.length >= 5) formattedValue += "-" + numbersOnly.slice(4, 6); // Mes (2 caracteres)
+    if (numbersOnly.length >= 7) formattedValue += "-" + numbersOnly.slice(6, 8); // Día (2 caracteres)
+    return formattedValue;
+  };
+
+  // Validar en tiempo real
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    // Si el campo es "birthday", formateamos el valor
+    if (name === "birthday") {
+      setFormData({ ...formData, [name]: formatBirthday(value) });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+
+    // Validación en tiempo real
+    const newErrors = { ...errors };
+    switch (name) {
+      case "name":
+        newErrors.name = validateName(value);
+        break;
+      case "lastname":
+        newErrors.lastname = validateLastName(value);
+        break;
+      case "email":
+        newErrors.email = validateEmail(value);
+        break;
+      case "password":
+        newErrors.password = validatePassword(value);
+        break;
+      case "confirmPassword":
+        newErrors.confirmPassword = validateConfirmPassword(formData.password, value);
+        break;
+      default:
+        break;
+    }
+
+    setErrors(newErrors);
   };
 
   const handleRegister = async (e: React.FormEvent) => {
@@ -46,14 +84,17 @@ const Register = () => {
 
     if (Object.values(newErrors).some((error) => error)) return;
 
+    // Imprimir API_URL desde .env
+    console.log("API_URL: ", process.env.API_URL);
+
     try {
       setIsSubmitting(true);
       const user = await registerUser(formData);
       Toast.fire({
         icon: "success",
         title: "Registration successful!",
-    });
-      
+      });
+
       localStorage.setItem("user", JSON.stringify(user));
       setIsSubmitting(false);
     } catch (error: any) {
@@ -66,45 +107,79 @@ const Register = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#F3FFFC]">
-      <div className="bg-green-100 p-8 rounded-lg shadow-lg w-full max-w-sm">
+      <div className="bg-green-100 p-8 rounded-lg shadow-lg w-full max-w-5xl flex flex-col items-center">
         <h2 className="text-3xl font-semibold text-center mb-8">Register</h2>
-        <form onSubmit={handleRegister}>
-          {Object.keys(formData).map((key) => (
-            <div key={key} className="mb-6">
+        <form onSubmit={handleRegister} className="flex flex-wrap gap-8 justify-center w-full">
+          {/* Left Column */}
+          <div className="w-full sm:w-2/5">
+            <div className="mb-6">
               <input
-                type={key.includes("password") ? "password" : "text"}
-                id={key}
-                name={key}
+                type="text"
+                id="name"
+                name="name"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-                placeholder={key
-                  .replace("confirmPassword", "Confirm Password")
-                  .replace(/([A-Z])/g, " $1")}
-                value={(formData as any)[key]}
+                placeholder="Name"
+                value={formData.name}
                 onChange={handleChange}
               />
-              {errors[key] && <p className="text-red-500 text-sm mt-1">{errors[key]}</p>}
+              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
-          ))}
-          <button
-            type="submit"
-            className="w-full py-3 px-4 bg-[#009375] text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
-            disabled={isSubmitting || isFormIncomplete}
-          >
-            Register
-          </button>
+            <div className="mb-6">
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                placeholder="Last Name"
+                value={formData.lastname}
+                onChange={handleChange}
+              />
+              {errors.lastname && <p className="text-red-500 text-sm mt-1">{errors.lastname}</p>}
+            </div>
+            <div className="mb-6">
+              <input
+                type="text"
+                id="birthday"
+                name="birthday"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                placeholder="YYYY-MM-DD"
+                value={formData.birthday}
+                onChange={handleChange}
+                maxLength={10} // Limitar a 10 caracteres (formato YYYY-MM-DD)
+              />
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="w-full sm:w-2/5">
+            {["email", "username", "password", "confirmPassword"].map((key) => (
+              <div key={key} className="mb-6">
+                <input
+                  type={key.includes("password") ? "password" : "text"}
+                  id={key}
+                  name={key}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                  placeholder={key
+                    .replace("confirmPassword", "Confirm Password")
+                    .replace(/([A-Z])/g, " $1")}
+                  value={(formData as any)[key]}
+                  onChange={handleChange}
+                />
+                {errors[key] && <p className="text-red-500 text-sm mt-1">{errors[key]}</p>}
+              </div>
+            ))}
+          </div>
         </form>
-        <div className="flex items-center justify-center mt-6">
-          <span className="text-sm text-gray-600">or continue with</span>
-        </div>
-        <div className="flex justify-center mt-4">
-          <button className="flex items-center justify-center w-10 h-10 bg-white border border-gray-300 rounded-full hover:shadow-md">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-              alt="Google"
-              className="w-6 h-6"
-            />
-          </button>
-        </div>
+
+        {/* Botón de Registro - Siempre al final */}
+        <button
+          type="submit"
+          className="w-1/3 py-2 px-4 bg-[#009375] text-white rounded-lg hover:bg-[#006c55] disabled:opacity-50 mx-auto"
+          disabled={isSubmitting || isFormIncomplete}
+          onClick={handleRegister}
+        >
+          Register
+        </button>
       </div>
     </div>
   );
