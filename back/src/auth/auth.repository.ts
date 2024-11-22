@@ -18,7 +18,7 @@ import { SendEmailDto } from 'src/Interfaces/mail.interface';
 import { ModeloHTML } from 'src/mail/modelHTML/model';
 import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { nanoid } from 'nanoid';
+import { randomBytes } from 'crypto';
 
 @Injectable()
 export class AuthRepository {
@@ -31,7 +31,7 @@ export class AuthRepository {
     private readonly verificationCodeRepository: Repository<VerificationCode>,
     @InjectRepository(User)
     private readonly entityUserRepository: Repository<User>,
-  ) {}
+  ) { }
 
   async signUp(userData: CreateUserDto): Promise<any> {
     const queryRunner = this.dataSource.createQueryRunner();
@@ -84,7 +84,7 @@ export class AuthRepository {
       //whenRegister(userData.email)
       const dto: SendEmailDto = {
         //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
-        recipients : [{ name: '%name%', address: '%email%'}],
+        recipients: [{ name: '%name%', address: '%email%' }],
         subject: "Hotelefy",
         html: ModeloHTML,
         codigo: 10,
@@ -159,7 +159,7 @@ export class AuthRepository {
       const verificationCode = await queryRunner.manager.create(
         VerificationCode,
         {
-          code: nanoid(10),
+          code: randomBytes(10).toString('hex'),
           user_id: user_id,
           expires_at: expires_at,
         },
