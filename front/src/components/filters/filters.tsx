@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Filters as FiltersInterface, } from "@/interfaces/hotel";
+import { Filters as FiltersInterface,  } from "@/interfaces/hotel";
 import SelectedFilters from "./SelectedFilters";
 import FiltersPanel from "./FiltersPanel";
 
@@ -33,7 +33,7 @@ const Filters = () => {
       [category]: prev[category].filter((item) => item !== value),
     }));
   };
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   useEffect(() => {
     const fetchFilteredData = async () => {
       try {
@@ -67,4 +67,3 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 };
 
 export default Filters;
-
