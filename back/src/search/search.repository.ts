@@ -9,7 +9,7 @@ export class SearchRepository {
   constructor(
     @InjectRepository(Hotel) private hotelsRepository: Repository<Hotel>,
     @InjectRepository(Address) private addressRepository: Repository<Address>,
-  ){}
+  ) {}
   async searchBar(query: any) {
     try {
       const names = await this.hotelsRepository.find({
@@ -57,6 +57,12 @@ export class SearchRepository {
       console.log(error);
 
       throw new NotFoundException('Error loading hotels', error);
+    }
+  }
+
+  async searchByCountry(country: string) {
+    if (country === 'Argentina') {
+      // buscar en la base de datos
     }
   }
 } /* cierre */

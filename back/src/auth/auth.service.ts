@@ -9,11 +9,15 @@ export class AuthService {
     return this.authRepository.signUp(userData);
   }
 
+  async signInHotelOwner(userData) {
+    return this.authRepository.signUpHotelOwner(userData);
+  }
+
   async signIn(email: string, password: string) {
     return this.authRepository.signIn(email, password);
   }
 
-  async signInHotelOwner(userData) {
-    return this.authRepository.signUpHotelOwner(userData);
+  async verifyAccountCode(user_id: string, code: string) {
+    return this.authRepository.verifyAccountCode(user_id, code);
   }
 }

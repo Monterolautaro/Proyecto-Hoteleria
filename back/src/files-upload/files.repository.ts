@@ -25,7 +25,7 @@ export class FilesUploadRepository {
     } catch (error) {
       throw new BadRequestException(
         'Error uploading image to Cloudinary',
-        error
+        error,
       );
     }
   }
@@ -42,10 +42,7 @@ export class FilesUploadRepository {
         ],
       });
     } catch (error) {
-      throw new BadRequestException(
-        'Error generating secure URL',
-        error
-      );
+      throw new BadRequestException('Error generating secure URL', error);
     }
   }
 }

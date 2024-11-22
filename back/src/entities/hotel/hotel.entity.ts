@@ -6,13 +6,16 @@ import {
   Column,
   Entity,
   JoinColumn,
+  ManyToOne,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Booking } from '../booking.entity';
 import { Amenities } from './hotel.amenities.entity';
-import { Room } from './hotel.rooms.entity';
+import { Room } from './rooms/hotel.rooms.entity';
+import { User } from '../users/user.entity';
+import { RegisteredHotelsDetails } from '../users/registered-hotels-details.entity';
 
 @Entity({
   name: 'hotels',
@@ -51,4 +54,15 @@ export class Hotel {
   @OneToMany(() => Booking, (booking) => booking.hotel, { onDelete: 'CASCADE' })
   @JoinColumn()
   booking!: Booking[];
+
+  @ManyToOne(() => User, (user) => user.hotels)
+  @JoinColumn({ name: 'owner_id' })
+  owner: User;
+
+  @ManyToOne(() => RegisteredHotelsDetails, (details) => details.hotels, {
+    onDelete: 'CASCADE',
+    nullable: true,
+  })
+  @JoinColumn({ name: 'registered_hotels_details_id' })
+  registered_hotels_details?: RegisteredHotelsDetails;
 }

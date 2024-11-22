@@ -20,4 +20,9 @@ export class SearchController {
       throw new BadRequestException('Error loading hotels', error);
     }
   }
+
+  @Post('bar-result')
+  async searchBarResult(@Query('query') query: any) {
+    return await this.searchService.searchBar;
+  }
 }

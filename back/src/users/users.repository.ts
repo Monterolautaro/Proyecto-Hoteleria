@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/entities/user.entity';
+import { User } from 'src/entities/users/user.entity';
 import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 import { Credentials } from 'src/entities/credentials.entity';
@@ -21,10 +21,7 @@ export class UserRepository {
       if (!users) throw new NotFoundException('No users found');
       return users;
     } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong getting users',
-        error,
-      );
+      throw new BadRequestException('Something got wrong getting users', error);
     }
   }
 
@@ -83,10 +80,7 @@ export class UserRepository {
 
       return { status: 'success', message: `User ${user_id} has been deleted` };
     } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong deleting user',
-        error,
-      );
+      throw new BadRequestException('Something got wrong deleting user', error);
     }
   }
 
@@ -181,23 +175,18 @@ export class UserRepository {
 
   async makeAdmin(user_id: string): Promise<any> {
     try {
-
       const user = await this.userRepository.findOneBy({
         user_id,
       });
 
       if (!user) throw new NotFoundException(`User ${user_id} not found`);
 
-      await this.userRepository.update(
-        { user_id },
-        { role: [Roles.admin] },
-      );
+      await this.userRepository.update({ user_id }, { role: [Roles.admin] });
 
       return {
         status: 200,
         message: `User ${user_id} has been made admin`,
       };
-      
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong making user an admin',

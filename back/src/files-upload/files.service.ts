@@ -8,7 +8,7 @@ import { FilesUploadRepository } from './files.repository';
 import { RoomFile } from 'src/entities/hotel/rooms/room.file.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Room } from 'src/entities/hotel/hotel.rooms.entity';
+import { Room } from 'src/entities/hotel/rooms/hotel.rooms.entity';
 
 @Injectable()
 export class FilesUploadService {
@@ -45,9 +45,7 @@ export class FilesUploadService {
         message: `RoomFile ${url} was uploaded successfully in room ${roomId}`,
       };
     } catch (error) {
-      throw new BadRequestException(
-        'Error in logic service' + error
-      );
+      throw new BadRequestException('Error in logic service' + error);
     }
   }
 
