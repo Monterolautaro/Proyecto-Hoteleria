@@ -1,12 +1,11 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Filters as FiltersInterface, Hotel } from "@/interfaces/hotel";
+import { Filters as FiltersInterface, } from "@/interfaces/hotel";
 import SelectedFilters from "./SelectedFilters";
-import HotelCardResults from "./HotelCardResults";
 import FiltersPanel from "./FiltersPanel";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const Filters = () => {
   const [filters, setFilters] = useState<FiltersInterface>({
@@ -15,7 +14,6 @@ const Filters = () => {
     city: [],
     amenities: [],
   });
-  const [hotels, setHotels] = useState<Hotel[]>([]);
 
   const handleFilterChange = (category: keyof FiltersInterface, value: string) => {
     setFilters((prev) => {
@@ -46,10 +44,8 @@ const Filters = () => {
           amenities: filters.amenities.join(","),
         });
 
-
         const response = await axios.post(`${API_URL}/filter?${query.toString()}`);
-        console.log(response)
-        setHotels(response.data);
+        console.log(response);
       } catch (error) {
         console.error("Error fetching filtered hotels:", error);
       }
@@ -65,15 +61,10 @@ const Filters = () => {
       </div>
       <div className="col-span-9">
         <SelectedFilters filters={filters} onRemoveFilter={handleRemoveFilter} />
-        <div className="grid grid-cols-1 gap-4">
-          <h2 className="text-lg font-bold">Results List</h2>
-          {hotels.map((hotel) => (
-            <HotelCardResults key={hotel.id} hotel={hotel} />
-          ))}
-        </div>
       </div>
     </div>
   );
 };
 
 export default Filters;
+
