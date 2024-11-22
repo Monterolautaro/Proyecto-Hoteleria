@@ -33,7 +33,7 @@ const Filters = () => {
       [category]: prev[category].filter((item) => item !== value),
     }));
   };
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
   useEffect(() => {
     const fetchFilteredData = async () => {
       try {
@@ -44,7 +44,7 @@ const Filters = () => {
           amenities: filters.amenities.join(","),
         });
 
-        const response = await axios.post(`http://localhost:3000/filter?${query.toString()}`);
+        const response = await axios.post(`${API_URL}/filter?${query.toString()}`);
         setHotels(response.data);
       } catch (error) {
         console.error("Error fetching filtered hotels:", error);
