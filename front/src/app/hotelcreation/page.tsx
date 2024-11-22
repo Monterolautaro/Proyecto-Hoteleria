@@ -1,11 +1,12 @@
-import React from 'react'
+import HotelCreationView from "@/view/HotelCreation/HotelCreationView";
+import React from "react";
 
 const HotelCreation = () => {
   return (
     <div>
-
+      <HotelCreationView />
     </div>
-  )
-}
+  );
+};
 
-export default HotelCreation
+export default HotelCreation;
