@@ -4,7 +4,7 @@ const HotelCreationView = () => {
   return (
     <div className=" text-white flex justify-center items-center px-6">
       <div className="grid grid-cols-2 gap-8 items-center w-full max-w-5xl">
-        {/* Sección Izquierda */}
+
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl font-bold mb-4">
             Welcome to <span className="text-[#00B894]">Hotel</span> Registration
@@ -14,11 +14,10 @@ const HotelCreationView = () => {
           </p>
         </div>
 
-        {/* Sección Derecha */}
         <div className="bg-[#004D40] p-6 rounded-lg shadow-lg my-10">
           <h2 className="text-xl font-semibold mb-4">Basic Information</h2>
           <form className="space-y-5">
-            {/* Campo Nombre */}
+
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-1">
                 Name
@@ -31,7 +30,6 @@ const HotelCreationView = () => {
               />
             </div>
 
-            {/* Campo País y Ciudad */}
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label htmlFor="country" className="block text-sm font-medium mb-1">
@@ -57,7 +55,6 @@ const HotelCreationView = () => {
               </div>
             </div>
 
-            {/* Campo Dirección */}
             <div>
               <label htmlFor="address" className="block text-sm font-medium mb-1">
                 Address
@@ -70,7 +67,6 @@ const HotelCreationView = () => {
               />
             </div>
 
-            {/* Botón Siguiente */}
             <div className="text-right">
               <button
                 type="submit"
