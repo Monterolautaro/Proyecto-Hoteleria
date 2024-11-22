@@ -6,6 +6,8 @@ import SelectedFilters from "./SelectedFilters";
 import HotelCardResults from "./HotelCardResults";
 import FiltersPanel from "./FiltersPanel";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 const Filters = () => {
   const [filters, setFilters] = useState<FiltersInterface>({
     price: [],

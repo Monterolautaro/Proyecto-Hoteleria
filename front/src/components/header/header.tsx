@@ -48,7 +48,7 @@ const Header: React.FC = () => {
   }
 
   return (
-    <div className="h-[40vh] bg-cover bg-center text-white bg-[#00352A]">
+    <div className="bg-cover bg-center text-white bg-[#00352A]">
       <div className="bg-gradient-to-b from-transparent to-[#009375] flex flex-col justify-between items-center w-full h-full">
         <Navbar />
         <SearchBar />

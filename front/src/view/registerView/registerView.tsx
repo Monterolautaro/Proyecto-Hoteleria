@@ -10,8 +10,16 @@ import {
 } from "@/helpers/formValidation";
 import { Toast } from "@/helpers/toast";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 const Register = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/login');
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     lastname: "",
@@ -97,6 +105,7 @@ const Register = () => {
 
       localStorage.setItem("user", JSON.stringify(user));
       setIsSubmitting(false);
+      handleClick();
     } catch (error: any) {
       alert(error.message);
       setIsSubmitting(false);
