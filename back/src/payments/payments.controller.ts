@@ -45,9 +45,10 @@ export class PaymentsController {
   @RolesDecorator(Roles.admin, Roles.user)
   @UseGuards(AuthGuard)
   @UseGuards(RolesGuard)
+  /*@Post()
   createPayment(@Body() payment: any) {
     return this.paymentsService.createPayment(payment);
-  }
+  }*/
 
   @Post('webhook')
   @RolesDecorator(Roles.admin, Roles.user)
