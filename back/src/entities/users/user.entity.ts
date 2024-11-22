@@ -41,6 +41,9 @@ export class User {
   @Column('simple-array')
   role: Roles[];
 
+  @Column('boolean', { default: false })
+  isSuspend: boolean;
+
   @OneToOne(() => Credentials, (credential) => credential.user, {
     onDelete: 'CASCADE',
   })

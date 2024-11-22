@@ -8,14 +8,17 @@ import { Credentials } from 'src/entities/credentials.entity';
 import { User } from 'src/entities/users/user.entity';
 import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
-import { whenRegister } from 'src/config/nodemailer.config';
+//import { whenRegister } from 'src/config/nodemailer.config';
 import { DataSource, Repository } from 'typeorm';
 import { UserRepository } from 'src/users/users.repository';
 import { CreateUserDto } from 'src/dto/user.dto';
 import { Roles } from 'roles.enum';
-import { nanoid } from 'nanoid';
+import { MailService } from 'src/mail/mail.service';
+import { SendEmailDto } from 'src/Interfaces/mail.interface';
+import { ModeloHTML } from 'src/mail/modelHTML/model';
 import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { InjectRepository } from '@nestjs/typeorm';
+import { nanoid } from 'nanoid';
 
 @Injectable()
 export class AuthRepository {
@@ -23,6 +26,7 @@ export class AuthRepository {
     private readonly dataSource: DataSource,
     private readonly userRepository: UserRepository,
     private readonly jwtService: JwtService,
+    private readonly mailService: MailService,
     @InjectRepository(VerificationCode)
     private readonly verificationCodeRepository: Repository<VerificationCode>,
     @InjectRepository(User)
@@ -77,8 +81,17 @@ export class AuthRepository {
 
       await queryRunner.commitTransaction();
 
-      whenRegister(userData.email);
-      // TERMINAR, tiene que mandar el template de registro exitoso
+      //whenRegister(userData.email)
+      const dto: SendEmailDto = {
+        //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
+        recipients : [{ name: '%name%', address: '%email%'}],
+        subject: "Hotelefy",
+        html: ModeloHTML,
+        codigo: 10,
+        placeHolderReplacements: [userData.email, userData.name],
+      }
+
+      this.mailService.sendEmail(dto);
 
       return { status: 200, message: 'User created successfully' };
     } catch (error) {
