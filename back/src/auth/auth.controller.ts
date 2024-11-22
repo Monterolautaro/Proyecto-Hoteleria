@@ -19,5 +19,12 @@ export class AuthController {
     return this.authService.signIn(email, password);
   }
 
+  @Post('signUp/hotel-owner')
+  async signInHotelOwner(
+    @Body() userData: string,
+  ){
+    return this.authService.signInHotelOwner(userData);
+  }
+
   // signInByUsername
 }

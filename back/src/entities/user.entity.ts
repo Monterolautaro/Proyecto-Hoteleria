@@ -35,7 +35,7 @@ export class User {
 
   @Column('float', { default: 0 })
   average_session_duration: number;
-
+  
   @Column('simple-array')
   role: Roles[]
 

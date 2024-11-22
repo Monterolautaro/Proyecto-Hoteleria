@@ -12,4 +12,8 @@ export class AuthService {
   async signIn(email: string, password: string) {
     return this.authRepository.signIn(email, password);
   }
+
+  async signInHotelOwner(userData) {
+    return this.authRepository.signUpHotelOwner(userData);
+  }
 }

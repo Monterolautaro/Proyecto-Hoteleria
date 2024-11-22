@@ -87,6 +87,73 @@ export class AuthRepository {
     }
   }
 
+  async signUpHotelOwner(userData: CreateUserDto): Promise<any> {
+    const queryRunner = this.dataSource.createQueryRunner();
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
+
+
+
+    /// VERIFICAR LAS PROPIEDADES DEL HOTEL OWNER
+
+    try {
+      const foundEmail = await this.userRepository.getUserByEmail(
+        userData.email,
+      );
+      const foundUsername = await this.userRepository.getUserByUsername(
+        userData.username,
+      );
+
+      if (foundEmail !== null)
+        throw new BadRequestException('email already in use');
+
+      if (foundUsername !== null)
+        throw new BadRequestException('username already in use');
+
+      if (userData.password !== userData.confirmPassword)
+        throw new BadRequestException('Passwords do not match');
+
+      const hashedPassword = await bcrypt.hash(userData.password, 10);
+
+      const user = await queryRunner.manager.create(User, {
+        name: userData.name,
+        lastname: userData.lastname,
+        birthday: userData.birthday,
+        role: [Roles.hotel_owner]
+      });
+
+      await queryRunner.manager.save(user);
+
+      const credential = await queryRunner.manager.create(Credentials, {
+        username: userData.username,
+        email: userData.email,
+        password: hashedPassword,
+        user,
+      });
+
+      await queryRunner.manager.save(credential);
+
+      await queryRunner.manager.update(User, user.user_id, {
+        credential,
+      });
+
+      await queryRunner.commitTransaction();
+
+      whenRegister(userData.email)
+
+      return { status: 200, message: 'User created successfully' };
+    } catch (error) {
+      queryRunner.rollbackTransaction();
+
+      throw new BadRequestException(
+        'An error has ocurred creating user',
+        error,
+      );
+    } finally {
+      queryRunner.release();
+    }
+  }
+
 
   async signIn(email: string, password: string) {
     try {
