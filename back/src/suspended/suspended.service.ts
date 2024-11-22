@@ -13,7 +13,7 @@ export class SuspendService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting suspend user',
-        error.message,
+        error,
       );
     }
   }
@@ -24,7 +24,7 @@ export class SuspendService {
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting suspend user',
-        error.message,
+        error,
       );
     }
   }

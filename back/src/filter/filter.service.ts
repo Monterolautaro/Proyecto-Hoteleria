@@ -5,9 +5,9 @@ import { FilterRepository } from './filter.repository';
 export class FilterService {
   constructor(private readonly filterRepository: FilterRepository) {}
 
-  async searchBar(query: any) {
+  async searchFilter(query: any) {
     try {
-      return await this.filterRepository.searchBar(query);
+      return await this.filterRepository.searchFilter(query);
     } catch (error) {
       console.log(error, 'service');
 

@@ -13,31 +13,29 @@ const amenitiesRepository = connectionSource.getRepository(Amenities);
 
 @Injectable()
 export class FilterRepository {
-  async searchBar(query: any) {
+  async searchFilter(query: any) {
     try {
     // Price - RoomType
+    const [min, max] = query.split('-').map(Number);
     const prices = await roomTypesRepository.find({
-        where: {price: Between(Number(`%${query}%`), Number(`%${query}%`))},
-    })
+    where: { price: Between(min, max) },
+    });
+
 
     const prices_results = prices.map((price) => {
         return price.price;
     });
 
     // Amenitie - Amenities
-    const stringToBoolean = (value: string): boolean => value.toLowerCase() === "true";
-
     const amenities = await amenitiesRepository.find({
-        where: {pool: stringToBoolean(`%${query}%`) ?? false,
-            gym: stringToBoolean(`%${query}%`) ?? false,
-            spa: stringToBoolean(`%${query}%`) ?? false,
-            restaurant: stringToBoolean(`%${query}%`) ?? false,
-            bar: stringToBoolean(`%${query}%`) ?? false,},
+      where: [
+          { pool: true },
+          { gym: true },
+          { spa: true },
+          { restaurant: true },
+          { bar: true },
+      ].filter(amenity => amenity[query]),
     });
-
-    /*const amenities = await amenitiesRepository.find({
-        where: { amenities_id: Like(`%${query}%`) },
-    });*/
 
     const amenitie_results = amenities.map((amenitie) => {
         return amenitie.amenities_id;

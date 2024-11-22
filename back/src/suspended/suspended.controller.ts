@@ -1,11 +1,17 @@
-import { Controller, Patch, Body } from '@nestjs/common';
+import { Controller, Patch, Body, UseGuards } from '@nestjs/common';
 import { SuspendService } from './suspended.service';
 import { User } from 'src/entities/user.entity';
+import { RolesDecorator } from 'decorators/roles.decorator';
+import { Roles } from 'roles.enum';
+import { AuthGuard } from 'src/auth/auth.guard';
+import { RolesGuard } from 'src/auth/roles.guard';
 
 @Controller('admin/users')
 export class AdminUserController {
   constructor(private readonly suspendService: SuspendService) {}
 
+  @RolesDecorator(Roles.admin)
+  @UseGuards(AuthGuard, RolesGuard)
   @Patch('/suspend')
   async suspendUser(@Body() userSuspend: User) {
     const { name } = userSuspend;
@@ -14,6 +20,8 @@ export class AdminUserController {
 
   }
 
+  @RolesDecorator(Roles.admin)
+  @UseGuards(AuthGuard, RolesGuard)
   @Patch('/unsuspend')
   async unsuspendUser(@Body() userSuspend: User) {
     const { name } = userSuspend;

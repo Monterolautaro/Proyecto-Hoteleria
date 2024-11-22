@@ -1,4 +1,4 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -14,16 +14,16 @@ export class SuspendRepository{
       const user = await this.userRepository.findOne({
         where: { name: names },
       });
-      if (!user || user.isSuspended) {
+      if (!user || user.isSuspend) {
         throw new NotFoundException('Something got wrong getting suspend users');
       }
-      user.isSuspended = true;
+      user.isSuspend = true;
       await this.userRepository.save(user);
 
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting suspend users',
-        error.message,
+        error,
       );
     }
     }
@@ -33,15 +33,15 @@ export class SuspendRepository{
       const user = await this.userRepository.findOne({
         where: { name: names },
       });
-      if (!user || !user.isSuspended) {
+      if (!user || !user.isSuspend) {
         throw new NotFoundException('Something got wrong getting suspend users');
       }
-      user.isSuspended = false;
+      user.isSuspend = false;
       await this.userRepository.save(user);
     } catch (error) {
       throw new BadRequestException(
         'Something got wrong getting suspend users',
-        error.message,
+        error,
       );
     }
     }

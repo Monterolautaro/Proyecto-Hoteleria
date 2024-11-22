@@ -37,7 +37,10 @@ export class User {
   average_session_duration: number;
 
   @Column('simple-array')
-  role: Roles[]
+  role: Roles[];
+
+  @Column('boolean', { default: false })
+  isSuspend: boolean;
 
   @OneToOne(() => Credentials, (credential) => credential.user, {
     onDelete: 'CASCADE',

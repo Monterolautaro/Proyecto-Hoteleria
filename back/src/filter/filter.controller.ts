@@ -15,7 +15,7 @@ import { FilterService } from './filter.service';
     @Post('hotel')
     async searchBar(@Query('query') query: any) {
       try {
-        return await this.filterService.searchBar(query);
+        return await this.filterService.searchFilter(query);
       } catch (error) {
         throw new BadRequestException('Error loading hotels', error);
       }
