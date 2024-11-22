@@ -31,7 +31,7 @@ dotenvConfig({
     MailModule,
     FilesUploadModule,
     SearchModule,
-    // PaymentsModule,
+    PaymentsModule,
     IaModule,
     HotelsModule,
     AuthModule,
