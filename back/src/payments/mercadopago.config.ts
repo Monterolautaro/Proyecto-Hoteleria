@@ -1,4 +1,4 @@
-import { MercadoPagoConfig, Preference } from 'mercadopago';
+/* import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 export const client = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCES_TOKEN,
@@ -21,3 +21,4 @@ preference
   })
   .then(console.log)
   .catch(console.error);
+  */
