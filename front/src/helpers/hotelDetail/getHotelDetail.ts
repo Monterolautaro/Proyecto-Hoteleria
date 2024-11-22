@@ -1,14 +1,13 @@
 import { IHotel } from "@/interfaces";
 import axios from "axios";
-import { config} from "dotenv";
-config({path: '.env'});
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.API_URL;
 
 const getHotelById = async (id: string): Promise<IHotel | undefined> => {
   try {
+    console.log(API_URL);
 
-    const response = await axios.get(`${API_URL}/hotels/${id}`);
+    const response = await axios.get(`${API_URL}/${id}`);
     const hotelInfo = response?.data;
     return hotelInfo;
   } catch (error) {

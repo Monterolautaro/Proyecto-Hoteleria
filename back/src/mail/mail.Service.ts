@@ -6,7 +6,7 @@ import { SendEmailDto } from 'src/Interfaces/mail.interface';
 
 @Injectable()
 export class MailService {
-  constructor(private readonly configService: ConfigService){}
+  constructor(private readonly configService: ConfigService) { }
 
   mailTransport() {
     const transporter = nodemailer.createTransport({
@@ -22,25 +22,25 @@ export class MailService {
     return transporter;
   }
 
-  template(html: string, replacements: /*Record<string, string>*/string[]){
+  template(html: string, replacements: /*Record<string, string>*/string[]) {
     return html.replace(
       /%(\w*)%/g, // or /{(\w*)}/g for "{this} instead of %this%"
-      function(m, key) {
+      function (m, key) {
         return replacements.hasOwnProperty(key) ? replacements[key] : '';
       }
     )
   }
 
-  async sendEmail(dto: SendEmailDto){
-    const {from,
+  async sendEmail(dto: SendEmailDto) {
+    const { from,
       recipients,
-      subject,} = dto;
+      subject, } = dto;
     const html = dto.placeHolderReplacements ? this.template(dto.html, dto.placeHolderReplacements) : dto.html;
 
     const transport = this.mailTransport();
 
     const options: Mail.Options = {
-      from : from ?? {
+      from: from ?? {
         name: this.configService.get<string>("APP_NAME"),
         address: this.configService.get<string>("DEFAULT_MAIL_FROM"),
       },
@@ -53,7 +53,7 @@ export class MailService {
       const result = await transport.sendMail(options);
 
       return result;
-    }catch(error){
+    } catch (error) {
       console.log(error);
     }
   }

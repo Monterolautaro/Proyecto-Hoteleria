@@ -1,7 +1,8 @@
 import { Repository } from 'typeorm';
-import { User } from '../entities/user.entity';
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { User } from 'src/entities/users/user.entity';
+
 
 @Injectable()
 export class SuspendRepository{

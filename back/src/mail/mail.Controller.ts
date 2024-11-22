@@ -12,10 +12,11 @@ export class MailController {
 
   @Post('sendRegister')
   async sendEmailRegister(@Body() body: Record<string, string>) {
+    const { name, email } = body;
     const dto: SendEmailDto = {
       //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
-      recipients : [{ name: '%name%', address: '%email%'}],
-      subject: "Hotelefy",
+      recipients : [{ name: `${name}`, address: `${email}`}],
+      subject: "Hotelify",
       html: ModeloHTML,
       codigo: 10,
       //placeHolderReplacements: body,
@@ -29,7 +30,7 @@ export class MailController {
     const dto: SendEmailDto = {
       //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
       recipients : [{ name: '%name%', address: '%email%'}],
-      subject: "Hotelefy",
+      subject: "Hotelify",
       html: ModeloHTML,
       codigo: 10,
       //placeHolderReplacements: body,
@@ -42,7 +43,7 @@ export class MailController {
     const dto: SendEmailDto = {
       //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
       recipients : [{ name: '%name%', address: '%email%'}],
-      subject: "Hotelefy",
+      subject: "Hotelify",
       html: ModeloHTML,
       codigo: 10,
       placeHolderReplacements: [name,email],

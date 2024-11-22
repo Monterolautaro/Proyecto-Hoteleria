@@ -7,7 +7,6 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { Room } from './hotel.rooms.entity';
-import { RoomFile } from './rooms/room.file.entity';
 
 @Entity({
   name: 'rooms_type',

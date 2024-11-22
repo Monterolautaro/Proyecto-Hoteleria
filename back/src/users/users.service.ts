@@ -9,20 +9,14 @@ export class UserService {
     try {
       return this.userRepository.getUsers();
     } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong getting users',
-        error,
-      );
+      throw new BadRequestException('Something got wrong getting users', error);
     }
   }
   getUserById(id: string) {
     try {
       return this.userRepository.getUserById(id);
     } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong getting user',
-        error,
-      );
+      throw new BadRequestException('Something got wrong getting user', error);
     }
   }
 
@@ -31,10 +25,7 @@ export class UserService {
       console.log('Service:', email);
       return this.userRepository.getUserByEmail(email);
     } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong getting user',
-        error,
-      );
+      throw new BadRequestException('Something got wrong getting user', error);
     }
   }
 
@@ -42,10 +33,7 @@ export class UserService {
     try {
       return this.userRepository.getUserByUsername(username);
     } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong getting user',
-        error,
-      );
+      throw new BadRequestException('Something got wrong getting user', error);
     }
   }
 
@@ -53,10 +41,7 @@ export class UserService {
     try {
       return this.userRepository.deleteUser(id);
     } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong deleting user',
-        error,
-      );
+      throw new BadRequestException('Something got wrong deleting user', error);
     }
   }
 
@@ -97,10 +82,7 @@ export class UserService {
     try {
       return this.userRepository.makeAdmin(id);
     } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong making admin',
-        error,
-      );
+      throw new BadRequestException('Something got wrong making admin', error);
     }
   }
 }
