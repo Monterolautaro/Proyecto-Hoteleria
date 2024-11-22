@@ -1,69 +1,105 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { DateRange } from "react-date-range";
+import { differenceInDays, format } from "date-fns";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { useDateContext } from "@/helpers/hotelDetail/dateContext";
 
 const DateRangePicker = () => {
+  const { setDiffDays } = useDateContext();
   const [dateRange, setDateRange] = useState([
     {
-      startDate: new Date(),
-      endDate: new Date(),
+      startDate: undefined,
+      endDate: undefined,
       key: "selection",
     },
   ]);
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
+  const calendarRef = useRef<HTMLDivElement>(null);
 
   const handleDateChange = (item: any) => {
     const { startDate, endDate } = item.selection;
-    if (startDate && endDate) {
-      setDateRange([
-        {
-          startDate,
-          endDate,
-          key: "selection",
-        },
-      ]);
-      setIsCalendarVisible(false); // Oculta el calendario al seleccionar las fechas
-    }
+    setDateRange([
+      {
+        startDate,
+        endDate,
+        key: "selection",
+      },
+    ]);
   };
 
-  // Toggle visibility of the calendar when the input is clicked
+  useEffect(() => {
+    const { startDate, endDate } = dateRange[0];
+    if (startDate && endDate) {
+      const diffDays = differenceInDays(endDate, startDate);
+      setDiffDays(diffDays);
+    }
+  }, [dateRange]);
+
   const toggleCalendar = () => {
     setIsCalendarVisible(!isCalendarVisible);
   };
 
-  // Function to format the date as 'Mon 7 Nov'
-  const formatDate = (date: Date) => {
-    const options: Intl.DateTimeFormatOptions = {
-      weekday: "short", // Abreviatura del día (Mon, Tue)
-      day: "numeric", // Día (7, 9)
-      month: "short", // Abreviatura del mes (Nov, Dec)
-    };
-    return date.toLocaleDateString("en-US", options);
+  const formatDate = (date: Date | null) => {
+    if (!date) return "";
+    return format(date, "EEE d MMM");
   };
 
+  // Manejar clics fuera del calendario para cerrarlo
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        calendarRef.current &&
+        !calendarRef.current.contains(event.target as Node)
+      ) {
+        setIsCalendarVisible(false);
+      }
+    };
+
+    if (isCalendarVisible) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isCalendarVisible]);
+
   return (
-    <div className="relative flex flex-col items-center">
-      <div className="flex">
+    <div className="relative flex flex-col items-center w-full ">
+      <div className="flex w-full">
         {/* Input para la fecha */}
         <input
           type="text"
           onClick={toggleCalendar}
-          value={`${formatDate(dateRange[0].startDate)} - ${formatDate(
-            dateRange[0].endDate
-          )}`}
+          value={
+            dateRange[0].startDate && dateRange[0].endDate
+              ? `${formatDate(dateRange[0].startDate)} - ${formatDate(
+                  dateRange[0].endDate
+                )}`
+              : "Start date - End date" // Placeholder si no hay fechas seleccionadas
+          }
           readOnly
-          className="w-fit h-fit p-2 text-base bg-transparent cursor-pointer focus:outline-transparent rounded-xl"
+          className="w-full text-center  h-fit p-2 text-base bg-transparent cursor-pointer focus:outline-transparent rounded-xl"
         />
       </div>
 
       {/* Mostrar el calendario solo cuando se haga clic en el input */}
       {isCalendarVisible && (
-        <div className="absolute top-full mt-2">
+        <div
+          ref={calendarRef} // Referencia para detectar clics fuera
+          className="absolute top-full mt-2"
+        >
           <DateRange
             onChange={handleDateChange}
             moveRangeOnFirstSelection={false}
             ranges={dateRange}
+            minDate={new Date()}
             rangeColors={["#009375"]}
             className="shadow-md rounded-md w-full"
           />
