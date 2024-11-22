@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Param, ParseUUIDPipe, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from 'src/dto/user.dto';
 
@@ -14,6 +14,11 @@ export class AuthController {
   @Post('signUp/hotel-owner')
   async signInHotelOwner(@Body() userData: string): Promise<any> {
     return this.authService.signInHotelOwner(userData);
+  }
+
+  @Post('verify-account/:id')
+  async verifyAccountCode(@Param('id', ParseUUIDPipe) user_id: string, @Body('code') code: string): Promise<any> {
+    return this.authService.verifyAccountCode(user_id, code);
   }
 
   @Post('signIn')

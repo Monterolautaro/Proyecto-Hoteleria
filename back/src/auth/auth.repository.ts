@@ -79,23 +79,23 @@ export class AuthRepository {
         credential,
       });
 
-      await queryRunner.commitTransaction();
-
-      //whenRegister(userData.email)
+      
       const dto: SendEmailDto = {
-        //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
-        recipients: [{ name: '%name%', address: '%email%' }],
-        subject: "Hotelefy",
-        html: ModeloHTML,
-        codigo: 10,
-        placeHolderReplacements: [userData.email, userData.name],
-      }
-
-      this.mailService.sendEmail(dto);
-
+          //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
+          recipients: [{ name: '%name%', address: '%email%' }],
+          subject: "Hotelefy",
+          html: ModeloHTML,
+          codigo: 10,
+          placeHolderReplacements: [userData.email, userData.name],
+        }
+        
+        this.mailService.sendEmail(dto);
+        
+        await queryRunner.commitTransaction();
       return { status: 200, message: 'User created successfully' };
     } catch (error) {
       queryRunner.rollbackTransaction();
+      
 
       throw new BadRequestException(
         'An error has ocurred creating user',
@@ -159,7 +159,7 @@ export class AuthRepository {
       const verificationCode = await queryRunner.manager.create(
         VerificationCode,
         {
-          code: randomBytes(10).toString('hex'),
+          code: randomBytes(6).toString('hex'),
           user_id: user_id,
           expires_at: expires_at,
         },
@@ -169,16 +169,21 @@ export class AuthRepository {
       // MANDAR CODIGO POR MAIL // TERMINAR
 
       await queryRunner.commitTransaction();
-      return { status: 200, message: 'User created successfully' };
+      return { status: 200, message: 'User created successfully', codigo_de_verificación: verificationCode };
     } catch (error) {
-      queryRunner.rollbackTransaction();
-
+      
+      if (queryRunner.isTransactionActive) {
+        await queryRunner.rollbackTransaction()
+        return { status: 400, message: `An error has ocurred creating user`, error };
+      }
       throw new BadRequestException(
         'An error has ocurred creating user',
         error,
       );
     } finally {
-      queryRunner.release();
+      if (!queryRunner.isReleased) {
+        await queryRunner.release();
+      }
     }
   }
 
@@ -200,6 +205,7 @@ export class AuthRepository {
       const payload = {
         id: foundUser.user_id,
         email,
+        verified: foundUser.verified,
         role: foundUser.role,
       };
 

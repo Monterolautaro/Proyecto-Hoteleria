@@ -29,6 +29,7 @@ export class AuthGuard implements CanActivate {
       request.user = {
         id: payload.id,
         email: payload.email,
+        verified: payload.verified,
         roles: Array.isArray(payload.role) ? payload.role : [payload.role],
       };
 

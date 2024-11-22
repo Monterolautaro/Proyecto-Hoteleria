@@ -12,6 +12,7 @@ import { NotFoundException } from '@nestjs/common';
 import { BadRequestException } from '@nestjs/common';
 import { User } from 'src/entities/users/user.entity';
 import { RegisteredHotelsDetails } from 'src/entities/users/registered-hotels-details.entity';
+import { error } from 'console';
 
 @Injectable()
 export class HotelsRepository {
@@ -185,6 +186,8 @@ export class HotelsRepository {
         where: { user_id: owner_id },
       });
 
+      if(owner.verified === false) throw new BadRequestException('User not verified');
+
       const hotel: Hotel = this.hotelRepository.create({
         name: hotelData.name,
         owner: owner,
@@ -254,17 +257,19 @@ export class HotelsRepository {
         totalRoomsLeft: hotelData.availability.totalRoomsLeft,
         hotel: savedHotel,
       });
+      
       await queryRunner.manager.save(availability);
-
+      
       const hotelRooms = availability.totalRoomsLeft;
-
+      
       let registeredHotelsDetails = await queryRunner.manager.findOne(
         RegisteredHotelsDetails,
         {
-          where: { owner: owner },
+          where: { owner: { user_id: owner.user_id } },
           relations: ['hotels'], // incluimos las habitaciónes porque después hay que actualizarlas con el nuevo hotel
         },
       );
+      
 
       if (!registeredHotelsDetails) {
         registeredHotelsDetails = await queryRunner.manager.create(
@@ -275,18 +280,28 @@ export class HotelsRepository {
             registered_hotels: 1, // Al ser el primer hotel, lo inicio con 1
             registered_rooms: hotelRooms,
           },
-        );
+        )
+        
         // guardo
         registeredHotelsDetails = await queryRunner.manager.save(
           registeredHotelsDetails,
         );
+
+        await queryRunner.manager.update(
+          User,
+          { user_id: owner_id },
+          { registered_hotels_details: registeredHotelsDetails },
+        );
+
       } else {
         // si es un hotel ya registrado, lo actualizo
         registeredHotelsDetails.registered_hotels += 1;
         registeredHotelsDetails.registered_rooms +=
           hotelData.availability.totalRoomsLeft; // agregamos las habitaciónes que se agregaron
         registeredHotelsDetails.hotels.push(savedHotel); // agregamos el nuevo hotel al array
-        await queryRunner.manager.save(registeredHotelsDetails);
+        
+        registeredHotelsDetails = await queryRunner.manager.save(registeredHotelsDetails);
+        
       }
 
       // confirmo la transacción
@@ -295,7 +310,7 @@ export class HotelsRepository {
     } catch (error) {
       // Revierto la transacción si hay algun error
       await queryRunner.rollbackTransaction();
-      throw error;
+      return { status: 400, message: `An error has ocurred creating user`, error };
     } finally {
       // Libero el runner (tanto si hubo error o no)
 
