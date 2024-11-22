@@ -2,33 +2,31 @@
 import React from "react";
 import Navbar from "../navBar/navBar";
 import SearchBar from "../searchBar/searchBar";
-//import AdminDashboard from "../adminDashboard/adminDashboard"; 
+//import AdminDashboard from "../adminDashboard/adminDashboard";
 import { usePathname } from "next/navigation";
-import HotelCreationView from "@/view/HotelCreation/HotelCreationView";
+// import HotelCreationView from "@/view/HotelCreation/HotelCreationView";
 
 const Header: React.FC = () => {
   const pathname = usePathname();
 
- if (pathname === "/admin" || pathname === "/admin/users" || pathname === "/admin/hotels") {
-
-    return (
-      <div>
-      </div>
-    );
-  } 
+  if (
+    pathname === "/admin" ||
+    pathname === "/admin/users" ||
+    pathname === "/admin/hotels"
+  ) {
+    return <div></div>;
+  }
 
   if (pathname === "/hotelcreation") {
-  
     return (
-      <div className="h-[80vh] bg-cover bg-center text-white bg-[#00352A]">
-        <Navbar />
-        <HotelCreationView />
+      <div className="h-[20vh] bg-cover bg-center text-white bg-[#00352A]">
+        {/* <Navbar /> */}
+        {/* <HotelCreationView /> */}
       </div>
     );
   }
 
   if (pathname === "/") {
-    
     return (
       <div className="h-[100vh] mb-[50px] bg-contain bg-center text-white bg-[url('/assets/Hotels.jpg')] ">
         <div className="bg-gradient-to-b from-[#111b] to-[#009375] flex flex-col justify-between items-center w-full h-full pb-[80px]">
