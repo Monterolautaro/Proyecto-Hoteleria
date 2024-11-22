@@ -9,15 +9,13 @@ import HotelCreationView from "@/view/HotelCreation/HotelCreationView";
 const Header: React.FC = () => {
   const pathname = usePathname();
 
- /*  if (pathname === "/admindashboard") {
+ if (pathname === "/admin" || pathname === "/admin/users" || pathname === "/admin/hotels") {
 
     return (
       <div>
-        <Navbar />
-        <AdminDashboard />
       </div>
     );
-  } */
+  } 
 
   if (pathname === "/hotelcreation") {
   
