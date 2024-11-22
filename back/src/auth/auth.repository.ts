@@ -10,11 +10,14 @@ import * as bcrypt from 'bcryptjs';
 import { connectionSource } from 'src/config/typeorm.config';
 
 import { JwtService } from '@nestjs/jwt';
-import { whenRegister } from 'src/config/nodemailer.config';
+//import { whenRegister } from 'src/config/nodemailer.config';
 import { DataSource } from 'typeorm';
 import { UserRepository } from 'src/users/users.repository';
 import { CreateUserDto } from 'src/dto/user.dto';
 import { Roles } from 'roles.enum';
+import { MailService } from 'src/mail/mail.service';
+import { SendEmailDto } from 'src/Interfaces/mail.interface';
+import { ModeloHTML } from 'src/mail/modelHTML/model';
 
 @Injectable()
 export class AuthRepository {
@@ -22,6 +25,7 @@ export class AuthRepository {
     private readonly dataSource: DataSource,
     private readonly userRepository: UserRepository,
     private readonly jwtService: JwtService,
+    private readonly mailService: MailService,
   ) {}
 
   async signUp(userData: CreateUserDto): Promise<any> {
@@ -72,7 +76,17 @@ export class AuthRepository {
 
       await queryRunner.commitTransaction();
 
-      whenRegister(userData.email)
+      //whenRegister(userData.email)
+      const dto: SendEmailDto = {
+        //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
+        recipients : [{ name: '%name%', address: '%email%'}],
+        subject: "Hotelefy",
+        html: ModeloHTML,
+        codigo: 10,
+        placeHolderReplacements: [userData.email, userData.name],
+      }
+
+      this.mailService.sendEmail(dto);
 
       return { status: 200, message: 'User created successfully' };
     } catch (error) {
