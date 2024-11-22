@@ -1,11 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import Amenities from "@/components/hotelDetail/Amenitites";
-import DateRangePicker from "@/components/hotelDetail/DateSelector";
 import RoomsCard from "@/components/hotelDetail/RoomsCard";
-import TotalPrice from "@/components/hotelDetail/TotalPrice";
-import { DateProvider } from "@/helpers/hotelDetail/dateContext";
 import getHotelById from "@/helpers/hotelDetail/getHotelDetail";
-import { PriceProvider } from "@/helpers/hotelDetail/priceContext";
 import { IHotel } from "@/interfaces";
 
 const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
@@ -13,115 +8,69 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
   console.log(hotelInfo);
 
   return (
-    <DateProvider>
-      <div className="w-full min-h-fit bg-[#f3fffc] px-[10vw] py-6">
-        <header className="flex justify-between items-center pr-[8%]">
+    <div className="w-full min-h-fit bg-[#f3fffc] px-[10vw] py-6">
+      <header className="flex justify-between items-center pr-[8%]">
+        <div>
+          <h2 className="text-[40px]">{hotelInfo?.name}</h2>
+          <h3 className="text-[#009375] mb-4">
+            <span>{hotelInfo?.address.street}</span>, {hotelInfo?.address.city},{" "}
+            {hotelInfo?.address.country}
+          </h3>
+        </div>
+        <h3 className="h-fit text-lg font-medium self-end pb-3">Amenities</h3>
+      </header>
+      <main className="flex flex-col gap-7">
+        {/* Imgs y Amenities */}
+        <div className="w-full flex justify-between">
+          <div
+            className="bg-cover w-[73%] h-[450px] flex items-center justify-center"
+            style={{ backgroundImage: `url(${hotelInfo?.details.imgUrl})` }}
+          ></div>
+          <div className="w-[25%] flex flex-col gap-3 bg-[#d0f6e9] rounded-lg">
+            <Amenities amenities={hotelInfo?.amenities} />
+            <div className="w-full bg-slate-500 text-center h-[198px]">Map</div>
+          </div>
+        </div>
+        <section className="w-full flex">
+          <div className="min-w-[70%] flex flex-col">
+            <span className="max-w-full">
+              <h3 className="text-2xl">Hotel description</h3>
+              <p className="max-w-full">{hotelInfo?.details.description}</p>
+            </span>
+            {/* Availability */}
+            <div className="w-full h-full mt-5 flex flex-col">
+              <h3 className="text-2xl font-semibold mb-5">Availability</h3>
+              <div className="border border-[#000] shadow-xl rounded-xl w-[95%] mx-auto h-full">
+                <form className="w-full h-full gap-[1px] bg-black rounded-xl flex items-center">
+                  <div className="min-w-[70%] h-full text-center font-semibold text-xl rounded-l-xl bg-[#f3fffc] flex items-center justify-around p-1">
+                    <input type="date" className="bg-transparent" />
+                    <input type="date" className="bg-transparent" />
+                  </div>
+                  <input type="text" className="w-full h-full rounded-r-xl" />
+                </form>
+              </div>
+            </div>
+          </div>
+          {/* Reviews */}
+          <div className="w-full h-[240px] bg-slate-800">Reviews</div>
+        </section>
+        {/* Rooms */}
+        <section className="my-6">
           <div>
-            <h2 className="text-[40px] font-medium">{hotelInfo?.name}</h2>
-            <h3 className="text-[#009375] mb-4">
-              <span>{hotelInfo?.address.street}</span>,{" "}
-              {hotelInfo?.address.city}, {hotelInfo?.address.country}
-            </h3>
+            {hotelInfo?.room.map((rooms, key) => {
+              return (
+                <RoomsCard
+                  type={rooms.type}
+                  description={rooms.room_type.description}
+                  price={parseInt(rooms.room_type.price, 10)}
+                  key={key}
+                />
+              );
+            })}
           </div>
-          <h3 className="h-fit text-lg font-medium self-end pb-3">Amenities</h3>
-        </header>
-        <main className="flex flex-col gap-7">
-          {/* Imgs y Amenities */}
-          <div className="w-full flex justify-between">
-            <div className=" w-[73%] rounded-lg max-h-[480px] h-[480px] grid-cols-12 ">
-              <div
-                style={{ backgroundImage: `url(${hotelInfo?.details.imgUrl})` }}
-                className="w-full h-full bg-cover bg-center rounded-lg"
-              ></div>
-              <div
-                style={{ backgroundImage: `url(${hotelInfo?.details.imgUrl})` }}
-                className="w-auto  h-auto bg-cover bg-center"
-              ></div>
-              <div
-                style={{ backgroundImage: `url(${hotelInfo?.details.imgUrl})` }}
-                className="w-auto  h-auto bg-cover bg-center"
-              ></div>
-              <div
-                style={{ backgroundImage: `url(${hotelInfo?.details.imgUrl})` }}
-                className="w-auto  h-auto bg-cover bg-center"
-              ></div>
-              <div
-                style={{ backgroundImage: `url(${hotelInfo?.details.imgUrl})` }}
-                className="w-auto  h-auto bg-cover bg-center"
-              ></div>
-              <div
-                style={{ backgroundImage: `url(${hotelInfo?.details.imgUrl})` }}
-                className="w-auto  h-auto bg-cover bg-center"
-              ></div>
-            </div>
-            <div className="w-[25%] flex flex-col gap-3 justify-between rounded-lg">
-              <Amenities amenities={hotelInfo?.amenities} />
-              <div className="w-full bg-[#009375] justify-center rounded-lg flex items-center h-[45%]">
-                Map
-              </div>
-            </div>
-          </div>
-          <section className="w-full flex">
-            <div className="min-w-[70%] flex flex-col">
-              <span className="max-w-full">
-                <h3 className="text-2xl">Hotel description</h3>
-                <p className="max-w-full">{hotelInfo?.details.description}</p>
-              </span>
-              {/* Availability */}
-              <div className="w-full h-full mt-5 flex flex-col">
-                <h3 className="text-2xl font-semibold mb-5">Availability</h3>
-                <div className="border border-[#000] shadow-xl rounded-xl w-[95%] mx-auto h-[60px]">
-                  <form className="w-full h-full gap-[1px] bg-black rounded-xl flex items-center">
-                    <div className="min-w-[70%] w-[80%] h-full text-center font-semibold text-xl rounded-l-xl bg-[#f3fffc] flex items-center justify-around p-1 hover:bg-[#009375] transition ease-in-out duration-300">
-                      <DateRangePicker />
-                    </div>
-                    <div className="w-full h-full rounded-r-xl flex bg-[#f3fffc] items-center justify-center pl-6">
-                      <img
-                        src="/assets/User.png"
-                        alt="People icon"
-                        className="w-7 h-7"
-                      />
-                      <select className="w-full h-full rounded-r-xl text-center bg-[#f3fffc] font-semibold focus:outline-none">
-                        <option className="rounded" value="1">
-                          1
-                        </option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            {/* Reviews */}
-            <div className="w-full h-[240px] bg-[#d0f6e9] flex justify-center items-center font-semibold rounded-xl">
-              Reviews
-            </div>
-          </section>
-          {/* Rooms */}
-          <PriceProvider>
-            <section className="my-6">
-              <div className="flex flex-col">
-                {hotelInfo?.room.map((rooms, key) => {
-                  return (
-                    <RoomsCard
-                      type={rooms.type}
-                      description={rooms.room_type.description}
-                      price={parseInt(rooms.room_type.price, 10)}
-                      key={key}
-                      index={key}
-                    />
-                  );
-                })}
-                <TotalPrice />
-              </div>
-            </section>
-          </PriceProvider>
-        </main>
-      </div>
-    </DateProvider>
+        </section>
+      </main>
+    </div>
   );
 };
 

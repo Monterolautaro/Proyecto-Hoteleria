@@ -1,23 +1,31 @@
-import { MercadoPagoConfig, Preference } from 'mercadopago';
+import { MercadoPagoConfig, Payment } from 'mercadopago';
+import { v4 as uuid } from 'uuid';
+import { config as dotenvConfig } from 'dotenv'; dotenvConfig({ path: 'D:\Escritorio\Proyecto-Hoteleria\back\.env' });
 
 export const client = new MercadoPagoConfig({
-  accessToken: process.env.MP_ACCES_TOKEN,
+    accessToken: process.env.MERCADOPAGO_TEST_ACCESS_TOKEN,
+    options: {
+        timeout: 60000,
+        idempotencyKey: 'abc'
+    },
 });
 
-const preference = new Preference(client);
+export const payment = new Payment(client);
 
-preference
-  .create({
-    body: {
-      items: [
-        {
-          id: '1',
-          title: 'Mi producto',
-          quantity: 1,
-          unit_price: 2000,
-        },
-      ],
+export const body = {
+    transaction_amount: 12.34,
+    description: 'Descripción del pago',
+    payment_method_id: 'visa',
+    payer: {
+      email: 'test_user@test.com',
     },
-  })
-  .then(console.log)
-  .catch(console.error);
+  };
+  
+ export  const requestOptions = {
+    idempotencyKey: uuid(),
+  };
+  
+  payment.create({ body, requestOptions }).then(console.log).catch(console.log);
+  
+ 
+

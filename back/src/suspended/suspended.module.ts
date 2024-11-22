@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from '../entities/user.entity';
 import {SuspendRepository } from './suspended.repository';
 import { SuspendService } from './suspended.service';
 import { AdminUserController } from './suspended.controller';
-import { User } from 'mercadopago';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],

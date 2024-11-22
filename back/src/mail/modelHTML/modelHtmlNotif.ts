@@ -1,4 +1,4 @@
-export const ModeloHTML = `
+export const ModeloHTMLNotif = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +38,7 @@ export const ModeloHTML = `
 <body>
     <h1>Bienvenido a Hotelefy</h1>
     <img src="./logoEmp.jpg" alt="Imagen representativa">
-    <p>Felicidades, su usuario ha sido creado exitosamente. Muchas gracias por su interés en nuestra página.</p>
+    <p>Felicidades, su usuario %name% ha sido registrado nen nuestro sistema exitosamente. Muchas gracias por inscribirse en nuestra página.</p>
 </body>
 </html>
 `;

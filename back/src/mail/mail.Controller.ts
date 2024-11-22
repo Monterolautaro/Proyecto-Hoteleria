@@ -1,10 +1,10 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { MailService } from './mail.service';
 import { SendEmailDto } from 'src/Interfaces/mail.interface';
-import { ModeloHTML } from './modelHTML/model';
-/*npm install nodemailer
-npm i --save @nestjs/config
-npm i --save-dev @types/nodemailer*/
+import { ModeloHTMLNotif } from './modelHTML/modelHtmlNotif';
+import { ModeloHTMLPago } from './modelHTML/modelHtmlPago';
+import { ModeloHTMLHotel } from './modelHTML/modelHtmlHotel';
+
 
 @Controller('mail')
 export class MailController {
@@ -12,12 +12,11 @@ export class MailController {
 
   @Post('sendRegister')
   async sendEmailRegister(@Body() body: Record<string, string>) {
-    const { name, email } = body;
     const dto: SendEmailDto = {
       //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
-      recipients : [{ name: `${name}`, address: `${email}`}],
-      subject: "Hotelify",
-      html: ModeloHTML,
+      recipients : [{ name: '%name%', address: '%email%'}],
+      subject: "Hotelefy",
+      html: ModeloHTMLNotif,
       codigo: 10,
       //placeHolderReplacements: body,
     }
@@ -30,8 +29,8 @@ export class MailController {
     const dto: SendEmailDto = {
       //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
       recipients : [{ name: '%name%', address: '%email%'}],
-      subject: "Hotelify",
-      html: ModeloHTML,
+      subject: "Hotelefy",
+      html: ModeloHTMLPago,
       codigo: 10,
       //placeHolderReplacements: body,
     }
@@ -43,8 +42,8 @@ export class MailController {
     const dto: SendEmailDto = {
       //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
       recipients : [{ name: '%name%', address: '%email%'}],
-      subject: "Hotelify",
-      html: ModeloHTML,
+      subject: "Hotelefy",
+      html: ModeloHTMLHotel,
       codigo: 10,
       placeHolderReplacements: [name,email],
     }

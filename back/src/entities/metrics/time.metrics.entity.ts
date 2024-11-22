@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { Metrics } from './metrics.entity';
-import { User } from '../users/user.entity';
+import { User } from '../user.entity';
 
 @Entity({
   name: 'time_metrics',

@@ -7,14 +7,12 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { Credentials } from '../credentials.entity';
-import { Booking } from '../booking.entity';
-import { VisitsMetrics } from '../metrics/visits.metric.entity';
-import { TimeMetrics } from '../metrics/time.metrics.entity';
-import { Payment } from '../payments.entity';
+import { Credentials } from './credentials.entity';
+import { Booking } from './booking.entity';
+import { VisitsMetrics } from './metrics/visits.metric.entity';
+import { TimeMetrics } from './metrics/time.metrics.entity';
+import { Payment } from './payments.entity';
 import { Roles } from 'roles.enum';
-import { Hotel } from '../hotel/hotel.entity';
-import { RegisteredHotelsDetails } from './registered-hotels-details.entity';
 
 @Entity({
   name: 'users',
@@ -39,10 +37,7 @@ export class User {
   average_session_duration: number;
 
   @Column('simple-array')
-  role: Roles[];
-
-  // @Column('boolean', { default: false })
-  // isSuspend: boolean;
+  role: Roles[]
 
   @OneToOne(() => Credentials, (credential) => credential.user, {
     onDelete: 'CASCADE',
@@ -61,16 +56,4 @@ export class User {
 
   @OneToOne(() => Payment, (payment) => payment.user)
   payment!: Payment;
-
-  @OneToMany(() => Hotel, (hotel) => hotel.owner)
-  hotels?: Hotel[];
-
-  @Column('boolean', { nullable: true, default: false })
-  verified?: boolean;
-
-  @OneToOne(() => RegisteredHotelsDetails, (details) => details.owner, {
-    onDelete: 'CASCADE'
-  })
-  @JoinColumn({ name: 'registered_hotels_details_id' })
-  registered_hotels_details?: RegisteredHotelsDetails;
 }

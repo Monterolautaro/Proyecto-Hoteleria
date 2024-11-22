@@ -1,4 +1,4 @@
-export const ModeloHTML = `
+export const ModeloHTMLHotel = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +6,12 @@ export const ModeloHTML = `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido a Hotelefy</title>
     <style>
-        body {
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
-    }
+    body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, cyan 30%, white 30%);
+        }
   .blue-border {
     height: 7px;
     background-color: #012d8a;
@@ -61,6 +61,18 @@ export const ModeloHTML = `
     text-decoration: none;
     font-size: 16px;
   }
+    h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333333;
+            margin-top: 50px;
+        }
+            h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333333;
+            margin-top: 50px;
+        }
         img {
             display: block;
             margin: 20px auto;
@@ -79,9 +91,10 @@ export const ModeloHTML = `
     </style>
 </head>
 <body>
-    <h1 class="">Bienvenido a Hotelefy</h1>
+    <h1 class="">Codigo de verificacion Hotelefy</h1>
     <img src="./logoEmp.jpg" alt="Imagen representativa">
-    <p>Felicidades, su usuario ha sido creado exitosamente. Muchas gracias por su interés en nuestra página.</p>
+    <p>A continuacion se le va a mostrar el codigo de verificacion del hotel</p>
+    <h2 class="">%codigo%</h2>
 </body>
 </html>
 `;

@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { User } from './users/user.entity';
+import { User } from './user.entity';
 import { Hotel } from './hotel/hotel.entity';
 import { BookingMetrics } from './metrics/booking.metric.entity';
 import { PaymentDetails } from './payments/paymentdetails.entity';
@@ -43,4 +43,5 @@ export class Booking {
   @OneToOne(() => PaymentDetails, (paymentsDetails) => paymentsDetails.booking)
   @JoinColumn({ name: 'payments_details_id' })
   payments_details!: PaymentDetails;
+
 }

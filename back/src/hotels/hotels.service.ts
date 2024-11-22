@@ -28,8 +28,4 @@ export class HotelsService {
       throw new BadRequestException('Error loading hotels', error);
     }
   }
-
-  async createHotelByOwner(hotelData: any, owner_id: string) {
-    return await this.hotelsRepository.createHotelByOwner(hotelData, owner_id);
-  }
 }

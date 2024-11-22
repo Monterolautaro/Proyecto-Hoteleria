@@ -12,7 +12,6 @@ import { SearchModule } from './search/search.module';
 import { PaymentsModule } from './payments/payments.module';
 import { FilesUploadModule } from './files-upload/files.module';
 import { UsersModule } from './users/users.module';
-import { MailModule } from './mail/mail.Module';
 
 dotenvConfig({
   path: '.env',
@@ -28,10 +27,9 @@ dotenvConfig({
       useFactory: (configService: ConfigService) =>
         configService.get('typeorm'),
     }),
-    MailModule,
     FilesUploadModule,
     SearchModule,
-    PaymentsModule,
+    // PaymentsModule,
     IaModule,
     HotelsModule,
     AuthModule,

@@ -49,13 +49,6 @@ export class HotelsController {
     }
   }
 
-  @Post('/create/:id')
-  @RolesDecorator(Roles.hotel_owner)
-  @UseGuards(AuthGuard, RolesGuard)
-  async createHotelByOwner(
-    @Param('id', ParseUUIDPipe) user_id: string,
-    @Body() hotelData: any,
-  ) {
-    return await this.hotelsService.createHotelByOwner(user_id, hotelData);
-  }
+
+
 }

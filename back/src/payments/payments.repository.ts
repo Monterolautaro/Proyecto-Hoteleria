@@ -14,15 +14,15 @@ export class PaymentsRepository {
     try {
       return await this.paymentRepository.find();
     } catch (error) {
-      throw error;
+      throw error ;
     }
   }
 
-  async CreatePayment(payment: Partial<Payment>) {
+  async CreatePayment(payment: Partial<Payment> ) {
     try {
-      return await this.paymentRepository.save(payment);
+    return await this.paymentRepository.save(payment);
     } catch (error) {
-      throw error;
+      throw error ;
     }
   }
 
