@@ -1,4 +1,4 @@
-import MercadoPagoConfig, { Payment } from "mercadopago";
+/*import MercadoPagoConfig, { Payment } from "mercadopago";
 
 export const startPayment = () => {
   const client = new MercadoPagoConfig({
@@ -28,3 +28,4 @@ export const startPayment = () => {
       console.error("Error al crear pago:", error);
     });
 };
+*/
