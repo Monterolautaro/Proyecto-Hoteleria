@@ -6,6 +6,8 @@ import SelectedFilters from "./SelectedFilters";
 import HotelCardResults from "./HotelCardResults";
 import FiltersPanel from "./FiltersPanel";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 const Filters = () => {
   const [filters, setFilters] = useState<FiltersInterface>({
     price: [],
@@ -44,7 +46,9 @@ const Filters = () => {
           amenities: filters.amenities.join(","),
         });
 
-        const response = await axios.post(`http://localhost:3000/filter?${query.toString()}`);
+
+        const response = await axios.post(`${API_URL}/filter?${query.toString()}`);
+        console.log(response)
         setHotels(response.data);
       } catch (error) {
         console.error("Error fetching filtered hotels:", error);
