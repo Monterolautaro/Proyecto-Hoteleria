@@ -41,8 +41,8 @@ export class User {
   @Column('simple-array')
   role: Roles[];
 
-  @Column('boolean', { default: false })
-  isSuspend: boolean;
+  // @Column('boolean', { default: false })
+  // isSuspend: boolean;
 
   @OneToOne(() => Credentials, (credential) => credential.user, {
     onDelete: 'CASCADE',
@@ -69,8 +69,7 @@ export class User {
   verified?: boolean;
 
   @OneToOne(() => RegisteredHotelsDetails, (details) => details.owner, {
-    onDelete: 'CASCADE',
-    nullable: true,
+    onDelete: 'CASCADE'
   })
   @JoinColumn({ name: 'registered_hotels_details_id' })
   registered_hotels_details?: RegisteredHotelsDetails;

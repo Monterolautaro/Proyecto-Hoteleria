@@ -33,7 +33,7 @@ const Filters = () => {
       [category]: prev[category].filter((item) => item !== value),
     }));
   };
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
   useEffect(() => {
     const fetchFilteredData = async () => {
       try {
