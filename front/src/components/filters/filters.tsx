@@ -39,6 +39,7 @@ const Filters = () => {
   try {
     const query = new URLSearchParams();
 
+
     if (filters.price.length) query.append('price', filters.price.join(','));
     if (filters.country.length) query.append('country', filters.country.join(','));
     if (filters.city.length) query.append('city', filters.city.join(','));
@@ -50,6 +51,7 @@ const Filters = () => {
     console.error('Error fetching filtered hotels:', error);
   }
 };
+
 
     fetchFilteredData();
   }, [filters]);

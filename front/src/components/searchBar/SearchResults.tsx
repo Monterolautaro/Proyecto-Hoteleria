@@ -20,7 +20,7 @@ const SearchResults = () => {
       try {
         // Hacer la solicitud al backend
         const response = await axios.post(`${API_URL}/search/bar-result?query=${query}`);
-        
+
         setHotels(response.data);
       } catch (error) {
         console.error("Error fetching search results:", error);

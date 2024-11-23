@@ -6,6 +6,7 @@ import TotalPrice from "@/components/hotelDetail/TotalPrice";
 import { DateProvider } from "@/helpers/hotelDetail/dateContext";
 import getHotelById from "@/helpers/hotelDetail/getHotelDetail";
 import { PriceProvider } from "@/helpers/hotelDetail/priceContext";
+import { RoomsProvider } from "@/helpers/hotelDetail/roomsContext";
 import { IHotel } from "@/interfaces";
 
 const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
@@ -64,12 +65,16 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
           <section className="w-full flex">
             <div className="min-w-[70%] flex flex-col">
               <span className="max-w-full">
-                <h3 className="text-2xl">Hotel description</h3>
+                <h3 className="text-3xl font-semibold mb-2 text-[#00352a]">
+                  Hotel description
+                </h3>
                 <p className="max-w-full">{hotelInfo?.details.description}</p>
               </span>
               {/* Availability */}
               <div className="w-full h-full mt-5 flex flex-col">
-                <h3 className="text-2xl font-semibold mb-5">Availability</h3>
+                <h3 className="text-3xl font-semibold mb-5 text-[#00352a]">
+                  Availability
+                </h3>
                 <div className="border border-[#000] shadow-xl rounded-xl w-[95%] mx-auto h-[60px]">
                   <form className="w-full h-full gap-[1px] bg-black rounded-xl flex items-center">
                     <div className="min-w-[70%] w-[80%] h-full text-center font-semibold text-xl rounded-l-xl bg-[#f3fffc] flex items-center justify-around p-1 hover:bg-[#009375] transition ease-in-out duration-300">
@@ -102,22 +107,25 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
           </section>
           {/* Rooms */}
           <PriceProvider>
-            <section className="my-6">
-              <div className="flex flex-col">
-                {hotelInfo?.room.map((rooms, key) => {
-                  return (
-                    <RoomsCard
-                      type={rooms.type}
-                      description={rooms.room_type.description}
-                      price={parseInt(rooms.room_type.price, 10)}
-                      key={key}
-                      index={key}
-                    />
-                  );
-                })}
-                <TotalPrice />
-              </div>
-            </section>
+            <RoomsProvider>
+              <section className="my-6">
+                <div className="flex flex-col">
+                  {hotelInfo?.room.map((rooms, key) => {
+                    return (
+                      <RoomsCard
+                        type={rooms.type}
+                        description={rooms.room_type.description}
+                        price={parseInt(rooms.room_type.price, 10)}
+                        currency={rooms.room_type.currency}
+                        key={key}
+                        index={key}
+                      />
+                    );
+                  })}
+                  <TotalPrice />
+                </div>
+              </section>
+            </RoomsProvider>
           </PriceProvider>
         </main>
       </div>

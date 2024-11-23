@@ -3,6 +3,7 @@
 
 import { useDateContext } from "@/helpers/hotelDetail/dateContext";
 import { usePriceContext } from "@/helpers/hotelDetail/priceContext";
+import { useRoomsContext } from "@/helpers/hotelDetail/roomsContext";
 import firstToUpperCase from "@/helpers/upperCase";
 import { useEffect, useState } from "react";
 
@@ -12,9 +13,11 @@ const RoomsCard: React.FC<{
   description: string;
   price: number;
   index: number;
-}> = ({ type, description, price, index }) => {
+  currency: string;
+}> = ({ type, description, price, index, currency }) => {
   const { diffDays } = useDateContext();
   const { updatePrice } = usePriceContext();
+  const { updateRooms } = useRoomsContext();
   const newType = firstToUpperCase(type); //Convierte en mayuscula la primera letra
 
   const [totalPrice, setTotalPrice] = useState<number | null>(price);
@@ -26,9 +29,11 @@ const RoomsCard: React.FC<{
   };
 
   useEffect(() => {
-    console.log(totalRooms);
-    if (diffDays) updatePrice(index, price * diffDays * totalRooms);
-  }, [totalRooms]); // Se ejecuta cada vez que totalRooms cambie
+    if (diffDays) {
+      updatePrice(index, price * diffDays * totalRooms);
+      updateRooms(index, totalRooms);
+    }
+  }, [totalRooms]);
 
   useEffect(() => {
     if (diffDays) {
@@ -54,7 +59,9 @@ const RoomsCard: React.FC<{
             <span className="text-[#00352a] text-sm mb-2">
               {diffDays} nights for
             </span>
-            <span className="font-bold">{totalPrice} COP</span>
+            <span className="font-bold">
+              {totalPrice} {currency}
+            </span>
           </div>
           <select
             onChange={handleSelectChange}
