@@ -105,7 +105,7 @@ export class SearchRepository {
         //   }
         // })
         // );
-        // const filteredHotels = otherHotels.filter(hotel => hotel.hotel_id !== hotel[0].hotel_id);
+        // const filteredHotels = otherHotels.filter(hotel => hotel.hotel_id !== hotel[0].hotel_id)
 
         return hotel
       }
