@@ -13,6 +13,7 @@ import { PaymentsModule } from './payments/payments.module';
 import { FilesUploadModule } from './files-upload/files.module';
 import { UsersModule } from './users/users.module';
 import { MailModule } from './mail/mail.Module';
+import { StripeModule } from './stripe/stripe.module';
 
 dotenvConfig({
   path: '.env',
@@ -28,10 +29,11 @@ dotenvConfig({
       useFactory: (configService: ConfigService) =>
         configService.get('typeorm'),
     }),
+    StripeModule,
     MailModule,
     FilesUploadModule,
     SearchModule,
-    // PaymentsModule,
+    PaymentsModule,
     IaModule,
     HotelsModule,
     AuthModule,

@@ -88,7 +88,7 @@ const HotelCreationView = () => {
   };
 
   // Manejadores de cambio para el primer formulario
-  const handleHotelInfoChange = (e) => {
+  const handleHotelInfoChange = (e: any) => {
     const { id, value } = e.target;
     setHotelInfo((prevState) => ({
       ...prevState,
@@ -97,7 +97,7 @@ const HotelCreationView = () => {
   };
 
   // Manejadores de cambio para el segundo formulario
-  const handleHotelDetailsChange = (e) => {
+  const handleHotelDetailsChange = (e: any) => {
     const { id, value } = e.target;
     setHotelDetails((prevState) => ({
       ...prevState,
@@ -106,7 +106,7 @@ const HotelCreationView = () => {
   };
 
   // Manejadores de cambio para el tercer formulario
-  const handleHotelRoomsChange = (e) => {
+  const handleHotelRoomsChange = (e: any) => {
     const { id, value } = e.target;
     setHotelRooms((prevState) => ({
       ...prevState,
@@ -115,17 +115,17 @@ const HotelCreationView = () => {
   };
 
   // Función para manejar el envío del primer formulario
-  const handleHotelInfoSubmit = (e) => {
+  const handleHotelInfoSubmit = (e: any) => {
     e.preventDefault();
   };
 
   // Función para manejar el envío del segundo formulario
-  const handleHotelDetailsSubmit = (e) => {
+  const handleHotelDetailsSubmit = (e: any) => {
     e.preventDefault();
   };
 
   // Función para manejar el envío del tercer formulario
-  const handleHotelRoomsSubmit = (e) => {
+  const handleHotelRoomsSubmit = (e: any) => {
     e.preventDefault();
   };
 
