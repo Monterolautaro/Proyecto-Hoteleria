@@ -74,10 +74,12 @@ export class FilterRepository {
       }
 
       return results;
+      
     } catch (error) {
-      console.log(error);
-
+      console.log({message: 'Error en el filtrado', error});
+      
       throw new NotFoundException('Error loading hotels', error);
+
     }
   }
 } /* cierre */

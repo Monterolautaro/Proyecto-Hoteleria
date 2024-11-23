@@ -5,6 +5,7 @@ import axios from "axios";
 import HotelCardResults from "../filters/HotelCardResults";
 import { Hotel } from "@/interfaces/hotel";
 
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface SearchResultsProps {

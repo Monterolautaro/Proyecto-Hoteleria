@@ -22,7 +22,6 @@ export class UserService {
 
   getUserByEmail(email: string) {
     try {
-      console.log('Service:', email);
       return this.userRepository.getUserByEmail(email);
     } catch (error) {
       throw new BadRequestException('Something got wrong getting user', error);

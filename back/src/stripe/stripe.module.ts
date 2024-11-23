@@ -5,11 +5,15 @@ import { Stripe } from 'stripe';
 @Module({
   imports: [ConfigModule],
   providers: [
-    {
+  {
       provide: 'STRIPE_CLIENT',
       useFactory: (configService: ConfigService) => {
-        return new Stripe(configService.get<string>(process.env.STRIPE_SECRET_KEY), {
-            apiVersion: '2024-11-20.acacia',
+        const stripeSecretKey = configService.get<string>('STRIPE_SECRET_KEY');
+        if (!stripeSecretKey) {
+          throw new Error('Stripe secret key not defined in environment variables');
+        }
+        return new Stripe(stripeSecretKey, {
+          apiVersion: '2024-11-20.acacia',
         });
       },
       inject: [ConfigService],

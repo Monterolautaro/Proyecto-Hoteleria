@@ -5,6 +5,7 @@ import { FilterRepository } from './filter.repository';
 export class FilterService {
   constructor(private readonly filterRepository: FilterRepository) {}
 
+
   async searchFilter(price: any, country: any, city: any, emtities: any) {
     try {
       return await this.filterRepository.searchFilter(price, country, city, emtities);
