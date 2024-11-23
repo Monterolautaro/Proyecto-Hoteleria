@@ -16,7 +16,7 @@ const SearchResults = () => {
     const fetchHotels = async () => {
       try {
         // Hacer la solicitud al backend
-        const response = await axios.get(`${API_URL}/search?query=${query}`);
+        const response = await axios.post(`${API_URL}/search/bar-result?query=${query}`);
         setHotels(response.data);
       } catch (error) {
         console.error("Error fetching search results:", error);

@@ -44,7 +44,7 @@ const Filters = () => {
           amenities: filters.amenities.join(","),
         });
 
-        const response = await axios.post(`${API_URL}/filter?${query.toString()}`);
+        const response = await axios.post(`${API_URL}/filter/hotel?${query.toString()}`);
         console.log(response);
       } catch (error) {
         console.error("Error fetching filtered hotels:", error);

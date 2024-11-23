@@ -164,7 +164,7 @@ const Register = () => {
             {["email", "username", "password", "confirmPassword"].map((key) => (
               <div key={key} className="mb-6">
                 <input
-                  type={key.includes("password") ? "password" : "password"}
+                  type={key.includes("password") ? "password" : "text"}
                   id={key}
                   name={key}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
