@@ -21,5 +21,6 @@ export class SearchController {
   async searchBarResults(@Query('query') query: any) {
     
     return await this.searchService.searchBarResults(query);
+    
   }
 }
