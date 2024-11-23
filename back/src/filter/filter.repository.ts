@@ -72,7 +72,6 @@ export class FilterRepository {
         return [];
       }
 
-      console.log(results);
       return results;
       
     } catch (error) {

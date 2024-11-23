@@ -20,7 +20,6 @@ export default function ComponentSlider(): JSX.Element {
       });
 
       const data = response.data;
-      console.log("Data fetched:", data);
 
       const topRatedHotels = data.filter((hotel: any) => hotel.details?.stars === 5).slice(0, 6);
 

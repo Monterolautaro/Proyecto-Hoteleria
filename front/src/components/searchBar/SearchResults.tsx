@@ -20,7 +20,6 @@ const SearchResults = () => {
       try {
         // Hacer la solicitud al backend
         const response = await axios.post(`${API_URL}/search/bar-result?query=${query}`);
-        console.log(response.data.room[0].room_type);
         
         setHotels(response.data);
       } catch (error) {
