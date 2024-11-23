@@ -9,8 +9,8 @@ import {
   validatePassword,
 } from "@/helpers/formValidation";
 import { Toast } from "@/helpers/toast";
-import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 
 const Register = () => {
@@ -189,6 +189,16 @@ const Register = () => {
         >
           Register
         </button>
+
+        {/* Google Login Button */}
+        <div className="mt-4 flex justify-center w-full">
+          <button
+            onClick={() => signIn("google")}
+            className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-gray-300 hover:border-gray-400 transition"
+          >
+            <FaGoogle className="text-blue-500 w-8 h-8" /> {/* Ícono de Google con color azul */}
+          </button>
+        </div>
       </div>
     </div>
   );
