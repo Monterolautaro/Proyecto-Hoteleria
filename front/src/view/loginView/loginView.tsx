@@ -3,8 +3,15 @@ import React, { useState } from "react";
 import { validateEmail, validatePassword } from "@/helpers/formValidation";
 import { loginUser } from "@/helpers/auth.helper";
 import { Toast } from "@/helpers/toast";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/');
+  };
+
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,6 +43,7 @@ const Login = () => {
         title: "Login successfully",
       });
       setIsSubmitting(false);
+      handleClick();
     } catch (error: any) {
       Toast.fire({
         icon: "error",
