@@ -3,7 +3,7 @@ import { connectionSource } from 'src/config/typeorm.config';
 import { Address } from 'src/entities/hotel/hotel.address.entity';
 import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
 import { Hotel } from 'src/entities/hotel/hotel.entity';
-import { RoomType } from 'src/entities/hotel/roomsType.entity';
+import { RoomType } from 'src/entities/hotel/rooms/roomsType.entity';
 import { Between, Like } from 'typeorm';
 
 //const hotelsRepository = connectionSource.getRepository(Hotel);
@@ -74,10 +74,12 @@ export class FilterRepository {
       }
 
       return results;
+      
     } catch (error) {
-      console.log(error);
-
+      console.log({message: 'Error en el filtrado', error});
+      
       throw new NotFoundException('Error loading hotels', error);
+
     }
   }
 } /* cierre */
