@@ -6,12 +6,10 @@ export class SearchService {
   constructor(private readonly searchRepository: SearchRepository) {}
 
   async searchBar(query: any) {
-    try {
       return await this.searchRepository.searchBar(query);
-    } catch (error) {
-      console.log(error, 'service');
+  }
 
-      throw error;
-    }
+  async searchBarResults(query: any) {
+      return await this.searchRepository.searchBarResults(query);
   }
 }

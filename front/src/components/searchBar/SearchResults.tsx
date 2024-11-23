@@ -5,7 +5,10 @@ import axios from "axios";
 import HotelCardResults from "../filters/HotelCardResults";
 import { Hotel } from "@/interfaces/hotel";
 
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+export const dynamic = 'force-dynamic';
 
 const SearchResults = () => {
   const searchParams = useSearchParams();
@@ -16,7 +19,9 @@ const SearchResults = () => {
     const fetchHotels = async () => {
       try {
         // Hacer la solicitud al backend
-        const response = await axios.get(`${API_URL}/search?query=${query}`);
+        const response = await axios.post(`${API_URL}/search/bar-result?query=${query}`);
+        console.log(response.data.room[0].room_type);
+        
         setHotels(response.data);
       } catch (error) {
         console.error("Error fetching search results:", error);
