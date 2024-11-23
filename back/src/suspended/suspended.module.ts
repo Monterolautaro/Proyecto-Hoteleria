@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import {SuspendRepository } from './suspended.repository';
 import { SuspendService } from './suspended.service';
 import { AdminUserController } from './suspended.controller';
-import { User } from 'mercadopago';
+import { User } from 'src/entities/users/user.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],

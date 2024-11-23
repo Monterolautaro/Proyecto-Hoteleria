@@ -36,20 +36,22 @@ const Filters = () => {
 
   useEffect(() => {
     const fetchFilteredData = async () => {
-      try {
-        const query = new URLSearchParams({
-          price: filters.price.join(","),
-          country: filters.country.join(","),
-          city: filters.city.join(","),
-          amenities: filters.amenities.join(","),
-        });
+  try {
+    const query = new URLSearchParams();
 
-        const response = await axios.post(`${API_URL}/filter/hotel?${query.toString()}`);
-        console.log(response);
-      } catch (error) {
-        console.error("Error fetching filtered hotels:", error);
-      }
-    };
+
+    if (filters.price.length) query.append('price', filters.price.join(','));
+    if (filters.country.length) query.append('country', filters.country.join(','));
+    if (filters.city.length) query.append('city', filters.city.join(','));
+    if (filters.amenities.length) query.append('amenities', filters.amenities.join(','));
+
+    const response = await axios.post(`${API_URL}/filter/hotels?${query.toString()}`);
+    console.log(response);
+  } catch (error) {
+    console.error('Error fetching filtered hotels:', error);
+  }
+};
+
 
     fetchFilteredData();
   }, [filters]);
