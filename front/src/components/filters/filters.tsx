@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 interface FilterProps {
   onFiltersApplied: (hotels: any[]) => void;
 }
@@ -45,7 +47,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
         queryParams.append("amenities", filters.amenities.join(","));
       }
 
-      const response = await axios.post(`/api/hotels?${queryParams.toString()}`);
+      const response = await axios.post(`${API_URL}/filter/hotel?${queryParams.toString()}`);
       onFiltersApplied(response.data); 
     } catch (error) {
       console.error("Error fetching hotels:", error);
@@ -98,7 +100,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
             (range) => (
               <label key={range} className="flex items-center space-x-2">
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="price"
                   onChange={() => setFilters((prev) => ({ ...prev, priceRange: range }))}
                   className="form-radio text-teal-600 focus:ring-teal-500"
