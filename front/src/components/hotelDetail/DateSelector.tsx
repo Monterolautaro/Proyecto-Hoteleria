@@ -9,7 +9,8 @@ import "react-date-range/dist/theme/default.css";
 import { useDateContext } from "@/helpers/hotelDetail/dateContext";
 
 const DateRangePicker = () => {
-  const { setDiffDays } = useDateContext();
+  const { setDiffDays, setEndDateContext, setStartDateContext } =
+    useDateContext();
   const [dateRange, setDateRange] = useState([
     {
       startDate: undefined,
@@ -35,6 +36,8 @@ const DateRangePicker = () => {
     const { startDate, endDate } = dateRange[0];
     if (startDate && endDate) {
       const diffDays = differenceInDays(endDate, startDate);
+      setStartDateContext(startDate);
+      setEndDateContext(endDate);
       setDiffDays(diffDays);
     }
   }, [dateRange]);
