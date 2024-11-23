@@ -13,10 +13,10 @@ const amenitiesRepository = connectionSource.getRepository(Amenities);
 
 @Injectable()
 export class FilterRepository {
-  async searchFilter(query: any) {
+  async searchFilter(price: any, country: any, city: any, emtities: any) {
     try {
     // Price - RoomType
-    const [min, max] = query.split('-').map(Number);
+    const [min, max] = price/*.split(' - ').map(Number)*/;
     const prices = await roomTypesRepository.find({
     where: { price: Between(min, max) },
     });
@@ -30,11 +30,11 @@ export class FilterRepository {
     const amenities = await amenitiesRepository.find({
       where: [
           { pool: true },
-          { gym: true },
+          //{ gym: true },
           { spa: true },
           { restaurant: true },
           { bar: true },
-      ].filter(amenity => amenity[query]),
+      ].filter(amenity => amenity[emtities]),
     });
 
     const amenitie_results = amenities.map((amenitie) => {
@@ -43,7 +43,7 @@ export class FilterRepository {
 
       // City - Address
       const cities = await addressRepository.find({
-        where: { city: Like(`%${query}%`) },
+        where: { city: Like(`%${city}%`) },
       });
 
       const city_results = cities.map((address) => {
@@ -52,7 +52,7 @@ export class FilterRepository {
 
       // Country - Address
       const countries = await addressRepository.find({
-        where: { country: Like(`%${query}%`) },
+        where: { country: Like(`%${country}%`) },
       });
 
       const country_results = countries.map((address) => {
