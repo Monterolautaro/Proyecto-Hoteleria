@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 /* eslint-disable @next/next/no-img-element */
 interface HotelCardProps {
   id: string; // ID del hotel
@@ -11,6 +13,7 @@ interface HotelCardProps {
 }
 
 const HotelCard: React.FC<HotelCardProps> = ({
+  id,
   image,
   name,
   location,
@@ -22,7 +25,7 @@ const HotelCard: React.FC<HotelCardProps> = ({
   const numericPrice = parseFloat(price.toString()); // Nos aseguramos de que el precio sea un número
 
   return (
-    <div className="max-w-[400px] w-full bg-[#D0F6E9] rounded-lg shadow-md overflow-hidden border border-gray-200 h-[400px] flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow">
+    <Link href={`/hotel-detail/${id}`} className="max-w-[400px] w-full bg-[#D0F6E9] rounded-lg shadow-md overflow-hidden border border-gray-200 h-[400px] flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow">
       <img className="w-full h-[260px] object-cover" src={image} alt={name} />
       <div className="p-4 flex-grow">
         <div className="flex items-center justify-between mb-1">
@@ -57,7 +60,7 @@ const HotelCard: React.FC<HotelCardProps> = ({
             : `EUR ${numericPrice.toFixed(2)}`}
         </span>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -1,3 +1,4 @@
+import AboutUsView from '@/view/AboutUsView/AboutUsView'
 import React from 'react'
 
 const page = () => {

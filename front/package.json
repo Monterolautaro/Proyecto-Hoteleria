@@ -15,6 +15,7 @@
     "docker": "^1.0.0",
     "lucide-react": "^0.456.0",
     "next": "15.0.3",
+    "next-auth": "^4.24.10",
     "react": "^18.2.0",
     "react-date-range": "^2.0.1",
     "react-dom": "^18.2.0",

@@ -16,7 +16,8 @@ import React from 'react'
 const HotelsView = async () => {
   const hotels = await getHotels(1,5)
   return (
-    <div>
+
+    <div className='w-[75%] flex flex-col items-center mx-auto'>
       {hotels && hotels.map((hotel, key) => {return  <HotelCard key={key} id={hotel.hotel_id} image={hotel.details.imgUrl} name={hotel.name} location={hotel.address.country} price={parseInt(hotel.room[0].room_type.price)} />})}
     </div>
   )
