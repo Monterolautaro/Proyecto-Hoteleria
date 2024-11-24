@@ -14,15 +14,13 @@ export class SearchController {
 
   @Post('bar')
   async searchBar(@Query('query') query: any) {
-    try {
       return await this.searchService.searchBar(query);
-    } catch (error) {
-      throw new BadRequestException('Error loading hotels', error);
-    }
   }
 
   @Post('bar-result')
-  async searchBarResult(@Query('query') query: any) {
-    return await this.searchService.searchBar;
+  async searchBarResults(@Query('query') query: any) {
+    
+    return await this.searchService.searchBarResults(query);
+    
   }
 }

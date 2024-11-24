@@ -79,23 +79,23 @@ export class AuthRepository {
         credential,
       });
 
-      
+
       const dto: SendEmailDto = {
-          //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
-          recipients: [{ name: '%name%', address: '%email%' }],
-          subject: "Hotelefy",
-          html: ModeloHTML,
-          codigo: 10,
-          placeHolderReplacements: [userData.email, userData.name],
-        }
-        
-        this.mailService.sendEmail(dto);
-        
-        await queryRunner.commitTransaction();
+        //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
+        recipients: [{ name: '%name%', address: '%email%' }],
+        subject: "Hotelefy",
+        html: ModeloHTML,
+        codigo: 10,
+        placeHolderReplacements: [userData.email, userData.name],
+      }
+
+      this.mailService.sendEmail(dto);
+
+      await queryRunner.commitTransaction();
       return { status: 200, message: 'User created successfully' };
     } catch (error) {
       queryRunner.rollbackTransaction();
-      
+
 
       throw new BadRequestException(
         'An error has ocurred creating user',
@@ -169,9 +169,9 @@ export class AuthRepository {
       // MANDAR CODIGO POR MAIL // TERMINAR
 
       await queryRunner.commitTransaction();
-      return { status: 200, message: 'User created successfully', codigo_de_verificación: verificationCode };
+      return { status: 200, message: 'User created successfully'  };
     } catch (error) {
-      
+
       if (queryRunner.isTransactionActive) {
         await queryRunner.rollbackTransaction()
         return { status: 400, message: `An error has ocurred creating user`, error };
@@ -210,7 +210,7 @@ export class AuthRepository {
       };
 
       const token = this.jwtService.sign(payload);
-      return { success: "You're logged in successfully", token };
+      return { success: "You're logged in successfully", token, user: payload };
     } catch (error) {
       throw new BadRequestException('Something got wrong signing in', error);
     }

@@ -1,13 +1,15 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { FilterRepository } from './filter.repository';
+import { FiltersDto } from 'src/dto/filter.dto';
 
 @Injectable()
 export class FilterService {
   constructor(private readonly filterRepository: FilterRepository) {}
 
-  async searchFilter(price: any, country: any, city: any, emtities: any) {
+
+  async searchFilter(query: FiltersDto) {
     try {
-      return await this.filterRepository.searchFilter(price, country, city, emtities);
+      return await this.filterRepository.searchFilter(query);
     } catch (error) {
       console.log(error, 'service');
 

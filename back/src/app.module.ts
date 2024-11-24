@@ -14,6 +14,7 @@ import { FilesUploadModule } from './files-upload/files.module';
 import { UsersModule } from './users/users.module';
 import { MailModule } from './mail/mail.Module';
 import { StripeModule } from './stripe/stripe.module';
+import { FilterModule } from './filter/filter.module';
 
 dotenvConfig({
   path: '.env',
@@ -30,6 +31,7 @@ dotenvConfig({
         configService.get('typeorm'),
     }),
     StripeModule,
+    FilterModule,
     MailModule,
     FilesUploadModule,
     SearchModule,

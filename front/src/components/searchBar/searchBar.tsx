@@ -1,11 +1,11 @@
 "use client";
 import getResult from "@/helpers/searchBar";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Importa useRouter
+import { useRouter } from "next/navigation"; 
 import { useState } from "react";
 
 const SearchBar = () => {
-  const router = useRouter(); // Inicializa el router
+  const router = useRouter();
   const [result, setResult] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -17,17 +17,17 @@ const SearchBar = () => {
       setLoading(true);
       const result = await getResult(e);
       setResult(result);
-      setVisible(true); // Muestra los resultados
+      setVisible(true); 
       setLoading(false);
     } else {
       setResult([]);
-      setVisible(false); // Oculta los resultados si aun no hay caracteres
+      setVisible(false); 
     }
   };
 
   const handleSelectResult = (selected: string) => {
-    setInputValue(selected); // Cambia el valor del input
-    setVisible(false); // Oculta la lista de resultados
+    setInputValue(selected); 
+    setVisible(false); 
   
     const queryString = new URLSearchParams({ search: selected }).toString();
     router.push(`/search-results?${queryString}`);
@@ -43,8 +43,7 @@ const SearchBar = () => {
     onSelectResult: (result: string) => void;
     visible: boolean;
   }) => {
-    if (!visible) return null; // No renderiza nada si no es visible
-
+    if (!visible) return null;
     return (
       <div
         className={`w-full max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
@@ -90,7 +89,6 @@ const SearchBar = () => {
             Explore
           </Link>
         </div>
-        {/* Renderiza los resultados o el mensaje de "No results found" */}
         <div className="absolute top-full left-0 right-0">
           <SearchBarResults
             results={loading ? ["Loading..."] : result}
