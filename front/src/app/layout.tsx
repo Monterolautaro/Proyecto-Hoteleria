@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { DateProvider } from "@/helpers/hotelDetail/dateContext";
+import { RoomsProvider } from "@/helpers/hotelDetail/roomsContext";
 
 export const metadata: Metadata = {
   title: "Hotelify",
@@ -16,15 +17,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <body className="bg-[#f3fffc]">
+        <DateProvider>
+          <RoomsProvider>
+            <Header />
 
-      <UserProvider>
-        <body className="bg-[#f3fffc]">
-          <Header />
             {children}
-          <Footer />
-        </body>
-      </UserProvider>
 
+            <Footer />
+          </RoomsProvider>
+        </DateProvider>
+      </body>
     </html>
   );
 }
