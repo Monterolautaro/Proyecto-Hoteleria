@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
-import HotelCardResults from "../filters/HotelCardResults";
+import HotelCardResults from "@/components/HotelCardResults/HotelCardResults";
 import { Hotel } from "@/interfaces/hotel";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
