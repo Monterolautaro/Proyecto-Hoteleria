@@ -23,6 +23,7 @@
     "sweetalert2": "^11.14.5"
   },
   "devDependencies": {
+    "@types/next-auth": "^3.15.0",
     "@types/node": "^20",
     "@types/react": "^18.2.14",
     "@types/react-date-range": "^1.4.9",
