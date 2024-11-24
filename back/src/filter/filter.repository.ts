@@ -55,7 +55,6 @@ export class FilterRepository {
 
     // ejecuto la consulta
     const results = await queryBuilder.getMany();
-    console.log('estos son los resultados', results);
     
     return results;
   
