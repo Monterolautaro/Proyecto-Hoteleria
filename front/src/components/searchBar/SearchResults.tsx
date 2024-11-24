@@ -18,7 +18,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotelsData }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (query) {
+    if (query && hotelsData?.length! === 0) {
       const fetchHotels = async () => {
         setLoading(true);
         try {
@@ -26,11 +26,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotelsData }) => {
             `${API_URL}/search/bar-result?query=${query}`
           );
           console.log("No filter", response.data);
-
-          if (hotelsData?.length) {
-            setHotels(hotelsData);
-            console.log("Entramos al if", hotels);
-          }
 
           setHotels(response.data);
         } catch (error) {
@@ -41,6 +36,12 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotelsData }) => {
       };
 
       fetchHotels();
+    } else if (hotelsData?.length! > 0 && hotelsData) {
+      console.log(hotelsData);
+
+      console.log("On filter:");
+
+      setHotels(hotelsData);
     }
   }, [query, hotelsData]);
 
