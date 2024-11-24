@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 interface HotelCardProps {
   id: string; // ID del hotel
   image: string;
-  title: string;
+  name: string;
   location: string;
   rating?: number;
   stars?: number;
@@ -11,7 +12,7 @@ interface HotelCardProps {
 
 const HotelCard: React.FC<HotelCardProps> = ({
   image,
-  title,
+  name,
   location,
   rating,
   stars,
@@ -22,11 +23,11 @@ const HotelCard: React.FC<HotelCardProps> = ({
 
   return (
     <div className="max-w-[400px] w-full bg-[#D0F6E9] rounded-lg shadow-md overflow-hidden border border-gray-200 h-[400px] flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow">
-      <img className="w-full h-[260px] object-cover" src={image} alt={title} />
+      <img className="w-full h-[260px] object-cover" src={image} alt={name} />
       <div className="p-4 flex-grow">
         <div className="flex items-center justify-between mb-1">
           <h2 className="text-xl font-semibold overflow-hidden text-ellipsis whitespace-nowrap">
-            {title}
+            {name}
           </h2>
           {rating === 0 || stars === 0 ? (
             <span className="bg-orange-200 text-orange-600 text-xs font-bold px-2 py-1 rounded-full">
