@@ -30,6 +30,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
   const fetchHotels = async () => {
     setLoading(true);
 
+
     try {
       const queryParams = new URLSearchParams();
 
