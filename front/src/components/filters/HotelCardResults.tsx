@@ -10,6 +10,8 @@ interface HotelCardResultsProps {
 const HotelCardResults: React.FC<HotelCardResultsProps> = ({ hotel }) => {
   
   const router = useRouter();
+  console.log(hotel);
+  
 
   const handleClick = () => {
     router.push(`/hotel-detail/${hotel.hotel_id}`);
