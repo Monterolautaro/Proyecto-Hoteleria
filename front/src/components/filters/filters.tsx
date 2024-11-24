@@ -12,7 +12,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
   const [filters, setFilters] = useState({
     countries: [],
     cities: [],
-    priceRange: "",
+    priceRange: '0, 0',
     amenities: [],
   });
   const [loading, setLoading] = useState(false);
@@ -49,6 +49,8 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       }
       
       const response = await axios.get(`${API_URL}/filter/hotel?${queryParams.toString()}`);
+      console.log(response.data);
+      
       onFiltersApplied(response.data); 
     } catch (error) {
       console.error("Error fetching hotels:", error);

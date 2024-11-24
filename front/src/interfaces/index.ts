@@ -20,7 +20,7 @@ export interface IAmenities {
 }
 
 export interface IHotel {
-  id: number;
+  id: string;
   name: string;
   details: {
     stars: number;

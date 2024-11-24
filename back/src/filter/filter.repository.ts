@@ -19,14 +19,14 @@ export class FilterRepository {
     try {    
       const queryBuilder = this.hotelsRepository.createQueryBuilder('hotel');
 
-    // Unir relaciones necesarias
+    // aca uno las relaciones para poder usarlas en el where
     queryBuilder
       .leftJoinAndSelect('hotel.address', 'address')
       .leftJoinAndSelect('hotel.amenities', 'amenities')
       .leftJoinAndSelect('hotel.room', 'room')
       .leftJoinAndSelect('room.room_type', 'room_type')
 
-    // Filtrar por precio
+    // filtro por precio
     if (price) {
       const [minPrice, maxPrice] = price.split(',').map(Number);
       queryBuilder.andWhere('room_type.price BETWEEN :minPrice AND :maxPrice', {
@@ -35,17 +35,17 @@ export class FilterRepository {
       });
     }
 
-    // Filtrar por país
+    // filtro por country
     if (country) {
       queryBuilder.andWhere('address.country = :country', { country });
     }
 
-    // Filtrar por ciudad
+    // filtro por city
     if (city) {
       queryBuilder.andWhere('address.city = :city', { city });
     }
     
-    // Filtrar por amenities
+    // filtro por amenities
     if (amenities) {
       const amenitiesArray = amenities.trim().split(',').map((name) => name.trim());
       amenitiesArray.forEach((amenity) => {
@@ -53,9 +53,8 @@ export class FilterRepository {
       });
     }
 
-    // Ejecutar consulta
+    // ejecuto la consulta
     const results = await queryBuilder.getMany();
-    console.log('estos son los resultados', results);
     
     return results;
   

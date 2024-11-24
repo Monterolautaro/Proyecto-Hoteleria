@@ -27,7 +27,7 @@ interface HotelRooms {
   suite: RoomDetails;
 }
 
-// Interfaz para los detalles de una habitación (precio, moneda, etc.)
+// Interfaz para los detalles de una habitación
 interface RoomDetails {
   price: number;
   currency: string;

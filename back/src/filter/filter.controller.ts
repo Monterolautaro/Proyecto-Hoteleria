@@ -15,6 +15,8 @@ import { FiltersDto } from 'src/dto/filter.dto';
     @Get('hotel')
     async searchBar(@Query() query: FiltersDto) {
       try {
+        console.log(query);
+        
         
         return await this.filterService.searchFilter(query);
       } catch (error) {

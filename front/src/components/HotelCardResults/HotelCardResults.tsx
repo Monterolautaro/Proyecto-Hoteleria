@@ -8,6 +8,8 @@ interface HotelCardResultsProps {
 }
 
 const HotelCardResults: React.FC<HotelCardResultsProps> = ({ hotel }) => {
+  console.log(hotel);
+  
   const router = useRouter();
 
   const handleClick = () => {
