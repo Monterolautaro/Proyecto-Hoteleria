@@ -23,7 +23,9 @@ export class FilterRepository {
         .leftJoinAndSelect('hotel.address', 'address')
         .leftJoinAndSelect('hotel.amenities', 'amenities')
         .leftJoinAndSelect('hotel.room', 'room')
-        .leftJoinAndSelect('room.room_type', 'room_type');
+        .leftJoinAndSelect('room.room_type', 'room_type')
+        .leftJoinAndSelect('hotel.availability', 'availability')
+        .leftJoinAndSelect('hotel.details', 'details');
 
       // filtro por precio
       if (price) {
@@ -60,7 +62,8 @@ export class FilterRepository {
 
       // ejecuto la consulta
       const results = await queryBuilder.getMany();
-
+      
+      // console.log(results);
       return results;
     } catch (error) {
       console.log({ message: 'Error en el filtrado', error });

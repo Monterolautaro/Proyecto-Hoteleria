@@ -75,6 +75,7 @@ export class SearchRepository {
         where: { name: Like(`%${query}%`) },
       });
 
+      
       if (foundHotel.length > 0) {
         const hotelId = foundHotel[0].hotel_id;
         const hotel: SearchHotelDto = await this.hotelsRepository.findOne({
@@ -90,24 +91,25 @@ export class SearchRepository {
           },
         });
 
-        // const otherHotels: SearchHotelDto[] = (await this.hotelsRepository.find({
-        //   where: { address: { country: hotel.address.country } },
-        //   relations: {
-        //     address: true,
-        //     amenities: true,
-        //     availability: true,
-        //     room: {
-        //       room_type: true
-        //     },
-        //     details: true
-        //   }
-        // })
-        // );
-        // const filteredHotels = otherHotels.filter(hotel => hotel.hotel_id !== hotel[0].hotel_id)
-
-        console.log(hotel);
-
-        return [hotel];
+        const otherHotels: SearchHotelDto[] = (await this.hotelsRepository.find({
+          where: { address: { country: hotel.address.country } },
+          relations: {
+            address: true,
+            amenities: true,
+            availability: true,
+            room: {
+              room_type: true
+            },
+            details: true
+          }
+        })
+        );
+        
+        const filteredHotels = otherHotels.filter(hotel => hotel.hotel_id !== hotel.hotel_id)
+        console.log(filteredHotels);
+        
+   
+        return [hotel, ...filteredHotels];
       }
 
       const foundCountry = await this.addressRepository.find({
