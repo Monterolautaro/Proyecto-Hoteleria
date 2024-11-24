@@ -4,7 +4,7 @@ import { usePriceContext } from "@/helpers/hotelDetail/priceContext";
 import { useRoomsContext } from "@/helpers/hotelDetail/roomsContext";
 import Link from "next/link";
 
-const TotalPrice = () => {
+const TotalPrice: React.FC<{ hotelName: string }> = ({ hotelName }) => {
   const { bookingPrice } = usePriceContext();
   const { bookingRooms } = useRoomsContext();
   const total = bookingPrice.reduce((acc, price) => acc + price, 0);
@@ -18,7 +18,7 @@ const TotalPrice = () => {
       </p>
       {total !== 0 ? (
         <Link
-          href="/payment"
+          href={`/payment/${hotelName}`}
           className="bg-[#009375] min-w-fit py-2 px-4 text-white font-medium text-xl rounded-md self-end"
         >
           Reserve now <span className="font-extrabold">{">"}</span>
