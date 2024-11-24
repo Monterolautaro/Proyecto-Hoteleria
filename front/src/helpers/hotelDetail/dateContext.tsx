@@ -7,9 +7,20 @@ const DateContext = createContext<IDateContext | null>(null);
 
 export const DateProvider = ({ children }: { children: ReactNode }) => {
   const [diffDays, setDiffDays] = useState<number | null>(null);
+  const [startDateContext, setStartDateContext] = useState<Date | null>(null);
+  const [endDateContext, setEndDateContext] = useState<Date | null>(null);
 
   return (
-    <DateContext.Provider value={{ diffDays, setDiffDays }}>
+    <DateContext.Provider
+      value={{
+        diffDays,
+        setDiffDays,
+        startDateContext,
+        setStartDateContext,
+        endDateContext,
+        setEndDateContext,
+      }}
+    >
       {children}
     </DateContext.Provider>
   );
