@@ -47,8 +47,8 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       if (filters.amenities.length > 0) {
         queryParams.append("amenities", filters.amenities.join(","));
       }
-
-      const response = await axios.post(`${API_URL}/filter/hotel?${queryParams.toString()}`);
+      
+      const response = await axios.get(`${API_URL}/filter/hotel?${queryParams.toString()}`);
       onFiltersApplied(response.data); 
     } catch (error) {
       console.error("Error fetching hotels:", error);

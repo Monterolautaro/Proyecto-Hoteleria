@@ -106,7 +106,9 @@ export class SearchRepository {
         // })
         // );
         // const filteredHotels = otherHotels.filter(hotel => hotel.hotel_id !== hotel[0].hotel_id)
-
+         
+        console.log(hotel);
+          
         return hotel
       }
 
