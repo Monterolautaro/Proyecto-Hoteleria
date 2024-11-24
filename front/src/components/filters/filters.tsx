@@ -10,10 +10,10 @@ interface FilterProps {
 
 const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
   const [filters, setFilters] = useState({
-    countries: [],
-    cities: [],
-    priceRange: '0, 0',
-    amenities: [],
+    countries: [] as string[],
+    cities: [] as string[],
+    priceRange: [] as string[], 
+    amenities: [] as string[],
   });
   const [loading, setLoading] = useState(false);
 
@@ -21,11 +21,13 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
     setFilters((prev) => {
       const currentValues = prev[key as keyof typeof filters] as string[];
       const updatedValues = currentValues.includes(value)
-        ? currentValues.filter((v) => v !== value)
-        : [...currentValues, value];
+        ? currentValues.filter((v) => v !== value) 
+        : [...currentValues, value]; 
+  
       return { ...prev, [key]: updatedValues };
     });
   };
+  
 
   const fetchHotels = async () => {
     setLoading(true);
@@ -40,18 +42,19 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       if (filters.cities.length > 0) {
         queryParams.append("city", filters.cities.join(","));
       }
-      if (filters.priceRange) {
-        const priceRange = filters.priceRange.split(" - ").map((p) => p.replace(" COP", ""));
-        queryParams.append("price", priceRange.join(","));
+      if (filters.priceRange.length > 0) {
+        const priceRange = filters.priceRange.map((range) => range.split(" - ").map((p) => p.replace(" COP", "")));
+        queryParams.append("price", priceRange.join("|")); 
       }
+      
       if (filters.amenities.length > 0) {
         queryParams.append("amenities", filters.amenities.join(","));
       }
-      
+
       const response = await axios.get(`${API_URL}/filter/hotel?${queryParams.toString()}`);
       console.log(response.data);
-      
-      onFiltersApplied(response.data); 
+
+      onFiltersApplied(response.data);
     } catch (error) {
       console.error("Error fetching hotels:", error);
     } finally {
@@ -104,9 +107,9 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
               <label key={range} className="flex items-center space-x-2">
                 <input
                   type="checkbox"
-                  name="price"
-                  onChange={() => setFilters((prev) => ({ ...prev, priceRange: range }))}
-                  className="form-radio text-teal-600 focus:ring-teal-500"
+                  onChange={() => handleFilterChange("priceRange", range)}
+                  checked={filters.priceRange.includes(range)}
+                  className="form-checkbox text-teal-600 focus:ring-teal-500"
                 />
                 <span className="text-gray-700">{range}</span>
               </label>
@@ -114,6 +117,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
           )}
         </div>
       </div>
+
 
       <div>
         <h3 className="text-lg font-semibold text-gray-700 mb-2">Amenities</h3>
