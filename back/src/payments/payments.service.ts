@@ -1,6 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { PaymentsRepository } from './payments.repository';
+<<<<<<< HEAD
 import { client, payment } from './mercadopago.config';
+=======
+// import { client } from './mercadopago.config';
+>>>>>>> 14ca74a4746127459b59a6b0c5599da968c5167d
 import { v4 as uuid } from 'uuid';
 
 @Injectable()

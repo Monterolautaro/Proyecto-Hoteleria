@@ -12,6 +12,11 @@ import {
 } from "@/helpers/formValidation";
 import { registerUser } from "@/helpers/auth.helper";
 import { Toast } from "@/helpers/toast";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { FaGoogle } from "react-icons/fa";
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -68,41 +73,85 @@ const Register = () => {
     <div className="flex justify-center items-center min-h-screen bg-[#F3FFFC]">
       <div className="bg-green-100 p-8 rounded-lg shadow-lg w-full max-w-sm">
         <h2 className="text-3xl font-semibold text-center mb-8">Register</h2>
-        <form onSubmit={handleRegister}>
-          {Object.keys(formData).map((key) => (
-            <div key={key} className="mb-6">
+        <form onSubmit={handleRegister} className="flex flex-wrap gap-8 justify-center w-full">
+          {/* Left Column */}
+          <div className="w-full sm:w-2/5">
+            <div className="mb-6">
               <input
-                type={key.includes("password") ? "password" : "text"}
-                id={key}
-                name={key}
+                type="text"
+                id="name"
+                name="name"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-                placeholder={key
-                  .replace("confirmPassword", "Confirm Password")
-                  .replace(/([A-Z])/g, " $1")}
-                value={(formData as any)[key]}
+                placeholder="Name"
+                value={formData.name}
                 onChange={handleChange}
               />
-              {errors[key] && <p className="text-red-500 text-sm mt-1">{errors[key]}</p>}
+              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
-          ))}
-          <button
-            type="submit"
-            className="w-full py-3 px-4 bg-[#009375] text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
-            disabled={isSubmitting || isFormIncomplete}
-          >
-            Register
-          </button>
+            <div className="mb-6">
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                placeholder="Last Name"
+                value={formData.lastname}
+                onChange={handleChange}
+              />
+              {errors.lastname && <p className="text-red-500 text-sm mt-1">{errors.lastname}</p>}
+            </div>
+            <div className="mb-6">
+              <input
+                type="text"
+                id="birthday"
+                name="birthday"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                placeholder="YYYY-MM-DD"
+                value={formData.birthday}
+                onChange={handleChange}
+                maxLength={10} // Limitar a 10 caracteres (formato YYYY-MM-DD)
+              />
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="w-full sm:w-2/5">
+            {["email", "username", "password", "confirmPassword"].map((key) => (
+              <div key={key} className="mb-6">
+                <input
+                  type={key.includes("password") ? "password" : "text"}
+                  id={key}
+                  name={key}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                  placeholder={key
+                    .replace("confirmPassword", "Confirm Password")
+                    .replace(/([A-Z])/g, " $1")}
+                  value={(formData as any)[key]}
+                  onChange={handleChange}
+                />
+                {errors[key] && <p className="text-red-500 text-sm mt-1">{errors[key]}</p>}
+              </div>
+            ))}
+          </div>
         </form>
-        <div className="flex items-center justify-center mt-6">
-          <span className="text-sm text-gray-600">or continue with</span>
-        </div>
-        <div className="flex justify-center mt-4">
-          <button className="flex items-center justify-center w-10 h-10 bg-white border border-gray-300 rounded-full hover:shadow-md">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-              alt="Google"
-              className="w-6 h-6"
-            />
+
+        {/* Botón de Registro - Siempre al final */}
+        <button
+          type="submit"
+          className="w-1/3 py-2 px-4 bg-[#009375] text-white rounded-lg hover:bg-[#006c55] disabled:opacity-50 mx-auto"
+          disabled={isSubmitting || isFormIncomplete}
+          onClick={handleRegister}
+        >
+          Register
+        </button>
+
+        {/* Google Login Button */}
+        <div className="mt-4 flex justify-center w-full">
+          <button
+            onClick={() => signIn("google")}
+            className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-gray-300 hover:border-gray-400 transition"
+          >
+            <FaGoogle className="text-blue-500 w-8 h-8" /> {/* Ícono de Google con color azul */}
           </button>
         </div>
       </div>

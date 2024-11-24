@@ -10,7 +10,6 @@ const getResult = async (query: string) => {
     const response = await axios.post(`${API_URL}/search/bar?query=${query}`);
 
     if (response) {
-      console.log(response);
       const data = await response.data;
       return Array.isArray(data) ? data : [];
     } else {

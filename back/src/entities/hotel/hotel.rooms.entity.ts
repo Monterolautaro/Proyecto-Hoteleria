@@ -24,6 +24,7 @@ export class Room {
 
   @ManyToOne(() => RoomType, (room_type) => room_type.rooms, {
     onDelete: 'CASCADE',
+    eager: true,
   })
   @JoinColumn({ name: 'room_type_id' })
   room_type!: RoomType;

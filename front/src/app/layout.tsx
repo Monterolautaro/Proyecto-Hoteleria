@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import { DateProvider } from "@/helpers/hotelDetail/dateContext";
 
 export const metadata: Metadata = {
   title: "Hotelify",
@@ -16,11 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#f3fffc]">
-        <Header />
+        <DateProvider>
+          <Header />
 
-        {children}
+          {children}
 
-        <Footer />
+          <Footer />
+        </DateProvider>
       </body>
     </html>
   );

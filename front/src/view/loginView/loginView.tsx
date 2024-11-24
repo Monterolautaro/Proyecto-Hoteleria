@@ -1,10 +1,19 @@
 "use client";
-import React, { useState } from "react";
-import { validateEmail, validatePassword } from "@/helpers/formValidation";
 import { loginUser } from "@/helpers/auth.helper";
+import { validateEmail, validatePassword } from "@/helpers/formValidation";
 import { Toast } from "@/helpers/toast";
+import { signIn } from "next-auth/react"; // Importamos signIn de next-auth
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { FaGoogle } from "react-icons/fa"; // Importamos el ícono de Google
 
 const Login = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/');
+  };
+
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,6 +45,7 @@ const Login = () => {
         title: "Login successfully",
       });
       setIsSubmitting(false);
+      handleClick();
     } catch (error: any) {
       Toast.fire({
         icon: "error",
@@ -82,12 +92,16 @@ const Login = () => {
           <span className="text-sm text-gray-600">or sign in with</span>
         </div>
         <div className="flex justify-center mt-4">
-          <button className="flex items-center justify-center w-12 h-12 bg-green-50 border border-green-300 rounded-lg hover:shadow-md">
-            <span className="text-green-900 text-2xl font-bold">G</span>
+          <button
+            onClick={() => signIn("google")}
+            className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-gray-300 hover:border-gray-400 transition"
+          >
+            <FaGoogle className="text-blue-500 w-8 h-8" /> {/* Ícono de Google */}
           </button>
         </div>
       </div>
     </div>
   );
 };
+
 export default Login;

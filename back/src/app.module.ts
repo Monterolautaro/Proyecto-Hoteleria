@@ -12,6 +12,12 @@ import { SearchModule } from './search/search.module';
 import { PaymentsModule } from './payments/payments.module';
 import { FilesUploadModule } from './files-upload/files.module';
 import { UsersModule } from './users/users.module';
+<<<<<<< HEAD
+=======
+import { MailModule } from './mail/mail.Module';
+import { StripeModule } from './stripe/stripe.module';
+import { FilterModule } from './filter/filter.module';
+>>>>>>> 14ca74a4746127459b59a6b0c5599da968c5167d
 
 dotenvConfig({
   path: '.env',
@@ -27,6 +33,12 @@ dotenvConfig({
       useFactory: (configService: ConfigService) =>
         configService.get('typeorm'),
     }),
+<<<<<<< HEAD
+=======
+    StripeModule,
+    FilterModule,
+    MailModule,
+>>>>>>> 14ca74a4746127459b59a6b0c5599da968c5167d
     FilesUploadModule,
     SearchModule,
     // PaymentsModule,
