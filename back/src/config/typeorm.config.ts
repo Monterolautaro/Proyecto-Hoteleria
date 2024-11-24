@@ -1,6 +1,6 @@
-import { DataSource, DataSourceOptions } from 'typeorm';
-import { config as dotenvConfig } from 'dotenv';
 import { registerAs } from '@nestjs/config';
+import { config as dotenvConfig } from 'dotenv';
+import { DataSource, DataSourceOptions } from 'typeorm';
 
 dotenvConfig({
   path: '.env',
@@ -13,7 +13,7 @@ dotenvConfig({
 // para iniciar la api en produccion:           NODE_ENV=production npm run dev
 
 export const getDatabaseConfig = (): DataSourceOptions => {
-  const isProduction = process.env.NODE_ENV === 'production';
+  const isProduction = process.env.NODE_ENV !== 'production';
 
   return {
     type: 'postgres',
@@ -33,7 +33,7 @@ export const getDatabaseConfig = (): DataSourceOptions => {
     entities: ['dist/**/*.entity{.ts,.js}'],
     autoLoadEntities: true,
     synchronize: true,
-    // dropSchema: true,
+    //dropSchema: true,
     logging: true,
     ssl: isProduction ? { rejectUnauthorized: false } : false,
   } as DataSourceOptions;

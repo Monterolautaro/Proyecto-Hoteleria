@@ -17,7 +17,7 @@ export const authOptions = {
   callbacks: {
     async redirect({ baseUrl }: any) {
       // Después de login, redirige a la página de destino
-      return `${baseUrl}/detail-hotel`; // O la ruta que prefieras
+      return `${baseUrl}/hotels`; // O la ruta que prefieras
     },
     async signIn() {
 
