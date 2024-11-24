@@ -1,11 +1,15 @@
-'use client'
+"use client";
 import Filters from "@/components/filters/filters";
 import SearchResults from "@/components/SearchResults/SearchResults";
 import { useState } from "react";
 import { Hotel } from "@/interfaces/hotel";
 
 const HotelsPage = () => {
-  const [hotels, setHotels] = useState<Hotel[]>([]); 
+  const [hotels, setHotels] = useState<Hotel[]>([]);
+
+  useEffect(() => {
+    // console.log(hotels);
+  }, [hotels]);
 
   return (
     <div className="grid grid-cols-4 gap-6 p-6 w-[80%] mx-auto">
@@ -14,11 +18,10 @@ const HotelsPage = () => {
       </div>
 
       <div className="col-span-3">
-        <SearchResults hotels={hotels} />
+        <SearchResults hotelsData={hotels} />
       </div>
     </div>
   );
 };
 
 export default HotelsPage;
-
