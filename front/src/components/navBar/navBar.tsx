@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center" scroll={false}>
               <Image
                 src="/assets/HotelifyWhite.png"
                 alt="Hotelify Logo"
