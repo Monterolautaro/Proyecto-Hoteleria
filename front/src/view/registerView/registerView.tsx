@@ -9,8 +9,10 @@ import {
   validatePassword,
 } from "@/helpers/formValidation";
 import { Toast } from "@/helpers/toast";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { FaGoogle } from "react-icons/fa";
 
 
 const Register = () => {
