@@ -23,7 +23,9 @@ export class FilterRepository {
         .leftJoinAndSelect('hotel.address', 'address')
         .leftJoinAndSelect('hotel.amenities', 'amenities')
         .leftJoinAndSelect('hotel.room', 'room')
-        .leftJoinAndSelect('room.room_type', 'room_type');
+        .leftJoinAndSelect('room.room_type', 'room_type')
+        .leftJoinAndSelect('hotel.details', 'details')
+        .leftJoinAndSelect('hotel.availability', 'availability');
 
       // filtro por precio
       if (price) {

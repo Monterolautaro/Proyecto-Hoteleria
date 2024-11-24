@@ -5,4 +5,6 @@ export interface IDateContext {
   setStartDateContext: React.Dispatch<React.SetStateAction<Date | null>>;
   endDateContext: Date | null;
   setEndDateContext: React.Dispatch<React.SetStateAction<Date | null>>;
+  people: number | null;
+  setPeople: React.Dispatch<React.SetStateAction<number | null>>;
 }

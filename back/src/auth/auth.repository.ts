@@ -208,6 +208,7 @@ export class AuthRepository {
         verified: foundUser.verified,
         role: foundUser.role,
       };
+      
 
       const token = this.jwtService.sign(payload);
       return { success: "You're logged in successfully", token, user: payload };

@@ -1,7 +1,7 @@
 "use client";
 import Filters from "@/components/filters/filters";
 import SearchResults from "@/components/SearchResults/SearchResults";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Hotel } from "@/interfaces/hotel";
 
 const HotelsPage = () => {

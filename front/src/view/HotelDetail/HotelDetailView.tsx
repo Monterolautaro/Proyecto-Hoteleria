@@ -1,16 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Amenities from "@/components/hotelDetail/Amenitites";
 import DateRangePicker from "@/components/hotelDetail/DateSelector";
+import PeopleSelector from "@/components/hotelDetail/PeopleSelector";
 import RoomsCard from "@/components/hotelDetail/RoomsCard";
 import TotalPrice from "@/components/hotelDetail/TotalPrice";
 import getHotelById from "@/helpers/hotelDetail/getHotelDetail";
 import { PriceProvider } from "@/helpers/hotelDetail/priceContext";
-import { RoomsProvider } from "@/helpers/hotelDetail/roomsContext";
 import { IHotel } from "@/interfaces";
 
 const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
   const hotelInfo: IHotel | undefined = await getHotelById(params);
-  console.log(hotelInfo);
 
   return (
     <div className="w-full min-h-fit bg-[#f3fffc] px-[10vw] py-6">
@@ -84,15 +83,7 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
                       alt="People icon"
                       className="w-7 h-7"
                     />
-                    <select className="w-full h-full rounded-r-xl text-center bg-[#f3fffc] font-semibold focus:outline-none">
-                      <option className="rounded" value="1">
-                        1
-                      </option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select>
+                    <PeopleSelector />
                   </div>
                 </form>
               </div>
@@ -105,25 +96,23 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
         </section>
         {/* Rooms */}
         <PriceProvider>
-          <RoomsProvider>
-            <section className="my-6">
-              <div className="flex flex-col">
-                {hotelInfo?.room.map((rooms, key) => {
-                  return (
-                    <RoomsCard
-                      type={rooms.type}
-                      description={rooms.room_type.description}
-                      price={parseInt(rooms.room_type.price, 10)}
-                      currency={rooms.room_type.currency}
-                      key={key}
-                      index={key}
-                    />
-                  );
-                })}
-                <TotalPrice />
-              </div>
-            </section>
-          </RoomsProvider>
+          <section className="my-6">
+            <div className="flex flex-col">
+              {hotelInfo?.room.map((rooms, key) => {
+                return (
+                  <RoomsCard
+                    type={rooms.type}
+                    description={rooms.room_type.description}
+                    price={parseInt(rooms.room_type.price, 10)}
+                    currency={rooms.room_type.currency}
+                    key={key}
+                    index={key}
+                  />
+                );
+              })}
+              <TotalPrice hotelName={encodeURIComponent(hotelInfo?.name!)} />
+            </div>
+          </section>
         </PriceProvider>
       </main>
     </div>
