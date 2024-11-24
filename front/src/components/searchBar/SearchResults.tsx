@@ -5,25 +5,28 @@ import axios from "axios";
 import HotelCardResults from "../filters/HotelCardResults";
 import { Hotel } from "@/interfaces/hotel";
 
-
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface SearchResultsProps {
-  hotels?: Hotel[]; 
+  hotelsData?: Hotel[];
 }
 
-const SearchResults: React.FC<SearchResultsProps> = ({ hotels: parentHotels }) => {
+const SearchResults: React.FC<SearchResultsProps> = ({ hotelsData }) => {
   const searchParams = useSearchParams();
-  const query = searchParams.get("search") || ""; 
-  const [hotels, setHotels] = useState<Hotel[]>(parentHotels || []);
+  const query = searchParams.get("search") || "";
+  const [hotels, setHotels] = useState<Hotel[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!parentHotels && query) {
+    if (query && hotelsData?.length! === 0) {
       const fetchHotels = async () => {
         setLoading(true);
         try {
-          const response = await axios.post(`${API_URL}/search/bar-result?query=${query}`);
+          const response = await axios.post(
+            `${API_URL}/search/bar-result?query=${query}`
+          );
+          console.log("No filter", response.data);
+
           setHotels(response.data);
         } catch (error) {
           console.error("Error fetching search results:", error);
@@ -33,8 +36,14 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotels: parentHotels }) =
       };
 
       fetchHotels();
+    } else if (hotelsData?.length! > 0 && hotelsData) {
+      console.log(hotelsData);
+
+      console.log("On filter:");
+
+      setHotels(hotelsData);
     }
-  }, [query, parentHotels]);
+  }, [query, hotelsData]);
 
   return (
     <div className="p-8">
@@ -44,9 +53,13 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotels: parentHotels }) =
       ) : (
         <div className="grid grid-cols-1 gap-4">
           {hotels && hotels.length > 0 ? (
-            hotels.map((hotel) => <HotelCardResults key={hotel.hotel_id} hotel={hotel} />)
+            hotels.map((hotel) => (
+              <HotelCardResults key={hotel.hotel_id} hotel={hotel} />
+            ))
           ) : (
-            <p className="text-gray-600">No results found{query && ` for "${query}"`}</p>
+            <p className="text-gray-600">
+              No results found{query && ` for "${query}"`}
+            </p>
           )}
         </div>
       )}

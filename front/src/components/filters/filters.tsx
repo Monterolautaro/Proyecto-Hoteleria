@@ -10,10 +10,10 @@ interface FilterProps {
 
 const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
   const [filters, setFilters] = useState({
-    countries: [],
-    cities: [],
-    priceRange: '0, 0',
-    amenities: [],
+    countries: [] as string[],
+    cities: [] as string[],
+    priceRange: [] as string[],
+    amenities: [] as string[],
   });
   const [loading, setLoading] = useState(false);
 
@@ -23,13 +23,13 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       const updatedValues = currentValues.includes(value)
         ? currentValues.filter((v) => v !== value)
         : [...currentValues, value];
+
       return { ...prev, [key]: updatedValues };
     });
   };
 
   const fetchHotels = async () => {
     setLoading(true);
-
 
     try {
       const queryParams = new URLSearchParams();
@@ -40,18 +40,22 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       if (filters.cities.length > 0) {
         queryParams.append("city", filters.cities.join(","));
       }
-      if (filters.priceRange) {
-        const priceRange = filters.priceRange.split(" - ").map((p) => p.replace(" COP", ""));
-        queryParams.append("price", priceRange.join(","));
+      if (filters.priceRange.length > 0) {
+        const priceRange = filters.priceRange.map((range) =>
+          range.split(" - ").map((p) => p.replace(" COP", ""))
+        );
+        queryParams.append("price", priceRange.join("|"));
       }
+
       if (filters.amenities.length > 0) {
         queryParams.append("amenities", filters.amenities.join(","));
       }
-      
-      const response = await axios.get(`${API_URL}/filter/hotel?${queryParams.toString()}`);
-      console.log(response.data);
-      
-      onFiltersApplied(response.data); 
+
+      const response = await axios.get(
+        `${API_URL}/filter/hotel?${queryParams.toString()}`
+      );
+
+      onFiltersApplied(response.data);
     } catch (error) {
       console.error("Error fetching hotels:", error);
     } finally {
@@ -60,7 +64,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
   };
 
   return (
-    <div className="flex flex-col space-y-6">
+    <div className="flex flex-col space-y-6 bg-[#d0f6e9]">
       <h2 className="text-xl font-bold text-gray-800">Filters</h2>
 
       <div>
@@ -82,16 +86,18 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       <div>
         <h3 className="text-lg font-semibold text-gray-700 mb-2">City</h3>
         <div className="space-y-2">
-          {["Bogota", "Medellín", "Cartagena de Indias", "San Andres"].map((city) => (
-            <label key={city} className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                onChange={() => handleFilterChange("cities", city)}
-                className="form-checkbox text-teal-600 focus:ring-teal-500"
-              />
-              <span className="text-gray-700">{city}</span>
-            </label>
-          ))}
+          {["Bogota", "Medellín", "Cartagena de Indias", "San Andres"].map(
+            (city) => (
+              <label key={city} className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  onChange={() => handleFilterChange("cities", city)}
+                  className="form-checkbox text-teal-600 focus:ring-teal-500"
+                />
+                <span className="text-gray-700">{city}</span>
+              </label>
+            )
+          )}
         </div>
         <button className="text-teal-600 text-sm mt-2">Show more</button>
       </div>
@@ -99,19 +105,22 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       <div>
         <h3 className="text-lg font-semibold text-gray-700 mb-2">Price</h3>
         <div className="space-y-2">
-          {["0 COP - 150000 COP", "150000 COP - 400000 COP", "400000 COP - 800000 COP", "+800000 COP"].map(
-            (range) => (
-              <label key={range} className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  name="price"
-                  onChange={() => setFilters((prev) => ({ ...prev, priceRange: range }))}
-                  className="form-radio text-teal-600 focus:ring-teal-500"
-                />
-                <span className="text-gray-700">{range}</span>
-              </label>
-            )
-          )}
+          {[
+            "0 COP - 150000 COP",
+            "150000 COP - 400000 COP",
+            "400000 COP - 800000 COP",
+            "+800000 COP",
+          ].map((range) => (
+            <label key={range} className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                onChange={() => handleFilterChange("priceRange", range)}
+                checked={filters.priceRange.includes(range)}
+                className="form-checkbox text-teal-600 focus:ring-teal-500"
+              />
+              <span className="text-gray-700">{range}</span>
+            </label>
+          ))}
         </div>
       </div>
 

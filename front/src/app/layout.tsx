@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import { DateProvider } from "@/helpers/hotelDetail/dateContext";
+import { RoomsProvider } from "@/helpers/hotelDetail/roomsContext";
 
 export const metadata: Metadata = {
   title: "Hotelify",
@@ -18,11 +19,13 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#f3fffc]">
         <DateProvider>
-          <Header />
+          <RoomsProvider>
+            <Header />
 
-          {children}
+            {children}
 
-          <Footer />
+            <Footer />
+          </RoomsProvider>
         </DateProvider>
       </body>
     </html>

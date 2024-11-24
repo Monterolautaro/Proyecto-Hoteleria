@@ -28,12 +28,11 @@ const HotelCard: React.FC<HotelCardProps> = ({
   return (
     <Link
       href={`/hotel-detail/${id}`}
-      className=" w-full bg-[#D0F6E9] rounded-lg shadow-xl border border-gray-200 h-[380px] flex flex-col p-3 justify-between cursor-pointer hover:shadow-2xl transition-shadow"
+      className=" w-full bg-[#D0F6E9] rounded-lg shadow-xl border border-gray-200 h-[380px] flex flex-col p-3 justify-between cursor-pointer hover:shadow-2xl transition-shadow group"
     >
-      <img
-        className="w-full min-h-[240px] max-h-[240px] object-cover rounded-lg"
-        src={image}
-        alt={name}
+      <div
+        className="w-full min-h-[240px] max-h-[240px] transition-all ease-in-out bg-cover group-hover:scale-105 duration-300 rounded-lg"
+        style={{ backgroundImage: `url(${image})` }}
       />
       <div className="pt-2 flex-grow">
         <div className="flex items-center justify-between mb-1">
