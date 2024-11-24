@@ -17,7 +17,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotels: parentHotels }) =
   const query = searchParams.get("search") || ""; 
   const [hotels, setHotels] = useState<Hotel[]>(parentHotels || []);
   const [loading, setLoading] = useState(false);
-
+  console.log("Hotels received in SearchResults:", hotels);
   useEffect(() => {
     if (!parentHotels && query) {
       const fetchHotels = async () => {
@@ -35,6 +35,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotels: parentHotels }) =
       fetchHotels();
     }
   }, [query, parentHotels]);
+  
 
   return (
     <div className="p-8">
