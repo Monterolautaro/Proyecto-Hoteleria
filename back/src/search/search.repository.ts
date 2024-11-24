@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SearchHotelDto } from 'src/dto/search-hotel.dto';
@@ -10,10 +11,9 @@ export class SearchRepository {
   constructor(
     @InjectRepository(Hotel) private hotelsRepository: Repository<Hotel>,
     @InjectRepository(Address) private addressRepository: Repository<Address>,
-  ) { }
+  ) {}
   async searchBar(query: any) {
     try {
-
       // Hotel names
       const names = await this.hotelsRepository.find({
         where: { name: Like(`%${query}%`) },
@@ -71,26 +71,24 @@ export class SearchRepository {
 
   async searchBarResults(query: any) {
     try {
-
       const foundHotel = await this.hotelsRepository.find({
         where: { name: Like(`%${query}%`) },
       });
 
       if (foundHotel.length > 0) {
-        const hotelId = foundHotel[0].hotel_id
-        const hotel: SearchHotelDto = await this.hotelsRepository.findOne(
-          {
-            where: { hotel_id: hotelId },
-            relations: {
-              address: true,
-              amenities: true,
-              availability: true,
-              room: {
-                room_type: true
-              },
-              details: true
-            }
-          });
+        const hotelId = foundHotel[0].hotel_id;
+        const hotel: SearchHotelDto = await this.hotelsRepository.findOne({
+          where: { hotel_id: hotelId },
+          relations: {
+            address: true,
+            amenities: true,
+            availability: true,
+            room: {
+              room_type: true,
+            },
+            details: true,
+          },
+        });
 
         // const otherHotels: SearchHotelDto[] = (await this.hotelsRepository.find({
         //   where: { address: { country: hotel.address.country } },
@@ -106,10 +104,10 @@ export class SearchRepository {
         // })
         // );
         // const filteredHotels = otherHotels.filter(hotel => hotel.hotel_id !== hotel[0].hotel_id)
-         
+
         console.log(hotel);
-          
-        return hotel
+
+        return [hotel];
       }
 
       const foundCountry = await this.addressRepository.find({
@@ -123,13 +121,13 @@ export class SearchRepository {
             amenities: true,
             availability: true,
             room: {
-              room_type: true
+              room_type: true,
             },
-            details: true
-          }
+            details: true,
+          },
         });
 
-        return foundHotel;
+        return [foundHotel];
       }
 
       const foundCity = await this.addressRepository.find({
@@ -143,24 +141,16 @@ export class SearchRepository {
             amenities: true,
             availability: true,
             room: {
-              room_type: true
+              room_type: true,
             },
-            details: true
-          }
+            details: true,
+          },
         });
 
-        return foundHotel;
+        return [foundHotel];
       }
-
     } catch (error) {
       throw new NotFoundException('Error fetching hotels', error);
     }
   }
-
-
-
-
 } /* cierre */
-
-
-
