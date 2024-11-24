@@ -13,7 +13,7 @@ dotenvConfig({
 // para iniciar la api en produccion:           NODE_ENV=production npm run dev
 
 export const getDatabaseConfig = (): DataSourceOptions => {
-  const isProduction = process.env.NODE_ENV !== 'production';
+  const isProduction = process.env.NODE_ENV === 'production';
 
   return {
     type: 'postgres',
