@@ -13,6 +13,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
+import styles from './register.module.css';
 
 
 const Register = () => {
@@ -124,6 +125,7 @@ const Register = () => {
           {/* Left Column */}
           <div className="w-full sm:w-2/5">
             <div className="mb-6">
+              <label className={styles.label} htmlFor="name">Name</label>
               <input
                 type="text"
                 id="name"
@@ -136,6 +138,7 @@ const Register = () => {
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
             <div className="mb-6">
+              <label className={styles.label} htmlFor="lastname">Last Name</label>
               <input
                 type="text"
                 id="lastname"
@@ -148,6 +151,7 @@ const Register = () => {
               {errors.lastname && <p className="text-red-500 text-sm mt-1">{errors.lastname}</p>}
             </div>
             <div className="mb-6">
+              <label className={styles.label} htmlFor="birthday">Birthday</label>
               <input
                 type="text"
                 id="birthday"
@@ -165,6 +169,7 @@ const Register = () => {
           <div className="w-full sm:w-2/5">
             {["email", "username", "password", "confirmPassword"].map((key) => (
               <div key={key} className="mb-6">
+                <label className={styles.label} htmlFor={key}>{key}</label>
                 <input
                   type={key.includes("password") ? "password" : "text"}
                   id={key}
