@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Post, Body, Res } from '@nestjs/common';
+import { Controller, Post, Body, Res, BadRequestException } from '@nestjs/common';
 import { Response } from 'express';
 import { StripeService } from './newPayment.service';
 
@@ -11,7 +11,6 @@ export class StripeController {
   async createPaymentIntent(
     @Body('amount') amount: number,
     @Body('id') id: string,
-    @Res() res: Response,
   ) {
     try {
       const paymentIntent = await this.stripeService.createPaymentIntent(
@@ -20,11 +19,9 @@ export class StripeController {
       );
 
       //return paymentIntent;
-      res.json({ message: 'Payment successfully completed', paymentIntent });
-    } catch (error: any) {
-      console.log(error.message);
-
-      res.status(400).json({ message: error });
+       return { message: 'Payment successfully completed', paymentIntent }
+    } catch (error) {
+      throw new BadRequestException(error);
     }
   }
 }
