@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   Column,
   Entity,
@@ -5,14 +6,13 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { v4 as uuid } from 'uuid';
 import { User } from './users/user.entity';
 import { PaymentDetails } from './payments/paymentdetails.entity';
 
 @Entity()
 export class Payment {
   @PrimaryGeneratedColumn('uuid')
-  payment_id: string = uuid();
+  payment_id: string;
 
   @Column()
   amount: number;

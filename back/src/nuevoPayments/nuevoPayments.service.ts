@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import Stripe from 'stripe';
@@ -31,12 +32,12 @@ export class StripeService {
         confirm: true,
       });
 
-      // Guardar los detalles del pago en la base de datos
+      // Guardar los detalles del pago en la base de datos usando stripePaymentIntentId
       await this.paymentRepository.savePayment({
         amount,
         date: new Date(),
         method: 'stripe',
-        payment_id: paymentIntent.id,
+        stripePaymentIntentId: paymentIntent.id,
         status: paymentIntent.status,
       });
 
