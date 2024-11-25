@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 // components/TravelGrid.tsx
+import Link from "next/link";
 import React from "react";
 
 interface TravelCardProps {
@@ -9,7 +10,8 @@ interface TravelCardProps {
 
 const TravelCard: React.FC<TravelCardProps> = ({ image, location }) => {
   return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg h-full">
+    <Link href={`/search-results?search=${encodeURIComponent(location)}`}>
+    <div className="relative overflow-hidden rounded-lg shadow-lg h-full cursor-pointer hover:shadow-lg transition-shadow duration-300">
       <img
         src={image}
         alt={location}
@@ -19,6 +21,7 @@ const TravelCard: React.FC<TravelCardProps> = ({ image, location }) => {
         <h3 className="text-white font-bold text-lg">{location}</h3>
       </div>
     </div>
+  </Link>
   );
 };
 
@@ -49,17 +52,19 @@ const TravelGrid: React.FC = () => {
       location: "Bogota",
     },
     {
-      image: "https://via.placeholder.com/600x400?text=Buenos+Aires",
-      location: "Buenos Aires",
+      image: "/assets/neuquen.jpg",
+      location: "Neuquén",
     },
     {
-      image: "https://via.placeholder.com/600x400?text=Barranquilla",
-      location: "Barranquilla",
+      image: "/assets/puertomadryn.webp",
+      location: "Puerto Madryn",
     },
     {
-      image: "https://via.placeholder.com/600x400?text=Bogota",
-      location: "Bogota",
+      image: "/assets/ushuaia.webp",
+      location: "Ushuaia",
     },
+   
+  
   ];
 
   return (
