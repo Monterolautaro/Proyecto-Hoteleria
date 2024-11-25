@@ -5,7 +5,7 @@ export type SendEmailDto = {
     recipients: Address[];
     subject: string;
     html : string;
-    codigo: number;
+    codigo?: number;
     text?: string;
     placeHolderReplacements?: /*Record<string, string>*/string[];
 };
