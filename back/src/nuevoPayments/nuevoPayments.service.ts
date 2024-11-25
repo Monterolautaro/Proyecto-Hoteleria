@@ -6,7 +6,9 @@ import Stripe from 'stripe';
 export class StripeService {
   private stripe: Stripe;
 
-  constructor() {
+  constructor(
+    //private readonly paymentRepository: PaymentRepository,
+  ) {
     //const stripeSecretKey = ConfigService.get<string>('STRIPE_SECRET_KEY');
     console.log("esta es la llave "+process.env.STRIPE_SECRET_KEY);
     this.stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -24,6 +26,17 @@ export class StripeService {
         payment_method: id,
         confirm: true,
       });
+
+      // Guardar los datos en la base de datos
+    /*await this.paymentRepository.savePayment({
+      stripePaymentId: payment.id,
+      amount: payment.amount,
+      currency: payment.currency,
+      description: payment.description,
+      status: payment.status,
+    });*/
+
+
       console.log("este es el payment "+payment);
       return payment;
     } catch (error) {
