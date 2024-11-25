@@ -1,10 +1,9 @@
 import { IParamsPayment } from "@/interfaces/params";
-import PaymentView from "@/view/PaymentView/PaymentView";
-import React from "react";
+import PaymentClient from "./PaymentClient";
 
-const Payment: React.FC<IParamsPayment> = async ({ params }) => {
+const PaymentPage: React.FC<IParamsPayment> = async ({ params }) => {
   const hotelName = (await params).hotelName;
-  return <PaymentView params={hotelName} />;
+  return <PaymentClient hotelName={hotelName} />;
 };
 
-export default Payment;
+export default PaymentPage;

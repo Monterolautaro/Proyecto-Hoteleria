@@ -17,6 +17,8 @@ import { StripeModule } from './stripe/stripe.module';
 import { FilterModule } from './filter/filter.module';
 import { nuevoStripeModule } from './nuevoPayments/nuevoPayments.module';
 
+
+
 dotenvConfig({
   path: '.env',
 });
@@ -42,6 +44,7 @@ dotenvConfig({
     HotelsModule,
     AuthModule,
     UsersModule,
+    NewStripeModule,
     JwtModule.register({
       global: true,
       signOptions: { expiresIn: '15m' },
