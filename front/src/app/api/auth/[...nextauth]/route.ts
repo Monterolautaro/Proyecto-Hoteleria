@@ -21,7 +21,7 @@ export const authOptions = {
       const googleToken = account?.id_token; // ID Token proporcionado por Google
       
       try {
-        // Validar el token con tu backend
+        
         const response = await axios.post(`${API_URL}/auth/validate-google-token`,{ token: googleToken } ,{
           // headers: {
           //   'Content-Type': 'application/json',
@@ -79,3 +79,4 @@ export const authOptions = {
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
+export default handler;
