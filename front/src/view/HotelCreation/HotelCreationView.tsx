@@ -60,6 +60,24 @@ const HotelCreationView = () => {
           rooms_left: parseInt(hotelRooms.roomsLeft, 10),
           description: hotelRooms.description,
         },
+        double: {
+          price: parseFloat(hotelRooms.price),
+          currency: hotelRooms.currency,
+          rooms_left: parseInt(hotelRooms.roomsLeft, 10),
+          description: hotelRooms.description,
+        },
+        triple: {
+          price: parseFloat(hotelRooms.price),
+          currency: hotelRooms.currency,
+          rooms_left: parseInt(hotelRooms.roomsLeft, 10),
+          description: hotelRooms.description,
+        },
+        suite: {
+          price: parseFloat(hotelRooms.price),
+          currency: hotelRooms.currency,
+          rooms_left: parseInt(hotelRooms.roomsLeft, 10),
+          description: hotelRooms.description,
+        }
       },
       amenities: {
         pool: false,
