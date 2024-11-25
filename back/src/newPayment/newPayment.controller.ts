@@ -22,9 +22,9 @@ export class StripeController {
       //return paymentIntent;
       res.json({ message: 'Payment successfully completed', paymentIntent });
     } catch (error: any) {
-      console.log(error.message);
+      console.log(error);
 
-      res.status(400).json({ message: error });
+      res.status(error.status || 400).json({ message: error.message });
     }
   }
 }
