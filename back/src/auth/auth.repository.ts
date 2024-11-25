@@ -79,7 +79,7 @@ export class AuthRepository {
         credential,
       });
 
-
+      //iMPLEMENTACION DEL METODO NODEMAILER 
       const dto: SendEmailDto = {
         recipients: [{ name: '%name%', address: '%email%' }],
         subject: "Hotelefy",
