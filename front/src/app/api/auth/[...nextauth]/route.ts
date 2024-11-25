@@ -17,7 +17,7 @@ export const authOptions = {
   
   callbacks: {
 
-    async signIn({ account, profile }: any) {
+    async signIn({ account }: any) {
       const googleToken = account?.id_token; // ID Token proporcionado por Google
       
       try {
