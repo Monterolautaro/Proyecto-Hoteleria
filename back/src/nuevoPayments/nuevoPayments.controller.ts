@@ -19,6 +19,7 @@ export class StripeController {
       );
 
       //return paymentIntent;
+      console.log("paymenst del controller: "+paymentIntent);
       res.json({ message: 'Payment successfully completed', paymentIntent });
     } catch (error) {
       res.status(400).json({ message: error });
