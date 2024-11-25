@@ -5,7 +5,6 @@ import PeopleSelector from "@/components/hotelDetail/PeopleSelector";
 import RoomsCard from "@/components/hotelDetail/RoomsCard";
 import TotalPrice from "@/components/hotelDetail/TotalPrice";
 import getHotelById from "@/helpers/hotelDetail/getHotelDetail";
-import { PriceProvider } from "@/helpers/hotelDetail/priceContext";
 import { IHotel } from "@/interfaces";
 
 const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
@@ -95,25 +94,24 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
           </div>
         </section>
         {/* Rooms */}
-        <PriceProvider>
-          <section className="my-6">
-            <div className="flex flex-col">
-              {hotelInfo?.room.map((rooms, key) => {
-                return (
-                  <RoomsCard
-                    type={rooms.type}
-                    description={rooms.room_type.description}
-                    price={parseInt(rooms.room_type.price, 10)}
-                    currency={rooms.room_type.currency}
-                    key={key}
-                    index={key}
-                  />
-                );
-              })}
-              <TotalPrice hotelName={encodeURIComponent(hotelInfo?.name!)} />
-            </div>
-          </section>
-        </PriceProvider>
+
+        <section className="my-6">
+          <div className="flex flex-col">
+            {hotelInfo?.room.map((rooms, key) => {
+              return (
+                <RoomsCard
+                  type={rooms.type}
+                  description={rooms.room_type.description}
+                  price={parseInt(rooms.room_type.price, 10)}
+                  currency={rooms.room_type.currency}
+                  key={key}
+                  index={key}
+                />
+              );
+            })}
+            <TotalPrice hotelName={encodeURIComponent(hotelInfo?.name!)} />
+          </div>
+        </section>
       </main>
     </div>
   );

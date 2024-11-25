@@ -4,6 +4,7 @@ import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import { DateProvider } from "@/helpers/hotelDetail/dateContext";
 import { RoomsProvider } from "@/helpers/hotelDetail/roomsContext";
+import { PriceProvider } from "@/helpers/hotelDetail/priceContext";
 
 export const metadata: Metadata = {
   title: "Hotelify",
@@ -20,11 +21,13 @@ export default function RootLayout({
       <body className="bg-[#f3fffc]">
         <DateProvider>
           <RoomsProvider>
-            <Header />
+            <PriceProvider>
+              <Header />
 
-            {children}
+              {children}
 
-            <Footer />
+              <Footer />
+            </PriceProvider>
           </RoomsProvider>
         </DateProvider>
       </body>
