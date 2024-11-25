@@ -1,7 +1,7 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { MailService } from './mail.service';
 import { SendEmailDto } from 'src/Interfaces/mail.interface';
-import { ModeloHTML } from './modelHTML/model';
+import { ModeloHTML } from './modelHTML/modelHtmlNotif';
 /*npm install nodemailer
 npm i --save @nestjs/config
 npm i --save-dev @types/nodemailer*/
@@ -28,7 +28,6 @@ export class MailController {
   @Post('sendPago')
   async sendEmailPago(@Body() body: Record<string, string>) {
     const dto: SendEmailDto = {
-      //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
       recipients : [{ name: '%name%', address: '%email%'}],
       subject: "Hotelify",
       html: ModeloHTML,
@@ -41,7 +40,6 @@ export class MailController {
   @Post('sendHotel')
   async sendEmailHotel(@Body() /*body: Record<string, string>*/ name: string , email: string) {
     const dto: SendEmailDto = {
-      //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
       recipients : [{ name: '%name%', address: '%email%'}],
       subject: "Hotelify",
       html: ModeloHTML,

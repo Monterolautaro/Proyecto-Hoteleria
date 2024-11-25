@@ -23,10 +23,14 @@ export class MailService {
   }
 
   template(html: string, replacements: /*Record<string, string>*/string[]) {
+    const replacementsMap = {};
+    for (let i = 0; i < replacements.length; i += 2) {
+      replacementsMap[replacements[i]] = replacements[i + 1];
+    }
     return html.replace(
       /%(\w*)%/g, // or /{(\w*)}/g for "{this} instead of %this%"
-      function (m, key) {
-        return replacements.hasOwnProperty(key) ? replacements[key] : '';
+      function(m, key) {
+        return replacementsMap.hasOwnProperty(key) ? replacementsMap[key] : '';
       }
     )
   }
