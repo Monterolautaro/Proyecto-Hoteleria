@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -11,8 +12,16 @@ export const SendPaymentData = async (id: string, amount: number) => {
         amount,
       }
     );
-    console.log(response.data);
-  } catch (error) {
-    console.log(error);
+    if (response) return response.data;
+  } catch (error: any) {
+    if (error.response && error.response.data) {
+      Swal.fire({
+        title: error.response.data.message,
+        icon: "error",
+      });
+    } else {
+      console.error("Error desconocido:", error);
+    }
+    throw error;
   }
 };
