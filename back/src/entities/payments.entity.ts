@@ -23,6 +23,12 @@ export class Payment {
   @Column()
   method: string;
 
+  @Column()
+  status: string;
+
+  @Column()
+  stripePaymentIntentId: string;
+
   @OneToOne(() => User, (user) => user.payment)
   @JoinColumn({ name: 'user_id' })
   user: User;
