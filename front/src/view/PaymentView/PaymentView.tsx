@@ -43,7 +43,6 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
       const { id } = paymentMethod;
       const totalPrice = bookingPrice.reduce((ac, index) => ac + index, 0);
       const response = await SendPaymentData(id, totalPrice);
-      console.log(response);
     }
   };
 
