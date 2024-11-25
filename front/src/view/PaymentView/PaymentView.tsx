@@ -6,9 +6,9 @@ import { usePriceContext } from "@/helpers/hotelDetail/priceContext";
 import { useRoomsContext } from "@/helpers/hotelDetail/roomsContext";
 import { SendPaymentData } from "@/helpers/payment/SendPaymentData";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-
 import { differenceInDays } from "date-fns";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
 
 const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   const { startDateContext, endDateContext, people } = useDateContext(); //Fechas y numero de personas
@@ -42,8 +42,20 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
       console.log("[PaymentMethod created]", paymentMethod);
       const { id } = paymentMethod;
       const totalPrice = bookingPrice.reduce((ac, index) => ac + index, 0);
-      const response = await SendPaymentData(id, totalPrice);
-      console.log(response);
+      try {
+        const response = await SendPaymentData(id, totalPrice);
+        if (response) {
+          Swal.fire({
+            title: response.message,
+            icon: "success",
+          });
+        }
+      } catch (error: any) {
+        Swal.fire({
+          title: error.response.data.message,
+          icon: "error",
+        });
+      }
     }
   };
 

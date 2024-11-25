@@ -28,7 +28,11 @@ export class StripeService {
         confirm: true,
       });
     } catch (error: any) {
-      throw new Error(error.raw.message);
+      console.log(error);
+      throw {
+        status: 400,
+        message: error.raw?.message || 'Payment failed due to an unknown error',
+      };
     }
   }
 }
