@@ -86,7 +86,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       <div>
         <h3 className="text-lg font-semibold text-gray-700 mb-2">City</h3>
         <div className="space-y-2">
-          {["Bogota", "Medellín", "Cartagena de Indias", "San Andres"].map(
+          {["Bogota", "Medellin", "Cartagena", "Puerto Madryn", "Neuquén"].map(
             (city) => (
               <label key={city} className="flex items-center space-x-2">
                 <input

@@ -15,7 +15,7 @@ import { CreateUserDto } from 'src/dto/user.dto';
 import { Roles } from 'roles.enum';
 import { MailService } from 'src/mail/mail.service';
 import { SendEmailDto } from 'src/Interfaces/mail.interface';
-import { ModeloHTML } from 'src/mail/modelHTML/model';
+import { ModeloHTML } from 'src/mail/modelHTML/modelHtmlNotif';
 import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { randomBytes } from 'crypto';
@@ -79,14 +79,12 @@ export class AuthRepository {
         credential,
       });
 
-
+      //iMPLEMENTACION DEL METODO NODEMAILER 
       const dto: SendEmailDto = {
-        //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
         recipients: [{ name: '%name%', address: '%email%' }],
         subject: "Hotelefy",
         html: ModeloHTML,
-        codigo: 10,
-        placeHolderReplacements: [userData.email, userData.name],
+        placeHolderReplacements: ["name", userData.name, "email", userData.email],
       }
 
       this.mailService.sendEmail(dto);

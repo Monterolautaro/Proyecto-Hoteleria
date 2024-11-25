@@ -90,24 +90,24 @@ export class SearchRepository {
           },
         });
 
-        // const otherHotels: SearchHotelDto[] = (await this.hotelsRepository.find({
-        //   where: { address: { country: hotel.address.country } },
-        //   relations: {
-        //     address: true,
-        //     amenities: true,
-        //     availability: true,
-        //     room: {
-        //       room_type: true
-        //     },
-        //     details: true
-        //   }
-        // })
-        // );
+        const otherHotels: SearchHotelDto[] = (await this.hotelsRepository.find({
+          where: { address: { city: hotel.address.city } },
+          relations: {
+            address: true,
+            amenities: true,
+            availability: true,
+            room: {
+              room_type: true
+            },
+            details: true
+          }
+        })
+        );
         // const filteredHotels = otherHotels.filter(hotel => hotel.hotel_id !== hotel[0].hotel_id)
 
-        console.log(hotel);
-
-        return [hotel];
+        // console.log('estos son los filtrados', filteredHotels);
+        
+        return [hotel, ...otherHotels];
       }
 
       const foundCountry = await this.addressRepository.find({
