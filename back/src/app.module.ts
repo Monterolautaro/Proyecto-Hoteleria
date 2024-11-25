@@ -15,6 +15,9 @@ import { UsersModule } from './users/users.module';
 import { MailModule } from './mail/mail.Module';
 import { StripeModule } from './stripe/stripe.module';
 import { FilterModule } from './filter/filter.module';
+import { nuevoStripeModule } from './nuevoPayments/nuevoPayments.module';
+
+
 
 dotenvConfig({
   path: '.env',
@@ -30,6 +33,7 @@ dotenvConfig({
       useFactory: (configService: ConfigService) =>
         configService.get('typeorm'),
     }),
+    nuevoStripeModule,
     StripeModule,
     FilterModule,
     MailModule,
@@ -40,6 +44,7 @@ dotenvConfig({
     HotelsModule,
     AuthModule,
     UsersModule,
+    NewStripeModule,
     JwtModule.register({
       global: true,
       signOptions: { expiresIn: '15m' },
