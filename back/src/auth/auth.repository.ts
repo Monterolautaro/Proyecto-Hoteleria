@@ -84,7 +84,7 @@ export class AuthRepository {
         recipients: [{ name: '%name%', address: '%email%' }],
         subject: "Hotelefy",
         html: ModeloHTML,
-        placeHolderReplacements: ["email", userData.email,"name", userData.name],
+        placeHolderReplacements: ["name", userData.name, "email", userData.email],
       }
 
       this.mailService.sendEmail(dto);
