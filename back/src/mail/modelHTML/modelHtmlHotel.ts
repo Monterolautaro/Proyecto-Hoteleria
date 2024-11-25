@@ -1,4 +1,4 @@
-export const ModeloHTML = `
+export const ModeloHTMLHotel = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,9 +79,9 @@ export const ModeloHTML = `
     </style>
 </head>
 <body>
-    <h1 class="">Bienvenido a Hotelefy</h1>
+    <h1 class="">Creacion del hotel</h1>
     <img src="./logoEmp.jpg" alt="Imagen representativa">
-    <p>Felicidades, su usuario ha sido creado exitosamente. Muchas gracias por su interés en nuestra página.</p>
+    <p>.</p>
 </body>
 </html>
 `;
