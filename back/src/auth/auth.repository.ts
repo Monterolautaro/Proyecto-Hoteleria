@@ -108,11 +108,13 @@ export class AuthRepository {
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
+    console.log('esto es lo que me llega', userData);
+    
     
     try {
       const user = await queryRunner.manager.create(User, {
         name: userData.name,
-        lastname: userData.family_name,
+        lastname: userData.lastname,
         birthday: 'Google user',
         role: [Roles.user],
       })  
@@ -120,10 +122,16 @@ export class AuthRepository {
       await queryRunner.manager.save(user);
 
       const credential = await queryRunner.manager.create(Credentials, {
-        username: 'Google user',
+        username: userData.username,
+        password: 'Google user',
         email: userData.email,
         user,
       });
+
+      await queryRunner.manager.save(credential);
+
+      console.log('credential id', credential.credential_id);
+      
 
       await queryRunner.manager.update(User, user.user_id, {
         credential,

@@ -29,8 +29,10 @@ export class User {
   @Column()
   lastname: string;
 
-  @Column()
-  birthday: Date;
+  @Column({
+    nullable: true,
+  })
+  birthday: string;
 
   @Column('float', { default: 0 })
   total_visits: number;
