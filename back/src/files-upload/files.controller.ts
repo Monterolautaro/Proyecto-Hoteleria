@@ -23,7 +23,6 @@ export class FilesUploadController {
 
   @Post('upload/:id')
   @RolesDecorator(Roles.admin, Roles.hotel_owner)
-  @UseGuards(AuthGuard)
   @UseGuards(RolesGuard)
   @UseInterceptors(FileInterceptor('file'))
   async uploadImage(
@@ -47,7 +46,6 @@ export class FilesUploadController {
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
   @RolesDecorator(Roles.admin, Roles.hotel_owner)
-  @UseGuards(AuthGuard)
   @UseGuards(RolesGuard)
   async createRoomAndImage(
     @UploadedFile(
