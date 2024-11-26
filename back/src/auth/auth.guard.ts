@@ -26,8 +26,6 @@ export class AuthGuard implements CanActivate {
       const payload = this.jwtService.verify(token, { secret });
       request.iat = new Date(payload.iat * 1000);
       request.exp = new Date(payload.exp * 1000);
-
-      console.log('req en el auth guard', request);
       
       request.user = {
         id: payload.id,
@@ -35,8 +33,6 @@ export class AuthGuard implements CanActivate {
         verified: payload.verified,
         roles: Array.isArray(payload.role) ? payload.role : [payload.role],
       };
-
-      console.log('user en el auth guard', request.user);
       
 
       return true;
