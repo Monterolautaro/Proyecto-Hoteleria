@@ -211,7 +211,7 @@ export class AuthRepository {
       // MANDAR CODIGO POR MAIL // TERMINAR
 
       await queryRunner.commitTransaction();
-      return { status: 201, message: 'User created successfully'  };
+      return { status: 201, message: 'User created successfully', user: user_id};
     } catch (error) {
 
       if (queryRunner.isTransactionActive) {

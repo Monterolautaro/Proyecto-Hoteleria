@@ -50,7 +50,9 @@ export class AuthService {
     
     try {
     
+    // Verifico que el email de google haya sido verificado por google
     if(!payload.email_verified) throw new UnauthorizedException('Please verify your email with Google before continue')
+
       // Si el usuario existe en la DB, lo logueo
       const foundUser = await this.userRepository.getUserByEmail(payload.email);
       if (foundUser && payload.email === foundUser.credential.email) {
@@ -77,7 +79,7 @@ export class AuthService {
         username: payload.given_name
       }
       
-      const googleUserRegistered = await this.authRepository.signUpGoogleUser(userData)
+      await this.authRepository.signUpGoogleUser(userData)
       
       const user = {
         email: payload.email,
