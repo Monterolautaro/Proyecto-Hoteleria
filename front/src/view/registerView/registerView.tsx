@@ -95,9 +95,6 @@ const Register = () => {
 
     if (Object.values(newErrors).some((error) => error)) return;
 
-    // Imprimir API_URL desde .env
-    console.log("API_URL: ", process.env.API_URL);
-
     try {
       setIsSubmitting(true);
       const user = await registerUser(formData);
