@@ -8,7 +8,7 @@ const HotelsPage = () => {
   const [hotels, setHotels] = useState<Hotel[]>([]);
 
   useEffect(() => {
-    // console.log(hotels);
+
   }, [hotels]);
 
   return (
