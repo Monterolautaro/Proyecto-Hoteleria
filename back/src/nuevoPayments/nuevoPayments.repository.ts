@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -14,5 +15,12 @@ export class PaymentRepository {
   async savePayment(paymentData: Partial<Payment>): Promise<Payment> {
     const payment = this.paymentRepo.create(paymentData);
     return await this.paymentRepo.save(payment);
+  }
+
+  // Método para encontrar un pago por stripePaymentIntentId
+  async findByStripePaymentIntentId(
+    stripePaymentIntentId: string,
+  ): Promise<Payment | undefined> {
+    return this.paymentRepo.findOne({ where: { stripePaymentIntentId } });
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Controller, Post, Body, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { StripeService } from './nuevoPayments.service';
@@ -6,7 +7,7 @@ import { StripeService } from './nuevoPayments.service';
 export class StripeController {
   constructor(private readonly stripeService: StripeService) {}
 
-  @Post('create-payment-intent')
+  @Post('create-payment')
   async createPaymentIntent(
     @Body('amount') amount: number,
     @Body('id') id: string,
@@ -19,10 +20,10 @@ export class StripeController {
       );
 
       //return paymentIntent;
-      console.log("paymenst del controller: "+paymentIntent);
+      console.log('paymenst del controller: ' + paymentIntent);
       res.json({ message: 'Payment successfully completed', paymentIntent });
-    } catch (error) {
-      res.status(400).json({ message: error });
+    } catch (error: any) {
+      res.status(error.status || 400).json({ message: error.message });
     }
   }
 }

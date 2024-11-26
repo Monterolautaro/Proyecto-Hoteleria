@@ -5,13 +5,10 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const SendPaymentData = async (id: string, amount: number) => {
   try {
-    const response = await axios.post(
-      `${API_URL}/stripe/create-payment-intent`,
-      {
-        id,
-        amount,
-      }
-    );
+    const response = await axios.post(`${API_URL}/stripe/create-payment`, {
+      id,
+      amount,
+    });
     if (response) return response.data;
   } catch (error: any) {
     if (error.response && error.response.data) {
