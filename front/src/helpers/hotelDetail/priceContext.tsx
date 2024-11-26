@@ -6,10 +6,11 @@ import { createContext, ReactNode, useContext, useState } from "react";
 const PriceContext = createContext<IPriceContext>({
   bookingPrice: [],
   updatePrice: () => {},
+  resetPrice: () => [],
 });
 
 export const PriceProvider = ({ children }: { children: ReactNode }) => {
-  const [bookingPrice, setBookingPrice] = useState<number[]>([]);
+  const [bookingPrice, setBookingPrice] = useState<number[] | []>([]);
 
   const updatePrice = (index: number, price: number) => {
     setBookingPrice((prev) => {
@@ -19,8 +20,12 @@ export const PriceProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const resetPrice = (arr: number[]) => {
+    setBookingPrice(arr);
+  };
+
   return (
-    <PriceContext.Provider value={{ bookingPrice, updatePrice }}>
+    <PriceContext.Provider value={{ bookingPrice, updatePrice, resetPrice }}>
       {children}
     </PriceContext.Provider>
   );

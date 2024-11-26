@@ -6,6 +6,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 const RoomsContext = createContext<IRoomsContext>({
   bookingRooms: [],
   updateRooms: () => {},
+  resetRooms: () => {},
 });
 
 export const RoomsProvider = ({ children }: { children: ReactNode }) => {
@@ -19,8 +20,12 @@ export const RoomsProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const resetRooms = () => {
+    setBookingRooms([]);
+  };
+
   return (
-    <RoomsContext.Provider value={{ bookingRooms, updateRooms }}>
+    <RoomsContext.Provider value={{ bookingRooms, updateRooms, resetRooms }}>
       {children}
     </RoomsContext.Provider>
   );
