@@ -12,11 +12,21 @@ export class StripeController {
     @Body('amount') amount: number,
     @Body('id') id: string,
     @Res() res: Response,
+    @Body('userId') userId: string,
+    @Body('hotelId') hotelId: string,
+    @Body('roomId') roomId: string,
+    @Body('checkIn') checkIn: Date,
+    @Body('checkOut') checkOut: Date
   ) {
     try {
       const paymentIntent = await this.stripeService.createPaymentIntent(
         amount,
-        id,
+    id,
+    userId,
+    hotelId,
+    roomId,
+    checkIn,
+    checkOut
       );
 
       //return paymentIntent;
