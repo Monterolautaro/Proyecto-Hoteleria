@@ -1,6 +1,7 @@
 import { Body, Controller, Param, ParseUUIDPipe, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from 'src/dto/user.dto';
+import { GoogleAuthDto } from 'src/dto/google.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -27,6 +28,11 @@ export class AuthController {
     @Body('password') password: string,
   ): Promise<any> {
     return this.authService.signIn(email, password);
+  }
+
+  @Post('validate-google-token')
+  async validateGoogleToken(@Body() {token}: GoogleAuthDto) {
+    return this.authService.validateGoogleToken(token);
   }
 
   // signInByUsername

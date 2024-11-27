@@ -95,9 +95,6 @@ const Register = () => {
 
     if (Object.values(newErrors).some((error) => error)) return;
 
-    // Imprimir API_URL desde .env
-    console.log("API_URL: ", process.env.API_URL);
-
     try {
       setIsSubmitting(true);
       const user = await registerUser(formData);
@@ -167,24 +164,26 @@ const Register = () => {
 
           {/* Right Column */}
           <div className="w-full sm:w-2/5">
-            {["email", "username", "password", "confirmPassword"].map((key) => (
-              <div key={key} className="mb-6">
-                <label className={styles.label} htmlFor={key}>{key}</label>
-                <input
-                  type={key.includes("password") ? "password" : "text"}
-                  id={key}
-                  name={key}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-                  placeholder={key
-                    .replace("confirmPassword", "Confirm Password")
-                    .replace(/([A-Z])/g, " $1")}
-                  value={(formData as any)[key]}
-                  onChange={handleChange}
-                />
-                {errors[key] && <p className="text-red-500 text-sm mt-1">{errors[key]}</p>}
-              </div>
-            ))}
-          </div>
+  {["email", "username", "password", "confirmPassword"].map((key) => (
+    <div key={key} className="mb-6">
+      <label className={styles.label} htmlFor={key}>
+        {key.replace("confirmPassword", "Confirm Password").replace(/([A-Z])/g, " $1")}
+      </label>
+      <input
+        type={key === "password" || key === "confirmPassword" ? "password" : "text"}
+        id={key}
+        name={key}
+        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+        placeholder={key
+          .replace("confirmPassword", "Confirm Password")
+          .replace(/([A-Z])/g, " $1")}
+        value={(formData as any)[key]}
+        onChange={handleChange}
+      />
+      {errors[key] && <p className="text-red-500 text-sm mt-1">{errors[key]}</p>}
+    </div>
+  ))}
+</div>
         </form>
 
         {/* Botón de Registro - Siempre al final */}

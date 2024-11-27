@@ -5,12 +5,14 @@ import { Stripe } from 'stripe';
 @Module({
   imports: [ConfigModule],
   providers: [
-  {
+    {
       provide: 'STRIPE_CLIENT',
       useFactory: (configService: ConfigService) => {
         const stripeSecretKey = configService.get<string>('STRIPE_SECRET_KEY');
         if (!stripeSecretKey) {
-          throw new Error('Stripe secret key not defined in environment variables');
+          throw new Error(
+            'Stripe secret key not defined in environment variables',
+          );
         }
         return new Stripe(stripeSecretKey, {
           apiVersion: '2024-11-20.acacia',
@@ -21,4 +23,4 @@ import { Stripe } from 'stripe';
   ],
   exports: ['STRIPE_CLIENT'],
 })
-export class StripeModule {}
+export class noStripeModule {}

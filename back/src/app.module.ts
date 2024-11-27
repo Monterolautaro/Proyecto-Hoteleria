@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 
@@ -13,8 +14,8 @@ import { PaymentsModule } from './payments/payments.module';
 import { FilesUploadModule } from './files-upload/files.module';
 import { UsersModule } from './users/users.module';
 import { MailModule } from './mail/mail.Module';
-import { StripeModule } from './stripe/stripe.module';
 import { FilterModule } from './filter/filter.module';
+import { StripeModule } from './nuevoPayments/nuevoPayments.module';
 
 dotenvConfig({
   path: '.env',
@@ -30,6 +31,7 @@ dotenvConfig({
       useFactory: (configService: ConfigService) =>
         configService.get('typeorm'),
     }),
+
     StripeModule,
     FilterModule,
     MailModule,
