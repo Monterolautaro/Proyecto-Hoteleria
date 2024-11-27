@@ -135,15 +135,17 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
           </h3>
           <h3 className="mb-3 flex flex-col">
             <span className="font-semibold ">Total rooms </span>
-            {bookingRooms.map((room, key) => {
-              return (
-                <div key={key} className="flex flex-col">
-                  <p>
-                    {room.rooms} {room.type}
-                  </p>
-                </div>
-              );
-            })}
+            {bookingRooms
+              .filter((room) => room.rooms > 0)
+              .map((room, key) => {
+                return (
+                  <div key={key} className="flex flex-col">
+                    <p>
+                      {room.rooms} {room.type}
+                    </p>
+                  </div>
+                );
+              })}
           </h3>
           <h3 className="font-semibold">Duration of your estance</h3>
           <span className="mb-4">
