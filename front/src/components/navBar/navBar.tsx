@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 interface DecodedToken {
   role: string;
@@ -44,7 +43,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center" scroll={false}>
-              <Image
+              <img
                 src="/assets/HotelifyWhite.png"
                 alt="Hotelify Logo"
                 className="w-[100px] h-[40px] hover:filter hover:drop-shadow-[0_4px_3px_rgba(14, 148, 136, 1)] transition ease-in-out duration-300"
