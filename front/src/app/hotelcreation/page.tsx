@@ -1,10 +1,10 @@
-import HotelCreationView from "@/view/HotelCreation/HotelCreationView";
+// import HotelCreationView from "@/view/HotelCreation/HotelCreationView";
 import React from "react";
 
 const HotelCreation = () => {
   return (
     <div>
-      <HotelCreationView />
+      {/* <HotelCreationView /> */}
     </div>
   );
 };
