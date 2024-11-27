@@ -13,6 +13,7 @@ export const authOptions = {
       clientSecret: GOOGLE_AUTH_CLIENT_SECRET ?? '',
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   
   callbacks: {
 
