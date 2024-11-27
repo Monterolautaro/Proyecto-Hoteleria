@@ -15,7 +15,7 @@ import { FilesUploadModule } from './files-upload/files.module';
 import { UsersModule } from './users/users.module';
 import { FilterModule } from './filter/filter.module';
 import { StripeModule } from './nuevoPayments/nuevoPayments.module';
-import { MailModule } from './mail/mail.Module';
+import { MailModule } from './mail/mail.module';
 
 dotenvConfig({
   path: '.env',
