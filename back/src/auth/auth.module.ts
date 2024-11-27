@@ -7,10 +7,9 @@ import { User } from 'src/entities/users/user.entity';
 import { Credentials } from 'src/entities/credentials.entity';
 import { UserRepository } from 'src/users/users.repository';
 import { UsersModule } from 'src/users/users.module';
-
 import { VerificationCode } from 'src/entities/verification-codes.entity';
-import { MailModule } from 'src/mail/mail.Module';
-import { MailService } from 'src/mail/mail.Service';
+import { MailModule } from 'src/mail/mail.module';
+import { MailService } from 'src/mail/mail.service';
 
 
 @Module({
