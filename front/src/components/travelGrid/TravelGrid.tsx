@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 // components/TravelGrid.tsx
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -13,7 +12,7 @@ const TravelCard: React.FC<TravelCardProps> = ({ image, location }) => {
   return (
     <Link href={`/search-results?search=${encodeURIComponent(location)}`}>
     <div className="relative overflow-hidden rounded-lg shadow-lg h-full cursor-pointer hover:shadow-lg transition-shadow duration-300">
-      <Image
+      <img
         src={image}
         alt={location}
         className="max-w-full h-full object-cover"

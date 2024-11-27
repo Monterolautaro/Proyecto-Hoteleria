@@ -18,6 +18,7 @@ export const authOptions = {
 
     async signIn({ account }: any) {
       const googleToken = account?.id_token; 
+      console.log('Google token:', googleToken);
       
       try {
         
