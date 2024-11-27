@@ -1,6 +1,6 @@
 "use client";
 
-import { IRoomsContext } from "@/interfaces/roomsContext";
+import { IBookingRooms, IRoomsContext } from "@/interfaces/roomsContext";
 import { createContext, ReactNode, useContext, useState } from "react";
 
 const RoomsContext = createContext<IRoomsContext>({
@@ -10,12 +10,22 @@ const RoomsContext = createContext<IRoomsContext>({
 });
 
 export const RoomsProvider = ({ children }: { children: ReactNode }) => {
-  const [bookingRooms, setBookingRooms] = useState<number[]>([]);
+  const [bookingRooms, setBookingRooms] = useState<IBookingRooms[]>([]);
 
-  const updateRooms = (index: number, rooms: number) => {
+  const updateRooms = (
+    index: number,
+    rooms: number,
+    id: string,
+    type: string
+  ) => {
     setBookingRooms((prev) => {
       const updated = [...prev];
-      updated[index] = rooms;
+      const data: IBookingRooms = {
+        roomId: id,
+        rooms: rooms,
+        type,
+      };
+      updated[index] = data;
       return updated;
     });
   };

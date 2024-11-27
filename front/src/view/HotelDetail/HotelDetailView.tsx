@@ -100,16 +100,19 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
             {hotelInfo?.room.map((rooms, key) => {
               return (
                 <RoomsCard
+                  id={rooms.room_id}
                   type={rooms.type}
                   description={rooms.room_type.description}
                   price={parseInt(rooms.room_type.price, 10)}
                   currency={rooms.room_type.currency}
                   key={key}
-                  index={key}
                 />
               );
             })}
-            <TotalPrice hotelName={encodeURIComponent(hotelInfo?.name!)} />
+            <TotalPrice
+              hotelId={hotelInfo?.hotel_id!}
+              hotelName={encodeURIComponent(hotelInfo?.name!)}
+            />
           </div>
         </section>
       </main>

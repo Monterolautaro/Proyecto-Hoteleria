@@ -1,14 +1,34 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { usePriceContext } from "@/helpers/hotelDetail/priceContext";
 import { useRoomsContext } from "@/helpers/hotelDetail/roomsContext";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const TotalPrice: React.FC<{ hotelName: string }> = ({ hotelName }) => {
-  const { bookingPrice } = usePriceContext();
+const TotalPrice: React.FC<{ hotelName: string; hotelId: string }> = ({
+  hotelName,
+  hotelId,
+}) => {
+  const { bookingPrice, setHotelId } = usePriceContext();
   const { bookingRooms } = useRoomsContext();
-  const total = bookingPrice.reduce((acc, price) => acc + price, 0);
-  const totalRooms = bookingRooms.reduce((acc, price) => acc + price, 0);
+  const [total, setTotal] = useState(0);
+  const [totalRooms, setTotalRooms] = useState(0);
+
+  console.log(bookingPrice);
+
+  useEffect(() => {
+    const totalRooms = bookingRooms
+      .map((room) => room.rooms)
+      .reduce((acc, room) => acc + room, 0);
+    setTotalRooms(totalRooms);
+
+    const total = bookingPrice.reduce((acc, price) => acc + price, 0); //Calcula el total de habitaciones
+    console.log(total);
+    setTotal(total);
+
+    setHotelId(hotelId);
+  }, [hotelId]);
 
   return (
     <div className="flex self-end items-center gap-3">
