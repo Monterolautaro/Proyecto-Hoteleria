@@ -18,7 +18,7 @@ import { ModeloHTML } from 'src/mail/modelHTML/modelHtmlNotif';
 import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { randomBytes } from 'crypto';
-import { MailService } from 'src/mail/mail.Service';
+import { MailService } from 'src/mail/mail.service';
 
 @Injectable()
 export class AuthRepository {

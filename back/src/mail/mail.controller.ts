@@ -1,7 +1,7 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { SendEmailDto } from 'src/Interfaces/mail.interface';
 import { ModeloHTML } from './modelHTML/modelHtmlNotif';
-import { MailService } from './mail.Service';
+import { MailService } from './mail.service';
 /*npm install nodemailer
 npm i --save @nestjs/config
 npm i --save-dev @types/nodemailer*/
