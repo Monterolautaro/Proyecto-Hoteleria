@@ -13,9 +13,9 @@ import { DataSource, Repository } from 'typeorm';
 import { UserRepository } from 'src/users/users.repository';
 import { CreateUserDto } from 'src/dto/user.dto';
 import { Roles } from 'roles.enum';
-import { MailService } from 'src/mail/mail.service';
+
 import { SendEmailDto } from 'src/Interfaces/mail.interface';
-import { ModeloHTML } from 'src/mail/modelHTML/modelHtmlNotif';
+import { ModeloHTML } from 'src/maill/modelHTML/modelHtmlNotif';
 import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { randomBytes } from 'crypto';
@@ -26,7 +26,7 @@ export class AuthRepository {
     private readonly dataSource: DataSource,
     private readonly userRepository: UserRepository,
     private readonly jwtService: JwtService,
-    private readonly mailService: MailService,
+    // private readonly mailService: MailService,
     @InjectRepository(VerificationCode)
     private readonly verificationCodeRepository: Repository<VerificationCode>,
     @InjectRepository(User)
@@ -87,7 +87,7 @@ export class AuthRepository {
         placeHolderReplacements: ["name", userData.name, "email", userData.email],
       }
 
-      this.mailService.sendEmail(dto);
+      // this.mailService.sendEmail(dto);
 
       await queryRunner.commitTransaction();
       return { status: 201, message: 'User created successfully' };
