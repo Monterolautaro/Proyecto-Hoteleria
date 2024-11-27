@@ -37,6 +37,7 @@ export class AuthService {
   }
 
   async validateGoogleToken(token: string) {
+    
     const ticket = await this.googleClient.verifyIdToken({
       idToken: token,
       audience: process.env.GOOGLE_CLIENT_ID,
@@ -44,6 +45,7 @@ export class AuthService {
     
     const payload = ticket.getPayload();
     
+    console.log('esta pasando por aca');
     if (!payload) {
       throw new Error('Invalid token payload');
     }
