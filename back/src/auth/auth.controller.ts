@@ -32,8 +32,6 @@ export class AuthController {
 
   @Post('validate-google-token')
   async validateGoogleToken(@Body() {token}: GoogleAuthDto) {
-    console.log('este es el token en el controller', token);
-    
     return this.authService.validateGoogleToken(token);
   }
 

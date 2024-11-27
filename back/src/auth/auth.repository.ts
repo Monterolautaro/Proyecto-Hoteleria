@@ -8,17 +8,17 @@ import { Credentials } from 'src/entities/credentials.entity';
 import { User } from 'src/entities/users/user.entity';
 import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
-//import { whenRegister } from 'src/config/nodemailer.config';
 import { DataSource, Repository } from 'typeorm';
 import { UserRepository } from 'src/users/users.repository';
 import { CreateUserDto } from 'src/dto/user.dto';
 import { Roles } from 'roles.enum';
-import { MailService } from 'src/mail/mail.service';
+
 import { SendEmailDto } from 'src/Interfaces/mail.interface';
 import { ModeloHTML } from 'src/mail/modelHTML/modelHtmlNotif';
 import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { randomBytes } from 'crypto';
+import { MailService } from 'src/mail/mail.service';
 
 @Injectable()
 export class AuthRepository {
@@ -82,7 +82,7 @@ export class AuthRepository {
       //iMPLEMENTACION DEL METODO NODEMAILER 
       const dto: SendEmailDto = {
         recipients: [{ name: '%name%', address: '%email%' }],
-        subject: "Hotelefy",
+        subject: "Hotelify",
         html: ModeloHTML,
         placeHolderReplacements: ["name", userData.name, "email", userData.email],
       }
@@ -90,7 +90,7 @@ export class AuthRepository {
       this.mailService.sendEmail(dto);
 
       await queryRunner.commitTransaction();
-      return { status: 200, message: 'User created successfully' };
+      return { status: 201, message: 'User created successfully' };
     } catch (error) {
       queryRunner.rollbackTransaction();
 
@@ -102,6 +102,58 @@ export class AuthRepository {
     } finally {
       queryRunner.release();
     }
+  }
+
+  async signUpGoogleUser(userData: any): Promise<any> {
+    const queryRunner = this.dataSource.createQueryRunner();
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
+    console.log('esto es lo que me llega', userData);
+    
+    
+    try {
+      const user = await queryRunner.manager.create(User, {
+        name: userData.name,
+        lastname: userData.lastname,
+        birthday: 'Google user',
+        role: [Roles.user],
+      })  
+
+      await queryRunner.manager.save(user);
+
+      const credential = await queryRunner.manager.create(Credentials, {
+        username: userData.username,
+        password: 'Google user',
+        email: userData.email,
+        user,
+      });
+
+      await queryRunner.manager.save(credential);
+
+      console.log('credential id', credential.credential_id);
+      
+
+      await queryRunner.manager.update(User, user.user_id, {
+        credential,
+      });
+
+      //iMPLEMENTACION DEL METODO NODEMAILER // TERMINAR
+
+
+      // Se hace un commit de la transacción, sin devolver nada porque la respuesta ya la da el servicio 
+      await queryRunner.commitTransaction();
+    } catch (error) {
+      queryRunner.rollbackTransaction();
+
+      throw new BadRequestException(
+        'An error has ocurred creating user by Google Authentication',
+        error,
+      )
+      }
+     finally {
+      queryRunner.release()
+    }
+
   }
 
   async signUpHotelOwner(userData: CreateUserDto): Promise<any> {
@@ -167,7 +219,7 @@ export class AuthRepository {
       // MANDAR CODIGO POR MAIL // TERMINAR
 
       await queryRunner.commitTransaction();
-      return { status: 200, message: 'User created successfully'  };
+      return { status: 201, message: 'User created successfully', user: user_id};
     } catch (error) {
 
       if (queryRunner.isTransactionActive) {

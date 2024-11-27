@@ -20,9 +20,6 @@ export class HotelsController {
   constructor(private readonly hotelsService: HotelsService) {}
 
   @Post('/batch')
-  // @RolesDecorator(Roles.admin)
-  // @UseGuards(AuthGuard)
-  // @UseGuards(RolesGuard)
   async insertHotel(@Body() hotelData: any) {
     try {
       return this.hotelsService.inserHotel(hotelData);

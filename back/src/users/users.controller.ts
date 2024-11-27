@@ -24,7 +24,7 @@ export class UserController {
 
   @HttpCode(200)
   @Get()
-  @RolesDecorator(Roles.user)
+  @RolesDecorator(Roles.admin)
   @UseGuards(AuthGuard, RolesGuard)
   getUsers(): Promise<User[]> {
     return this.UserService.getUsers();

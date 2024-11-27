@@ -1,10 +1,12 @@
-import HotelCreationView from "@/view/HotelCreation/HotelCreationView";
-import React from "react";
+// import { HotelCreationProvider } from "@/components/HotelCreationContext/HotelCreationProvider";
+// import HotelCreationView from "@/view/HotelCreation/HotelCreationView";
 
 const HotelCreation = () => {
   return (
     <div>
-      <HotelCreationView />
+      {/* <HotelCreationProvider> */}
+      {/* <HotelCreationView /> */}
+      {/* </HotelCreationProvider> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Link from "next/link";
 import React from "react";
 
@@ -15,7 +15,7 @@ const Sidebar = () => {
     <div className="bg-[#009375] text-white w-64 p-6 flex flex-col">
       
       <Link href="/" className="flex items-center mb-8" scroll={false}>
-              <Image
+              <img
                 src="/assets/HotelifyWhite.png"
                 alt="Hotelify Logo"
                 className="w-[100px] h-[40px] hover:filter hover:drop-shadow-[0_4px_3px_rgba(14, 148, 136, 1)] transition ease-in-out duration-300"
