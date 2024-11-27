@@ -1,7 +1,7 @@
 "use client";
 import Filters from "@/components/filters/filters";
 import SearchResults from "@/components/SearchResults/SearchResults";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { Hotel } from "@/interfaces/hotel";
 
 const HotelsPage = () => {
@@ -18,7 +18,9 @@ const HotelsPage = () => {
       </div>
 
       <div className="col-span-3">
+      <Suspense fallback={<div>Loading...</div>}>
         <SearchResults hotelsData={hotels} />
+      </Suspense>
       </div>
     </div>
   );

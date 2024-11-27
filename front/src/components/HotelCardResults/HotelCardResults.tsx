@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { Hotel } from "@/interfaces/hotel";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface HotelCardResultsProps {
@@ -19,7 +20,7 @@ const HotelCardResults: React.FC<HotelCardResultsProps> = ({ hotel }) => {
 
   return (
     <div className="flex p-4 bg-white shadow-lg rounded-lg border border-gray-200 hover:shadow-xl transition mb-6">
-    <img
+    <Image
       src={hotel.details.imgUrl || "/placeholder-image.png"}
       alt={hotel.name || "Hotel"}
       className="w-32 h-32 rounded-md object-cover"

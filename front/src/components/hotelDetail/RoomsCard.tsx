@@ -5,6 +5,7 @@ import { useDateContext } from "@/helpers/hotelDetail/dateContext";
 import { usePriceContext } from "@/helpers/hotelDetail/priceContext";
 import { useRoomsContext } from "@/helpers/hotelDetail/roomsContext";
 import firstToUpperCase from "@/helpers/upperCase";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
@@ -46,7 +47,7 @@ const RoomsCard: React.FC<{
       {diffDays ? (
         <>
           <div className="flex gap-4 items-center p-2 w-[10%]">
-            <img src="/assets/Bed.png" alt="Bed icon" className="w-[36px]" />
+            <Image src="/assets/Bed.png" alt="Bed icon" className="w-[36px]" />
             <span className="text-base font-medium text-[#00352a]">
               {newType}
             </span>

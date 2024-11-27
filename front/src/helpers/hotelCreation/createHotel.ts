@@ -5,7 +5,7 @@
 
 // const createHotel = async (hotelData: IHotelCreation) => {
 //   try {
-     // const response = await axios.post(`${API_URL}/hotels/create`, hotelData);
+//      const response = await axios.post(`${API_URL}/hotels/create`, hotelData);
 
 //   } catch (error) {
 //     console.log(error);

@@ -6,7 +6,7 @@ const Sidebar = () => {
   const menuItems = [
     { name: "Dashboard", href: "/admin" },
     { name: "Users", href: "/admin/users" },
-    { name: "Hotels", href: "/hotelcreation" },
+    // { name: "Hotels", href: "/hotelcreation" },
     { name: "Logout", href: "/logout"  },
   ];
 

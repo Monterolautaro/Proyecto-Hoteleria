@@ -6,6 +6,7 @@ import RoomsCard from "@/components/hotelDetail/RoomsCard";
 import TotalPrice from "@/components/hotelDetail/TotalPrice";
 import getHotelById from "@/helpers/hotelDetail/getHotelDetail";
 import { IHotel } from "@/interfaces";
+import Image from "next/image";
 
 const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
   const hotelInfo: IHotel | undefined = await getHotelById(params);
@@ -77,7 +78,7 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
                     <DateRangePicker />
                   </div>
                   <div className="w-full h-full rounded-r-xl flex bg-[#f3fffc] items-center justify-center pl-6">
-                    <img
+                    <Image
                       src="/assets/User.png"
                       alt="People icon"
                       className="w-7 h-7"

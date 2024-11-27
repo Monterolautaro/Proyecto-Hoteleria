@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const AboutUsView = () => {
@@ -20,7 +21,7 @@ const AboutUsView = () => {
       <section className="mb-12 space-y-12">
   <div className="flex flex-col md:flex-row items-center text-center md:text-left">
     <div className="md:w-1/2 flex justify-center">
-      <img
+      <Image
         src="/assets/palladiumhotelibiza.jpg"
         alt="Mission"
         className="w-66 h-64 object-cover rounded-full shadow-lg"
@@ -42,7 +43,7 @@ const AboutUsView = () => {
       </p>
     </div>
     <div className="md:w-1/2 flex justify-center">
-      <img
+      <Image
         src="/assets/palmas.webp"
         alt="Vision"
         className="w-66 h-64 object-cover rounded-full shadow-lg"

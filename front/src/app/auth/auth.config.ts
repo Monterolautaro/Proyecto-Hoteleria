@@ -1,5 +1,4 @@
 import axios from 'axios';
-import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
 
@@ -73,6 +72,4 @@ export const authOptions = {
   debug: true,  // Habilitar depuración para obtener más detalles
 };
 
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
+export default authOptions
