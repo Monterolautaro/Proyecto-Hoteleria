@@ -106,6 +106,7 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
                   price={parseInt(rooms.room_type.price, 10)}
                   currency={rooms.room_type.currency}
                   key={key}
+                  index={key}
                 />
               );
             })}

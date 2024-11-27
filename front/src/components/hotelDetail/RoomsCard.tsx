@@ -13,9 +13,9 @@ const RoomsCard: React.FC<{
   type: string;
   description: string;
   price: number;
-
+  index: number;
   currency: string;
-}> = ({ id, type, description, price, currency }) => {
+}> = ({ id, type, description, price, currency, index }) => {
   const { diffDays } = useDateContext();
   const { updatePrice } = usePriceContext();
   const { updateRooms } = useRoomsContext();
@@ -27,22 +27,21 @@ const RoomsCard: React.FC<{
   //Función para capturar el valor del número de habitaciones
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const nRooms = parseInt(e.target.value, 10);
-    console.log(nRooms);
     if (nRooms >= 0) {
       setTotalRooms(nRooms);
     }
   };
 
   useEffect(() => {
-    if (diffDays) {
-      updatePrice(parseInt(id, 10), price * diffDays * totalRooms);
-      updateRooms(parseInt(id, 10), totalRooms, id, type);
+    if (diffDays && totalRooms) {
+      updatePrice(index, price * diffDays * totalRooms);
+      updateRooms(index, totalRooms, id, type);
     }
   }, [totalRooms]);
 
   useEffect(() => {
     if (diffDays) {
-      setTotalPrice(price * diffDays);
+      setTotalPrice(price * diffDays); //Precio que se muestra en cada habitación
     }
   }, [diffDays]);
 

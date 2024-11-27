@@ -10,7 +10,12 @@ const RoomsContext = createContext<IRoomsContext>({
 });
 
 export const RoomsProvider = ({ children }: { children: ReactNode }) => {
-  const [bookingRooms, setBookingRooms] = useState<IBookingRooms[]>([]);
+  const [bookingRooms, setBookingRooms] = useState<IBookingRooms[]>([
+    { roomId: "room-1", rooms: 0, type: "single" },
+    { roomId: "room-2", rooms: 0, type: "double" },
+    { roomId: "room-2", rooms: 0, type: "triple" },
+    { roomId: "room-3", rooms: 0, type: "suite" },
+  ]);
 
   const updateRooms = (
     index: number,

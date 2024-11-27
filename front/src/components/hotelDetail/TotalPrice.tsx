@@ -15,20 +15,19 @@ const TotalPrice: React.FC<{ hotelName: string; hotelId: string }> = ({
   const [total, setTotal] = useState(0);
   const [totalRooms, setTotalRooms] = useState(0);
 
-  console.log(bookingPrice);
-
   useEffect(() => {
     const totalRooms = bookingRooms
+      .filter((room) => room.rooms > 0)
       .map((room) => room.rooms)
-      .reduce((acc, room) => acc + room, 0);
+      .reduce((acc, room) => acc + room, 0); //Calcula el numero de habitaciones
+
+    const total = bookingPrice.reduce((acc, price) => acc + price, 0); //Calcula el precio total
+
+    setTotal(total);
     setTotalRooms(totalRooms);
 
-    const total = bookingPrice.reduce((acc, price) => acc + price, 0); //Calcula el total de habitaciones
-    console.log(total);
-    setTotal(total);
-
     setHotelId(hotelId);
-  }, [hotelId]);
+  }, [bookingRooms]);
 
   return (
     <div className="flex self-end items-center gap-3">

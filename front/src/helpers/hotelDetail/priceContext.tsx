@@ -12,7 +12,7 @@ const PriceContext = createContext<IPriceContext>({
 });
 
 export const PriceProvider = ({ children }: { children: ReactNode }) => {
-  const [bookingPrice, setBookingPrice] = useState<number[] | []>([]);
+  const [bookingPrice, setBookingPrice] = useState<number[] | []>([0, 0, 0, 0]);
   const [hotelId, setHotelId] = useState<string | null>(null);
 
   const updatePrice = (index: number, price: number) => {
