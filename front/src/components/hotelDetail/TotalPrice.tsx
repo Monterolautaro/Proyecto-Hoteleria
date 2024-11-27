@@ -15,7 +15,7 @@ const TotalPrice: React.FC<{ hotelName: string; hotelId: string }> = ({
   const [total, setTotal] = useState(0);
   const [totalRooms, setTotalRooms] = useState(0);
 
-  console.log(bookingPrice);
+  console.log('este es el booking price', bookingPrice);
 
   useEffect(() => {
     const totalRooms = bookingRooms
