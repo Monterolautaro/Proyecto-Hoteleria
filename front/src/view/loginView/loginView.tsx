@@ -1,4 +1,5 @@
 "use client";
+import { loginUser } from "@/helpers/auth.helper";
 import { validateEmail, validatePassword } from "@/helpers/formValidation";
 import { Toast } from "@/helpers/toast";
 import { signIn } from "next-auth/react"; // Importamos signIn de next-auth
@@ -10,7 +11,7 @@ const Login = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push('/'); // Redirige a la página principal después del login
+    router.push("/"); // Redirige a la página principal después del login
   };
 
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -36,10 +37,10 @@ const Login = () => {
 
     try {
       setIsSubmitting(true);
-      // Aquí debes implementar tu lógica de autenticación personalizada si es necesario
-      // const { token, user } = await loginUser(formData); 
-      // localStorage.setItem("token", token); 
-      // localStorage.setItem("user", JSON.stringify(user)); 
+
+      const { token, user } = await loginUser(formData);
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
 
       Toast.fire({
         icon: "success",
@@ -97,7 +98,8 @@ const Login = () => {
             onClick={() => signIn("google", { callbackUrl: "/" })}
             className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-gray-300 hover:border-gray-400 transition"
           >
-            <FaGoogle className="text-blue-500 w-8 h-8" /> {/* Ícono de Google */}
+            <FaGoogle className="text-blue-500 w-8 h-8" />{" "}
+            {/* Ícono de Google */}
           </button>
         </div>
       </div>
