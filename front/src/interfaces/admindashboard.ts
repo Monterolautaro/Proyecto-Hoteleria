@@ -9,3 +9,10 @@ export interface User {
     bookings: number;
   }
 
+  export interface Hotel {
+    id: string;
+    name: string;
+    availability: string;
+    rooms: number;
+    location: string;
+  }
