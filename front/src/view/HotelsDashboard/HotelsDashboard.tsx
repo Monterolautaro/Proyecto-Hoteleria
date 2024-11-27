@@ -1,5 +1,5 @@
 'use client';
-import { Hotel } from '@/interfaces/admindashboard';
+import { Hotel } from '@/interfaces/users';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 

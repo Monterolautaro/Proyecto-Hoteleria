@@ -1,5 +1,5 @@
 'use client'
-import { User } from '@/interfaces/admindashboard';
+import { User } from '@/interfaces/users';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 

@@ -13,14 +13,13 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
-import styles from './register.module.css';
-
+import styles from "./register.module.css";
 
 const Register = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push('/login');
+    router.push("/login");
   };
 
   const [formData, setFormData] = useState({
@@ -36,11 +35,19 @@ const Register = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Formateo del campo birthday
+  // Formateo del campo birthday
   const formatBirthday = (value: string) => {
     const numbersOnly = value.replace(/\D/g, ""); // Eliminar cualquier caracter no numérico
-    let formattedValue = numbersOnly.slice(0, 4); // Año (4 caracteres)
-    if (numbersOnly.length >= 5) formattedValue += "-" + numbersOnly.slice(4, 6); // Mes (2 caracteres)
-    if (numbersOnly.length >= 7) formattedValue += "-" + numbersOnly.slice(6, 8); // Día (2 caracteres)
+    let formattedValue = "";
+    if (numbersOnly.length > 0) {
+      formattedValue += numbersOnly.slice(0, 4); // Año (primeros 4 caracteres)
+    }
+    if (numbersOnly.length > 4) {
+      formattedValue += "-" + numbersOnly.slice(4, 6); // Mes (siguientes 2 caracteres)
+    }
+    if (numbersOnly.length > 6) {
+      formattedValue += "-" + numbersOnly.slice(6, 8); // Día (últimos 2 caracteres)
+    }
     return formattedValue;
   };
 
@@ -71,7 +78,10 @@ const Register = () => {
         newErrors.password = validatePassword(value);
         break;
       case "confirmPassword":
-        newErrors.confirmPassword = validateConfirmPassword(formData.password, value);
+        newErrors.confirmPassword = validateConfirmPassword(
+          formData.password,
+          value
+        );
         break;
       default:
         break;
@@ -88,7 +98,10 @@ const Register = () => {
       lastname: validateLastName(formData.lastname),
       email: validateEmail(formData.email),
       password: validatePassword(formData.password),
-      confirmPassword: validateConfirmPassword(formData.password, formData.confirmPassword),
+      confirmPassword: validateConfirmPassword(
+        formData.password,
+        formData.confirmPassword
+      ),
     };
 
     setErrors(newErrors);
@@ -98,6 +111,8 @@ const Register = () => {
     try {
       setIsSubmitting(true);
       const user = await registerUser(formData);
+      console.log(user);
+
       Toast.fire({
         icon: "success",
         title: "Registration successful!",
@@ -115,45 +130,60 @@ const Register = () => {
   const isFormIncomplete = Object.values(formData).some((value) => !value);
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#F3FFFC]">
-      <div className="bg-green-100 p-8 rounded-lg shadow-lg w-full max-w-5xl flex flex-col items-center">
-        <h2 className="text-3xl font-semibold text-center mb-8">Register</h2>
-        <form onSubmit={handleRegister} className="flex flex-wrap gap-8 justify-center w-full">
+    <div className="flex justify-center p-8 items-center bg-[#F3FFFC]">
+      <div className="bg-green-100 p-4 rounded-lg shadow-lg w-[60%] max-w-[60%] flex flex-col items-center">
+        <h2 className="text-3xl font-semibold text-center mt-2 mb-8">
+          Register
+        </h2>
+        <form
+          onSubmit={handleRegister}
+          className="flex flex-wrap gap-8 justify-center w-full"
+        >
           {/* Left Column */}
           <div className="w-full sm:w-2/5">
-            <div className="mb-6">
-              <label className={styles.label} htmlFor="name">Name</label>
+            <div className="mb-3">
+              <label className={styles.label} htmlFor="name">
+                Name
+              </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
               />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+              )}
             </div>
-            <div className="mb-6">
-              <label className={styles.label} htmlFor="lastname">Last Name</label>
+            <div className="mb-3">
+              <label className={styles.label} htmlFor="lastname">
+                Last Name
+              </label>
               <input
                 type="text"
                 id="lastname"
                 name="lastname"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Last Name"
                 value={formData.lastname}
                 onChange={handleChange}
               />
-              {errors.lastname && <p className="text-red-500 text-sm mt-1">{errors.lastname}</p>}
+              {errors.lastname && (
+                <p className="text-red-500 text-sm mt-1">{errors.lastname}</p>
+              )}
             </div>
-            <div className="mb-6">
-              <label className={styles.label} htmlFor="birthday">Birthday</label>
+            <div className="mb-3">
+              <label className={styles.label} htmlFor="birthday">
+                Birthday
+              </label>
               <input
                 type="text"
                 id="birthday"
                 name="birthday"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="YYYY-MM-DD"
                 value={formData.birthday}
                 onChange={handleChange}
@@ -164,45 +194,54 @@ const Register = () => {
 
           {/* Right Column */}
           <div className="w-full sm:w-2/5">
-  {["email", "username", "password", "confirmPassword"].map((key) => (
-    <div key={key} className="mb-6">
-      <label className={styles.label} htmlFor={key}>
-        {key.replace("confirmPassword", "Confirm Password").replace(/([A-Z])/g, " $1")}
-      </label>
-      <input
-        type={key === "password" || key === "confirmPassword" ? "password" : "text"}
-        id={key}
-        name={key}
-        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-        placeholder={key
-          .replace("confirmPassword", "Confirm Password")
-          .replace(/([A-Z])/g, " $1")}
-        value={(formData as any)[key]}
-        onChange={handleChange}
-      />
-      {errors[key] && <p className="text-red-500 text-sm mt-1">{errors[key]}</p>}
-    </div>
-  ))}
-</div>
+            {["email", "username", "password", "confirmPassword"].map((key) => (
+              <div key={key} className="mb-3">
+                <label className={styles.label} htmlFor={key}>
+                  {key
+                    .replace("confirmPassword", "Confirm Password")
+                    .replace(/([A-Z])/g, " $1")}
+                </label>
+                <input
+                  type={
+                    key === "password" || key === "confirmPassword"
+                      ? "password"
+                      : "text"
+                  }
+                  id={key}
+                  name={key}
+                  className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                  placeholder={key
+                    .replace("confirmPassword", "Confirm Password")
+                    .replace(/([A-Z])/g, " $1")}
+                  value={(formData as any)[key]}
+                  onChange={handleChange}
+                />
+                {errors[key] && (
+                  <p className="text-red-500 text-sm mt-1">{errors[key]}</p>
+                )}
+              </div>
+            ))}
+          </div>
         </form>
 
         {/* Botón de Registro - Siempre al final */}
         <button
           type="submit"
-          className="w-1/3 py-2 px-4 bg-[#009375] text-white rounded-lg hover:bg-[#006c55] disabled:opacity-50 mx-auto"
+          className="w-1/3 py-2 px-4 bg-[#009375] mt-3  text-white rounded-lg hover:bg-[#006c55] disabled:cursor-not-allowed mx-auto"
           disabled={isSubmitting || isFormIncomplete}
           onClick={handleRegister}
         >
-          Register
+          Sign Up
         </button>
 
         {/* Google Login Button */}
         <div className="mt-4 flex justify-center w-full">
           <button
             onClick={() => signIn("google")}
-            className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-gray-300 hover:border-gray-400 transition"
+            className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center  hover:border-gray-400 mt-1 transition"
           >
-            <FaGoogle className="text-blue-500 w-8 h-8" /> {/* Ícono de Google con color azul */}
+            <FaGoogle className="text-[#009375] w-8 h-8" />{" "}
+            {/* Ícono de Google con color azul */}
           </button>
         </div>
       </div>
