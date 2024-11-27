@@ -14,7 +14,7 @@ const UsersView = () => {
     name: '',
     lastname: '',
     email: '',
-    phone: '',
+    username: '',
     role: '',
   });
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
@@ -24,22 +24,33 @@ const UsersView = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/users`); // Cambiar endpoint
-        setUsers(response.data);
+        const token = localStorage.getItem('token'); // Obtener el token del localStorage
+        if (!token) {
+          console.error('No token found');
+          return;
+        }
+  
+        const response = await axios.get(`${API_URL}/users`, {
+          headers: {
+            Authorization: `Bearer ${token}`, // Agregar el token a los headers
+          },
+        });
+  
+        setUsers(response.data); // Actualizar el estado con los usuarios obtenidos
       } catch (error) {
-        console.error("Error fetching users:", error);
+        console.error('Error fetching users:', error);
       }
     };
-
+  
     fetchUsers();
   }, []);
 
   const handleCreateUser = async () => {
     try {
-      const response = await axios.post(`${API_URL}/api/users`, newUser); // Cambiar endpoint
+      const response = await axios.post(`${API_URL}/users`, newUser); // Cambiar endpoint
       setUsers([...users, response.data]); // Agregar nuevo usuario a la lista
       setIsModalOpen(false); // Cerrar modal
-      setNewUser({ name: '',lastname: '', email: '', phone: '', role: '' }); // Reiniciar formulario
+      setNewUser({ name: '',lastname: '', email: '', username: '', role: '' }); // Reiniciar formulario
     } catch (error) {
       console.error('Error creating user:', error);
     }
@@ -50,7 +61,7 @@ const UsersView = () => {
       if (!selectedUser) return;
   
       try {
-        const response = await axios.put(`${API_URL}/api/users/${selectedUser.id}`, selectedUser); // Cambiar endpoint
+        const response = await axios.put(`${API_URL}/users/${selectedUser.id}`, selectedUser); // Cambiar endpoint
         setUsers(
           users.map((user) =>
             user.id === selectedUser.id ? response.data : user
@@ -64,7 +75,7 @@ const UsersView = () => {
 
   const handleDelete = async (id: string) => {
     try {
-      await axios.delete(`${API_URL}/api/users/${id}`); // Cambiar endpoint
+      await axios.delete(`${API_URL}/users/${id}`); // Cambiar endpoint
       setUsers(users.filter((user) => user.id !== id));
     } catch (error) {
       console.error("Error deleting user:", error);
@@ -85,24 +96,26 @@ const UsersView = () => {
 
     return (
       <div className="container mx-auto p-4">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold">User Management</h1>
+          <h1 className="text-2xl font-bold mb-4">User Management</h1>
+
+          <div className="flex justify-end mb-4">
           <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-[#009375] hover:bg-[#00352A] text-white font-bold py-2 px-4 rounded"
+          className="bg-[#009375] hover:bg-[#00352A] text-white px-4 py-2 rounded shadow"
         >
           Create User
         </button>
         </div>
+        
   
         <div className="overflow-x-auto">
-          <table className="min-w-full border-collapse border border-gray-200">
+          <table className="min-w-full bg-white border border-gray-200">
             <thead>
-              <tr className="bg-gray-100">
+              <tr className="bg-gray-100 text-left">
                 <th className="border border-gray-200 px-4 py-2 text-center">Name</th>
                 <th className="border border-gray-200 px-4 py-2 text-center">Lasname</th>
                 <th className="border border-gray-200 px-4 py-2 text-center">Email</th>
-                <th className="border border-gray-200 px-4 py-2 text-center">Phone</th>
+                <th className="border border-gray-200 px-4 py-2 text-center">Username</th>
                 <th className="border border-gray-200 px-4 py-2 text-center">Role</th>
                 <th className="border border-gray-200 px-4 py-2 text-center">#Bookings</th>
                 <th className="border border-gray-200 px-4 py-2 text-center">Actions</th>
@@ -115,7 +128,7 @@ const UsersView = () => {
                     <td className="border border-gray-200 px-4 py-2">{user.name}</td>
                     <td className="border border-gray-200 px-4 py-2">{user.lastname}</td>
                     <td className="border border-gray-200 px-4 py-2">{user.email}</td>
-                    <td className="border border-gray-200 px-4 py-2">{user.phone}</td>
+                    <td className="border border-gray-200 px-4 py-2">{user.username}</td>
                     <td className="border border-gray-200 px-4 py-2">{user.role}</td>
                     <td className="border border-gray-200 px-4 py-2 text-center">{user.bookings}</td>
                     <td className="border border-gray-200 px-4 py-2 text-center">
@@ -169,11 +182,11 @@ const UsersView = () => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Phone</label>
+              <label className="block text-sm font-bold mb-2">Username</label>
               <input
                 type="text"
-                value={newUser.phone}
-                onChange={(e) => setNewUser({ ...newUser, phone: e.target.value })}
+                value={newUser.username}
+                onChange={(e) => setNewUser({ ...newUser, username: e.target.value })}
                 className="w-full border px-3 py-2 rounded-md"
               />
             </div>
@@ -238,11 +251,11 @@ const UsersView = () => {
             />
             <input
               type="text"
-              value={selectedUser.phone}
+              value={selectedUser.username}
               onChange={(e) =>
-                setSelectedUser({ ...selectedUser, phone: e.target.value })
+                setSelectedUser({ ...selectedUser, username: e.target.value })
               }
-              placeholder="Phone"
+              placeholder="Username"
               className="mb-4 w-full border px-3 py-2 rounded-md"
             />
             <input

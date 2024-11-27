@@ -1,8 +1,7 @@
-
 // import { config } from "dotenv";
 // config({ path: ".env" });
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const registerUser = async (userData: {
   name: string;
@@ -13,17 +12,13 @@ export const registerUser = async (userData: {
   password: string;
   confirmPassword: string;
 }) => {
-  const response = await fetch(
-    `${API_URL}/auth/signUp`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-
-    }
-  );
+  const response = await fetch(`${API_URL}/auth/signUp`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  });
 
   if (!response.ok) {
     const error = await response.json();
