@@ -13,12 +13,12 @@ export const authOptions = {
       clientSecret: GOOGLE_AUTH_CLIENT_SECRET ?? '',
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   
   callbacks: {
 
     async signIn({ account }: any) {
       const googleToken = account?.id_token; 
-      console.log('Google token:', googleToken);
       
       try {
         
@@ -31,8 +31,7 @@ export const authOptions = {
           return false;  // no se inicia sesión
         }
 
-        const data = await response.data;
-        console.log('Validated token:', data);
+        await response.data;
 
         return true;  // se inicia sesión 
       } catch (error) {

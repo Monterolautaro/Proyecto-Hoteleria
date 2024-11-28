@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {SuspendRepository } from './suspended.repository';
+import { SuspendRepository } from './suspended.repository';
 import { SuspendService } from './suspended.service';
 import { AdminUserController } from './suspended.controller';
 import { User } from 'src/entities/users/user.entity';
@@ -12,5 +12,3 @@ import { User } from 'src/entities/users/user.entity';
   exports: [],
 })
 export class SuspendedModule {}
-
-

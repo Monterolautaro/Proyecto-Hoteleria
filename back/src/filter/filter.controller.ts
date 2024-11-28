@@ -1,30 +1,29 @@
 import {
-    BadRequestException,
-    Controller,
-    Get,
-    Post,
-    Query,
-  } from '@nestjs/common';
+  BadRequestException,
+  Controller,
+  Get,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { FilterService } from './filter.service';
 import { FiltersDto } from 'src/dto/filter.dto';
-  
-  @Controller('filter')
-  export class FilterController {
-    constructor(private readonly filterService: FilterService) {}
 
-    @Get('hotel')
-    async searchBar(@Query() query: FiltersDto) {
-      try {
-        console.log(query);
-        
-        
-        return await this.filterService.searchFilter(query);
-      } catch (error) {
-        throw new BadRequestException('Error loading hotels', error);
-      }
+@Controller('filter')
+export class FilterController {
+  constructor(private readonly filterService: FilterService) {}
+
+  @Get('hotel')
+  async searchBar(@Query() query: FiltersDto) {
+    try {
+      console.log(query);
+
+      return await this.filterService.searchFilter(query);
+    } catch (error) {
+      throw new BadRequestException('Error loading hotels', error);
     }
-  
-    /*@Post('hotel/price')
+  }
+
+  /*@Post('hotel/price')
     async searchBarPrice(@Query('price') price: any) {
       try {
         return await this.filterService.searchFilter(price);
@@ -59,4 +58,4 @@ import { FiltersDto } from 'src/dto/filter.dto';
         throw new BadRequestException('Error loading hotels', error);
       }
     }*/
-  }
+}

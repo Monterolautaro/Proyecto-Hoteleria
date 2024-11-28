@@ -1,6 +1,3 @@
-
-
-
 export class GoogleAuthDto {
-    token: string;
-  }
+  token: string;
+}
