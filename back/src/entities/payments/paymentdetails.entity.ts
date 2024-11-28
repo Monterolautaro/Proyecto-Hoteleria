@@ -14,9 +14,6 @@ export class PaymentDetails {
   @PrimaryGeneratedColumn('uuid')
   payment_details_id: string = uuid();
 
-  @Column()
-  details: string;
-
   @OneToOne(() => Payment, (payment) => payment.payment_details)
   @JoinColumn({ name: 'payment_id' })
   payment: Payment;

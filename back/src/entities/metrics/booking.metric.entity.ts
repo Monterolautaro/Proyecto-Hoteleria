@@ -29,8 +29,4 @@ export class BookingMetrics {
   @ManyToOne(() => Metrics, (metrics) => metrics.booking_metrics)
   @JoinColumn({ name: 'metrics_id' })
   metrics: Metrics;
-
-  @OneToOne(() => Booking, (booking) => booking.booking_metrics)
-  @JoinColumn({ name: 'booking_id' })
-  booking: Booking;
 }

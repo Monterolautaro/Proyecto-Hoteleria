@@ -5,17 +5,26 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 const PriceContext = createContext<IPriceContext>({
   bookingPrice: [],
+  hotelId: "",
+  setHotelId: () => {},
   updatePrice: () => {},
   resetPrice: () => [],
+  currency: "",
+  setCurrency: () => {},
 });
 
 export const PriceProvider = ({ children }: { children: ReactNode }) => {
-  const [bookingPrice, setBookingPrice] = useState<number[] | []>([]);
+  const [bookingPrice, setBookingPrice] = useState<number[] | []>([0, 0, 0, 0]);
+  const [hotelId, setHotelId] = useState<string | null>(null);
+  const [currency, setCurrency] = useState<string>("");
 
   const updatePrice = (index: number, price: number) => {
+    console.log(price);
+
     setBookingPrice((prev) => {
       const updated = [...prev];
       updated[index] = price;
+
       return updated;
     });
   };
@@ -25,7 +34,17 @@ export const PriceProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <PriceContext.Provider value={{ bookingPrice, updatePrice, resetPrice }}>
+    <PriceContext.Provider
+      value={{
+        bookingPrice,
+        updatePrice,
+        resetPrice,
+        hotelId,
+        setHotelId,
+        currency,
+        setCurrency,
+      }}
+    >
       {children}
     </PriceContext.Provider>
   );

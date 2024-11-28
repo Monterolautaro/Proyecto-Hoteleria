@@ -1,4 +1,5 @@
-"use client";
+// "use client";
+
 
 //! Falta hacer la validación de los inputs, como límite de rooms, poner cualquier currency...
 
@@ -187,5 +188,6 @@ const HotelRoomsForm = () => {
     </div>
   );
 };
+
 
 export default HotelRoomsForm;

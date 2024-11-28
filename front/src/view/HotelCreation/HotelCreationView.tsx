@@ -1,3 +1,4 @@
+
 "use client";
 
 import BasicInfoForm from "@/components/HotelBasicInfo/HotelBasicInfoForm";

@@ -9,7 +9,7 @@ export const DateProvider = ({ children }: { children: ReactNode }) => {
   const [diffDays, setDiffDays] = useState<number | null>(null);
   const [startDateContext, setStartDateContext] = useState<Date | null>(null);
   const [endDateContext, setEndDateContext] = useState<Date | null>(null);
-  const [people, setPeople] = useState<number | null>(null);
+  const [people, setPeople] = useState<number | null>(1);
 
   return (
     <DateContext.Provider

@@ -13,6 +13,7 @@ export const authOptions = {
       clientSecret: GOOGLE_AUTH_CLIENT_SECRET ?? '',
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   
   callbacks: {
 
@@ -30,8 +31,7 @@ export const authOptions = {
           return false;  // no se inicia sesión
         }
 
-        const data = await response.data;
-        console.log('Validated token:', data);
+        await response.data;
 
         return true;  // se inicia sesión 
       } catch (error) {

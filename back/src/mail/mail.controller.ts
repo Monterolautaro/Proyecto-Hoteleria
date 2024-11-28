@@ -15,37 +15,40 @@ export class MailController {
     const { name, email } = body;
     const dto: SendEmailDto = {
       //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
-      recipients : [{ name: `${name}`, address: `${email}`}],
-      subject: "Hotelify",
+      recipients: [{ name: `${name}`, address: `${email}` }],
+      subject: 'Hotelify',
       html: ModeloHTML,
       codigo: 10,
       //placeHolderReplacements: body,
-    }
-//"<p><strong>hi %name%</strong>, your lucky number %number% won you $1.000.000</p><p>Cheers</p>"
+    };
+    //"<p><strong>hi %name%</strong>, your lucky number %number% won you $1.000.000</p><p>Cheers</p>"
     return await this.mailService.sendEmail(dto);
   }
 
   @Post('sendPago')
   async sendEmailPago(@Body() body: Record<string, string>) {
     const dto: SendEmailDto = {
-      recipients : [{ name: '%name%', address: '%email%'}],
-      subject: "Hotelify",
+      recipients: [{ name: '%name%', address: '%email%' }],
+      subject: 'Hotelify',
       html: ModeloHTML,
       codigo: 10,
       //placeHolderReplacements: body,
-    }
+    };
     return await this.mailService.sendEmail(dto);
   }
 
   @Post('sendHotel')
-  async sendEmailHotel(@Body() /*body: Record<string, string>*/ name: string , email: string) {
+  async sendEmailHotel(
+    @Body() /*body: Record<string, string>*/ name: string,
+    email: string,
+  ) {
     const dto: SendEmailDto = {
-      recipients : [{ name: '%name%', address: '%email%'}],
-      subject: "Hotelify",
+      recipients: [{ name: '%name%', address: '%email%' }],
+      subject: 'Hotelify',
       html: ModeloHTML,
       codigo: 10,
-      placeHolderReplacements: [name,email],
-    }
+      placeHolderReplacements: [name, email],
+    };
     return await this.mailService.sendEmail(dto);
   }
 }

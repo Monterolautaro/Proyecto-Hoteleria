@@ -6,7 +6,6 @@ import { FiltersDto } from 'src/dto/filter.dto';
 export class FilterService {
   constructor(private readonly filterRepository: FilterRepository) {}
 
-
   async searchFilter(query: FiltersDto) {
     try {
       return await this.filterRepository.searchFilter(query);
@@ -17,7 +16,7 @@ export class FilterService {
     }
   }
 
-    /*async searchCountry(query: any) {
+  /*async searchCountry(query: any) {
       try {
         return await this.filterRepository.searchFilter(query);
       } catch (error) {

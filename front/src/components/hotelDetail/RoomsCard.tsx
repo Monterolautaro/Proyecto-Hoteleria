@@ -5,17 +5,17 @@ import { useDateContext } from "@/helpers/hotelDetail/dateContext";
 import { usePriceContext } from "@/helpers/hotelDetail/priceContext";
 import { useRoomsContext } from "@/helpers/hotelDetail/roomsContext";
 import firstToUpperCase from "@/helpers/upperCase";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
 const RoomsCard: React.FC<{
+  id: string;
   type: string;
   description: string;
   price: number;
   index: number;
   currency: string;
-}> = ({ type, description, price, index, currency }) => {
+}> = ({ id, type, description, price, currency, index }) => {
   const { diffDays } = useDateContext();
   const { updatePrice } = usePriceContext();
   const { updateRooms } = useRoomsContext();
@@ -24,6 +24,7 @@ const RoomsCard: React.FC<{
   const [totalPrice, setTotalPrice] = useState<number | null>(price);
   const [totalRooms, setTotalRooms] = useState<number>(0);
 
+  //Función para capturar el valor del número de habitaciones
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const nRooms = parseInt(e.target.value, 10);
     setTotalRooms(nRooms);
@@ -32,22 +33,22 @@ const RoomsCard: React.FC<{
   useEffect(() => {
     if (diffDays) {
       updatePrice(index, price * diffDays * totalRooms);
-      updateRooms(index, totalRooms);
+      updateRooms(index, totalRooms, id, type);
     }
   }, [totalRooms]);
 
   useEffect(() => {
     if (diffDays) {
-      setTotalPrice(price * diffDays);
+      setTotalPrice(price * diffDays); //Precio que se muestra en cada habitación
     }
   }, [diffDays]);
 
   return (
-    <div className="flex w-full bg-[#d0f6e9] h-[100px] mb-4 rounded-xl justify-evenly items-center py-2 shadow-lg">
+    <div>
       {diffDays ? (
-        <>
+        <div className="flex w-full bg-[#d0f6e9] h-[100px] mb-4 rounded-xl animate-fadeIn justify-evenly items-center py-2 shadow-lg">
           <div className="flex gap-4 items-center p-2 w-[10%]">
-            <Image src="/assets/Bed.png" alt="Bed icon" className="w-[36px]" />
+            <img src="/assets/Bed.png" alt="Bed icon" className="w-[36px]" />
             <span className="text-base font-medium text-[#00352a]">
               {newType}
             </span>
@@ -64,21 +65,34 @@ const RoomsCard: React.FC<{
               {totalPrice} {currency}
             </span>
           </div>
-          <select
-            onChange={handleSelectChange}
-            className="bg-[#f3fffc] rounded-lg border-[#009375] border-2"
-          >
-            <option className="border-none text-center" value="0"></option>
-            <option className="border-none text-center" value="1">
-              1
-            </option>
-            <option className="border-none text-center" value="2">
-              2
-            </option>
-          </select>
-        </>
+          <div className="flex flex-col">
+            <span className="text-sm mb-1 font-medium text-[#00352a]">
+              N° Rooms
+            </span>
+            <select
+              onChange={handleSelectChange}
+              className="bg-[#f3fffc] rounded-lg border-[#009375] border-2"
+            >
+              <option className="border-none text-center" value="0">
+                0
+              </option>
+              <option className="border-none text-center" value="1">
+                1
+              </option>
+              <option className="border-none text-center" value="2">
+                2
+              </option>
+              <option className="border-none text-center" value="3">
+                3
+              </option>
+              <option className="border-none text-center" value="4">
+                4
+              </option>
+            </select>
+          </div>
+        </div>
       ) : (
-        <h2>Please select the date to see the rooms</h2>
+        <div className="animate-pulse"></div>
       )}
     </div>
   );
