@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 // components/TravelGrid.tsx
+
 import Link from "next/link";
 import React from "react";
 
@@ -11,17 +12,19 @@ interface TravelCardProps {
 const TravelCard: React.FC<TravelCardProps> = ({ image, location }) => {
   return (
     <Link href={`/search-results?search=${encodeURIComponent(location)}`}>
-    <div className="relative overflow-hidden rounded-lg shadow-lg h-full cursor-pointer hover:shadow-lg transition-shadow duration-300">
-      <img
-        src={image}
-        alt={location}
-        className="max-w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-25 flex items-end p-3">
-        <h3 className="text-white font-bold text-lg">{location}</h3>
+
+      <div className="relative overflow-hidden rounded-lg shadow-lg h-full cursor-pointer hover:shadow-lg transition-shadow duration-300">
+        <img
+          src={image}
+          alt={location}
+          className="max-w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-25 flex items-end p-3">
+          <h3 className="text-white font-bold text-lg">{location}</h3>
+        </div>
+
       </div>
-    </div>
-  </Link>
+    </Link>
   );
 };
 
@@ -63,8 +66,6 @@ const TravelGrid: React.FC = () => {
       image: "/assets/ushuaia.webp",
       location: "Ushuaia",
     },
-   
-  
   ];
 
   return (
