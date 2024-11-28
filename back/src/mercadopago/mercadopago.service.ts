@@ -1,4 +1,9 @@
-import { Injectable, BadRequestException, NotFoundException, BadGatewayException } from '@nestjs/common';
+import {
+  Injectable,
+  BadRequestException,
+  NotFoundException,
+  BadGatewayException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import axios from 'axios';
 import { isUUID } from 'class-validator';
@@ -13,7 +18,8 @@ import { PaymentRepository } from './mercadopago.repository';
 export class MercadopagoService {
   constructor(
     @InjectRepository(User) private readonly userRepository: Repository<User>,
-    @InjectRepository(Booking) private readonly bookingRepository: Repository<Booking>,
+    @InjectRepository(Booking)
+    private readonly bookingRepository: Repository<Booking>,
     private readonly paymentRepository: PaymentRepository,
     private dataSource: DataSource,
   ) {}
@@ -26,7 +32,10 @@ export class MercadopagoService {
    * @param createBooking - Detalles de la reserva
    * @returns Promise<{ init_point: string }> - Retorna el punto de inicio para la transacción en MercadoPago
    */
-  async createBookingService(user_id: string, createBooking: any): Promise<{ init_point: string }> {
+  async createBookingService(
+    user_id: string,
+    createBooking: any,
+  ): Promise<{ init_point: string }> {
     // Crear un queryRunner para gestionar la transacción
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
@@ -34,7 +43,8 @@ export class MercadopagoService {
 
     try {
       // Validar el ID del usuario
-      if (!isUUID(user_id)) throw new BadRequestException(`${user_id} is not a valid id`);
+      if (!isUUID(user_id))
+        throw new BadRequestException(`${user_id} is not a valid id`);
 
       // Buscar el usuario en la base de datos
       const user = await this.userRepository.findOne({
@@ -52,13 +62,15 @@ export class MercadopagoService {
 
       // Crear el cuerpo de la preferencia de pago
       const body = {
-        items: [{
-          id: 'booking_id',
-          title: `Booking for ${createBooking.hotel_name}`,
-          quantity: 1,
-          unit_price: Number(createBooking.price),
-          currency_id: 'USD',
-        }],
+        items: [
+          {
+            id: 'booking_id',
+            title: `Booking for ${createBooking.hotel_name}`,
+            quantity: 1,
+            unit_price: Number(createBooking.price),
+            currency_id: 'USD',
+          },
+        ],
         back_urls: {
           success: `${process.env.URL_HOST_FRONT}bookings`,
           failure: `${process.env.URL_HOST_FRONTF}failure`,

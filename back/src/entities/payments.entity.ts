@@ -3,6 +3,7 @@ import {
   Column,
   Entity,
   JoinColumn,
+  ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -29,11 +30,11 @@ export class Payment {
   @Column()
   stripePaymentIntentId: string;
 
-  @OneToOne(() => User, (user) => user.payment)
+  @ManyToOne(() => User, (user) => user.payment)
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @OneToOne(() => PaymentDetails, (paymentDetails) => paymentDetails.details)
+  @OneToOne(() => PaymentDetails, (paymentDetails) => paymentDetails.payment)
   @JoinColumn({ name: 'payment_details_id' })
   payment_details: PaymentDetails;
 }

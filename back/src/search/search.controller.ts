@@ -14,13 +14,11 @@ export class SearchController {
 
   @Post('bar')
   async searchBar(@Query('query') query: any) {
-      return await this.searchService.searchBar(query);
+    return await this.searchService.searchBar(query);
   }
 
   @Post('bar-result')
   async searchBarResults(@Query('query') query: any) {
-    
     return await this.searchService.searchBarResults(query);
-    
   }
 }

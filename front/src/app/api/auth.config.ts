@@ -19,7 +19,6 @@ export const authOptions = {
 
     async signIn({ account }: any) {
       const googleToken = account?.id_token; 
-      console.log('Google token:', googleToken);
       
       try {
         
@@ -33,7 +32,6 @@ export const authOptions = {
         }
 
         const data = await response.data;
-        console.log('Validated token:', data);
 
         return true;  // se inicia sesión 
       } catch (error) {

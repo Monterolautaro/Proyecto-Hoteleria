@@ -3,9 +3,7 @@ import { SuspendRepository } from './suspended.repository';
 
 @Injectable()
 export class SuspendService {
-  constructor(
-    private readonly suspendRepository: SuspendRepository
-  ) {}
+  constructor(private readonly suspendRepository: SuspendRepository) {}
 
   // async suspendUser(name: string): Promise<void> {
   //   try {

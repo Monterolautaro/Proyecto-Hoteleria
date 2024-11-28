@@ -43,8 +43,8 @@ export class User {
   @Column('simple-array')
   role: Roles[];
 
-  // @Column('boolean', { default: false })
-  // isSuspend: boolean;
+  @Column('boolean', { default: false })
+  isSuspend: boolean;
 
   @OneToOne(() => Credentials, (credential) => credential.user, {
     onDelete: 'CASCADE',
@@ -61,7 +61,8 @@ export class User {
   @OneToMany(() => TimeMetrics, (timeMetrics) => timeMetrics.user)
   time_metrics: TimeMetrics[];
 
-  @OneToOne(() => Payment, (payment) => payment.user)
+  @OneToMany(() => Payment, (payment) => payment.user)
+  @JoinColumn({ name: 'payment_id' })
   payment!: Payment;
 
   @OneToMany(() => Hotel, (hotel) => hotel.owner)
@@ -71,7 +72,7 @@ export class User {
   verified?: boolean;
 
   @OneToOne(() => RegisteredHotelsDetails, (details) => details.owner, {
-    onDelete: 'CASCADE'
+    onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'registered_hotels_details_id' })
   registered_hotels_details?: RegisteredHotelsDetails;

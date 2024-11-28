@@ -1,17 +1,15 @@
-import { IsOptional } from "class-validator";
-
-
+import { IsOptional } from 'class-validator';
 
 export class FiltersDto {
-    @IsOptional()
-    city: string;
+  @IsOptional()
+  city: string;
 
-    @IsOptional()
-    country: string;
+  @IsOptional()
+  country: string;
 
-    @IsOptional()
-    price: string;
+  @IsOptional()
+  price: string;
 
-    @IsOptional()
-    amenities: string;
+  @IsOptional()
+  amenities: string;
 }

@@ -3,9 +3,7 @@ import { Stripe } from 'stripe';
 
 @Injectable()
 export class StripeService {
-  constructor(
-    @Inject('STRIPE_CLIENT') private readonly stripeClient: Stripe
-  ) {}
+  constructor(@Inject('STRIPE_CLIENT') private readonly stripeClient: Stripe) {}
 
   async createCheckoutSession() {
     return this.stripeClient.checkout.sessions.create({

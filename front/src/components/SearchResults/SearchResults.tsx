@@ -25,7 +25,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotelsData }) => {
           const response = await axios.post(
             `${API_URL}/search/bar-result?query=${query}`
           );
-          console.log("No filter", response.data);
 
           setHotels(response.data);
         } catch (error) {
@@ -37,9 +36,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotelsData }) => {
 
       fetchHotels();
     } else if (hotelsData?.length! > 0 && hotelsData) {
-      console.log(hotelsData);
-
-      console.log("On filter:");
 
       setHotels(hotelsData);
     }

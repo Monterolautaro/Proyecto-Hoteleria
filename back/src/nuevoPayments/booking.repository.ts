@@ -1,19 +1,32 @@
-import { Injectable } from '@nestjs/common';
-import { Repository, QueryRunner } from 'typeorm';
+import {
+  BadRequestException,
+  Inject,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { Repository, DataSource, In } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Booking } from '../entities/booking.entity';
 import { User } from '../entities/users/user.entity';
 import { Hotel } from '../entities/hotel/hotel.entity';
+import { BookedRooms } from 'src/entities/hotel/rooms/booked.rooms.entity';
+import { IBookingRooms } from 'src/Interfaces/booking-rooms.interface';
+import { Availability } from 'src/entities/hotel/hotel.availability.entity';
+import { RoomType } from 'src/entities/hotel/rooms/roomsType.entity';
+import { Room } from 'src/entities/hotel/rooms/hotel.rooms.entity';
 
 @Injectable()
 export class BookingRepository {
   constructor(
+    private readonly dataSource: DataSource,
     @InjectRepository(Booking)
     private readonly bookingRepo: Repository<Booking>,
     @InjectRepository(User)
     private readonly userRepo: Repository<User>,
     @InjectRepository(Hotel)
     private readonly hotelRepo: Repository<Hotel>,
+    @InjectRepository(BookedRooms)
+    private readonly bookedRoomsRepo: Repository<BookedRooms>,
   ) {}
 
   /**
@@ -28,62 +41,93 @@ export class BookingRepository {
    * @returns Promise<Booking> - Retorna la reserva creada
    */
   async createBooking(
-    userId: string,
-    hotelId: string,
-    roomId: string,
-    checkIn: Date,
-    checkOut: Date,
-    queryRunner: QueryRunner
+    userId,
+    hotelId,
+    rooms,
+    checkIn,
+    checkOut,
+    queryRunner,
   ): Promise<Booking> {
-    // Inicio query runner e inicio transacción
     await queryRunner.connect();
-    await queryRunner.startTransaction();
 
     try {
       // Buscar al usuario por ID usando el queryRunner
-      const user = await queryRunner.manager.findOne(User, { where: { user_id: userId } });
-      
-      // Buscar al hotel por ID usando el queryRunner
-      const hotel = await queryRunner.manager.findOne(Hotel, { where: { hotel_id: hotelId } });
-
-      // Verificar si el usuario o el hotel existen
-      if (!user || !hotel) {
-        throw new Error('Usuario o hotel no encontrados');
-      }
-
-      // Crear una nueva reserva
-      const booking = this.bookingRepo.create({ user, hotel, room_id: roomId, checkIn, checkOut });
-      
-      // Guardar la reserva usando el queryRunner
-      await queryRunner.manager.save(booking);
-
-      // Actualizar la disponibilidad de las habitaciones del hotel
-      hotel.room.forEach(room => {
-        if (room.room_id === roomId) {
-          room.room_type.rooms_left -= 1;
-        }
+      const user = await queryRunner.manager.findOne(User, {
+        where: { user_id: userId },
       });
 
-      // Restar el total de habitaciones disponibles del hotel
-      hotel.availability.totalRoomsLeft -= 1;
+      // Buscar al hotel por ID usando el queryRunner
+      const hotel = await queryRunner.manager.findOne(Hotel, {
+        where: { hotel_id: hotelId },
+      });
+
+      // Verificar si el usuario o el hotel existen
+      if (!hotel) throw new NotFoundException('Hotel no encontrados');
+      if (!user) throw new NotFoundException('Usuario no encontrados');
+
+      const bookedRooms = new BookedRooms();
+
+      const validRooms = rooms.filter((room) => room.rooms > 0);
+
+      let totalRooms = 0;
+      // itero sobre las rooms que llegan desde paymentData
+
+      await validRooms.forEach(async (room: IBookingRooms) => {
+        if (room.type === 'single') bookedRooms.single_room_id = room.roomId;
+        if (room.type === 'double') bookedRooms.double_room_id = room.roomId;
+        if (room.type === 'triple') bookedRooms.triple_room_id = room.roomId;
+        if (room.type === 'suite') bookedRooms.suite_room_id = room.roomId;
+
+        // actualizo las habitaciónes de cada tipo, y además las voy añadiendo a total rooms
+
+        totalRooms += room.rooms;
+
+        // TERMINAR, ME TIENEN QUE PASAR UN ID VALIDO (ME ESTAN PASANDO room-2 , room-3, etc)
+
+        const foundRoom = await queryRunner.manager.findOne(Room, {
+          where: { room_id: room.roomId },
+        });
+        if (!foundRoom) throw new NotFoundException('Room not found');
+        await queryRunner.manager.decrement(
+          RoomType,
+          { room_type_id: foundRoom.room_type.room_type_id },
+          'rooms_left',
+          room.rooms,
+        );
+      });
+
+      if (totalRooms > hotel.availability.totalRoomsLeft)
+        throw new BadRequestException('Not enough rooms available in hotel');
+
+      //actualizo availability del hotel
+      if (totalRooms > 0)
+        await queryRunner.manager.decrement(
+          Availability,
+          { availability_id: hotel.availability.availability_id },
+          'totalRoomsLeft',
+          totalRooms,
+        );
+
+      // crear la reserva
+      const booking: Booking = await queryRunner.manager.create(Booking, {
+        user,
+        hotel,
+        checkIn,
+        checkOut,
+      });
+      await queryRunner.manager.save(booking);
+
+      bookedRooms.booking = booking;
+
+      await queryRunner.manager.save(bookedRooms);
 
       // Guardar los cambios en el hotel usando el queryRunner
       await queryRunner.manager.save(hotel);
 
-      // Confirmo la transacción
-      await queryRunner.commitTransaction();
-
       // Retornar la reserva creada
       return booking;
     } catch (error) {
-      // Revertir la transacción si hay algún error
-      await queryRunner.rollbackTransaction();
-      throw error;
-    } finally {
-      // Liberar el queryRunner
-      await queryRunner.release();
+      throw new BadRequestException('Error creating booking', error);
     }
   }
 }
-
-// Documentado con ayuda de Copilot
