@@ -6,6 +6,7 @@ import { usePriceContext } from "@/helpers/hotelDetail/priceContext";
 import { useRoomsContext } from "@/helpers/hotelDetail/roomsContext";
 import { SendPaymentData } from "@/helpers/payment/SendPaymentData";
 import validateForm from "@/helpers/payment/validateForm";
+import { IStripeData } from "@/interfaces/paymentData";
 import { IPaymentData } from "@/interfaces/paymentDataForm";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { differenceInDays } from "date-fns";
@@ -17,11 +18,13 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   const { startDateContext, endDateContext, people, setDiffDays } =
     useDateContext(); //Fechas y numero de personas
   const { bookingRooms, resetRooms } = useRoomsContext(); //Numero de habitaciones
-  const { bookingPrice, resetPrice } = usePriceContext();
+  const { bookingPrice, resetPrice, hotelId } = usePriceContext(); //Precio total
   const [button, setButton] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
   const router = useRouter();
+
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   //Creo estado para el formulario de los datos
   const [formData, setFormData] = useState<IPaymentData>({
@@ -75,7 +78,19 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
       const { id } = paymentMethod;
       const totalPrice = bookingPrice.reduce((ac, index) => ac + index, 0);
       try {
-        const response = await SendPaymentData(id, totalPrice);
+        const data: IStripeData = {
+          id,
+          userId: user.id,
+          amount: totalPrice,
+          hotelId: hotelId!,
+          rooms: bookingRooms,
+          checkIn: startDateContext!,
+          checkOut: endDateContext!,
+          travelers: people!,
+        };
+        console.log(data);
+
+        const response = await SendPaymentData(data);
         if (response) {
           Swal.fire({
             title: response.message,
@@ -120,7 +135,17 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
           </h3>
           <h3 className="mb-3 flex flex-col">
             <span className="font-semibold ">Total rooms </span>
-            {bookingRooms.reduce((acc, price) => acc + price, 0)} rooms
+            {bookingRooms
+              .filter((room) => room.rooms > 0)
+              .map((room, key) => {
+                return (
+                  <div key={key} className="flex flex-col">
+                    <p>
+                      {room.rooms} {room.type}
+                    </p>
+                  </div>
+                );
+              })}
           </h3>
           <h3 className="font-semibold">Duration of your estance</h3>
           <span className="mb-4">

@@ -9,12 +9,13 @@ import { useEffect, useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
 const RoomsCard: React.FC<{
+  id: string;
   type: string;
   description: string;
   price: number;
   index: number;
   currency: string;
-}> = ({ type, description, price, index, currency }) => {
+}> = ({ id, type, description, price, currency, index }) => {
   const { diffDays } = useDateContext();
   const { updatePrice } = usePriceContext();
   const { updateRooms } = useRoomsContext();
@@ -23,21 +24,24 @@ const RoomsCard: React.FC<{
   const [totalPrice, setTotalPrice] = useState<number | null>(price);
   const [totalRooms, setTotalRooms] = useState<number>(0);
 
+  //Función para capturar el valor del número de habitaciones
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const nRooms = parseInt(e.target.value, 10);
-    setTotalRooms(nRooms);
+    if (nRooms >= 0) {
+      setTotalRooms(nRooms);
+    }
   };
 
   useEffect(() => {
-    if (diffDays) {
+    if (diffDays && totalRooms) {
       updatePrice(index, price * diffDays * totalRooms);
-      updateRooms(index, totalRooms);
+      updateRooms(index, totalRooms, id, type);
     }
   }, [totalRooms]);
 
   useEffect(() => {
     if (diffDays) {
-      setTotalPrice(price * diffDays);
+      setTotalPrice(price * diffDays); //Precio que se muestra en cada habitación
     }
   }, [diffDays]);
 
@@ -67,7 +71,9 @@ const RoomsCard: React.FC<{
             onChange={handleSelectChange}
             className="bg-[#f3fffc] rounded-lg border-[#009375] border-2"
           >
-            <option className="border-none text-center" value="0"></option>
+            <option className="border-none text-center" value="0">
+              0
+            </option>
             <option className="border-none text-center" value="1">
               1
             </option>
