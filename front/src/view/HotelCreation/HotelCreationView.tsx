@@ -4,21 +4,13 @@ import BasicInfoForm from "@/components/HotelBasicInfo/HotelBasicInfoForm";
 import { useHotelCreation } from "@/components/HotelCreationContext/HotelCreationProvider";
 import HotelDetailsForm from "@/components/HotelDetailsForm/HotelDetailsForm";
 import RoomInfoForm from "@/components/HotelRoomsForm/HotelRoomsForm";
-import createHotel from "@/helpers/hotelCreation/createHotel";
+// import createHotel from "@/helpers/hotelCreation/createHotel";
 import { IHotelCreation } from "@/interfaces/hotelCreation";
 import { useEffect, useRef } from "react";
 
 const HotelCreationView = () => {
-  const {
-    hotelInfo,
-    hotelDetails,
-    hotelRooms,
-    step,
-    setStep,
-    setHotelInfo,
-    setHotelDetails,
-    setHotelRooms,
-  } = useHotelCreation();
+  const { hotelInfo, hotelDetails, hotelRooms, step, setStep } =
+    useHotelCreation();
 
   const formStepThreeRef = useRef<HTMLDivElement>(null);
 
@@ -50,34 +42,9 @@ const HotelCreationView = () => {
       },
       availability: {
         available: true,
-        totalRoomsLeft: parseInt(hotelRooms.roomsLeft, 10),
+        totalRoomsLeft: 0,
       },
-      rooms: {
-        single: {
-          price: parseFloat(hotelRooms.price),
-          currency: hotelRooms.currency,
-          rooms_left: parseInt(hotelRooms.roomsLeft, 10),
-          description: hotelRooms.description,
-        },
-        double: {
-          price: parseFloat(hotelRooms.price),
-          currency: hotelRooms.currency,
-          rooms_left: parseInt(hotelRooms.roomsLeft, 10),
-          description: hotelRooms.description,
-        },
-        triple: {
-          price: parseFloat(hotelRooms.price),
-          currency: hotelRooms.currency,
-          rooms_left: parseInt(hotelRooms.roomsLeft, 10),
-          description: hotelRooms.description,
-        },
-        suite: {
-          price: parseFloat(hotelRooms.price),
-          currency: hotelRooms.currency,
-          rooms_left: parseInt(hotelRooms.roomsLeft, 10),
-          description: hotelRooms.description,
-        },
-      },
+      rooms: hotelRooms,
       amenities: {
         pool: false,
         spa: false,
@@ -88,7 +55,7 @@ const HotelCreationView = () => {
     };
 
     console.log(newHotel);
-    await createHotel(newHotel);
+    // await createHotel(newHotel);
   };
 
   // Scroll hacia el formulario de Step 3 cuando aparece
@@ -119,15 +86,8 @@ const HotelCreationView = () => {
         {/* Formulario principal para pasos 1 y 2 */}
         {step !== 3 && (
           <div className="w-full max-w-md bg-[#004D40] p-6 rounded-lg shadow-lg mr-14">
-            {step === 1 && (
-              <BasicInfoForm hotelInfo={hotelInfo} setHotelInfo={setHotelInfo} />
-            )}
-            {step === 2 && (
-              <HotelDetailsForm
-                hotelDetails={hotelDetails}
-                setHotelDetails={setHotelDetails}
-              />
-            )}
+            {step === 1 && <BasicInfoForm />}
+            {step === 2 && <HotelDetailsForm />}
 
             <div className="flex justify-between mt-4">
               {/* Mostrar "Previous" solo si estamos en el paso 2 */}
@@ -160,10 +120,7 @@ const HotelCreationView = () => {
             <h2 className="text-3xl font-bold text-white mb-6">
               Choose the rooms
             </h2>
-            <RoomInfoForm
-              hotelRooms={hotelRooms}
-              setHotelRooms={setHotelRooms}
-            />
+            <RoomInfoForm />
           </div>
 
           <div className="flex justify-between mt-4 w-full max-w-5xl">
