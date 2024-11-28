@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react"; // Importamos signIn de next-auth
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaGoogle } from "react-icons/fa"; // Importamos el ícono de Google
+import Cookies from "js-cookie";
 
 const Login = () => {
   const router = useRouter();
@@ -39,8 +40,9 @@ const Login = () => {
       setIsSubmitting(true);
 
       const { token, user } = await loginUser(formData);
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(user));
+      console.log(user);
+      Cookies.set("token", token, { expires: 1 });
+      Cookies.set("user", JSON.stringify(user), { expires: 1 });
 
       Toast.fire({
         icon: "success",

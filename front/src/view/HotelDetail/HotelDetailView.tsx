@@ -113,6 +113,7 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
             <TotalPrice
               hotelId={hotelInfo?.hotel_id!}
               hotelName={encodeURIComponent(hotelInfo?.name!)}
+              currency={hotelInfo?.room[0].room_type.currency!}
             />
           </div>
         </section>

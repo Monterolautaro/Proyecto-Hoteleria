@@ -6,11 +6,12 @@ import { useRoomsContext } from "@/helpers/hotelDetail/roomsContext";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const TotalPrice: React.FC<{ hotelName: string; hotelId: string }> = ({
-  hotelName,
-  hotelId,
-}) => {
-  const { bookingPrice, setHotelId } = usePriceContext();
+const TotalPrice: React.FC<{
+  hotelName: string;
+  hotelId: string;
+  currency: string;
+}> = ({ hotelName, hotelId, currency }) => {
+  const { bookingPrice, setHotelId, setCurrency } = usePriceContext();
   const { bookingRooms } = useRoomsContext();
   const [total, setTotal] = useState(0);
   const [totalRooms, setTotalRooms] = useState(0);
@@ -25,6 +26,7 @@ const TotalPrice: React.FC<{ hotelName: string; hotelId: string }> = ({
 
     setTotal(total);
     setTotalRooms(totalRooms);
+    setCurrency(currency); // Identifica la moneda a utilizar
 
     setHotelId(hotelId);
   }, [bookingRooms]);
@@ -33,7 +35,9 @@ const TotalPrice: React.FC<{ hotelName: string; hotelId: string }> = ({
     <div className="flex self-end items-center gap-3">
       <p>
         Total price for {totalRooms} rooms:{" "}
-        <span className="font-bold">{total} COP</span>
+        <span className="font-bold">
+          {total} {currency}
+        </span>
       </p>
       {total !== 0 ? (
         <Link
