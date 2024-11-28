@@ -31,7 +31,7 @@ export const authOptions = {
           return false;  // no se inicia sesión
         }
 
-        const data = await response.data;
+        await response.data;
 
         return true;  // se inicia sesión 
       } catch (error) {
