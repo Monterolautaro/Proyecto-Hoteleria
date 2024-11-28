@@ -4,6 +4,7 @@ import { useDateContext } from "@/helpers/hotelDetail/dateContext";
 
 const PeopleSelector = () => {
   const { setPeople } = useDateContext();
+
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPeople(parseInt(e.target.value, 10));
   };

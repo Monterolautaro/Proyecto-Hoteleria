@@ -27,13 +27,11 @@ const RoomsCard: React.FC<{
   //Función para capturar el valor del número de habitaciones
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const nRooms = parseInt(e.target.value, 10);
-    if (nRooms >= 0) {
-      setTotalRooms(nRooms);
-    }
+    setTotalRooms(nRooms);
   };
 
   useEffect(() => {
-    if (diffDays && totalRooms) {
+    if (diffDays) {
       updatePrice(index, price * diffDays * totalRooms);
       updateRooms(index, totalRooms, id, type);
     }
@@ -79,6 +77,12 @@ const RoomsCard: React.FC<{
             </option>
             <option className="border-none text-center" value="2">
               2
+            </option>
+            <option className="border-none text-center" value="3">
+              3
+            </option>
+            <option className="border-none text-center" value="4">
+              4
             </option>
           </select>
         </>

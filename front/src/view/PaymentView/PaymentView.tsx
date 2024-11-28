@@ -18,7 +18,7 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   const { startDateContext, endDateContext, people, setDiffDays } =
     useDateContext(); //Fechas y numero de personas
   const { bookingRooms, resetRooms } = useRoomsContext(); //Numero de habitaciones
-  const { bookingPrice, resetPrice, hotelId } = usePriceContext(); //Precio total
+  const { bookingPrice, resetPrice, hotelId, currency } = usePriceContext(); //Precio total
   const [button, setButton] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
@@ -158,7 +158,7 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
             Total
           </h3>
           <h3 className="font-bold text-xl self-end">
-            {bookingPrice.reduce((ac, index) => ac + index, 0)} COP
+            {bookingPrice.reduce((ac, index) => ac + index, 0)} {currency}
           </h3>
         </div>
 
