@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Logout from './Logout/Logout';
+import Logout from '../Logout/Logout';
 import { IUserSession } from '@/interfaces';
+import styles from "./navbarbuttons.module.css"
+
 
 
 
@@ -13,7 +15,6 @@ const NavbarButtons: React.FC = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Obtener token y datos del usuario por separado
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
     if (token && user) {
@@ -32,13 +33,13 @@ const NavbarButtons: React.FC = () => {
         <>
           <Link
             href="/login"
-            className="text-white text-sm font-medium transition-colors duration-200 hover:text-[#43C6AC]"
+            className={styles.bubbleLink}
           >
             Login
           </Link>
           <Link
             href="/register"
-            className="text-white text-sm font-medium transition-colors duration-200 hover:text-[#43C6AC]"
+            className={styles.bubbleLink}
           >
             Register
           </Link>
@@ -53,13 +54,13 @@ const NavbarButtons: React.FC = () => {
         <>
           <Link
             href="/admin"
-            className="text-white text-sm font-medium transition-colors duration-200 hover:text-[#43C6AC]"
+            className={styles.bubbleLink}
           >
             Admin
           </Link>
           <Link
             href="/hotelcreation"
-            className="text-white text-sm font-medium transition-colors duration-200 hover:text-[#43C6AC]"
+            className={styles.bubbleLink}
           >
             Hotel Creation
           </Link>
@@ -74,11 +75,11 @@ const NavbarButtons: React.FC = () => {
           
           <Link
             href="/dashboard"
-            className="text-white text-sm font-medium transition-colors duration-200 hover:text-[#43C6AC]"
+            className={styles.bubbleLink}
           >
             Profile
           </Link>
-          <Logout setUserSession={setUserSession} />
+          <Logout setUserSession={setUserSession}  />
         </>
       );
     }
