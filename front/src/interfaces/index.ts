@@ -40,3 +40,14 @@ export interface IHotel {
   room: IRooms[];
   amenities: IAmenities;
 }
+export interface IUser {
+  id: string;
+  email: string;
+  role: string[];
+  verified: boolean;
+}
+
+export interface IUserSession {
+  token: string;
+  user: IUser;
+}

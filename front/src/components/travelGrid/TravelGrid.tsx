@@ -36,8 +36,8 @@ const TravelGrid: React.FC = () => {
       location: "Medellin",
     },
     {
-      image: "/assets/mendoza.jpg",
-      location: "Mendoza",
+      image: "/assets/salta.jpg",
+      location: "Salta",
     },
     {
       image: "/assets/San-andres.webp",
