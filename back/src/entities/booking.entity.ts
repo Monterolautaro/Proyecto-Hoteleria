@@ -21,10 +21,10 @@ export class Booking {
   booking_id: string = uuid();
 
   @Column('date')
-  checkIn: Date;
+  start_date: Date;
 
   @Column('date')
-  checkOut: Date;
+  end_date: Date;
 
   @ManyToOne(() => User, (user) => user.bookings)
   @JoinColumn({ name: 'user_id' })
