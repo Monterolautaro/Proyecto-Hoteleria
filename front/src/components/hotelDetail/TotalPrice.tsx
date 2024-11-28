@@ -32,7 +32,7 @@ const TotalPrice: React.FC<{
   }, [bookingRooms]);
 
   return (
-    <div className="flex self-end items-center gap-3">
+    <div className="flex self-end items-center gap-3 mb-10">
       <p>
         Total price for {totalRooms} rooms:{" "}
         <span className="font-bold">
@@ -42,7 +42,7 @@ const TotalPrice: React.FC<{
       {total !== 0 ? (
         <Link
           href={`/payment/${hotelName}`}
-          className="bg-[#009375] min-w-fit py-2 px-4 text-white font-medium text-xl rounded-md self-end"
+          className="bg-[#009375] min-w-fit py-2 px-4 text-white font-medium text-xl rounded-md self-end hover:bg-[#3fceb1] transition duration-150"
         >
           Reserve now <span className="font-extrabold">{">"}</span>
         </Link>

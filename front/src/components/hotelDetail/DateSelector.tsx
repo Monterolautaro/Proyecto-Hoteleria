@@ -4,6 +4,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { DateRange } from "react-date-range";
 import { differenceInDays, format } from "date-fns";
+import { enUS } from "date-fns/locale";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { useDateContext } from "@/helpers/hotelDetail/dateContext";
@@ -11,6 +12,18 @@ import { useDateContext } from "@/helpers/hotelDetail/dateContext";
 const DateRangePicker = () => {
   const { setDiffDays, setEndDateContext, setStartDateContext } =
     useDateContext();
+
+  const customLocale = {
+    ...enUS,
+    customLabels: {
+      early: "Start Date", // Cambiar "Early"
+      continuous: "End Date", // Cambiar "Continuous"
+    },
+  };
+
+  useEffect(() => {
+    setDiffDays(0);
+  }, []);
   const [dateRange, setDateRange] = useState([
     {
       startDate: undefined,
@@ -99,6 +112,7 @@ const DateRangePicker = () => {
           className="absolute top-full mt-2"
         >
           <DateRange
+            locale={customLocale}
             onChange={handleDateChange}
             moveRangeOnFirstSelection={false}
             ranges={dateRange}
