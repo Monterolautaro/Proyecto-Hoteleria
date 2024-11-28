@@ -3,9 +3,7 @@ import { MercadopagoService } from './mercadopago.service';
 
 @Controller('booking')
 export class MercadopagoController {
-  constructor(
-    private readonly mercadopagoService: MercadopagoService,
-  ) {}
+  constructor(private readonly mercadopagoService: MercadopagoService) {}
 
   /**
    * Crea una nueva reserva y genera una preferencia de pago utilizando MercadoPago.
@@ -35,7 +33,8 @@ export class MercadopagoController {
     if (body.type === 'payment') {
       const paymentId = body.data.id;
       try {
-        const paymentDetails = await this.mercadopagoService.getPaymentDetails(paymentId);
+        const paymentDetails =
+          await this.mercadopagoService.getPaymentDetails(paymentId);
 
         return paymentDetails;
       } catch (error) {

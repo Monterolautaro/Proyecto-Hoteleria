@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { AuthRepository } from './auth.repository';
 import { CreateUserDto } from 'src/dto/user.dto';
 import { JwtService } from '@nestjs/jwt';
@@ -11,12 +15,12 @@ dotenvConfig({
   path: '.env',
 });
 
-
 @Injectable()
 export class AuthService {
-  private googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID)
-  
-  constructor(private readonly authRepository: AuthRepository,
+  private googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+  constructor(
+    private readonly authRepository: AuthRepository,
     private readonly jwtService: JwtService,
     private readonly userRepository: UserRepository,
   ) {}
@@ -37,23 +41,24 @@ export class AuthService {
   }
 
   async validateGoogleToken(token: string) {
-    
     const ticket = await this.googleClient.verifyIdToken({
       idToken: token,
       audience: process.env.GOOGLE_CLIENT_ID,
     });
-    
+
     const payload = ticket.getPayload();
-    
+
     console.log('esta pasando por aca');
     if (!payload) {
       throw new Error('Invalid token payload');
     }
-    
+
     try {
-    
-    // Verifico que el email de google haya sido verificado por google
-    if(!payload.email_verified) throw new UnauthorizedException('Please verify your email with Google before continue')
+      // Verifico que el email de google haya sido verificado por google
+      if (!payload.email_verified)
+        throw new UnauthorizedException(
+          'Please verify your email with Google before continue',
+        );
 
       // Si el usuario existe en la DB, lo logueo
       const foundUser = await this.userRepository.getUserByEmail(payload.email);
@@ -62,8 +67,8 @@ export class AuthService {
           email: payload.email,
           name: payload.name,
           role: [Roles.user],
-        }
-        
+        };
+
         // Genero un JWT interno con los datos del usuario y lo devuelvo al front
         return {
           accessToken: this.jwtService.sign(user),
@@ -72,23 +77,23 @@ export class AuthService {
           status: 'logged in',
         };
       }
-      
+
       // Si no existe, lo registro y logueo
       const userData = {
         email: payload.email,
         name: payload.name,
         lastname: payload.family_name,
-        username: payload.given_name
-      }
-      
-      await this.authRepository.signUpGoogleUser(userData)
-      
+        username: payload.given_name,
+      };
+
+      await this.authRepository.signUpGoogleUser(userData);
+
       const user = {
         email: payload.email,
         name: payload.name,
         role: [Roles.user],
-      }
-      
+      };
+
       // Genero un JWT interno con los datos del usuario
       return {
         accessToken: this.jwtService.sign(user),
@@ -97,12 +102,14 @@ export class AuthService {
         status: 'registered',
       };
     } catch (error) {
-
       if (error instanceof UnauthorizedException) {
-        throw error; 
+        throw error;
       }
 
-      throw new BadRequestException('Error logging in or signing up by Google Authentication', error);
-    }
+      throw new BadRequestException(
+        'Error logging in or signing up by Google Authentication',
+        error,
+      );
     }
   }
+}

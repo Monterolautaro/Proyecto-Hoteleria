@@ -31,7 +31,7 @@ export class AuthRepository {
     private readonly verificationCodeRepository: Repository<VerificationCode>,
     @InjectRepository(User)
     private readonly entityUserRepository: Repository<User>,
-  ) { }
+  ) {}
 
   async signUp(userData: CreateUserDto): Promise<any> {
     const queryRunner = this.dataSource.createQueryRunner();
@@ -79,13 +79,18 @@ export class AuthRepository {
         credential,
       });
 
-      //iMPLEMENTACION DEL METODO NODEMAILER 
+      //iMPLEMENTACION DEL METODO NODEMAILER
       const dto: SendEmailDto = {
         recipients: [{ name: '%name%', address: '%email%' }],
-        subject: "Hotelify",
+        subject: 'Hotelify',
         html: ModeloHTML,
-        placeHolderReplacements: ["name", userData.name, "email", userData.email],
-      }
+        placeHolderReplacements: [
+          'name',
+          userData.name,
+          'email',
+          userData.email,
+        ],
+      };
 
       this.mailService.sendEmail(dto);
 
@@ -93,7 +98,6 @@ export class AuthRepository {
       return { status: 201, message: 'User created successfully' };
     } catch (error) {
       queryRunner.rollbackTransaction();
-
 
       throw new BadRequestException(
         'An error has ocurred creating user',
@@ -109,15 +113,14 @@ export class AuthRepository {
     await queryRunner.connect();
     await queryRunner.startTransaction();
     console.log('esto es lo que me llega', userData);
-    
-    
+
     try {
       const user = await queryRunner.manager.create(User, {
         name: userData.name,
         lastname: userData.lastname,
         birthday: 'Google user',
         role: [Roles.user],
-      })  
+      });
 
       await queryRunner.manager.save(user);
 
@@ -131,7 +134,6 @@ export class AuthRepository {
       await queryRunner.manager.save(credential);
 
       console.log('credential id', credential.credential_id);
-      
 
       await queryRunner.manager.update(User, user.user_id, {
         credential,
@@ -139,8 +141,7 @@ export class AuthRepository {
 
       //iMPLEMENTACION DEL METODO NODEMAILER // TERMINAR
 
-
-      // Se hace un commit de la transacción, sin devolver nada porque la respuesta ya la da el servicio 
+      // Se hace un commit de la transacción, sin devolver nada porque la respuesta ya la da el servicio
       await queryRunner.commitTransaction();
     } catch (error) {
       queryRunner.rollbackTransaction();
@@ -148,12 +149,10 @@ export class AuthRepository {
       throw new BadRequestException(
         'An error has ocurred creating user by Google Authentication',
         error,
-      )
-      }
-     finally {
-      queryRunner.release()
+      );
+    } finally {
+      queryRunner.release();
     }
-
   }
 
   async signUpHotelOwner(userData: CreateUserDto): Promise<any> {
@@ -219,12 +218,19 @@ export class AuthRepository {
       // MANDAR CODIGO POR MAIL // TERMINAR
 
       await queryRunner.commitTransaction();
-      return { status: 201, message: 'User created successfully', user: user_id};
+      return {
+        status: 201,
+        message: 'User created successfully',
+        user: user_id,
+      };
     } catch (error) {
-
       if (queryRunner.isTransactionActive) {
-        await queryRunner.rollbackTransaction()
-        return { status: 400, message: `An error has ocurred creating user`, error };
+        await queryRunner.rollbackTransaction();
+        return {
+          status: 400,
+          message: `An error has ocurred creating user`,
+          error,
+        };
       }
       throw new BadRequestException(
         'An error has ocurred creating user',
@@ -258,7 +264,6 @@ export class AuthRepository {
         verified: foundUser.verified,
         role: foundUser.role,
       };
-      
 
       const token = this.jwtService.sign(payload);
       return { success: "You're logged in successfully", token, user: payload };

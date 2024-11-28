@@ -9,9 +9,7 @@ import { Booking } from '../entities/booking.entity';
 import { Payment } from '../entities/payments.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([User, Booking, Payment])
-  ],
+  imports: [TypeOrmModule.forFeature([User, Booking, Payment])],
   providers: [MercadopagoService, PaymentRepository],
   controllers: [MercadopagoController],
 })

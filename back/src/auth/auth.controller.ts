@@ -18,7 +18,10 @@ export class AuthController {
   }
 
   @Post('verify-account/:id')
-  async verifyAccountCode(@Param('id', ParseUUIDPipe) user_id: string, @Body('code') code: string): Promise<any> {
+  async verifyAccountCode(
+    @Param('id', ParseUUIDPipe) user_id: string,
+    @Body('code') code: string,
+  ): Promise<any> {
     return this.authService.verifyAccountCode(user_id, code);
   }
 
@@ -31,7 +34,7 @@ export class AuthController {
   }
 
   @Post('validate-google-token')
-  async validateGoogleToken(@Body() {token}: GoogleAuthDto) {
+  async validateGoogleToken(@Body() { token }: GoogleAuthDto) {
     return this.authService.validateGoogleToken(token);
   }
 

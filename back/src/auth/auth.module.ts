@@ -11,9 +11,12 @@ import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { MailModule } from 'src/mail/mail.module';
 import { MailService } from 'src/mail/mail.service';
 
-
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Credentials, VerificationCode]), UsersModule, MailModule],
+  imports: [
+    TypeOrmModule.forFeature([User, Credentials, VerificationCode]),
+    UsersModule,
+    MailModule,
+  ],
   controllers: [AuthController],
   providers: [AuthService, AuthRepository, UserRepository, MailService],
 })

@@ -15,27 +15,39 @@ export class SearchRepository {
   async searchBar(query: any) {
     try {
       // Hotel names
-      const names = await this.hotelsRepository.find({
-        where: { name: Like(`%${query}%`) },
-      });
+      const names = await this.hotelsRepository
+        .createQueryBuilder('hotel')
+        .where('unaccent(hotel.name) ILike unaccent(:query)', {
+          query: `%${query}%`,
+        })
+        .distinct(true)
+        .getMany();
 
       const name_results = names.map((hotel) => {
         return hotel.name;
       });
 
       // City - Address
-      const cities = await this.addressRepository.find({
-        where: { city: Like(`%${query}%`) },
-      });
+      const cities = await this.addressRepository
+        .createQueryBuilder('address')
+        .where('unaccent(address.city) ILike unaccent(:query)', {
+          query: `%${query}%`,
+        })
+        .distinct(true)
+        .getMany();
 
       const city_results = cities.map((address) => {
         return address.city;
       });
 
       // Country - Address
-      const countries = await this.addressRepository.find({
-        where: { country: Like(`%${query}%`) },
-      });
+      const countries = await this.addressRepository
+        .createQueryBuilder('address')
+        .where('unaccent(address.country) ILike unaccent(:query)', {
+          query: `%${query}%`,
+        })
+        .distinct(true)
+        .getMany();
 
       const country_results = countries.map((address) => {
         return address.country;
@@ -63,91 +75,64 @@ export class SearchRepository {
     }
   }
 
-  async searchByCountry(country: string) {
-    if (country === 'Argentina') {
-      // buscar en la base de datos
-    }
-  }
-
   async searchBarResults(query: any) {
     try {
-      const foundHotel = await this.hotelsRepository.find({
-        where: { name: Like(`%${query}%`) },
-      });
-
-      if (foundHotel.length > 0) {
-        const hotelId = foundHotel[0].hotel_id;
-        const hotel: SearchHotelDto = await this.hotelsRepository.findOne({
-          where: { hotel_id: hotelId },
-          relations: {
-            address: true,
-            amenities: true,
-            availability: true,
-            room: {
-              room_type: true,
-            },
-            details: true,
-          },
-        });
-
-        const otherHotels: SearchHotelDto[] = (await this.hotelsRepository.find({
-          where: { address: { city: hotel.address.city } },
-          relations: {
-            address: true,
-            amenities: true,
-            availability: true,
-            room: {
-              room_type: true
-            },
-            details: true
-          }
+      // Busco hoteles, o ciudades, o paises segun el query
+      const foundHotel = await this.hotelsRepository
+        .createQueryBuilder('hotel')
+        .leftJoinAndSelect('hotel.address', 'address')
+        .where('unaccent(hotel.name) ILike unaccent(:query)', {
+          query: `%${query}%`,
         })
-        );
-        // const filteredHotels = otherHotels.filter(hotel => hotel.hotel_id !== hotel[0].hotel_id)
+        .orWhere('unaccent(address.city) ILike unaccent(:query)', {
+          query: `%${query}%`,
+        })
+        .orWhere('unaccent(address.country) ILike unaccent(:query)', {
+          query: `%${query}%`,
+        })
+        .distinctOn(['hotel.name', 'address.city', 'address.country'])
+        .getMany();
 
-        // console.log('estos son los filtrados', filteredHotels);
-        
+      if (foundHotel.length >= 1) {
+        // extraigo el elemento mas similar a lo que se paso por query
+        const hotelId = foundHotel[0].hotel_id;
+
+        // busco el hotel exacto con el id del elemento que extraje
+        const hotel: SearchHotelDto = await this.hotelsRepository
+          .createQueryBuilder('hotel')
+          .where('hotel.hotel_id = :hotelId', { hotelId })
+          .leftJoinAndSelect('hotel.address', 'address')
+          .leftJoinAndSelect('hotel.amenities', 'amenities')
+          .leftJoinAndSelect('hotel.room', 'room')
+          .leftJoinAndSelect('room.room_type', 'room_type')
+          .leftJoinAndSelect('hotel.availability', 'availability')
+          .leftJoinAndSelect('hotel.details', 'details')
+          .getOne();
+
+        // añado otros hoteles similares a lo que se buscó
+        const splitHotels = query.split(' ');
+
+        const otherHotels: SearchHotelDto[] = await this.hotelsRepository
+          .createQueryBuilder('hotel')
+          .where('unaccent(hotel.name) ILike unaccent(:query)', {
+            query: `%${query}%`,
+          })
+          .leftJoinAndSelect('hotel.address', 'address')
+          .orWhere('unaccent(address.city) ILike unaccent(:query)', {
+            query: `%${query}%`,
+          })
+          .orWhere('unaccent(address.country) ILike unaccent(:query)', {
+            query: `%${query}%`,
+          })
+          .distinctOn(['hotel.name', 'address.city', 'address.country'])
+          .leftJoinAndSelect('hotel.amenities', 'amenities')
+          .leftJoinAndSelect('hotel.room', 'room')
+          .leftJoinAndSelect('room.room_type', 'room_type')
+          .leftJoinAndSelect('hotel.availability', 'availability')
+          .leftJoinAndSelect('hotel.details', 'details')
+          .getMany();
+
         return [hotel, ...otherHotels];
-      }
-
-      const foundCountry = await this.addressRepository.find({
-        where: { country: Like(`%${query}%`) },
-      });
-      if (foundCountry.length > 0) {
-        const foundHotel = await this.hotelsRepository.findOne({
-          where: { address: { country: foundCountry[0].country } },
-          relations: {
-            address: true,
-            amenities: true,
-            availability: true,
-            room: {
-              room_type: true,
-            },
-            details: true,
-          },
-        });
-
-        return [foundHotel];
-      }
-
-      const foundCity = await this.addressRepository.find({
-        where: { city: Like(`%${query}%`) },
-      });
-      if (foundCity.length > 0) {
-        const foundHotel = await this.hotelsRepository.findOne({
-          where: { address: { city: foundCity[0].city } },
-          relations: {
-            address: true,
-            amenities: true,
-            availability: true,
-            room: {
-              room_type: true,
-            },
-            details: true,
-          },
-        });
-
-        return [foundHotel];
       }
     } catch (error) {
       throw new NotFoundException('Error fetching hotels', error);
