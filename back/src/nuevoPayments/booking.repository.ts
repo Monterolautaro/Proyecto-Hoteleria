@@ -112,8 +112,8 @@ export class BookingRepository {
       const booking: Booking = await queryRunner.manager.create(Booking, {
         user,
         hotel,
-        checkIn,
-        checkOut,
+        start_date: checkIn,
+        end_date: checkOut,
       });
       await queryRunner.manager.save(booking);
 

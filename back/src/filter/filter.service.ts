@@ -16,27 +16,4 @@ export class FilterService {
     }
   }
 
-  /*async searchCountry(query: any) {
-      try {
-        return await this.filterRepository.searchFilter(query);
-      } catch (error) {
-        throw new BadRequestException('Error loading hotels', error);
-      }
-    }
-
-    async searchCity(query: any) {
-      try {
-        return await this.filterRepository.searchFilter(query);
-      } catch (error) {
-        throw new BadRequestException('Error loading hotels', error);
-      }
-    }
-
-    async searchEmtities(query: any) {
-      try {
-        return await this.filterRepository.searchFilter(query);
-      } catch (error) {
-        throw new BadRequestException('Error loading hotels', error);
-      }
-    }*/
 }
