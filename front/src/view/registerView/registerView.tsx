@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
 import { registerUser } from "@/helpers/auth.helper";
 import {
+  validateBirthday,
   validateConfirmPassword,
   validateEmail,
   validateLastName,
@@ -34,7 +36,6 @@ const Register = () => {
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Formateo del campo birthday
   // Formateo del campo birthday
   const formatBirthday = (value: string) => {
     const numbersOnly = value.replace(/\D/g, ""); // Eliminar cualquier caracter no numérico
@@ -83,6 +84,9 @@ const Register = () => {
           value
         );
         break;
+      case "birthday":
+        newErrors.birthday = validateBirthday(value);
+        break;
       default:
         break;
     }
@@ -96,6 +100,7 @@ const Register = () => {
     const newErrors = {
       name: validateName(formData.name),
       lastname: validateLastName(formData.lastname),
+      birthday: validateBirthday(formData.birthday),
       email: validateEmail(formData.email),
       password: validatePassword(formData.password),
       confirmPassword: validateConfirmPassword(
@@ -149,7 +154,7 @@ const Register = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
@@ -166,7 +171,7 @@ const Register = () => {
                 type="text"
                 id="lastname"
                 name="lastname"
-                className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Last Name"
                 value={formData.lastname}
                 onChange={handleChange}
@@ -183,12 +188,15 @@ const Register = () => {
                 type="text"
                 id="birthday"
                 name="birthday"
-                className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="YYYY-MM-DD"
                 value={formData.birthday}
                 onChange={handleChange}
                 maxLength={10} // Limitar a 10 caracteres (formato YYYY-MM-DD)
               />
+              {errors.birthday && (
+                <p className="text-red-500 text-sm mt-1">{errors.birthday}</p>
+              )}
             </div>
           </div>
 
@@ -209,7 +217,7 @@ const Register = () => {
                   }
                   id={key}
                   name={key}
-                  className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
                   placeholder={key
                     .replace("confirmPassword", "Confirm Password")
                     .replace(/([A-Z])/g, " $1")}
@@ -224,10 +232,10 @@ const Register = () => {
           </div>
         </form>
 
-        {/* Botón de Registro - Siempre al final */}
+        {/* Botón de Registro */}
         <button
           type="submit"
-          className="w-1/3 py-2 px-4 bg-[#009375] mt-3  text-white rounded-lg hover:bg-[#006c55] disabled:cursor-not-allowed mx-auto"
+          className="w-1/3 py-2 px-4 bg-[#009375] mt-3 text-white rounded-lg hover:bg-[#006c55] disabled:cursor-not-allowed mx-auto"
           disabled={isSubmitting || isFormIncomplete}
           onClick={handleRegister}
         >
@@ -238,10 +246,9 @@ const Register = () => {
         <div className="mt-4 flex justify-center w-full">
           <button
             onClick={() => signIn("google")}
-            className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center  hover:border-gray-400 mt-1 transition"
+            className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center hover:border-gray-400 mt-1 transition"
           >
-            <FaGoogle className="text-[#009375] w-8 h-8" />{" "}
-            {/* Ícono de Google con color azul */}
+            <FaGoogle className="text-[#009375] w-8 h-8" />
           </button>
         </div>
       </div>
