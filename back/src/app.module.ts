@@ -16,6 +16,7 @@ import { UsersModule } from './users/users.module';
 import { FilterModule } from './filter/filter.module';
 import { StripeModule } from './nuevoPayments/nuevoPayments.module';
 import { MailModule } from './mail/mail.module';
+import { MercadopagoModule } from './mercadopago/mercadopago.module';
 
 dotenvConfig({
   path: '.env',
@@ -32,6 +33,7 @@ dotenvConfig({
         configService.get('typeorm'),
     }),
     MailModule,
+    MercadopagoModule,
     StripeModule,
     FilterModule,
     FilesUploadModule,

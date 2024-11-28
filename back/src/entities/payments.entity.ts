@@ -27,7 +27,7 @@ export class Payment {
   @Column()
   status: string;
 
-  @Column()
+  @Column( { nullable: true })
   stripePaymentIntentId: string;
 
   @ManyToOne(() => User, (user) => user.payment)
