@@ -44,9 +44,9 @@ const RoomsCard: React.FC<{
   }, [diffDays]);
 
   return (
-    <div className="flex w-full bg-[#d0f6e9] h-[100px] mb-4 rounded-xl justify-evenly items-center py-2 shadow-lg">
+    <div>
       {diffDays ? (
-        <>
+        <div className="flex w-full bg-[#d0f6e9] h-[100px] mb-4 rounded-xl animate-fadeIn justify-evenly items-center py-2 shadow-lg">
           <div className="flex gap-4 items-center p-2 w-[10%]">
             <img src="/assets/Bed.png" alt="Bed icon" className="w-[36px]" />
             <span className="text-base font-medium text-[#00352a]">
@@ -65,29 +65,34 @@ const RoomsCard: React.FC<{
               {totalPrice} {currency}
             </span>
           </div>
-          <select
-            onChange={handleSelectChange}
-            className="bg-[#f3fffc] rounded-lg border-[#009375] border-2"
-          >
-            <option className="border-none text-center" value="0">
-              0
-            </option>
-            <option className="border-none text-center" value="1">
-              1
-            </option>
-            <option className="border-none text-center" value="2">
-              2
-            </option>
-            <option className="border-none text-center" value="3">
-              3
-            </option>
-            <option className="border-none text-center" value="4">
-              4
-            </option>
-          </select>
-        </>
+          <div className="flex flex-col">
+            <span className="text-sm mb-1 font-medium text-[#00352a]">
+              N° Rooms
+            </span>
+            <select
+              onChange={handleSelectChange}
+              className="bg-[#f3fffc] rounded-lg border-[#009375] border-2"
+            >
+              <option className="border-none text-center" value="0">
+                0
+              </option>
+              <option className="border-none text-center" value="1">
+                1
+              </option>
+              <option className="border-none text-center" value="2">
+                2
+              </option>
+              <option className="border-none text-center" value="3">
+                3
+              </option>
+              <option className="border-none text-center" value="4">
+                4
+              </option>
+            </select>
+          </div>
+        </div>
       ) : (
-        <h2>Please select the date to see the rooms</h2>
+        <div className="animate-pulse"></div>
       )}
     </div>
   );
