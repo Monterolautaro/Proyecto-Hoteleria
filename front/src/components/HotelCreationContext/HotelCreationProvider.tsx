@@ -1,5 +1,6 @@
 // components/HotelCreationContext/HotelCreationProvider.tsx
 "use client";
+import { HotelRooms } from "@/interfaces/hotelCreation";
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
 interface IHotelCreationContext {
@@ -9,12 +10,14 @@ interface IHotelCreationContext {
     city: string;
     address: string;
   };
-  setHotelInfo: React.Dispatch<React.SetStateAction<{
-    name: string;
-    country: string;
-    city: string;
-    address: string;
-  }>>;
+  setHotelInfo: React.Dispatch<
+    React.SetStateAction<{
+      name: string;
+      country: string;
+      city: string;
+      address: string;
+    }>
+  >;
 
   hotelDetails: {
     stars: string;
@@ -22,33 +25,41 @@ interface IHotelCreationContext {
     img: string;
     description: string;
   };
-  setHotelDetails: React.Dispatch<React.SetStateAction<{
-    stars: string;
-    rating: string;
-    img: string;
-    description: string;
-  }>>;
+  setHotelDetails: React.Dispatch<
+    React.SetStateAction<{
+      stars: string;
+      rating: string;
+      img: string;
+      description: string;
+    }>
+  >;
 
-  hotelRooms: {
-    price: string;
-    currency: string;
-    roomsLeft: string;
-    description: string;
-  };
-  setHotelRooms: React.Dispatch<React.SetStateAction<{
-    price: string;
-    currency: string;
-    roomsLeft: string;
-    description: string;
-  }>>;
+  hotelRooms: HotelRooms;
+  setHotelRooms: (
+    roomsArray: {
+      id: number;
+      type: string;
+      description: string;
+      roomsLeft: number;
+      price: number;
+      currency: string;
+      enabled: boolean;
+    }[]
+  ) => void;
 
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const HotelCreationContext = createContext<IHotelCreationContext | undefined>(undefined);
+const HotelCreationContext = createContext<IHotelCreationContext | undefined>(
+  undefined
+);
 
-export const HotelCreationProvider = ({ children }: { children: ReactNode }) => {
+export const HotelCreationProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   const [hotelInfo, setHotelInfo] = useState({
     name: "",
     country: "",
@@ -63,12 +74,46 @@ export const HotelCreationProvider = ({ children }: { children: ReactNode }) => 
     description: "",
   });
 
-  const [hotelRooms, setHotelRooms] = useState({
-    price: "",
-    currency: "",
-    roomsLeft: "",
-    description: "",
+  const [hotelRooms, setHotelRoomsState] = useState<HotelRooms>({
+    single: {
+      price: 0,
+      currency: "USD",
+      rooms_left: 0,
+      description: "",
+    },
   });
+
+  // Nueva implementación de setHotelRooms
+  const setHotelRooms = (
+    roomsArray: {
+      id: number;
+      type: string;
+      description: string;
+      roomsLeft: number;
+      price: number;
+      currency: string;
+      enabled: boolean;
+    }[]
+  ) => {
+    // Filtrar habitaciones que no estén vacias
+    const filteredRooms = roomsArray.filter(
+      (room) => room.roomsLeft > 0 && room.enabled
+    );
+
+    // Se crea el objeto final de las rooms
+    const rooms: Partial<HotelRooms> = {};
+    filteredRooms.forEach((room) => {
+      rooms[room.type as keyof HotelRooms] = {
+        price: room.price,
+        currency: room.currency,
+        rooms_left: room.roomsLeft,
+        description: room.description,
+      };
+    });
+
+    // Actualizar el estado con las habitaciones resultantes
+    setHotelRoomsState(rooms as HotelRooms);
+  };
 
   const [step, setStep] = useState(1);
 
@@ -90,11 +135,12 @@ export const HotelCreationProvider = ({ children }: { children: ReactNode }) => 
   );
 };
 
-// Custom hook to use the HotelCreationContext
 export const useHotelCreation = () => {
   const context = useContext(HotelCreationContext);
   if (!context) {
-    throw new Error("useHotelCreation must be used within a HotelCreationProvider");
+    throw new Error(
+      "useHotelCreation debe usarse dentro de HotelCreationProvider"
+    );
   }
   return context;
 };
