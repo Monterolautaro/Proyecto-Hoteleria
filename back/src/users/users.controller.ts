@@ -31,7 +31,7 @@ export class UserController {
   }
 
   @Get(':id')
-  @RolesDecorator(Roles.admin)
+  @RolesDecorator(Roles.admin, Roles.user, Roles.hotel_owner)
   @UseGuards(AuthGuard, RolesGuard)
   getUserById(@Param('id', ParseUUIDPipe) id: string): Promise<User> {
     return this.UserService.getUserById(id);

@@ -137,9 +137,10 @@ export class SearchRepository {
 
         // Ahora tengo que buscar hoteles pasando como parametro el splitHotels
         const otherHotels: SearchHotelDto[] = await this.fetchOtherHotels(filteredSplitHotels)
-        console.log(otherHotels);
+
+        const finalHotels = otherHotels.filter((item) => item.hotel_id !== hotel.hotel_id)
         
-        return [hotel, ...otherHotels];
+        return [hotel, ...finalHotels];
       }
     } catch (error) {
       throw new NotFoundException('Error fetching hotels', error);
