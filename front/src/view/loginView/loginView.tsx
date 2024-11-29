@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaGoogle } from "react-icons/fa"; // Importamos el ícono de Google
 import Cookies from "js-cookie";
+import firstToUpperCase from "@/helpers/upperCase";
 
 const Login = () => {
   const router = useRouter();
@@ -51,6 +52,8 @@ const Login = () => {
       setIsSubmitting(false);
       handleClick();
     } catch (error: any) {
+      console.log(error);
+
       Toast.fire({
         icon: "error",
         title: error.message || "Login failed",
@@ -62,19 +65,22 @@ const Login = () => {
   const isFormIncomplete = !formData.email || !formData.password;
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#F3FFFC]">
-      <div className="bg-green-100 p-8 rounded-xl shadow-md border w-full max-w-sm">
-        <h2 className="text-xl font-semibold text-center mb-6">
-          Sign in or create an account
+    <div className="flex justify-center items-center h-fit pt-4 pb-8 bg-gradient-to-b from-[#009375] to-[#F3FFFC]">
+      <div className="bg-[#d0f6e9] p-8 rounded-xl mb-3 shadow-xl border w-full max-w-sm">
+        <h2 className="text-xl font-bold text-center mb-8">
+          Sign in with your account
         </h2>
         <form onSubmit={handleLogin}>
           {["email", "password"].map((key) => (
-            <div key={key} className="mb-4">
+            <div key={key} className="mb-4 flex gap-1 flex-col">
+              <label htmlFor={key} className="font-medium">
+                {firstToUpperCase(key)}
+              </label>
               <input
                 type={key === "password" ? "password" : "text"}
                 id={key}
                 name={key}
-                className="w-full p-3 border bg-green-50 rounded-lg focus:outline-none focus:ring-2 placeholder-gray-400"
+                className="w-full p-2 border bg-green-50 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400"
                 placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
                 value={(formData as any)[key]}
                 onChange={handleChange}
@@ -86,7 +92,7 @@ const Login = () => {
           ))}
           <button
             type="submit"
-            className="w-full py-3 px-4 bg-[#009375] text-white rounded-lg disabled:opacity-50"
+            className="w-full py-3 px-4 bg-[#009375] text-white rounded-lg hover:bg-[#1eb697] transition duration-100 disabled:opacity-50"
             disabled={isSubmitting || isFormIncomplete}
           >
             Log In
@@ -98,9 +104,9 @@ const Login = () => {
         <div className="flex justify-center mt-4">
           <button
             onClick={() => signIn("google", { callbackUrl: "/" })}
-            className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-gray-300 hover:border-gray-400 transition"
+            className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center hover:bg-[#009375] mt-1 transition group"
           >
-            <FaGoogle className="text-blue-500 w-8 h-8" />{" "}
+            <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />{" "}
             {/* Ícono de Google */}
           </button>
         </div>

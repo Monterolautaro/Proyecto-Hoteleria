@@ -135,10 +135,10 @@ const Register = () => {
   const isFormIncomplete = Object.values(formData).some((value) => !value);
 
   return (
-    <div className="flex justify-center p-8 items-center bg-[#F3FFFC]">
-      <div className="bg-green-100 p-4 rounded-lg shadow-lg w-[60%] max-w-[60%] flex flex-col items-center">
-        <h2 className="text-3xl font-semibold text-center mt-2 mb-8">
-          Register
+    <div className="flex justify-center pt-4 pb-8 items-center bg-gradient-to-b from-[#009375] to-[#F3FFFC]">
+      <div className="bg-[#d0f6e9] py-4 pb-5 rounded-lg shadow-xl w-[40%] max-w-[60%] flex flex-col items-center">
+        <h2 className="text-xl font-bold text-center mt-2 mb-8">
+          Create an account
         </h2>
         <form
           onSubmit={handleRegister}
@@ -154,7 +154,7 @@ const Register = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
@@ -171,7 +171,7 @@ const Register = () => {
                 type="text"
                 id="lastname"
                 name="lastname"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Last Name"
                 value={formData.lastname}
                 onChange={handleChange}
@@ -188,7 +188,7 @@ const Register = () => {
                 type="text"
                 id="birthday"
                 name="birthday"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="YYYY-MM-DD"
                 value={formData.birthday}
                 onChange={handleChange}
@@ -217,7 +217,7 @@ const Register = () => {
                   }
                   id={key}
                   name={key}
-                  className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                   placeholder={key
                     .replace("confirmPassword", "Confirm Password")
                     .replace(/([A-Z])/g, " $1")}
@@ -246,9 +246,9 @@ const Register = () => {
         <div className="mt-4 flex justify-center w-full">
           <button
             onClick={() => signIn("google")}
-            className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center hover:border-gray-400 mt-1 transition"
+            className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center mt-1 transition duration-75 group hover:bg-[#009375]"
           >
-            <FaGoogle className="text-[#009375] w-8 h-8" />
+            <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white " />
           </button>
         </div>
       </div>

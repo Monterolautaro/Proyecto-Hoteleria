@@ -6,11 +6,13 @@ import getUserData from "@/helpers/userDashboard/getUser";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { User } from "@/interfaces/users";
+import UserBookings from "@/components/UserDashboard/UserBookings";
 
 const UserDashboardView = () => {
   // const [userInfo, setUserInfo] = useState({});
   const [view, setView] = useState("userInfo");
   const [user, setUser] = useState<User | null>(null);
+  const userBookings = ["frist", "second"];
 
   useEffect(() => {
     const getData = async () => {
@@ -78,8 +80,8 @@ const UserDashboardView = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full bg-slate-300 min-h-[50dvh]">
-          Here goes the bookings view
+        <div className="w-full flex flex-col p-4 px-6 border border-slate-300 rounded-lg min-h-[50dvh]">
+          <UserBookings bookings={userBookings} />
         </div>
       )}
     </div>

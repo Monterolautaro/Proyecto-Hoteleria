@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scrollbar-width: thin; /* Para navegadores que no son WebKit */
+  scrollbar-color: #009375 transparent; /* Color del scroll y fondo */
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* Ancho del scroll */
+  height: 8px; /* Altura del scroll horizontal */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #009375; /* Color del scroll */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #007d5c; /* Color del scroll al pasar el mouse */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Fondo del track */
+}
