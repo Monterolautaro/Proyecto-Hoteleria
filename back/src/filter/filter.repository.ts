@@ -14,8 +14,6 @@ export class FilterRepository {
     private readonly hotelsRepository: Repository<Hotel>,
   ) {}
   async searchFilter(query: FiltersDto, user_id: string): Promise<Hotel[]> {
-
-    console.log('esta es la query: ', query);
     
     const { price, amenities, city, country } = query;
     
@@ -23,8 +21,6 @@ export class FilterRepository {
     
     const key = `hotels:${user_id}`;
     const hotelArray = await this.redisService.hGetHotels(key);
-
-    console.log('hoteles almacenados en el caché:', hotelArray.length);
     
       if (!hotelArray) throw new BadRequestException('No hay resultados almacenados en el caché');
 
