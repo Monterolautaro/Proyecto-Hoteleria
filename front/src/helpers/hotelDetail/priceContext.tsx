@@ -19,8 +19,6 @@ export const PriceProvider = ({ children }: { children: ReactNode }) => {
   const [currency, setCurrency] = useState<string>("");
 
   const updatePrice = (index: number, price: number) => {
-    console.log(price);
-
     setBookingPrice((prev) => {
       const updated = [...prev];
       updated[index] = price;
