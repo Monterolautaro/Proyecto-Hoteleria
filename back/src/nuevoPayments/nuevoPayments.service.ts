@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import Stripe from 'stripe';
 import { BookingRepository } from './booking.repository';
@@ -7,6 +7,7 @@ import { Payment } from '../entities/payments.entity';
 import { PaymentDto } from 'src/dto/payment.dto';
 import { PaymentDetails } from 'src/entities/payments/paymentdetails.entity';
 import { User } from 'src/entities/users/user.entity';
+import { log } from 'console';
 
 @Injectable()
 export class StripeService {
@@ -46,6 +47,9 @@ export class StripeService {
 
     const { amount, id, userId, hotelId, rooms, checkIn, checkOut } =
       paymentData;
+
+      console.log('antes delm payment intent', paymentData);
+      
     try {
       // Crear la intención de pago en Stripe
       const paymentIntent = await this.stripe.paymentIntents.create({
@@ -59,7 +63,10 @@ export class StripeService {
         },
         confirm: true,
       });
-
+      
+      if(!paymentIntent) throw Stripe.errors;
+      
+      console.log('despues del payment intent');
       // Crear la reserva y actualizar las métricas utilizando el queryRunner
       const booking = await this.bookingRepository.createBooking(
         userId,
@@ -74,6 +81,8 @@ export class StripeService {
         where: { user_id: userId },
       });
 
+      console.log('después de guardar el booking', booking);
+      
       await queryRunner.manager.save(
         // Guardar los detalles del pago en la base de datos usando stripePaymentIntentId
         await queryRunner.manager.create(Payment, {
@@ -87,6 +96,8 @@ export class StripeService {
         }),
       );
 
+      console.log('antes de confirmar transaccion', booking);
+      
       // Confirmar la transacción
       await queryRunner.commitTransaction();
       // Retornar la intención de pago creada
@@ -94,8 +105,9 @@ export class StripeService {
     } catch (error: any) {
       // Revertir la transacción si algo falla
       await queryRunner.rollbackTransaction();
-      console.error('Error creating payment intent:', error);
-      throw new Error(error.raw.message);
+
+      return Stripe.errors[error.type];
+      
     } finally {
       // Liberar el queryRunner
       await queryRunner.release();

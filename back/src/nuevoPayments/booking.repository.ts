@@ -52,12 +52,12 @@ export class BookingRepository {
 
     try {
       // Buscar al usuario por ID usando el queryRunner
-      const user = await queryRunner.manager.findOne(User, {
+      const user: User = await queryRunner.manager.findOne(User, {
         where: { user_id: userId },
       });
 
       // Buscar al hotel por ID usando el queryRunner
-      const hotel = await queryRunner.manager.findOne(Hotel, {
+      const hotel: Hotel = await queryRunner.manager.findOne(Hotel, {
         where: { hotel_id: hotelId },
       });
 
@@ -65,7 +65,7 @@ export class BookingRepository {
       if (!hotel) throw new NotFoundException('Hotel no encontrados');
       if (!user) throw new NotFoundException('Usuario no encontrados');
 
-      const bookedRooms = new BookedRooms();
+      const bookedRooms: BookedRooms = new BookedRooms();
 
       const validRooms = rooms.filter((room) => room.rooms > 0);
 
@@ -110,8 +110,8 @@ export class BookingRepository {
 
       // crear la reserva
       const booking: Booking = await queryRunner.manager.create(Booking, {
-        user,
-        hotel,
+        user: user,
+        hotel: hotel,
         start_date: checkIn,
         end_date: checkOut,
       });
