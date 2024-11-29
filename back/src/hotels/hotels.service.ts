@@ -5,6 +5,22 @@ import { HotelsRepository } from './hotels.repository';
 export class HotelsService {
   constructor(private readonly hotelsRepository: HotelsRepository) {}
 
+  addIsDeletedColumn(id: string){
+    try{
+      return this.hotelsRepository.updateIsDeletedById(id);
+    } catch(error){
+      throw new BadRequestException('Something got wrong getting users', error);
+    }
+  }
+
+  putHotels(id: string){
+    try{
+      return this.hotelsRepository.putHotels(id);
+    } catch(error){
+      throw new BadRequestException('Something got wrong getting users', error);
+    }
+  }
+
   async inserHotel(hotelData: any) {
     try {
       return await this.hotelsRepository.insertHotel(hotelData);

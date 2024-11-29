@@ -9,6 +9,7 @@ import { Metrics } from './metrics.entity';
 import { v4 as uuid } from 'uuid';
 import { User } from '../users/user.entity';
 
+//visitas a la pagina
 @Entity({
   name: 'visits_metrics',
 })
@@ -20,7 +21,7 @@ export class VisitsMetrics {
   total_visits: number;
 
   @Column('timestamp')
-  average_duration: string;
+  average_duration: string;//fijarte 
 
   @ManyToOne(() => Metrics, (metrics) => metrics.visits_metrics)
   @JoinColumn({ name: 'metrics_id' })

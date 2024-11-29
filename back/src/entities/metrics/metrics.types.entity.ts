@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { Metrics } from './metrics.entity';
-
+//princi´pal, copiar
 @Entity({
   name: 'metric_types',
 })
@@ -16,7 +16,7 @@ export class MetricTypes {
   metric_type_id: string = uuid();
 
   @Column()
-  metric_name: string;
+  metric_name: string;//
 
   @OneToMany(() => Metrics, (metrics) => metrics.metric_type)
   @JoinColumn({ name: 'metrics_id' })

@@ -91,4 +91,5 @@ export class UserController {
   makeAdmin(@Param('id', ParseUUIDPipe) id: string): Promise<any> {
     return this.UserService.makeAdmin(id);
   }
+
 }

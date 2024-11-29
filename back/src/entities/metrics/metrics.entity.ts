@@ -18,6 +18,8 @@ import { SearchMetrics } from './search.metric.entity';
   name: 'metrics',
 })
 export class Metrics {
+  //cuando creo una metrica que instancies con 
+  //gurdar el id usuario, copiar
   @PrimaryGeneratedColumn('uuid')
   metrics_id: string = uuid();
 

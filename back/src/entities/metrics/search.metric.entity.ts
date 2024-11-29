@@ -8,6 +8,8 @@ import {
 import { Metrics } from './metrics.entity';
 import { v4 as uuid } from 'uuid';
 
+//
+
 @Entity({
   name: 'search_metrics',
 })
@@ -22,7 +24,7 @@ export class SearchMetrics {
   searches_per_user: number;
 
   @Column('float')
-  non_user_searches: number;
+  non_user_searches: number;// no es un usuario registrado
 
   @ManyToOne(() => Metrics, (metrics) => metrics.search_metrics)
   @JoinColumn({ name: 'metrics_id' })

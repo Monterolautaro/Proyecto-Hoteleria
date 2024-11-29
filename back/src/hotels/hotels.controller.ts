@@ -6,6 +6,7 @@ import {
   Param,
   ParseUUIDPipe,
   Post,
+  Put,
   Query,
   UseGuards,
 } from '@nestjs/common';
@@ -54,5 +55,19 @@ export class HotelsController {
     @Body() hotelData: any,
   ) {
     return await this.hotelsService.createHotelByOwner(user_id, hotelData);
+  }
+
+  @Post('addDelete/:id')
+  addIsDeletedColumn(@Param('id', ParseUUIDPipe) id: string) {
+    return this.hotelsService.addIsDeletedColumn(id);
+  }
+
+  @Put('/putHotel/:id')
+  async putHotels(@Param('id', ParseUUIDPipe) id: string) {
+    try {
+      return await this.hotelsService.getHotelById(id);
+    } catch (error) {
+      throw new BadRequestException('Error loading hotels', error);
+    }
   }
 }

@@ -16,7 +16,7 @@ import { Amenities } from './hotel.amenities.entity';
 import { Room } from './rooms/hotel.rooms.entity';
 import { User } from '../users/user.entity';
 import { RegisteredHotelsDetails } from '../users/registered-hotels-details.entity';
-
+//nombre, lastanem,rol,mail,username
 @Entity({
   name: 'hotels',
 })

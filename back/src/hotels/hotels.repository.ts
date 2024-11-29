@@ -321,4 +321,80 @@ export class HotelsRepository {
       await queryRunner.release();
     }
   }
+
+  async updateIsDeletedById(id: string): Promise<void> {
+    const queryRunner = this.dataSource.createQueryRunner();
+
+    try {
+      // Iniciar la transacción
+      await queryRunner.connect();
+      await queryRunner.startTransaction();
+
+      /*const user: User = await this.userRepository.findOneBy({
+        user_id,
+      });
+      if (!user) throw new NotFoundException(`User ${user_id} not found`);*/
+
+
+      // Verificar si el hotel existe
+      const hotel = await queryRunner.manager.findOne(Hotel, { where: { hotel_id: id } });
+      if (!hotel) {
+        throw new NotFoundException(`Hotel con ID ${id} no encontrado.`);
+      }
+
+      await queryRunner.query(`
+        ALTER TABLE hotels
+        ADD COLUMN isDeleted BOOLEAN DEFAULT false
+      `);
+
+
+      // Agregar o actualizar la columna 'isDeleted' con el valor true
+      await queryRunner.query(`
+        UPDATE hotels
+        SET isDeleted = true
+        WHERE hotel_id = $1
+      `, [id]);
+
+      // Confirmar la transacción
+      await queryRunner.commitTransaction();
+      console.log(`Columna isDeleted actualizada para el hotel con ID ${id}.`);
+    } catch (error) {
+      // Revertir la transacción en caso de error
+      await queryRunner.rollbackTransaction();
+      console.error('Error al actualizar la columna isDeleted:', error);
+      throw error;
+    } finally {
+      // Liberar el queryRunner
+      await queryRunner.release();
+    }
+  }
+
+  async putHotels(hotel_id: string): Promise<any> {
+    try {
+      const hotel = await this.hotelRepository.findOne({
+        where: { hotel_id },
+        relations: {
+          address: true,
+          availability: true,
+          details: true,
+          amenities: true,
+          room: {
+            room_type: true,
+          },
+        },
+      });
+
+      if (!hotel) throw new NotFoundException(`User ${hotel_id} not found`);
+
+      return {
+        status: 200,
+        message: `User ${hotel_id} email has been updated to ${hotel_id}`,
+      };
+    } catch (error) {
+      throw new BadRequestException(
+        'Something got wrong changing email',
+        error,
+      );
+    }
+  }
 }

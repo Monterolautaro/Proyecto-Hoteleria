@@ -13,6 +13,7 @@ import { Booking } from '../booking.entity';
 @Entity({
   name: 'booking_metrics',
 })
+//todas las reservas
 export class BookingMetrics {
   @PrimaryGeneratedColumn('uuid')
   booking_metrics_id: string = uuid();
