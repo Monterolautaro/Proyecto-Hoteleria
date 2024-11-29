@@ -73,9 +73,12 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
     });
 
     if (error) {
-      console.log(error.message);
+      Swal.fire({
+        title: error.message,
+        icon: "warning",
+      });
+      setButton(false);
     } else {
-      console.log("[PaymentMethod created]", paymentMethod);
       const { id } = paymentMethod;
       const totalPrice = bookingPrice.reduce((ac, index) => ac + index, 0);
       try {
@@ -89,7 +92,6 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
           checkOut: endDateContext!,
           travelers: people!,
         };
-        console.log(data);
 
         const response = await SendPaymentData(data);
         if (response) {

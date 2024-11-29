@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import Stripe from 'stripe';
@@ -59,6 +60,7 @@ export class StripeService {
         },
         confirm: true,
       });
+      console.log(paymentIntent);
 
       // Crear la reserva y actualizar las métricas utilizando el queryRunner
       const booking = await this.bookingRepository.createBooking(
