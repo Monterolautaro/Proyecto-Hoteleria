@@ -4,16 +4,24 @@ import Credentials from "@/components/UserDashboard/Credentials";
 import PersonalData from "@/components/UserDashboard/PersonalData";
 import getUserData from "@/helpers/userDashboard/getUser";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import { User } from "@/interfaces/users";
 
 const UserDashboardView = () => {
   // const [userInfo, setUserInfo] = useState({});
   const [view, setView] = useState("userInfo");
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const getData = async () => {
-      const user = JSON.parse(localStorage.getItem("user") || "{}");
-      const userData = await getUserData(user.id);
-      console.log(userData);
+      const token = Cookies.get("token");
+      const user = JSON.parse(Cookies.get("user") || "{}");
+
+      if (token) {
+        const userData = await getUserData(user.id, token);
+        setUser(userData);
+        console.log(userData);
+      }
     };
     getData();
   }, []);
@@ -61,7 +69,11 @@ const UserDashboardView = () => {
             Here you can see and modify your personal data
           </h3>
           <div className="flex justify-center">
-            <PersonalData name="Jonh" lastname="Doe" birthdate={new Date()} />
+            <PersonalData
+              name={user?.name!}
+              lastname={user?.lastname!}
+              birthdate={user?.birthday!}
+            />
             <Credentials username="Jonh1123" email="jhondon@mail.com" />
           </div>
         </div>

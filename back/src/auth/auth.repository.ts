@@ -249,12 +249,15 @@ export class AuthRepository {
       const foundUser = await this.userRepository.getUserByEmail(email);
       if (foundUser === null)
         throw new NotFoundException('User not registered');
-
+      console.log('luego de encontrar al usuario', foundUser);
+      
       const isPasswordValid = await bcrypt.compare(
         password,
         foundUser.credential.password,
       );
 
+      console.log('luego de validar la pass', isPasswordValid);
+      
       if (!isPasswordValid)
         throw new UnauthorizedException('Invalid credentials');
 
@@ -264,8 +267,12 @@ export class AuthRepository {
         verified: foundUser.verified,
         role: foundUser.role,
       };
+      console.log('luego de definir el payload');
+      
 
       const token = this.jwtService.sign(payload);
+      console.log('antes de regresar el token');
+      
       return { success: "You're logged in successfully", token, user: payload };
     } catch (error) {
       throw new BadRequestException('Something got wrong signing in', error);

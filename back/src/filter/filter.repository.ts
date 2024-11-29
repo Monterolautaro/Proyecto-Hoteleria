@@ -1,53 +1,56 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { log } from 'console';
 import { FiltersDto } from 'src/dto/filter.dto';
 import { Hotel } from 'src/entities/hotel/hotel.entity';
+import { RedisService } from 'src/redis/redis.service';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class FilterRepository {
   constructor(
+    private readonly redisService: RedisService,
     @InjectRepository(Hotel)
     private readonly hotelsRepository: Repository<Hotel>,
   ) {}
-  async searchFilter(query: FiltersDto): Promise<Hotel[]> {
-    console.log('esta es la query', query);
-
+  async searchFilter(query: FiltersDto, user_id: string): Promise<Hotel[]> {
+    
     const { price, amenities, city, country } = query;
-
+    
     try {
-      const queryBuilder = this.hotelsRepository.createQueryBuilder('hotel');
+    
+    const key = `hotels:${user_id}`;
+    const hotelArray = await this.redisService.hGetHotels(key);
+    
+      if (!hotelArray) throw new BadRequestException('No hay resultados almacenados en el caché');
 
-      // aca uno las relaciones para poder usarlas en el where
-      queryBuilder
-        .leftJoinAndSelect('hotel.address', 'address')
-        .leftJoinAndSelect('hotel.amenities', 'amenities')
-        .leftJoinAndSelect('hotel.room', 'room')
-        .leftJoinAndSelect('room.room_type', 'room_type')
-        .leftJoinAndSelect('hotel.availability', 'availability')
-        .leftJoinAndSelect('hotel.details', 'details');
+      let filteredHotels = hotelArray;
 
       // filtro por precio
       if (price) {
         const [minPrice, maxPrice] = price.split(',').map(Number);
-        queryBuilder.andWhere(
-          'room_type.price BETWEEN :minPrice AND :maxPrice',
-          {
-            minPrice,
-            maxPrice,
-          },
+        filteredHotels = filteredHotels.filter((hotel) =>
+          hotel.room.some((room) =>
+            room.room_type.price >= minPrice && room.room_type.price <= maxPrice
+          )
         );
       }
 
       // filtro por country
       if (country) {
-        queryBuilder.andWhere('address.country = :country', { country });
+        filteredHotels = filteredHotels.filter(
+          (hotel) => hotel.address.country === country,
+        );
       }
 
       // filtro por city
       if (city) {
-        queryBuilder.andWhere('address.city = :city', { city });
+        filteredHotels = filteredHotels.filter(
+          (hotel) => hotel.address.city === city,
+        );
       }
+
+      
 
       // filtro por amenities
       if (amenities) {
@@ -55,15 +58,13 @@ export class FilterRepository {
           .trim()
           .split(',')
           .map((name) => name.trim());
-        amenitiesArray.forEach((amenity) => {
-          queryBuilder.andWhere(`amenities.${amenity} = true`);
-        });
+    
+        filteredHotels = filteredHotels.filter((hotel) =>
+          amenitiesArray.every((amenity) => hotel.amenities[amenity] === true),
+        );
       }
 
-      // ejecuto la consulta
-      const results = await queryBuilder.getMany();
-
-      return results;
+      return filteredHotels;
     } catch (error) {
       console.log({ message: 'Error en el filtrado', error });
       throw new NotFoundException('Error loading hotels', error);

@@ -6,7 +6,9 @@ import fs from 'fs';
 const PATH = 'src\\helpers\\hotels\\hotels.json';
 
 const BATCH_SIZE = 5;
-const API_URL = 'http://localhost:4000/hotels/batch';
+
+const API_URL = 'https://hotelify-3yic.onrender.com/hotels/batch';
+// const API_URL = 'http://localhost:4000/hotels/batch';
 
 async function uploadBatches() {
   // Esto lee el archivo, lo parsea y lo guarda en una variable

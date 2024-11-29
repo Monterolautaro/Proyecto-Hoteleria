@@ -4,6 +4,8 @@ const validateForm = (name: string, email: string) => {
   const newErrors: IPaymentData = {};
   if (!name!.trim()) {
     newErrors.name = "Name is required.";
+  } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]*$/.test(name)) {
+    newErrors.name = "Name can only contain letters and spaces.";
   }
   if (!email!.trim()) {
     newErrors.email = "Email is required.";

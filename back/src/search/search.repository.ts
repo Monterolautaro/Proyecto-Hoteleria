@@ -5,11 +5,13 @@ import { merge } from 'rxjs';
 import { SearchHotelDto } from 'src/dto/search-hotel.dto';
 import { Address } from 'src/entities/hotel/hotel.address.entity';
 import { Hotel } from 'src/entities/hotel/hotel.entity';
+import { RedisService } from 'src/redis/redis.service';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class SearchRepository {
   constructor(
+    private readonly redisService: RedisService,
     @InjectRepository(Hotel) private hotelsRepository: Repository<Hotel>,
     @InjectRepository(Address) private addressRepository: Repository<Address>,
   ) { }
@@ -76,7 +78,8 @@ export class SearchRepository {
     }
   }
 
-  async searchBarResults(query: any) {
+  async searchBarResults(query: any, user_id: string) {
+
     try {
       // Busco hoteles, o ciudades, o paises segun el query
       const foundHotel = await this.hotelsRepository
@@ -140,6 +143,16 @@ export class SearchRepository {
 
         const finalHotels = otherHotels.filter((item) => item.hotel_id !== hotel.hotel_id)
         
+        const cacheHotels = [hotel, ...finalHotels];
+        // asigno una key para el caché
+        const key = `hotels:${user_id}`;
+
+        // si ya había caché, lo borro
+        await this.redisService.delHotels(key);
+
+        // si no había caché, lo creo
+        this.redisService.hSetHotels(key, cacheHotels);
+
         return [hotel, ...finalHotels];
       }
     } catch (error) {
