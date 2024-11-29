@@ -143,6 +143,7 @@ export class SearchRepository {
 
         const finalHotels = otherHotels.filter((item) => item.hotel_id !== hotel.hotel_id)
         
+        const cacheHotels = [hotel, ...finalHotels];
         // asigno una key para el caché
         const key = `hotels:${user_id}`;
 
@@ -150,7 +151,7 @@ export class SearchRepository {
         await this.redisService.delHotels(key);
 
         // si no había caché, lo creo
-        this.redisService.hSetHotels(key, finalHotels);
+        this.redisService.hSetHotels(key, cacheHotels);
 
         return [hotel, ...finalHotels];
       }

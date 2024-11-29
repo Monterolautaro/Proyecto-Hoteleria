@@ -46,6 +46,7 @@ export class UserRepository {
     try {
       const user: User = await this.userRepository.findOne({
         where: { credential: { email } },
+        relations: { credential: true },
       });
 
       return user || null;
