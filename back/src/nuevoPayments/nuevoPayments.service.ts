@@ -44,13 +44,11 @@ export class StripeService {
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
-
+    
+    try {
     const { amount, id, userId, hotelId, rooms, checkIn, checkOut } =
       paymentData;
-
-      console.log('antes delm payment intent', paymentData);
       
-    try {
       // Crear la intención de pago en Stripe
       const paymentIntent = await this.stripe.paymentIntents.create({
         amount,
@@ -64,9 +62,9 @@ export class StripeService {
         confirm: true,
       });
       
-      if(!paymentIntent) throw Stripe.errors;
+      if(!paymentIntent) throw new BadRequestException('Error during payment intent creation');
       
-      console.log('despues del payment intent');
+
       // Crear la reserva y actualizar las métricas utilizando el queryRunner
       const booking = await this.bookingRepository.createBooking(
         userId,
@@ -81,23 +79,27 @@ export class StripeService {
         where: { user_id: userId },
       });
 
-      console.log('después de guardar el booking', booking);
-      
-      await queryRunner.manager.save(
+      const paymentDetails = new PaymentDetails()
+
+      paymentDetails.booking = booking;
+
+     const payment = await queryRunner.manager.save(
         // Guardar los detalles del pago en la base de datos usando stripePaymentIntentId
-        await queryRunner.manager.create(Payment, {
+      await queryRunner.manager.create(Payment, {
           amount,
           date: new Date(),
           method: 'stripe',
           stripePaymentIntentId: paymentIntent.id,
           status: paymentIntent.status,
           user: user,
-          booking,
+          payment_details: paymentDetails
         }),
       );
 
-      console.log('antes de confirmar transaccion', booking);
+      paymentDetails.payment = payment;
       
+      await queryRunner.manager.save(paymentDetails);
+
       // Confirmar la transacción
       await queryRunner.commitTransaction();
       // Retornar la intención de pago creada

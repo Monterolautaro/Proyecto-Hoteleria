@@ -79,10 +79,8 @@ export class BookingRepository {
         if (room.type === 'suite') bookedRooms.suite_room_id = room.roomId;
 
         // actualizo las habitaciónes de cada tipo, y además las voy añadiendo a total rooms
-
         totalRooms += room.rooms;
 
-        // TERMINAR, ME TIENEN QUE PASAR UN ID VALIDO (ME ESTAN PASANDO room-2 , room-3, etc)
 
         const foundRoom = await queryRunner.manager.findOne(Room, {
           where: { room_id: room.roomId },
@@ -111,7 +109,8 @@ export class BookingRepository {
       // crear la reserva
       const booking: Booking = await queryRunner.manager.create(Booking, {
         user: user,
-        hotel: hotel,
+        hotel_id: hotel.hotel_id,
+        booked_rooms_id: bookedRooms.booked_rooms_id,
         start_date: checkIn,
         end_date: checkOut,
       });

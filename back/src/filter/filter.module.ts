@@ -8,11 +8,13 @@ import { FilterRepository } from './filter.repository';
 import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
 import { RoomType } from 'src/entities/hotel/rooms/roomsType.entity';
 import { HotelsRepository } from 'src/hotels/hotels.repository';
+import { RedisModule } from 'src/redis/redis.module';
+import { RedisService } from 'src/redis/redis.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Address, Amenities, RoomType, Hotel])],
+  imports: [TypeOrmModule.forFeature([Address, Amenities, RoomType, Hotel]), RedisModule],
   controllers: [FilterController],
-  providers: [FilterService, FilterRepository],
+  providers: [FilterService, FilterRepository, RedisService],
   exports: [],
 })
 export class FilterModule {}
