@@ -1,11 +1,12 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities/users/user.entity';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 import { Credentials } from 'src/entities/credentials.entity';
 import * as bcrypt from 'bcryptjs';
 import { Roles } from 'roles.enum';
+import { CreateUserDto } from 'src/dto/user.dto';
 
 @Injectable()
 export class UserRepository {
@@ -13,6 +14,7 @@ export class UserRepository {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
     @InjectRepository(Credentials)
     private readonly credentialsRepository: Repository<Credentials>,
+    private readonly dataSource: DataSource,
   ) {}
 
   async getUsers(): Promise<User[]> {
@@ -194,4 +196,62 @@ export class UserRepository {
       );
     }
   }
+
+  async putUsers(user_id: string, userData: Partial<CreateUserDto>): Promise<any> {
+      const queryRunner = this.dataSource.createQueryRunner();
+      await queryRunner.connect();
+      await queryRunner.startTransaction();
+    
+      try {
+        // Buscar al usuario existente por su ID
+        const user = await this.userRepository.findOne({
+          where: { user_id },
+          //relations: ['credential'],
+          relations: { credential: true },
+        });
+    
+        if (!user) throw new NotFoundException(`User with ID ${user_id} not found`);
+    
+        // Validar si el email está en uso por otro usuario
+        if (userData.email && userData.email !== user.credential.email) {
+          const foundEmail = await this.getUserByEmail(userData.email);
+          if (foundEmail) throw new BadRequestException('Email already in use');
+        }
+    
+        // Validar si el username está en uso por otro usuario
+        if (userData.username && userData.username !== user.credential.username) {
+          const foundUsername = await this.getUserByUsername(userData.username);
+          if (foundUsername) throw new BadRequestException('Username already in use');
+        }
+    
+        // Validar contraseñas si están incluidas en el body
+        if (userData.password ) {
+          // Hashear nueva contraseña
+          const hashedPassword = await bcrypt.hash(userData.password, 10);
+          user.credential.password = hashedPassword;
+        }
+    
+        // Actualizar las propiedades del usuario
+        if (userData.name) user.name = userData.name;
+        if (userData.lastname) user.lastname = userData.lastname;
+        if (userData.birthday) user.birthday = userData.birthday;
+        if (userData.email) user.credential.email = userData.email;
+        if (userData.username) user.credential.username = userData.username;
+        // Guardar cambios
+        await queryRunner.manager.save(user);
+        await queryRunner.manager.save(user.credential);
+    
+        await queryRunner.commitTransaction();
+    
+        return { status: 200, message: `User ${user_id} updated successfully` };
+      } catch (error) {
+        await queryRunner.rollbackTransaction();
+        throw new BadRequestException('An error occurred updating the user', error);
+      } finally {
+        await queryRunner.release();
+      }
+    }
+    
 }
+    
+

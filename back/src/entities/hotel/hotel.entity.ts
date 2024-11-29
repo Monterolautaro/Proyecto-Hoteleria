@@ -27,6 +27,9 @@ export class Hotel {
   @Column()
   name: string;
 
+  @Column({ default: false }) // Agregar la propiedad isDeleted con valor predeterminado
+  isDeleted: boolean;
+
   @OneToOne(() => Amenities, (amenities) => amenities.hotel, {
     onDelete: 'CASCADE',
     eager: true,

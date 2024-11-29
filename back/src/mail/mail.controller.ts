@@ -11,18 +11,21 @@ export class MailController {
   @Post('sendRegister')
   async sendEmailRegister(@Body() body: Record<string, string>) {
     const { name, to } = body;
-    return this.mailService.mailNotifLogin(to,name)
+    this.mailService.setRecipient(to);
+    return this.mailService.mailNotifLogin(name)
   }
 
   @Post('sendPago')
-  async sendEmailPayments(@Body() body: Record<string, string>) {
+  async sendEmailComfirm(@Body() body: Record<string, string>) {
     const { to } = body;
-    return this.mailService.mailNotifPayments(to);
+    this.mailService.setRecipient(to);
+    return this.mailService.mailNotifComfirm();
   }
 
   @Post('sendHotel')
-  async sendEmailHotel(@Body() body: Record<string, string>) {
-    const { to, codHotel } = body;
-    return this.mailService.mailNotifHotel(to,codHotel);
+  async sendEmailCode(@Body() body: Record<string, string>) {
+    const { to, codigo } = body;
+    this.mailService.setRecipient(to);
+    return this.mailService.mailNotifCode(codigo);
   }
 }

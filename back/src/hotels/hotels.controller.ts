@@ -57,15 +57,31 @@ export class HotelsController {
     return await this.hotelsService.createHotelByOwner(user_id, hotelData);
   }
 
+  //**********************************SERVICIO DE ADMIN*****************************************************
+  //*MODIFIQUE LA ENTIDAD DE USUARIO LE AGREGUE ISDELETED 
+
   @Post('addDelete/:id')
   addIsDeletedColumn(@Param('id', ParseUUIDPipe) id: string) {
-    return this.hotelsService.addIsDeletedColumn(id);
+    try{
+      //return await this.hotelsService.addIsDeletedColumn(id);
+    } catch (error) {
+      throw new BadRequestException('Error loading hotels', error);
+    }
+  }
+
+  @Post('addActive/:id')
+  updateIsActiveById(@Param('id', ParseUUIDPipe) id: string) {
+    try{
+      //return await this.hotelsService.updateIsActiveById(id);
+    } catch (error) {
+      throw new BadRequestException('Error loading hotels', error);
+    }
   }
 
   @Put('/putHotel/:id')
   async putHotels(@Param('id', ParseUUIDPipe) id: string) {
     try {
-      return await this.hotelsService.getHotelById(id);
+      return await this.hotelsService.putHotels(id);
     } catch (error) {
       throw new BadRequestException('Error loading hotels', error);
     }

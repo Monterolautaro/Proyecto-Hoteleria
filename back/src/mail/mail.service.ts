@@ -3,11 +3,12 @@ import * as sgMail from '@sendgrid/mail';
 
 @Injectable()
 export class MailService {
+  private recipient: string | null = null; // Inicialmente sin valor
   constructor() {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   }
 
-  async mailNotifLogin(to: string, name: string) {
+  async mailNotifLogin(name: string) {
     const ModeloHTML = `
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +55,7 @@ export class MailService {
 `;
 
     const msg = {
-      to,
+      to: this.recipient,
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: 'Login to hotelefy',
       html: ModeloHTML,
@@ -63,7 +64,7 @@ export class MailService {
     await sgMail.send(msg);
   }
 
-  async mailNotifHotel(to: string, codHotel: string) {
+  async mailNotifCode(codigo: string) {
     const ModeloHTMLHotel = `
 <!DOCTYPE html>
 <html lang="en">
@@ -145,15 +146,15 @@ export class MailService {
     </style>
 </head>
 <body>
-    <h1>Creacion del hotel</h1>
+    <h1>Codigo de verificacion del hotel</h1>
     <img src="./logoEmp.jpg" alt="Imagen representativa">
-    <p>A continuacion esta el codigo de verificacion del hotel, mucha gracias.</p>
-    <h2>${codHotel}</h2>
+    <p>A continuacion esta el codigo de verificacion del usuario, mucha gracias.</p>
+    <h2>${codigo}</h2>
 </body>
 </html>
 `;
     const msg = {
-      to,
+      to: this.recipient,
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: 'verification hotel',
       html: ModeloHTMLHotel,
@@ -162,7 +163,7 @@ export class MailService {
     await sgMail.send(msg);
   }
 
-  async mailNotifPayments(to: string) {
+  async mailNotifComfirm() {
     const ModeloHTMLPago = `
 <!DOCTYPE html>
 <html lang="en">
@@ -201,20 +202,24 @@ export class MailService {
     </style>
 </head>
 <body>
-    <h1>Verificacion del pago</h1>
+    <h1>Verificacion del usuario</h1>
     <img src="./modelHTML/logoEmp.jpg" alt="Imagen representativa">
-    <p>Agregar luego el mensaje del pago.</p>
+    <p>Su cuenta a sido verificada correctamente!!!.</p>
 </body>
 </html>
 `;
     const msg = {
-      to,
+      to: this.recipient,
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: 'Welcome to Club Fellini Bar!',
       html: ModeloHTMLPago,
     };
 
     await sgMail.send(msg);
+  }
+
+  setRecipient(email: string): void {
+    this.recipient = email;
   }
 }
 

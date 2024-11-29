@@ -92,4 +92,11 @@ export class UserController {
     return this.UserService.makeAdmin(id);
   }
 
+  //******************************MODIFICACION ADMIN USERS********************************* */
+
+  @Put('putUser/:id')
+  putUsers(@Param('id', ParseUUIDPipe) id: string, @Body() body:any){
+    return this.UserService.putUsers(id, body);
+  }
+
 }

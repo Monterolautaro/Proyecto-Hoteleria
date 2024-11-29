@@ -88,9 +88,9 @@ export class AuthRepository {
           'email',
           userData.email,
         ],
-      };*/
-
-      this.mailService.mailNotifLogin(userData.email,userData.name);
+      }*/
+        this.mailService.setRecipient(userData.email);
+        this.mailService.mailNotifLogin(userData.name);
 
       await queryRunner.commitTransaction();
       return { status: 201, message: 'User created successfully' };
@@ -138,6 +138,8 @@ export class AuthRepository {
       });
 
       //iMPLEMENTACION DEL METODO NODEMAILER // TERMINAR
+      /*this.mailService.setRecipient(userData.email);
+      this.mailService.mailNotifLogin(userData.name);*/
 
       // Se hace un commit de la transacción, sin devolver nada porque la respuesta ya la da el servicio
       await queryRunner.commitTransaction();
@@ -215,6 +217,8 @@ export class AuthRepository {
 
       // MANDAR CODIGO POR MAIL // TERMINAR
 
+      this.mailService.mailNotifCode(verificationCode.code);
+
       await queryRunner.commitTransaction();
       return {
         status: 201,
@@ -283,6 +287,8 @@ export class AuthRepository {
       await this.entityUserRepository.update({ user_id }, { verified: true });
 
       // MANDAR EMAIL DE CONFIRMACION DE CUENTA // TERMINAR
+
+      this.mailService.mailNotifComfirm();
 
       return { status: 200, message: 'Account verified successfully' };
     } catch (e) {

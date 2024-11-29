@@ -84,4 +84,12 @@ export class UserService {
       throw new BadRequestException('Something got wrong making admin', error);
     }
   }
+
+  putUsers(id: string, body:any) {
+    try {
+      return this.userRepository.putUsers(id, body);
+    } catch (error) {
+      throw new BadRequestException('Something got wrong making admin', error);
+    }
+  }
 }

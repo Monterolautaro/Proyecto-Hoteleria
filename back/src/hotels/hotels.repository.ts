@@ -157,16 +157,19 @@ export class HotelsRepository {
 
       const hotels = await this.hotelRepository.find({
         take: limit,
-        skip: skip,
-        relations: {
-          address: true,
-          availability: true,
-          details: true,
-          amenities: true,
-          room: {
-            room_type: true,
-          },
+      skip: skip,
+      where: {
+        isDeleted: false, // Agrega la condición para verificar `isDeleted`
+      },
+      relations: {
+        address: true,
+        availability: true,
+        details: true,
+        amenities: true,
+        room: {
+          room_type: true,
         },
+      },
       });
       return hotels;
     } catch (error) {
@@ -342,16 +345,63 @@ export class HotelsRepository {
         throw new NotFoundException(`Hotel con ID ${id} no encontrado.`);
       }
 
-      await queryRunner.query(`
+      /*await queryRunner.query(`
         ALTER TABLE hotels
         ADD COLUMN isDeleted BOOLEAN DEFAULT false
-      `);
+      `);*/
 
 
       // Agregar o actualizar la columna 'isDeleted' con el valor true
       await queryRunner.query(`
         UPDATE hotels
         SET isDeleted = true
+        WHERE hotel_id = $1
+      `, [id]);
+
+      // Confirmar la transacción
+      await queryRunner.commitTransaction();
+      console.log(`Columna isDeleted actualizada para el hotel con ID ${id}.`);
+    } catch (error) {
+      // Revertir la transacción en caso de error
+      await queryRunner.rollbackTransaction();
+      console.error('Error al actualizar la columna isDeleted:', error);
+      throw error;
+    } finally {
+      // Liberar el queryRunner
+      await queryRunner.release();
+    }
+  }
+
+  async updateIsActiveById(id: string): Promise<void> {
+    const queryRunner = this.dataSource.createQueryRunner();
+
+    try {
+      // Iniciar la transacción
+      await queryRunner.connect();
+      await queryRunner.startTransaction();
+
+      /*const user: User = await this.userRepository.findOneBy({
+        user_id,
+      });
+      if (!user) throw new NotFoundException(`User ${user_id} not found`);*/
+
+
+      // Verificar si el hotel existe
+      const hotel = await queryRunner.manager.findOne(Hotel, { where: { hotel_id: id } });
+      if (!hotel) {
+        throw new NotFoundException(`Hotel con ID ${id} no encontrado.`);
+      }
+
+      /*await queryRunner.query(`
+        ALTER TABLE hotels
+        ADD COLUMN isDeleted BOOLEAN DEFAULT false
+      `);*/
+
+
+      // Agregar o actualizar la columna 'isDeleted' con el valor true
+      await queryRunner.query(`
+        UPDATE hotels
+        SET isDeleted = false
         WHERE hotel_id = $1
       `, [id]);
 
