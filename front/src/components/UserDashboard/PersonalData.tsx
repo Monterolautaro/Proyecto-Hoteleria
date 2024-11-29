@@ -13,7 +13,7 @@ const PersonalData: React.FC<IUserData> = ({ name, lastname, birthdate }) => {
       </div>
       <div>
         <h2 className="font-semibold text-lg">Birthdate</h2>
-        <p>{birthdate.toLocaleDateString()}</p>
+        <p>{birthdate}</p>
       </div>
     </div>
   );
