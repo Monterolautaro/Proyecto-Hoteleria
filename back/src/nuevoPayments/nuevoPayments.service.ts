@@ -1,5 +1,4 @@
-/* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import Stripe from 'stripe';
 import { BookingRepository } from './booking.repository';
@@ -8,6 +7,7 @@ import { Payment } from '../entities/payments.entity';
 import { PaymentDto } from 'src/dto/payment.dto';
 import { PaymentDetails } from 'src/entities/payments/paymentdetails.entity';
 import { User } from 'src/entities/users/user.entity';
+import { log } from 'console';
 
 @Injectable()
 export class StripeService {
@@ -44,10 +44,11 @@ export class StripeService {
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
-
+    
+    try {
     const { amount, id, userId, hotelId, rooms, checkIn, checkOut } =
       paymentData;
-    try {
+      
       // Crear la intención de pago en Stripe
       const paymentIntent = await this.stripe.paymentIntents.create({
         amount,
@@ -60,7 +61,9 @@ export class StripeService {
         },
         confirm: true,
       });
-      console.log(paymentIntent);
+      
+      if(!paymentIntent) throw new BadRequestException('Error during payment intent creation');
+
 
       // Crear la reserva y actualizar las métricas utilizando el queryRunner
       const booking = await this.bookingRepository.createBooking(
@@ -76,18 +79,26 @@ export class StripeService {
         where: { user_id: userId },
       });
 
-      await queryRunner.manager.save(
+      const paymentDetails = new PaymentDetails()
+
+      paymentDetails.booking = booking;
+
+     const payment = await queryRunner.manager.save(
         // Guardar los detalles del pago en la base de datos usando stripePaymentIntentId
-        await queryRunner.manager.create(Payment, {
+      await queryRunner.manager.create(Payment, {
           amount,
           date: new Date(),
           method: 'stripe',
           stripePaymentIntentId: paymentIntent.id,
           status: paymentIntent.status,
           user: user,
-          booking,
+          payment_details: paymentDetails
         }),
       );
+
+      paymentDetails.payment = payment;
+      
+      await queryRunner.manager.save(paymentDetails);
 
       // Confirmar la transacción
       await queryRunner.commitTransaction();
@@ -96,13 +107,12 @@ export class StripeService {
     } catch (error: any) {
       // Revertir la transacción si algo falla
       await queryRunner.rollbackTransaction();
-      console.error('Error creating payment intent:', error);
-      throw new Error(error.raw.message);
+
+      return Stripe.errors[error.type];
+      
     } finally {
       // Liberar el queryRunner
       await queryRunner.release();
     }
   }
 }
-
-// documentado con ayuda de copilot

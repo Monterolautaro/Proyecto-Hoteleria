@@ -3,10 +3,13 @@ import {
   Body,
   Controller,
   Get,
+  Param,
+  ParseUUIDPipe,
   Post,
   Query,
 } from '@nestjs/common';
 import { SearchService } from './search.service';
+import { SetUUIDCookie } from 'decorators/uuid.cookie.decorator';
 
 @Controller('search')
 export class SearchController {
@@ -18,7 +21,10 @@ export class SearchController {
   }
 
   @Post('bar-result')
-  async searchBarResults(@Query('query') query: any) {
-    return await this.searchService.searchBarResults(query);
+  async searchBarResults(@Query('query') query: any, @SetUUIDCookie() id: string) {
+    if (!query) {
+      throw new BadRequestException('Query parameter is required');
+    }
+    return await this.searchService.searchBarResults(query, id);
   }
 }

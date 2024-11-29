@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import * as cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
 import { config } from 'dotenv';
 import { connectionSource } from './config/typeorm.config';
@@ -15,6 +16,7 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
   });
+  app.use(cookieParser());
 
   connectionSource
     .initialize()
