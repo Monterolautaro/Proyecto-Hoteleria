@@ -13,7 +13,7 @@ export const SendPaymentData = async (data: IStripeData) => {
   } catch (error: any) {
     if (error.response && error.response.data) {
       Swal.fire({
-        title: error.response.data.message,
+        title: error.response.data.message || "We cannot proccess your payment",
         icon: "error",
       });
     } else {

@@ -63,7 +63,7 @@ export class StripeService {
       });
       
       if(!paymentIntent) throw new BadRequestException('Error during payment intent creation');
-      
+
 
       // Crear la reserva y actualizar las métricas utilizando el queryRunner
       const booking = await this.bookingRepository.createBooking(
@@ -116,5 +116,3 @@ export class StripeService {
     }
   }
 }
-
-// documentado con ayuda de copilot
