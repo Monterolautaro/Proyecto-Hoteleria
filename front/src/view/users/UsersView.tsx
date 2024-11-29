@@ -1,10 +1,10 @@
-'use client'
+'use client';
 import { User } from '@/interfaces/users';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie'; 
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
 
 const UsersView = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -13,77 +13,81 @@ const UsersView = () => {
   const [newUser, setNewUser] = useState({
     name: '',
     lastname: '',
+    brithday: '',
     email: '',
     username: '',
+    password: '',
     role: '',
   });
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
-
 
   // Obtener usuarios del back
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const token = localStorage.getItem('token'); // Obtener el token del localStorage
+        const token = Cookies.get('token'); // Obtener el token de las cookies
         if (!token) {
-          console.error('No token found');
+          console.error('No token found in cookies');
           return;
         }
-  
+
         const response = await axios.get(`${API_URL}/users`, {
           headers: {
             Authorization: `Bearer ${token}`, // Agregar el token a los headers
           },
         });
-  
+
         setUsers(response.data); // Actualizar el estado con los usuarios obtenidos
       } catch (error) {
         console.error('Error fetching users:', error);
       }
     };
-  
+
     fetchUsers();
   }, []);
 
   const handleCreateUser = async () => {
     try {
-      const response = await axios.post(`${API_URL}/users`, newUser); // Cambiar endpoint
-      setUsers([...users, response.data]); // Agregar nuevo usuario a la lista
-      setIsModalOpen(false); // Cerrar modal
-      setNewUser({ name: '',lastname: '', email: '', username: '', role: '' }); // Reiniciar formulario
+      const response = await axios.post(`${API_URL}/users`, newUser);
+      setUsers([...users, response.data]);
+      setIsModalOpen(false);
+      setNewUser({ name: '', lastname: '', brithday: '', email: '', username: '', password: '', role: '' });
     } catch (error) {
       console.error('Error creating user:', error);
     }
   };
 
-    // Editar usuario
-    const handleEditUser = async () => {
-      if (!selectedUser) return;
-  
-      try {
-        const response = await axios.put(`${API_URL}/users/${selectedUser.id}`, selectedUser); // Cambiar endpoint
-        setUsers(
-          users.map((user) =>
-            user.id === selectedUser.id ? response.data : user
-          )
-        ); // Actualizar el usuario editado
-        closeEditModal();
-      } catch (error) {
-        console.error('Error updating user:', error);
-      }
-    };
+  const handleEditUser = async () => {
+    if (!selectedUser) return;
 
-  const handleDelete = async (id: string) => {
     try {
-      await axios.delete(`${API_URL}/users/${id}`); // Cambiar endpoint
-      setUsers(users.filter((user) => user.id !== id));
+      const response = await axios.put(`${API_URL}/users/${selectedUser.user_id}`, selectedUser);
+      setUsers(users.map((user) => (user.user_id === selectedUser.user_id? response.data : user)));
+      closeEditModal();
     } catch (error) {
-      console.error("Error deleting user:", error);
+      console.error('Error updating user:', error);
     }
   };
 
 
-  // Abrir y cerrar modal de edición
+  const handleDelete = async (id: string) => {
+    try {
+      const token = Cookies.get('token'); 
+  
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      };
+  
+      await axios.delete(`${API_URL}/users/${id}`, config);
+  
+      setUsers(users.filter((user) => user.user_id !== id));
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+
   const openEditModal = (user: User) => {
     setSelectedUser(user);
     setIsEditModalOpen(true);
@@ -92,6 +96,7 @@ const UsersView = () => {
     setIsEditModalOpen(false);
     setSelectedUser(null);
   };
+
 
 
     return (
@@ -113,9 +118,9 @@ const UsersView = () => {
             <thead>
               <tr className="bg-gray-100 text-left">
                 <th className="border border-gray-200 px-4 py-2 text-center">Name</th>
-                <th className="border border-gray-200 px-4 py-2 text-center">Lasname</th>
+                <th className="border border-gray-200 px-4 py-2 text-center">Lastname</th>
                 <th className="border border-gray-200 px-4 py-2 text-center">Email</th>
-                <th className="border border-gray-200 px-4 py-2 text-center">Username</th>
+                <th className="border border-gray-200 px-4 py-2 text-center">Birthday</th>
                 <th className="border border-gray-200 px-4 py-2 text-center">Role</th>
                 <th className="border border-gray-200 px-4 py-2 text-center">#Bookings</th>
                 <th className="border border-gray-200 px-4 py-2 text-center">Actions</th>
@@ -124,11 +129,12 @@ const UsersView = () => {
             <tbody>
               {users.length > 0 ? (
                 users.map((user) => (
-                  <tr key={user.id} className="hover:bg-gray-50">
+                  <tr key={user.user_id} className="hover:bg-gray-50">
+              
                     <td className="border border-gray-200 px-4 py-2">{user.name}</td>
                     <td className="border border-gray-200 px-4 py-2">{user.lastname}</td>
                     <td className="border border-gray-200 px-4 py-2">{user.email}</td>
-                    <td className="border border-gray-200 px-4 py-2">{user.username}</td>
+                    <td className="border border-gray-200 px-4 py-2">{user.birthday}</td>
                     <td className="border border-gray-200 px-4 py-2">{user.role}</td>
                     <td className="border border-gray-200 px-4 py-2 text-center">{user.bookings}</td>
                     <td className="border border-gray-200 px-4 py-2 text-center">
@@ -139,7 +145,7 @@ const UsersView = () => {
                       Edit
                     </button>
                       <button
-                        onClick={() => handleDelete(user.id)}
+                        onClick={() => handleDelete(user.user_id)}
                         className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded"
                       >
                         Delete
@@ -159,63 +165,91 @@ const UsersView = () => {
         </div>
 
          {/* Modal para crear usuario */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-md w-96">
-            <h2 className="text-xl font-bold mb-4">Create User</h2>
-            <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Name</label>
-              <input
-                type="text"
-                value={newUser.name}
-                onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
-                className="w-full border px-3 py-2 rounded-md"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Email</label>
-              <input
-                type="email"
-                value={newUser.email}
-                onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
-                className="w-full border px-3 py-2 rounded-md"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Username</label>
-              <input
-                type="text"
-                value={newUser.username}
-                onChange={(e) => setNewUser({ ...newUser, username: e.target.value })}
-                className="w-full border px-3 py-2 rounded-md"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Role</label>
-              <input
-                type="text"
-                value={newUser.role}
-                onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
-                className="w-full border px-3 py-2 rounded-md"
-              />
-            </div>
-            <div className="flex justify-end space-x-4">
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="bg-red-500 text-white py-2 px-4 rounded"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleCreateUser}
-                className="bg-[#FAB432] text-white py-2 px-4 rounded"
-              >
-                Create
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+         {isModalOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
+    <div className="bg-white p-4 rounded-md w-80">
+      <h2 className="text-lg font-bold mb-3">Create User</h2>
+      <div className="mb-3">
+        <label className="block text-sm font-bold mb-1">Name</label>
+        <input
+          type="text"
+          value={newUser.name}
+          onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+          className="w-full border px-3 py-2 rounded-md"
+        />
+      </div>
+      <div className="mb-3">
+        <label className="block text-sm font-bold mb-1">Lastname</label>
+        <input
+          type="text"
+          value={newUser.lastname}
+          onChange={(e) => setNewUser({ ...newUser, lastname: e.target.value })}
+          className="w-full border px-3 py-2 rounded-md"
+        />
+      </div>
+      <div className="mb-3">
+        <label className="block text-sm font-bold mb-1">Birthday</label>
+        <input
+          type="text"
+          value={newUser.brithday}
+          onChange={(e) => setNewUser({ ...newUser, brithday: e.target.value })}
+          className="w-full border px-3 py-2 rounded-md"
+        />
+      </div>
+      <div className="mb-3">
+        <label className="block text-sm font-bold mb-1">Email</label>
+        <input
+          type="email"
+          value={newUser.email}
+          onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+          className="w-full border px-3 py-2 rounded-md"
+        />
+      </div>
+      <div className="mb-3">
+        <label className="block text-sm font-bold mb-1">Username</label>
+        <input
+          type="text"
+          value={newUser.username}
+          onChange={(e) => setNewUser({ ...newUser, username: e.target.value })}
+          className="w-full border px-3 py-2 rounded-md"
+        />
+      </div>
+      <div className="mb-3">
+        <label className="block text-sm font-bold mb-1">Password</label>
+        <input
+          type="text"
+          value={newUser.password}
+          onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
+          className="w-full border px-3 py-2 rounded-md"
+        />
+      </div>
+      <div className="mb-3">
+        <label className="block text-sm font-bold mb-1">Role</label>
+        <input
+          type="text"
+          value={newUser.role}
+          onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
+          className="w-full border px-3 py-2 rounded-md"
+        />
+      </div>
+      <div className="flex justify-end space-x-2">
+        <button
+          onClick={() => setIsModalOpen(false)}
+          className="bg-red-500 text-white py-2 px-4 rounded"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={handleCreateUser}
+          className="bg-[#FAB432] text-white py-2 px-4 rounded"
+        >
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
 
         {/* Modal para editar usuario  */}
        {isEditModalOpen && selectedUser && (
@@ -251,11 +285,11 @@ const UsersView = () => {
             />
             <input
               type="text"
-              value={selectedUser.username}
+              value={selectedUser.birthday}
               onChange={(e) =>
-                setSelectedUser({ ...selectedUser, username: e.target.value })
+                setSelectedUser({ ...selectedUser, birthday: e.target.value })
               }
-              placeholder="Username"
+              placeholder="Birthday"
               className="mb-4 w-full border px-3 py-2 rounded-md"
             />
             <input
