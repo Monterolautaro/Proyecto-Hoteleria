@@ -26,6 +26,16 @@ const Header: React.FC = () => {
     );
   }
 
+  if (pathname === "/register" || pathname === "/login" ) {
+    return (
+      <div className="h-[12vh] bg-contain bg-center text-white ">
+        <div className="bg-gradient-to-b from-[#111b] to-[#009375] flex flex-col justify-between items-center w-full h-full pb-[80px]">
+          <Navbar />
+          </div>
+          </div>
+    );
+  }
+
   if (pathname === "/") {
     return (
       <div className="h-[100vh] mb-[50px] bg-contain bg-center text-white bg-[url('/assets/Hotels.jpg')] ">
