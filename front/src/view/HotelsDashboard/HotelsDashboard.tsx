@@ -1,10 +1,16 @@
 'use client';
-import { Hotel } from '@/interfaces/users';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
+interface Hotel {
+  hotel_id: string;
+  name: string;
+  availability: string;
+  rooms: number;
+  location: string;
+}
 
 const HotelsDashboard = () => {
   const [hotels, setHotels] = useState<Hotel[]>([]);
@@ -22,19 +28,8 @@ const HotelsDashboard = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const token = localStorage.getItem('token'); // Obtener el token del localStorage
-        if (!token) {
-          console.error('No token found');
-          return;
-        }
-
-        const response = await axios.get(`${API_URL}/hotels`, {
-          headers: {
-            Authorization: `Bearer ${token}`, // Agregar el token a los headers
-          },
-        });
-
-        setHotels(response.data); // Actualizar el estado con los hoteles obtenidos
+        const response = await axios.get(`${API_URL}/hotels`);
+        setHotels(response.data);
       } catch (error) {
         console.error('Error fetching hotels:', error);
       }
@@ -42,7 +37,6 @@ const HotelsDashboard = () => {
 
     fetchHotels();
   }, []);
-
 
   const handleCreateHotel = async () => {
     try {
@@ -59,10 +53,10 @@ const HotelsDashboard = () => {
     if (!selectedHotel) return;
 
     try {
-      const response = await axios.put(`${API_URL}/hotels/${selectedHotel.id}`, selectedHotel);
+      const response = await axios.put(`${API_URL}/hotels/${selectedHotel.hotel_id}`, selectedHotel);
       setHotels(
         hotels.map((hotel) =>
-          hotel.id === selectedHotel.id ? response.data : hotel
+          hotel.hotel_id === selectedHotel.hotel_id ? response.data : hotel
         )
       );
       closeEditModal();
@@ -74,7 +68,7 @@ const HotelsDashboard = () => {
   const handleDeleteHotel = async (id: string) => {
     try {
       await axios.delete(`${API_URL}/hotels/${id}`);
-      setHotels(hotels.filter((hotel) => hotel.id !== id));
+      setHotels(hotels.filter((hotel) => hotel.hotel_id!== id));
     } catch (error) {
       console.error('Error deleting hotel:', error);
     }
@@ -117,7 +111,7 @@ const HotelsDashboard = () => {
           <tbody>
             {hotels.length > 0 ? (
               hotels.map((hotel) => (
-                <tr key={hotel.id} className="hover:bg-gray-50">
+                <tr key={hotel.hotel_id} className="hover:bg-gray-50">
                   <td className="py-2 px-4 border-b">{hotel.name}</td>
                   <td className="py-2 px-4 border-b">{hotel.availability}</td>
                   <td className="py-2 px-4 border-b text-center">{hotel.rooms}</td>
@@ -130,7 +124,7 @@ const HotelsDashboard = () => {
                       Edit
                     </button>
                     <button
-                      onClick={() => handleDeleteHotel(hotel.id)}
+                      onClick={() => handleDeleteHotel(hotel.hotel_id)}
                       className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded"
                     >
                       Delete
