@@ -13,6 +13,7 @@ import { differenceInDays } from "date-fns";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 
 const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   const { startDateContext, endDateContext, people, setDiffDays } =
@@ -24,7 +25,7 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   const elements = useElements();
   const router = useRouter();
 
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const user = JSON.parse(Cookies.get("user") || "{}");
 
   //Creo estado para el formulario de los datos
   const [formData, setFormData] = useState<IPaymentData>({
