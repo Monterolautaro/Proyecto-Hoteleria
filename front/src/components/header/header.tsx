@@ -19,7 +19,7 @@ const Header: React.FC = () => {
 
   if (pathname === "/hotelcreation") {
     return (
-      <div className="h-[20vh] bg-cover bg-center text-white bg-[#00352A]">
+      <div className="h-[10vh] bg-cover bg-center text-white bg-[#00352A]">
         {/* <Navbar /> */}
         {/* <HotelCreationView /> */}
       </div>
@@ -52,6 +52,16 @@ const Header: React.FC = () => {
               journey!
             </p>
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (pathname === "/login" || pathname === "/register") {
+    return (
+      <div className="bg-cover bg-center text-white h-[15vh]  bg-gradient-to-b from-[#00352A] to-[#009375]">
+        <div className=" flex pt-2 items-start w-full h-full">
+          <Navbar />
         </div>
       </div>
     );

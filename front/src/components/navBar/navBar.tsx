@@ -2,14 +2,13 @@
 import Link from "next/link";
 import React from "react";
 import NavbarButtons from "../NavbarButtons/NavbarButtons";
-import styles from "./navbar.module.css"
+import styles from "./navbar.module.css";
 
 const Navbar = () => {
   return (
     <header className="w-full bg-transparent py-4">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl pl-3">
         <div className="flex items-center justify-between">
-
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center" scroll={false}>
               <img
@@ -23,13 +22,13 @@ const Navbar = () => {
           </div>
 
           <div className="flex-1 flex justify-center space-x-6">
-  <Link href="/hotels" className={styles.bubbleLink}>
-    Hotels
-  </Link>
-  <Link href="/about" className={styles.bubbleLink}>
-    About Us
-  </Link>
-</div>
+            <Link href="/hotels" className={styles.bubbleLink}>
+              Hotels
+            </Link>
+            <Link href="/about" className={styles.bubbleLink}>
+              About Us
+            </Link>
+          </div>
 
           <div className="flex items-center gap-3">
             <NavbarButtons />
