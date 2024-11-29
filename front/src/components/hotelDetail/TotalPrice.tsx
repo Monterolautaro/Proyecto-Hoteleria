@@ -5,6 +5,7 @@ import { usePriceContext } from "@/helpers/hotelDetail/priceContext";
 import { useRoomsContext } from "@/helpers/hotelDetail/roomsContext";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 const TotalPrice: React.FC<{
   hotelName: string;
@@ -15,6 +16,12 @@ const TotalPrice: React.FC<{
   const { bookingRooms } = useRoomsContext();
   const [total, setTotal] = useState(0);
   const [totalRooms, setTotalRooms] = useState(0);
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    const { id } = JSON.parse(Cookies.get("user") || "{}");
+    setUserId(id);
+  }, []);
 
   useEffect(() => {
     const totalRooms = bookingRooms
@@ -32,7 +39,7 @@ const TotalPrice: React.FC<{
   }, [bookingRooms]);
 
   return (
-    <div className="flex self-end items-center gap-3">
+    <div className="flex self-end items-center gap-3 mb-10">
       <p>
         Total price for {totalRooms} rooms:{" "}
         <span className="font-bold">
@@ -40,12 +47,21 @@ const TotalPrice: React.FC<{
         </span>
       </p>
       {total !== 0 ? (
-        <Link
-          href={`/payment/${hotelName}`}
-          className="bg-[#009375] min-w-fit py-2 px-4 text-white font-medium text-xl rounded-md self-end"
-        >
-          Reserve now <span className="font-extrabold">{">"}</span>
-        </Link>
+        userId ? (
+          <Link
+            href={`/payment/${hotelName}`}
+            className="bg-[#009375] min-w-fit py-2 px-4 text-white font-medium text-xl rounded-md self-end hover:bg-[#3fceb1] transition duration-150 animate-fadeIn"
+          >
+            Reserve now <span className="font-extrabold">{">"}</span>
+          </Link>
+        ) : (
+          <Link
+            className="text-sm text-[#009375] hover:underline select-none"
+            href="/login"
+          >
+            You must be logged to reserve
+          </Link>
+        )
       ) : (
         <div className="bg-[#79a39b] min-w-fit py-2 px-4 text-white font-medium text-xl rounded-md self-end cursor-default">
           Select rooms

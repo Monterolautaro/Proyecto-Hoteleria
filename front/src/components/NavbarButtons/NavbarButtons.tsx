@@ -2,21 +2,19 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Cookies from 'js-cookie';
 import Logout from '../Logout/Logout';
 import { IUserSession } from '@/interfaces';
-import styles from "./navbarbuttons.module.css"
-
-
-
+import styles from './navbarbuttons.module.css';
+import { usePathname } from 'next/navigation';
 
 const NavbarButtons: React.FC = () => {
   const [userSession, setUserSession] = useState<IUserSession | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
+    const token = Cookies.get('token'); 
+    const user = Cookies.get('user'); 
     if (token && user) {
       setUserSession({
         token,
@@ -31,16 +29,10 @@ const NavbarButtons: React.FC = () => {
     if (!userSession?.token) {
       return (
         <>
-          <Link
-            href="/login"
-            className={styles.bubbleLink}
-          >
+          <Link href="/login" className={styles.bubbleLink}>
             Login
           </Link>
-          <Link
-            href="/register"
-            className={styles.bubbleLink}
-          >
+          <Link href="/register" className={styles.bubbleLink}>
             Register
           </Link>
         </>
@@ -52,16 +44,10 @@ const NavbarButtons: React.FC = () => {
     if (role.includes('admin')) {
       return (
         <>
-          <Link
-            href="/admin"
-            className={styles.bubbleLink}
-          >
+          <Link href="/admin" className={styles.bubbleLink}>
             Admin
           </Link>
-          <Link
-            href="/hotelcreation"
-            className={styles.bubbleLink}
-          >
+          <Link href="/hotelcreation" className={styles.bubbleLink}>
             Hotel Creation
           </Link>
           <Logout setUserSession={setUserSession} />
@@ -72,14 +58,10 @@ const NavbarButtons: React.FC = () => {
     if (role.includes('user')) {
       return (
         <>
-          
-          <Link
-            href="/dashboard"
-            className={styles.bubbleLink}
-          >
+          <Link href="/dashboard" className={styles.bubbleLink}>
             Profile
           </Link>
-          <Logout setUserSession={setUserSession}  />
+          <Logout setUserSession={setUserSession} />
         </>
       );
     }

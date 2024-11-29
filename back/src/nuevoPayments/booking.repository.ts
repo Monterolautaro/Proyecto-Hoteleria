@@ -52,12 +52,12 @@ export class BookingRepository {
 
     try {
       // Buscar al usuario por ID usando el queryRunner
-      const user = await queryRunner.manager.findOne(User, {
+      const user: User = await queryRunner.manager.findOne(User, {
         where: { user_id: userId },
       });
 
       // Buscar al hotel por ID usando el queryRunner
-      const hotel = await queryRunner.manager.findOne(Hotel, {
+      const hotel: Hotel = await queryRunner.manager.findOne(Hotel, {
         where: { hotel_id: hotelId },
       });
 
@@ -65,7 +65,7 @@ export class BookingRepository {
       if (!hotel) throw new NotFoundException('Hotel no encontrados');
       if (!user) throw new NotFoundException('Usuario no encontrados');
 
-      const bookedRooms = new BookedRooms();
+      const bookedRooms: BookedRooms = new BookedRooms();
 
       const validRooms = rooms.filter((room) => room.rooms > 0);
 
@@ -79,10 +79,8 @@ export class BookingRepository {
         if (room.type === 'suite') bookedRooms.suite_room_id = room.roomId;
 
         // actualizo las habitaciónes de cada tipo, y además las voy añadiendo a total rooms
-
         totalRooms += room.rooms;
 
-        // TERMINAR, ME TIENEN QUE PASAR UN ID VALIDO (ME ESTAN PASANDO room-2 , room-3, etc)
 
         const foundRoom = await queryRunner.manager.findOne(Room, {
           where: { room_id: room.roomId },
@@ -110,10 +108,11 @@ export class BookingRepository {
 
       // crear la reserva
       const booking: Booking = await queryRunner.manager.create(Booking, {
-        user,
-        hotel,
-        checkIn,
-        checkOut,
+        user: user,
+        hotel_id: hotel.hotel_id,
+        booked_rooms_id: bookedRooms.booked_rooms_id,
+        start_date: checkIn,
+        end_date: checkOut,
       });
       await queryRunner.manager.save(booking);
 

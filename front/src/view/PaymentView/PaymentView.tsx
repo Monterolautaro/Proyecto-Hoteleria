@@ -13,6 +13,7 @@ import { differenceInDays } from "date-fns";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 
 const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   const { startDateContext, endDateContext, people, setDiffDays } =
@@ -24,7 +25,7 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   const elements = useElements();
   const router = useRouter();
 
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const user = JSON.parse(Cookies.get("user") || "{}");
 
   //Creo estado para el formulario de los datos
   const [formData, setFormData] = useState<IPaymentData>({
@@ -72,9 +73,12 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
     });
 
     if (error) {
-      console.log(error.message);
+      Swal.fire({
+        title: error.message,
+        icon: "warning",
+      });
+      setButton(false);
     } else {
-      console.log("[PaymentMethod created]", paymentMethod);
       const { id } = paymentMethod;
       const totalPrice = bookingPrice.reduce((ac, index) => ac + index, 0);
       try {
@@ -88,7 +92,6 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
           checkOut: endDateContext!,
           travelers: people!,
         };
-        console.log(data);
 
         const response = await SendPaymentData(data);
         if (response) {

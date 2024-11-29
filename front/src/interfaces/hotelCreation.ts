@@ -20,11 +20,11 @@ interface HotelAvailability {
 }
 
 // Definición de la interfaz para las habitaciones del hotel
-interface HotelRooms {
+export interface HotelRooms {
   single: RoomDetails;
-  double: RoomDetails;
-  triple: RoomDetails;
-  suite: RoomDetails;
+  double?: RoomDetails;
+  triple?: RoomDetails;
+  suite?: RoomDetails;
 }
 
 // Interfaz para los detalles de una habitación

@@ -89,8 +89,8 @@ export class MercadopagoService {
 
       // Crear la reserva y actualizar las métricas utilizando el queryRunner
       const booking = this.bookingRepository.create({
-        checkIn: createBooking.checkIn,
-        checkOut: createBooking.checkOut,
+        start_date: createBooking.checkIn,
+        end_date: createBooking.checkOut,
         user: { user_id: user.user_id },
       });
 
