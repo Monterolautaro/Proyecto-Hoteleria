@@ -50,7 +50,6 @@ export class FilterRepository {
         );
       }
 
-      console.log('filtro de city', filteredHotels);
       
 
       // filtro por amenities
