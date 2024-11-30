@@ -1,9 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { registerUser } from "@/helpers/auth.helper";
 import {
-  validateBirthday,
   validateConfirmPassword,
   validateEmail,
   validateLastName,
@@ -11,11 +9,11 @@ import {
   validatePassword,
 } from "@/helpers/formValidation";
 import { Toast } from "@/helpers/toast";
+import { format } from "date-fns";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { FaGoogle } from "react-icons/fa";
-import styles from "./register.module.css";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 const Register = () => {
   const router = useRouter();
@@ -35,35 +33,20 @@ const Register = () => {
   });
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // Estado para alternar la visibilidad de la contraseña
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Estado para alternar la visibilidad de la confirmación de contraseña
 
-  // Formateo del campo birthday
-  const formatBirthday = (value: string) => {
-    const numbersOnly = value.replace(/\D/g, ""); // Eliminar cualquier caracter no numérico
-    let formattedValue = "";
-    if (numbersOnly.length > 0) {
-      formattedValue += numbersOnly.slice(0, 4); // Año (primeros 4 caracteres)
-    }
-    if (numbersOnly.length > 4) {
-      formattedValue += "-" + numbersOnly.slice(4, 6); // Mes (siguientes 2 caracteres)
-    }
-    if (numbersOnly.length > 6) {
-      formattedValue += "-" + numbersOnly.slice(6, 8); // Día (últimos 2 caracteres)
-    }
-    return formattedValue;
-  };
-
-  // Validar en tiempo real
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    // Si el campo es "birthday", formateamos el valor
+    // Manejo especial para el campo de fecha
     if (name === "birthday") {
-      setFormData({ ...formData, [name]: formatBirthday(value) });
+      const formattedDate = value ? format(new Date(value), "yyyy-MM-dd") : "";
+      setFormData({ ...formData, [name]: formattedDate });
     } else {
       setFormData({ ...formData, [name]: value });
     }
 
-    // Validación en tiempo real
     const newErrors = { ...errors };
     switch (name) {
       case "name":
@@ -84,9 +67,6 @@ const Register = () => {
           value
         );
         break;
-      case "birthday":
-        newErrors.birthday = validateBirthday(value);
-        break;
       default:
         break;
     }
@@ -100,7 +80,6 @@ const Register = () => {
     const newErrors = {
       name: validateName(formData.name),
       lastname: validateLastName(formData.lastname),
-      birthday: validateBirthday(formData.birthday),
       email: validateEmail(formData.email),
       password: validatePassword(formData.password),
       confirmPassword: validateConfirmPassword(
@@ -116,7 +95,6 @@ const Register = () => {
     try {
       setIsSubmitting(true);
       const user = await registerUser(formData);
-      console.log(user);
 
       Toast.fire({
         icon: "success",
@@ -142,97 +120,138 @@ const Register = () => {
         </h2>
         <form
           onSubmit={handleRegister}
-          className="flex flex-wrap gap-8 justify-center w-full"
+          className="flex flex-wrap gap-4 justify-center w-full"
         >
           {/* Left Column */}
           <div className="w-full sm:w-2/5">
-            <div className="mb-3">
-              <label className={styles.label} htmlFor="name">
+            <div className="mb-1">
+              <label htmlFor="name" className="font-medium">
                 Name
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
               />
-              {errors.name && (
-                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-              )}
+              <p
+                className={`text-red-500 text-xs mt-1 h-5 ${
+                  errors.name ? "visible" : "invisible"
+                }`}
+              >
+                {errors.name}
+              </p>
             </div>
-            <div className="mb-3">
-              <label className={styles.label} htmlFor="lastname">
+            <div className="mb-1">
+              <label htmlFor="lastname" className="font-medium">
                 Last Name
               </label>
               <input
                 type="text"
                 id="lastname"
                 name="lastname"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Last Name"
                 value={formData.lastname}
                 onChange={handleChange}
               />
-              {errors.lastname && (
-                <p className="text-red-500 text-sm mt-1">{errors.lastname}</p>
-              )}
+              <p
+                className={`text-red-500 text-xs mt-1 h-5 ${
+                  errors.lastname ? "visible" : "invisible"
+                }`}
+              >
+                {errors.lastname}
+              </p>
             </div>
-            <div className="mb-3">
-              <label className={styles.label} htmlFor="birthday">
+            <div className="mb-1">
+              <label htmlFor="birthday" className="font-medium">
                 Birthday
               </label>
               <input
-                type="text"
+                type="date"
                 id="birthday"
                 name="birthday"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
-                placeholder="YYYY-MM-DD"
+                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 value={formData.birthday}
                 onChange={handleChange}
-                maxLength={10} // Limitar a 10 caracteres (formato YYYY-MM-DD)
               />
-              {errors.birthday && (
-                <p className="text-red-500 text-sm mt-1">{errors.birthday}</p>
-              )}
+              <p
+                className={`text-red-500 text-xs mt-1 h-5 ${
+                  errors.birthday ? "visible" : "invisible"
+                }`}
+              >
+                {errors.birthday}
+              </p>
             </div>
           </div>
 
           {/* Right Column */}
           <div className="w-full sm:w-2/5">
             {["email", "username", "password", "confirmPassword"].map((key) => (
-              <div key={key} className="mb-3">
-                <label className={styles.label} htmlFor={key}>
-                  {key
-                    .replace("confirmPassword", "Confirm Password")
-                    .replace(/([A-Z])/g, " $1")}
+              <div key={key} className="mb-1">
+                <label htmlFor={key} className="font-medium">
+                  {key.replace("confirmPassword", "Confirm Password").replace(
+                    /([A-Z])/g,
+                    " $1"
+                  )}
                 </label>
-                <input
-                  type={
-                    key === "password" || key === "confirmPassword"
-                      ? "password"
-                      : "text"
-                  }
-                  id={key}
-                  name={key}
-                  className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
-                  placeholder={key
-                    .replace("confirmPassword", "Confirm Password")
-                    .replace(/([A-Z])/g, " $1")}
-                  value={(formData as any)[key]}
-                  onChange={handleChange}
-                />
-                {errors[key] && (
-                  <p className="text-red-500 text-sm mt-1">{errors[key]}</p>
-                )}
+                <div className="relative">
+                  <input
+                    type={
+                      key === "password" || key === "confirmPassword"
+                        ? key === "password"
+                          ? showPassword
+                            ? "text"
+                            : "password"
+                          : showConfirmPassword
+                          ? "text"
+                          : "password"
+                        : "text"
+                    }
+                    id={key}
+                    name={key}
+                    className="w-full p-2 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                    placeholder={key
+                      .replace("confirmPassword", "Confirm Password")
+                      .replace(/([A-Z])/g, " $1")}
+                    value={(formData as any)[key]}
+                    onChange={handleChange}
+                  />
+                  {(key === "password" || key === "confirmPassword") && (
+                    <button
+                      type="button"
+                      className="absolute top-1/2 right-3 transform -translate-y-1/2"
+                      onClick={() =>
+                        key === "password"
+                          ? setShowPassword(!showPassword)
+                          : setShowConfirmPassword(!showConfirmPassword)
+                      }
+                    >
+                      {key === "password"
+                        ? showPassword
+                          ? <FaEyeSlash className="text-[#009375]" />
+                          : <FaEye className="text-[#009375]" />
+                        : showConfirmPassword
+                        ? <FaEyeSlash className="text-[#009375]" />
+                        : <FaEye className="text-[#009375]" />}
+                    </button>
+                  )}
+                </div>
+                <p
+                  className={`text-red-500 text-xs mt-1 h-5 ${
+                    errors[key] ? "visible" : "invisible"
+                  }`}
+                >
+                  {errors[key]}
+                </p>
               </div>
             ))}
           </div>
         </form>
 
-        {/* Botón de Registro */}
         <button
           type="submit"
           className="w-1/3 py-2 px-4 bg-[#009375] mt-3 text-white rounded-lg hover:bg-[#006c55] disabled:cursor-not-allowed mx-auto"
@@ -242,13 +261,12 @@ const Register = () => {
           Sign Up
         </button>
 
-        {/* Google Login Button */}
         <div className="mt-4 flex justify-center w-full">
           <button
             onClick={() => signIn("google")}
             className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center mt-1 transition duration-75 group hover:bg-[#009375]"
           >
-            <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white " />
+            <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />
           </button>
         </div>
       </div>
