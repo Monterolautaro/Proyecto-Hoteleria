@@ -1,15 +1,11 @@
 "use client";
 import Filters from "@/components/filters/filters";
 import SearchResults from "@/components/SearchResults/SearchResults";
-import { useEffect, useState, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { Hotel } from "@/interfaces/hotel";
 
 const HotelsPage = () => {
   const [hotels, setHotels] = useState<Hotel[]>([]);
-
-  useEffect(() => {
-
-  }, [hotels]);
 
   return (
     <div className="grid grid-cols-4 gap-6 p-6 w-[80%] mx-auto">
@@ -18,9 +14,9 @@ const HotelsPage = () => {
       </div>
 
       <div className="col-span-3">
-      <Suspense fallback={<div>Loading...</div>}>
-        <SearchResults hotelsData={hotels} />
-      </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <SearchResults hotelsData={hotels} />
+        </Suspense>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 import getResult from "@/helpers/searchBar";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const SearchBar = () => {
@@ -17,22 +17,21 @@ const SearchBar = () => {
       setLoading(true);
       const result = await getResult(e);
       setResult(result);
-      setVisible(true); 
+      setVisible(true);
       setLoading(false);
     } else {
       setResult([]);
-      setVisible(false); 
+      setVisible(false);
     }
   };
 
   const handleSelectResult = (selected: string) => {
-    setInputValue(selected); 
-    setVisible(false); 
-  
+    setInputValue(selected);
+    setVisible(false);
+
     const queryString = new URLSearchParams({ search: selected }).toString();
     router.push(`/search-results?${queryString}`);
   };
-  
 
   const SearchBarResults = ({
     results,
@@ -84,6 +83,7 @@ const SearchBar = () => {
               pathname: "/search-results",
               query: { search: inputValue },
             }}
+            onClick={() => handleSelectResult(inputValue)}
             className="bg-teal-600 text-white font-semibold px-6 py-2 rounded-full border border-white hover:bg-teal-500"
           >
             Explore
