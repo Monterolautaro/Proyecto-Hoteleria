@@ -56,14 +56,7 @@ export class UserService {
   }
 
   changeEmail(id: string, email: string) {
-    try {
       return this.userRepository.changeEmail(id, email);
-    } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong changing email',
-        error,
-      );
-    }
   }
 
   changeUsername(id: string, username: string) {

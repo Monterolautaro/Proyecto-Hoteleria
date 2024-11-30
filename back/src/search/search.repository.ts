@@ -81,10 +81,16 @@ export class SearchRepository {
   async searchBarResults(query: any, user_id: string) {
 
     try {
+      
       // Busco hoteles, o ciudades, o paises segun el query
       const foundHotel = await this.hotelsRepository
         .createQueryBuilder('hotel')
         .leftJoinAndSelect('hotel.address', 'address')
+        .leftJoinAndSelect('hotel.amenities', 'amenities')
+        .leftJoinAndSelect('hotel.room', 'room')
+        .leftJoinAndSelect('room.room_type', 'room_type')
+        .leftJoinAndSelect('hotel.availability', 'availability')
+        .leftJoinAndSelect('hotel.details', 'details')
         .where('unaccent(hotel.name) ILike unaccent(:query)', {
           query: `%${query}%`,
         })
@@ -119,6 +125,11 @@ export class SearchRepository {
           const otherHotels: SearchHotelDto[] = await this.hotelsRepository
             .createQueryBuilder('hotel')
             .leftJoinAndSelect('hotel.address', 'address')
+            .leftJoinAndSelect('hotel.amenities', 'amenities')
+            .leftJoinAndSelect('hotel.room', 'room')
+            .leftJoinAndSelect('room.room_type', 'room_type')
+            .leftJoinAndSelect('hotel.availability', 'availability')
+            .leftJoinAndSelect('hotel.details', 'details')
             .where('unaccent(address.city) ILike unaccent(:query)', {
               query: `%${query}%`
             })
@@ -138,11 +149,11 @@ export class SearchRepository {
           (item) => item.toLowerCase() !== 'hotel'
         );
 
-        // Ahora tengo que buscar hoteles pasando como parametro el splitHotels
+        // Ahora tengo que buscar hoteles pasando como parametro el filtered splitHotels
         const otherHotels: SearchHotelDto[] = await this.fetchOtherHotels(filteredSplitHotels)
 
         const finalHotels = otherHotels.filter((item) => item.hotel_id !== hotel.hotel_id)
-        
+
         const cacheHotels = [hotel, ...finalHotels];
         // asigno una key para el caché
         const key = `hotels:${user_id}`;
@@ -163,7 +174,7 @@ export class SearchRepository {
 
 
   async fetchOtherHotels(filteredSplitHotels: string[]): Promise<SearchHotelDto[]> {
-    const hotelQueries = filteredSplitHotels.map((item) => 
+    const hotelQueries = filteredSplitHotels.map((item) =>
       this.hotelsRepository
         .createQueryBuilder('hotel')
         .distinctOn(['hotel.hotel_id'])
@@ -177,12 +188,12 @@ export class SearchRepository {
         .orderBy('hotel.hotel_id', 'ASC')
         .getMany()
     );
-  
+
     const otherHotels = (await Promise.all(hotelQueries)).flat();
-  
+
     const uniqueHotels = Array.from(new Map(otherHotels.map((hotel) => [hotel.hotel_id, hotel])).values());
-  
+
     return uniqueHotels;
   }
-  
+
 } /* cierre */

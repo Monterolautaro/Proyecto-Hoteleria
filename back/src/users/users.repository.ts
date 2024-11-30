@@ -6,6 +6,7 @@ import { NotFoundException } from '@nestjs/common';
 import { Credentials } from 'src/entities/credentials.entity';
 import * as bcrypt from 'bcryptjs';
 import { Roles } from 'roles.enum';
+import { log } from 'console';
 
 @Injectable()
 export class UserRepository {
@@ -29,7 +30,7 @@ export class UserRepository {
     try {
       const user: User = await this.userRepository.findOne({
        where: { user_id },
-       relations: { credential: true , bookings: true},
+       relations: { credential: true , bookings: { hotel: true, booked_rooms: true, payments_details: true }, payment: true },
       });
       if (!user) throw new NotFoundException(`User ${user_id} not found`);
 
@@ -126,14 +127,15 @@ export class UserRepository {
 
   async changeEmail(user_id: string, email: string): Promise<any> {
     try {
-      const user: User = await this.userRepository.findOneBy({
-        user_id,
+      const user: User = await this.userRepository.findOne({
+        where: {user_id},
+        relations: { credential: true },
       });
-
+      
       if (!user) throw new NotFoundException(`User ${user_id} not found`);
-
+      
       const credential_id: string = user.credential.credential_id;
-
+      
       await this.credentialsRepository.update({ credential_id }, { email });
 
       return {
@@ -154,14 +156,14 @@ export class UserRepository {
         user_id,
       });
       if (!user) throw new NotFoundException(`User ${user_id} not found`);
-
+      
       const credential_id = user.credential.credential_id;
-
+      
       await this.credentialsRepository.update(
         { credential_id },
         { username: newUsername },
       );
-
+      
       return {
         status: 200,
         message: `User ${user_id} username has been updated to ${newUsername}`,

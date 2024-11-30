@@ -50,6 +50,15 @@ export class StripeService {
       paymentData;
       
       // Crear la intención de pago en Stripe
+
+      if(!id) { 
+        const error = new Stripe.errors.StripeCardError({
+        message: 'Invalid payment method',
+        type: 'card_error',
+        param: 'payment_method'
+      });
+      throw new BadRequestException(error.message);
+    }
       const paymentIntent = await this.stripe.paymentIntents.create({
         amount,
         currency: 'USD',
@@ -62,7 +71,9 @@ export class StripeService {
         confirm: true,
       });
       
-      if(!paymentIntent) throw new BadRequestException('Error during payment intent creation');
+      if (!paymentIntent || paymentIntent.status !== 'succeeded') {
+        throw new BadRequestException('Error during payment intent creation');
+      }
 
 
       // Crear la reserva y actualizar las métricas utilizando el queryRunner
@@ -81,6 +92,7 @@ export class StripeService {
 
       const paymentDetails = new PaymentDetails()
 
+      // guardo booking en paymentdetails
       paymentDetails.booking = booking;
 
      const payment = await queryRunner.manager.save(
@@ -96,8 +108,13 @@ export class StripeService {
         }),
       );
 
+      // guardo payment en paymentdetails
       paymentDetails.payment = payment;
+
+      // guardo paymentdetails en booking
+      booking.payments_details = paymentDetails
       
+      await queryRunner.manager.save(booking)
       await queryRunner.manager.save(paymentDetails);
 
       // Confirmar la transacción
@@ -106,9 +123,9 @@ export class StripeService {
       return paymentIntent;
     } catch (error: any) {
       // Revertir la transacción si algo falla
+   
       await queryRunner.rollbackTransaction();
-
-      return Stripe.errors[error.type];
+      throw Stripe.errors[error.type];
       
     } finally {
       // Liberar el queryRunner
