@@ -11,7 +11,7 @@ import { IPaymentData } from "@/interfaces/paymentDataForm";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { differenceInDays } from "date-fns";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 
@@ -94,7 +94,9 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
         };
 
         const response = await SendPaymentData(data);
-        if (response) {
+        console.log(response);
+
+        if (response.message) {
           Swal.fire({
             title: response.message,
             icon: "success",
@@ -104,7 +106,13 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
           setDiffDays(0);
           resetPrice([]);
           resetRooms([]);
-          router.push("/");
+          router.push("/dashboard");
+        } else {
+          Swal.fire({
+            title: "We cannot process your payment, try again later",
+            icon: "warning",
+          });
+          setButton(false);
         }
       } catch (error: any) {
         Swal.fire({
@@ -115,10 +123,6 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
       }
     }
   };
-
-  useEffect(() => {
-    console.log(startDateContext, endDateContext);
-  }, [startDateContext]);
 
   return (
     <div className="w-[85%] mx-auto flex flex-col items-center">

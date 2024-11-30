@@ -47,7 +47,11 @@ const Header: React.FC = () => {
     );
   }
 
-  if (pathname === "/login" || pathname === "/register") {
+  if (
+    pathname === "/login" ||
+    pathname === "/register" ||
+    pathname === "/dashboard"
+  ) {
     return (
       <div className="bg-cover bg-center text-white h-[15vh]  bg-gradient-to-b from-[#00352A] to-[#009375]">
         <div className=" flex pt-2 items-start w-full h-full">
