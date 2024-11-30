@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface FilterProps {
@@ -43,7 +42,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       }
       if (filters.priceRange.length > 0) {
         const priceRange = filters.priceRange.map((range) =>
-          range.split(" - ").map((p) => p.replace(" COP", ""))
+          range.split(" - ").map((p) => p.replace(" USD", ""))
         );
         queryParams.append("price", priceRange.join("|"));
       }
@@ -65,7 +64,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
   };
 
   return (
-    <div className="flex flex-col space-y-6 bg-[#d0f6e9]">
+    <div className="flex flex-col space-y-6  bg-[#d0f6e9]">
       <h2 className="text-xl font-bold text-gray-800">Filters</h2>
 
       <div>
@@ -105,12 +104,12 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
 
       <div>
         <h3 className="text-lg font-semibold text-gray-700 mb-2">Price</h3>
-        <div className="space-y-2">
+        <div className="space-y-2 text-sm">
           {[
-            "0 COP - 150000 COP",
-            "150000 COP - 400000 COP",
-            "400000 COP - 800000 COP",
-            "+800000 COP",
+            "0 USD - 150000 USD",
+            "150000 USD - 400000 USD",
+            "400000 USD - 800000 USD",
+            "+800000 USD",
           ].map((range) => (
             <label key={range} className="flex items-center space-x-2">
               <input
