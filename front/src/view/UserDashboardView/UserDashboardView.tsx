@@ -21,7 +21,6 @@ const UserDashboardView = () => {
       if (token) {
         const userData = await getUserData(user.id, token);
         setUser(userData);
-        console.log(userData);
       }
     };
     getData();

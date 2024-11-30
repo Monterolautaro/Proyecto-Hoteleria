@@ -112,7 +112,6 @@ export class AuthRepository {
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
-    console.log('esto es lo que me llega', userData);
 
     try {
       const user = await queryRunner.manager.create(User, {
@@ -132,8 +131,6 @@ export class AuthRepository {
       });
 
       await queryRunner.manager.save(credential);
-
-      console.log('credential id', credential.credential_id);
 
       await queryRunner.manager.update(User, user.user_id, {
         credential,
@@ -249,14 +246,11 @@ export class AuthRepository {
       const foundUser = await this.userRepository.getUserByEmail(email);
       if (foundUser === null)
         throw new NotFoundException('User not registered');
-      console.log('luego de encontrar al usuario', foundUser);
       
       const isPasswordValid = await bcrypt.compare(
         password,
         foundUser.credential.password,
       );
-
-      console.log('luego de validar la pass', isPasswordValid);
       
       if (!isPasswordValid)
         throw new UnauthorizedException('Invalid credentials');
@@ -267,11 +261,9 @@ export class AuthRepository {
         verified: foundUser.verified,
         role: foundUser.role,
       };
-      console.log('luego de definir el payload');
       
 
       const token = this.jwtService.sign(payload);
-      console.log('antes de regresar el token');
       
       return { success: "You're logged in successfully", token, user: payload };
     } catch (error) {

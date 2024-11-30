@@ -55,7 +55,6 @@ const HotelCreationView = () => {
       },
     };
 
-    console.log(newHotel);
     // await createHotel(newHotel);
   };
 
