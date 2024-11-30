@@ -57,7 +57,6 @@ export class PaymentsController {
   @RolesDecorator(Roles.admin, Roles.user, Roles.hotel_owner)
   @UseGuards(AuthGuard, RolesGuard)
   webhook(@Body() body: any) {
-    console.log('Webhook recibido', body);
     // Procesar el evento recibido
     return 'OK';
   }

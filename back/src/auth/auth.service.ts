@@ -48,7 +48,6 @@ export class AuthService {
 
     const payload = ticket.getPayload();
 
-    console.log('esta pasando por aca');
     if (!payload) {
       throw new Error('Invalid token payload');
     }
@@ -70,6 +69,7 @@ export class AuthService {
         };
 
         // Genero un JWT interno con los datos del usuario y lo devuelvo al front
+        
         return {
           accessToken: this.jwtService.sign(user),
           user,
@@ -87,7 +87,7 @@ export class AuthService {
       };
 
       await this.authRepository.signUpGoogleUser(userData);
-
+      
       const user = {
         email: payload.email,
         name: payload.name,
