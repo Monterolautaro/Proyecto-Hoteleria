@@ -116,7 +116,6 @@ const Register = () => {
     try {
       setIsSubmitting(true);
       const user = await registerUser(formData);
-      console.log(user);
 
       Toast.fire({
         icon: "success",

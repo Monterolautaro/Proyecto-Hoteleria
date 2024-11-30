@@ -8,7 +8,6 @@ export const SendPaymentData = async (data: IStripeData) => {
   try {
     const response = await axios.post(`${API_URL}/stripe/create-payment`, data);
     if (response) return response.data;
-    console.log('esto es lo que responde el backend', response);
     
   } catch (error: any) {
     if (error.response && error.response.data) {

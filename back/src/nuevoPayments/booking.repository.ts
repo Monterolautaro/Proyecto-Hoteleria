@@ -109,8 +109,8 @@ export class BookingRepository {
       // crear la reserva
       const booking: Booking = await queryRunner.manager.create(Booking, {
         user: user,
-        hotel_id: hotel.hotel_id,
-        booked_rooms_id: bookedRooms.booked_rooms_id,
+        hotel: hotel,
+        booked_rooms: bookedRooms,
         start_date: checkIn,
         end_date: checkOut,
       });

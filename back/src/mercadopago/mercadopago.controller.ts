@@ -28,7 +28,6 @@ export class MercadopagoController {
    */
   @Post('/webhook')
   async webhookController(@Body() body: any) {
-    console.log('Booking Webhook:', body);
 
     if (body.type === 'payment') {
       const paymentId = body.data.id;
