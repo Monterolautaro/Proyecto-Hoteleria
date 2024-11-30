@@ -52,4 +52,5 @@ export interface IHotelCreation {
   availability: HotelAvailability;
   rooms: HotelRooms;
   amenities: HotelAmenities;
+  images: File[];
 }

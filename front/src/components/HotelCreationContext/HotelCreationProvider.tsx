@@ -1,5 +1,7 @@
 // components/HotelCreationContext/HotelCreationProvider.tsx
 "use client";
+
+import { uploadImages } from "@/helpers/imageUpload/imageUpload"; // Helper para subir imágenes
 import { HotelRooms } from "@/interfaces/hotelCreation";
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
@@ -49,6 +51,10 @@ interface IHotelCreationContext {
 
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
+
+  images: File[];
+  setImages: React.Dispatch<React.SetStateAction<File[]>>;
+  uploadHotelImages: () => Promise<string>;
 }
 
 const HotelCreationContext = createContext<IHotelCreationContext | undefined>(
@@ -83,7 +89,8 @@ export const HotelCreationProvider = ({
     },
   });
 
-  // Nueva implementación de setHotelRooms
+  const [images, setImages] = useState<File[]>([]); // Estado para imágenes
+
   const setHotelRooms = (
     roomsArray: {
       id: number;
@@ -95,12 +102,10 @@ export const HotelCreationProvider = ({
       enabled: boolean;
     }[]
   ) => {
-    // Filtrar habitaciones que no estén vacias
     const filteredRooms = roomsArray.filter(
       (room) => room.roomsLeft > 0 && room.enabled
     );
 
-    // Se crea el objeto final de las rooms
     const rooms: Partial<HotelRooms> = {};
     filteredRooms.forEach((room) => {
       rooms[room.type as keyof HotelRooms] = {
@@ -111,11 +116,25 @@ export const HotelCreationProvider = ({
       };
     });
 
-    // Actualizar el estado con las habitaciones resultantes
     setHotelRoomsState(rooms as HotelRooms);
   };
 
   const [step, setStep] = useState(1);
+
+  // Función para subir imágenes
+  const uploadHotelImages = async (): Promise<string> => {
+    if (images.length === 0) {
+      return "No images to upload.";
+    }
+
+    try {
+      const result = await uploadImages(images); // Utilizamos el helper externo
+      return result;
+    } catch (error) {
+      console.error("Error uploading images:", error);
+      return "Error uploading images.";
+    }
+  };
 
   return (
     <HotelCreationContext.Provider
@@ -128,6 +147,9 @@ export const HotelCreationProvider = ({
         setHotelRooms,
         step,
         setStep,
+        images,
+        setImages,
+        uploadHotelImages, // Función disponible en el contexto
       }}
     >
       {children}
