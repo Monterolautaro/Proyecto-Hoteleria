@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -14,4 +14,4 @@ const getHotelsResults = async (query: string) => {
     }
   };
 
-export default getHotelsResults;
+export default getHotelsResults; */

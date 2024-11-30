@@ -1,11 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
 import React from "react";
 
 const Sidebar = () => {
   const menuItems = [
-    { name: "Dashboard", href: "/admin" },
+    { name: "Métricas", href: "/admin" },
     { name: "Users", href: "/admin/users" },
+    { name: "Bookings", href: "/admin/bookings" },
     { name: "Hotels", href: "/admin/hotels" },
     { name: "Logout", href: "/logout"  },
   ];

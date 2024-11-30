@@ -3,11 +3,13 @@ import { User } from '@/interfaces/users';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const UsersView = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const router = useRouter(); 
 
   // Obtener usuarios del back
   useEffect(() => {
@@ -53,7 +55,7 @@ const UsersView = () => {
   };
 
   const handleViewDetails = (id: string) => {
-    window.location.href = `/user-details/${id}`; // Cambiar la ruta según tu aplicación
+    router.push(`/admin/bookings?id=${id}`);
   };
 
   return (
@@ -67,7 +69,7 @@ const UsersView = () => {
               <th className="border border-gray-200 px-4 py-2 text-center">Name</th>
               <th className="border border-gray-200 px-4 py-2 text-center">Lastname</th>
               <th className="border border-gray-200 px-4 py-2 text-center">Email</th>
-              <th className="border border-gray-200 px-4 py-2 text-center">Birthday</th>
+              <th className="border border-gray-200 px-4 py-2 text-center">Birthdate</th>
               <th className="border border-gray-200 px-4 py-2 text-center">Role</th>
               <th className="border border-gray-200 px-4 py-2 text-center">Actions</th>
             </tr>
