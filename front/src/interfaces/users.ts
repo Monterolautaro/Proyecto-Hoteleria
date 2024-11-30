@@ -1,9 +1,14 @@
 export interface User {
-  user_id: string;
+  user_id: string | undefined;
   name: string;
   lastname: string;
-  email: string;
   phone: string;
+  credential: {
+    credential_id: string;
+    email: string | undefined;
+    password: string | undefined;
+    username: string | undefined;
+  };
   role: string;
   bookings: number;
   birthday?: string;
@@ -17,13 +22,14 @@ export interface Hotel {
   location: string;
 }
 export interface IUserData {
-  name: string;
-  lastname: string;
-  birthdate: string;
+  name: string | undefined;
+  lastname: string | undefined;
+  birthdate: string | undefined;
 }
 
 export interface IUserCredentials {
-  email: string;
-  username: string;
+  userId: string | undefined;
+  email: string | undefined;
+  username: string | undefined;
   password?: string;
 }

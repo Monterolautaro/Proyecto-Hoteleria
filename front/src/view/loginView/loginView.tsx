@@ -41,7 +41,6 @@ const Login = () => {
       setIsSubmitting(true);
 
       const { token, user } = await loginUser(formData);
-      console.log(user);
       Cookies.set("token", token, { expires: 1 });
       Cookies.set("user", JSON.stringify(user), { expires: 1 });
 
