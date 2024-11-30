@@ -12,7 +12,8 @@ const Header: React.FC = () => {
   if (
     pathname === "/admin" ||
     pathname === "/admin/users" ||
-    pathname === "/admin/hotels"
+    pathname === "/admin/hotels"||
+    pathname === "/admin/bookings"
   ) {
     return <div></div>;
   }
