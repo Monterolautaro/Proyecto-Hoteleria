@@ -46,7 +46,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotelsData }) => {
       {loading ? (
         <p className="text-gray-500">Loading...</p>
       ) : (
-        <div className="grid grid-cols-1 gap-4">
+        <div className="flex flex-col gap-4">
           {hotels && hotels.length > 0 ? (
             hotels.map((hotel, key) => (
               <HotelCardResults key={key} hotel={hotel} />

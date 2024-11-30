@@ -9,7 +9,7 @@ const HotelsPage = () => {
 
   return (
     <div className="grid grid-cols-4 gap-6 p-6 w-[80%] mx-auto">
-      <div className="col-span-1 bg-gray-100 p-4 rounded-lg shadow-md">
+      <div className="col-span-1 bg-[#d0f6e9] h-fit p-4 rounded-lg shadow-md">
         <Filters onFiltersApplied={(results) => setHotels(results)} />
       </div>
 
