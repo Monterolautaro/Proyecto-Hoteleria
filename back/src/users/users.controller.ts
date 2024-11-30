@@ -18,7 +18,6 @@ import { Roles } from 'roles.enum';
 import { RolesDecorator } from 'decorators/roles.decorator';
 
 @Controller('users')
-@UseGuards(AuthGuard)
 export class UserController {
   constructor(private readonly UserService: UserService) {}
 
@@ -36,7 +35,6 @@ export class UserController {
   getUserById(@Param('id', ParseUUIDPipe) id: string): Promise<User> {
     return this.UserService.getUserById(id);
   }
-
   @Post('email')
   getUserByEmail(@Body('email') email: string) {
     return this.UserService.getUserByEmail(email);
@@ -72,6 +70,7 @@ export class UserController {
     @Param('id', ParseUUIDPipe) id: string,
     @Body('email') email: string,
   ): Promise<any> {
+    
     return this.UserService.changeEmail(id, email);
   }
 

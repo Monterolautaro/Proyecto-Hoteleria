@@ -10,11 +10,15 @@ const Header: React.FC = () => {
   const pathname = usePathname();
 
   if (
-    pathname === "/admin" ||
-    pathname === "/admin/users" ||
-    pathname === "/admin/hotels"
+    pathname === "/admin" 
   ) {
-    return <div></div>;
+    return (
+      <div className="h-[12vh] bg-contain bg-center text-white ">
+        <div className="bg-gradient-to-b from-[#111b] to-[#009375] flex flex-col justify-between items-center w-full h-full pb-[80px]">
+          <Navbar />
+          </div>
+          </div>
+    );
   }
 
   if (pathname === "/hotelcreation") {
@@ -23,6 +27,16 @@ const Header: React.FC = () => {
         {/* <Navbar /> */}
         {/* <HotelCreationView /> */}
       </div>
+    );
+  }
+
+  if (pathname === "/register" || pathname === "/login" ) {
+    return (
+      <div className="h-[12vh] bg-contain bg-center text-white ">
+        <div className="bg-gradient-to-b from-[#111b] to-[#009375] flex flex-col justify-between items-center w-full h-full pb-[80px]">
+          <Navbar />
+          </div>
+          </div>
     );
   }
 
@@ -47,7 +61,11 @@ const Header: React.FC = () => {
     );
   }
 
-  if (pathname === "/login" || pathname === "/register") {
+  if (
+    pathname === "/login" ||
+    pathname === "/register" ||
+    pathname === "/dashboard"
+  ) {
     return (
       <div className="bg-cover bg-center text-white h-[15vh]  bg-gradient-to-b from-[#00352A] to-[#009375]">
         <div className=" flex pt-2 items-start w-full h-full">

@@ -9,10 +9,9 @@ import { User } from "@/interfaces/users";
 import UserBookings from "@/components/UserDashboard/UserBookings";
 
 const UserDashboardView = () => {
-  // const [userInfo, setUserInfo] = useState({});
   const [view, setView] = useState("userInfo");
   const [user, setUser] = useState<User | null>(null);
-  const userBookings = ["frist", "second"];
+  const userBookings = ["first", "second"];
 
   useEffect(() => {
     const getData = async () => {
@@ -22,7 +21,6 @@ const UserDashboardView = () => {
       if (token) {
         const userData = await getUserData(user.id, token);
         setUser(userData);
-        console.log(userData);
       }
     };
     getData();
@@ -33,10 +31,10 @@ const UserDashboardView = () => {
   };
 
   return (
-    <div className="flex gap-8 w-[70%] justify-center mx-auto my-4">
-      <div className="flex flex-col rounded-lg overflow-hidden h-fit min-w-[30%] border border-slate-300 font-medium">
+    <div className="flex gap-8 w-full h-[70vh] justify-center mx-auto py-5 px-[10%] bg-gradient-to-b from-[#d0f6e9] to-[#F3FFFC] mb-12">
+      <div className="flex flex-col rounded-lg overflow-hidden h-fit min-w-[30%] border bg-white border-slate-300 font-medium">
         <button
-          className=" text-start px-3 py-5 border-b border-b-slate-300 transition-all duration-200 ease-in-out hover:pl-[30px] hover:text-[#009375]"
+          className=" text-start px-3 py-5 border-b border-b-slate-300 transition-all duration-200 ease-in-out hover:pl-[30px] "
           style={
             view === "userInfo"
               ? {
@@ -50,7 +48,7 @@ const UserDashboardView = () => {
           Personal Data
         </button>
         <button
-          className="text-start px-3 py-5 transition-all ease-in-out hover:pl-[30px] hover:text-[#009375] duration-200"
+          className="text-start px-3 py-5 transition-all ease-in-out hover:pl-[30px]  duration-200"
           onClick={() => handleClick("bookings")}
           style={
             view === "bookings"
@@ -65,18 +63,22 @@ const UserDashboardView = () => {
         </button>
       </div>
       {view === "userInfo" ? (
-        <div className="w-full flex flex-col p-4 px-6 border border-slate-300 rounded-lg ">
+        <div className="w-full flex flex-col p-4 px-6 border border-slate-300 bg-white shadow-lg rounded-lg ">
           <h2 className="text-3xl font-bold mb-3">Personal Data</h2>
           <h3 className="text-lg mb-8">
             Here you can see and modify your personal data
           </h3>
-          <div className="flex justify-center">
+          <div className="flex justify-cente">
             <PersonalData
-              name={user?.name!}
-              lastname={user?.lastname!}
-              birthdate={user?.birthday!}
+              name={user?.name}
+              lastname={user?.lastname}
+              birthdate={user?.birthday}
             />
-            <Credentials username="Jonh1123" email="jhondon@mail.com" />
+            <Credentials
+              username={user?.credential.username}
+              email={user?.credential.email}
+              userId={user?.user_id}
+            />
           </div>
         </div>
       ) : (
