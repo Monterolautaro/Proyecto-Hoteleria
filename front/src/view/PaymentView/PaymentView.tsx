@@ -125,7 +125,7 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   };
 
   return (
-    <div className="w-[85%] mx-auto flex flex-col items-center">
+    <div className="w-[85%] mx-auto flex flex-col items-center animate-fadeIn">
       <h2 className="mt-6 mb-3 font-bold text-2xl pb-5 border-b border-b-black w-[75%]">
         Plese check the information and fill the form
       </h2>

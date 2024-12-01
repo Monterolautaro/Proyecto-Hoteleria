@@ -45,7 +45,7 @@ const SearchBar = () => {
     if (!visible) return null;
     return (
       <div
-        className={`w-full max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
+        className={`w-full  max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
       >
         {results.length >= 1 ? (
           results.map((result, index) => (
@@ -65,7 +65,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full py-8">
+    <div className="flex flex-col items-center justify-center w-full animate-fadeIn py-8">
       <h2 className="text-white text-2xl font-semibold mb-4">
         Looking for a place to travel?
       </h2>
