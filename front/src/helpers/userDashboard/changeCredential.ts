@@ -26,7 +26,7 @@ export const changeUsername = async (
 ) => {
   try {
     const response = await axios.put(
-      `${API_URL}/users/changeEmail/${id}`,
+      `${API_URL}/users/changeUsername/${id}`,
       username,
       {
         headers: {

@@ -4,7 +4,10 @@
 import { IUserCredentials } from "@/interfaces/users";
 import Loader from "./LoaderData";
 import { useEffect, useState } from "react";
-import { changeEmail } from "@/helpers/userDashboard/changeCredential";
+import {
+  changeEmail,
+  changeUsername,
+} from "@/helpers/userDashboard/changeCredential";
 import Cookies from "js-cookie";
 
 const Credentials: React.FC<IUserCredentials> = ({
@@ -20,7 +23,6 @@ const Credentials: React.FC<IUserCredentials> = ({
   useEffect(() => {
     const token = Cookies.get("token");
     setToken(token || "");
-    console.log(token);
   }, []);
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -29,6 +31,14 @@ const Credentials: React.FC<IUserCredentials> = ({
       await changeEmail(newEmail, userId, token);
       setEdit("");
     }
+    if (buttonName === "username" && userId && token) {
+      await changeUsername(newUsername, userId, token);
+      setEdit("");
+    }
+  };
+
+  const handleCancel = () => {
+    setEdit("");
   };
 
   const handleClick = (credential: string) => {
@@ -68,9 +78,21 @@ const Credentials: React.FC<IUserCredentials> = ({
                   name="email"
                   onChange={handleChange}
                 />
-                <button name="email" onClick={handleSubmit}>
-                  Save
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    className="text-sm mr-1 text-red-500 underline underline-offset-2 rounded-md"
+                    onClick={handleCancel}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className="text-sm bg-[#009375] text-white py-1 px-4 h-fit rounded-md"
+                    name="email"
+                    onClick={handleSubmit}
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -97,16 +119,28 @@ const Credentials: React.FC<IUserCredentials> = ({
             ) : (
               <div className="w-full flex justify-between">
                 <input
-                  className="pl-1 py-1 focus:outline-none border-b-transparent border-b focus:border-b-black focus:border-b"
+                  className="pl-1 py-1 focus:outline-none w-[60%] border-b-transparent border-b focus:border-b-black focus:border-b"
                   type="text"
                   placeholder={username}
                   value={newUsername}
                   name="username"
                   onChange={handleChange}
                 />
-                <button name="username" onClick={handleSubmit}>
-                  Save
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    className="text-sm mr-1 text-red-500 underline underline-offset-2 rounded-md"
+                    onClick={handleCancel}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className="text-sm bg-[#009375] text-white py-1 px-4 h-fit rounded-md"
+                    name="username"
+                    onClick={handleSubmit}
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             )}
           </div>

@@ -6,7 +6,7 @@ import styles from "./navbar.module.css";
 
 const Navbar = () => {
   return (
-    <header className="w-full bg-transparent py-4">
+    <header className="w-full bg-transparent py-4 animate-fadeIn">
       <div className="mx-auto max-w-7xl pl-3">
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0">

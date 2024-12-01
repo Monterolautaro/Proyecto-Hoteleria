@@ -8,9 +8,10 @@ export const SendPaymentData = async (data: IStripeData) => {
   try {
     const response = await axios.post(`${API_URL}/stripe/create-payment`, data);
     if (response) return response.data;
-    
   } catch (error: any) {
     if (error.response && error.response.data) {
+      console.log("prueab de error", error);
+
       Swal.fire({
         title: error.response.data.message || "We cannot proccess your payment",
         icon: "error",

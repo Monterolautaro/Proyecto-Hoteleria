@@ -13,7 +13,9 @@ const Login = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/"); // Redirige a la página principal después del login
+    router.push("/", {
+      scroll: false,
+    }); // Redirige a la página principal después del login
   };
 
   const [formData, setFormData] = useState({ email: "", password: "" });
