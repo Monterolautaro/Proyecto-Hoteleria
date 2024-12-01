@@ -33,3 +33,11 @@ export interface IUserCredentials {
   username: string | undefined;
   password?: string;
 }
+
+export interface IAdminData {
+  name: string | undefined;
+  lastname: string | undefined;
+  birthdate: string | undefined;
+  email: string | undefined;
+  username: string | undefined;
+}

@@ -1,10 +1,10 @@
-import Dashboard from '@/components/dashboard/dashboard'
+import AdminDashboardView from '@/view/AdminView/AdminView'
 import React from 'react'
 
-const page = () => {
+const AdminDashboard = () => {
   return (
-      <Dashboard/>
+      <AdminDashboardView />
   )
 }
 
-export default page
+export default AdminDashboard

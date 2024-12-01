@@ -20,7 +20,11 @@ export interface Hotel {
       description: string;
     };
   }[];
+  availability?: {
+    available: boolean;
+    totalRoomsLeft: number;
 }
+};
 
   export interface Filters {
     price: string[];

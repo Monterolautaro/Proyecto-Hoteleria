@@ -1,6 +1,6 @@
 [
   {
-    "name": "Hotel Grand Bogotá",
+    "name": "Hotel Grand Bogot\u00e1",
     "details": {
       "stars": 5,
       "rating": 4.5,
@@ -8,7 +8,7 @@
       "description": "A luxurious hotel offering an unparalleled experience with world-class service, elegant surroundings, and a range of top-notch amenities designed to ensure every guest enjoys their stay in complete comfort and style."
     },
     "address": {
-      "city": "Bogotá",
+      "city": "Bogot\u00e1",
       "country": "Colombia",
       "street": "Calle 24A # 57-60, Teusaquillo"
     },
@@ -19,25 +19,25 @@
     "rooms": {
       "single": {
         "price": 410000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
         "price": 670000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
         "price": 940000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
         "price": 2350000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
       }
@@ -51,7 +51,7 @@
     }
   },
   {
-    "name": "Hyatt Place Bogotá Convention Center",
+    "name": "Hyatt Place Bogot\u00e1 Convention Center",
     "details": {
       "stars": 4,
       "rating": 4.6,
@@ -59,7 +59,7 @@
       "description": "Located in a central area with easy access to transport, this hotel provides a convenient base for both business and leisure travelers, offering comfortable accommodations and excellent service to ensure a pleasant stay."
     },
     "address": {
-      "city": "Bogotá",
+      "city": "Bogot\u00e1",
       "country": "Colombia",
       "street": "Avenida Calle 24 NR 40-51, Teusaquillo"
     },
@@ -70,25 +70,25 @@
     "rooms": {
       "single": {
         "price": 210000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
         "price": 470000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
         "price": 740000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
         "price": 3350000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
       }
@@ -107,12 +107,12 @@
       "stars": 5,
       "rating": 4.5,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/124782709.jpg?k=a1d1451f917e5daba5e93af66561957b0302390a1d9d149bc21e4e6d37c1d455&o=&hp=1",
-      "description": "This luxury hotel provides an exceptional experience with world-class service, offering an atmosphere of sophistication and exclusivity, designed to cater to every guest’s need for comfort, relaxation, and indulgence."
+      "description": "This luxury hotel provides an exceptional experience with world-class service, offering an atmosphere of sophistication and exclusivity, designed to cater to every guest\u2019s need for comfort, relaxation, and indulgence."
     },
     "address": {
-      "city": "Bogotá",
+      "city": "Bogot\u00e1",
       "country": "Colombia",
-      "street": "Avenida 15 N 103 - 60, Usaquén"
+      "street": "Avenida 15 N 103 - 60, Usaqu\u00e9n"
     },
     "availability": {
       "available": true,
@@ -121,25 +121,25 @@
     "rooms": {
       "single": {
         "price": 110000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
         "price": 770000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
         "price": 1040000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
         "price": 4350000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
       }
@@ -153,7 +153,7 @@
     }
   },
   {
-    "name": "AC Hotel Bogotá Zona T",
+    "name": "AC Hotel Bogot\u00e1 Zona T",
     "details": {
       "stars": 4,
       "rating": 4.5,
@@ -161,7 +161,7 @@
       "description": "A family-friendly hotel offering a wide range of activities and amenities for all ages, ensuring that every member of the family can enjoy their stay, with comfortable accommodations and a welcoming atmosphere throughout."
     },
     "address": {
-      "city": "Bogotá",
+      "city": "Bogot\u00e1",
       "country": "Colombia",
       "street": "Calle 85 No 12-66, Chapinero"
     },
@@ -172,25 +172,25 @@
     "rooms": {
       "single": {
         "price": 3010000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
         "price": 5700000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
         "price": 8400000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
         "price": 13500001,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
       }
@@ -209,7 +209,7 @@
       "stars": 5,
       "rating": 8.4,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/266876356.jpg?k=db97e07ffe723ccd97c97a7dcab1e0dfa447ae83db3e7f973b782e1ef96b1a4d&o=&hp=1",
-      "description": "The Cavalta Hotel in Medellin offers a luxurious experience, combining modern design with comfort in a prime city location. Guests can enjoy elegant rooms, stunning views, and excellent service for both business and leisure travelers. The hotel provides convenient access to Medellín’s top attractions and vibrant nightlife."
+      "description": "The Cavalta Hotel in Medellin offers a luxurious experience, combining modern design with comfort in a prime city location. Guests can enjoy elegant rooms, stunning views, and excellent service for both business and leisure travelers. The hotel provides convenient access to Medell\u00edn\u2019s top attractions and vibrant nightlife."
     },
     "address": {
       "city": "Medellin",
@@ -223,25 +223,25 @@
     "rooms": {
       "single": {
         "price": 310000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
         "price": 570000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
         "price": 840000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
         "price": 1350000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
       }
@@ -260,7 +260,7 @@
       "stars": 3,
       "rating": 4.5,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/122622929.jpg?k=3f161709adc7ec8353406e045b193f70cce7211a3bb5c09fda6de34839ae9bef&o=&hp=1",
-      "description": "Sites Hotel in Medellín is a modern and stylish aparthotel located in the peaceful Patio Bonito area of Poblado. It offers spacious, functional rooms with kitchenettes, perfect for families or long stays. Guests can enjoy a rooftop pool with stunning city views and a cozy library space"
+      "description": "Sites Hotel in Medell\u00edn is a modern and stylish aparthotel located in the peaceful Patio Bonito area of Poblado. It offers spacious, functional rooms with kitchenettes, perfect for families or long stays. Guests can enjoy a rooftop pool with stunning city views and a cozy library space"
     },
     "address": {
       "city": "Medellin",
@@ -274,25 +274,25 @@
     "rooms": {
       "single": {
         "price": 364000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 50,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
         "price": 370000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 25,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
         "price": 400000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 15,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
         "price": 500000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 8,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
       }
@@ -325,25 +325,25 @@
     "rooms": {
       "single": {
         "price": 269000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 50,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
         "price": 500000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 40,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
         "price": 950000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 4,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
         "price": 1800000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
       }
@@ -376,25 +376,25 @@
     "rooms": {
       "single": {
         "price": 150000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
         "price": 300000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 25,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
         "price": 500000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 15,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
         "price": 800000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 30,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
       }
@@ -427,25 +427,25 @@
     "rooms": {
       "single": {
         "price": 450000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 25,
         "description": "Cozy single room with a comfortable bed, high-speed Wi-Fi, work desk, and LED TV."
       },
       "double": {
         "price": 520000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Elegant double room with a queen-sized bed, city view, modern bathroom, and minibar."
       },
       "triple": {
         "price": 780000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious triple room, ideal for groups, featuring three beds, private bathroom, and lounge area."
       },
       "suite": {
         "price": 1280000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Exclusive suite with a king-size bed, private jacuzzi, balcony, and VIP lounge access."
       }
@@ -464,7 +464,7 @@
       "stars": 3.5,
       "rating": 7.0,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/337357193.jpg?k=8c8cd9e5724837d5f4aa08dcd6ef4855c067988936700708d946539ab5047071&o=&hp=1",
-      "description": "El Dorado Hotel in San Andres offers a tropical paradise experience with ocean-view rooms, an outdoor pool, and easy beach access. Guests enjoy modern amenities, on-site dining, and vibrant island ambiance. Perfect for relaxation or adventure, it’s an ideal choice for an unforgettable stay."
+      "description": "El Dorado Hotel in San Andres offers a tropical paradise experience with ocean-view rooms, an outdoor pool, and easy beach access. Guests enjoy modern amenities, on-site dining, and vibrant island ambiance. Perfect for relaxation or adventure, it\u2019s an ideal choice for an unforgettable stay."
     },
     "address": {
       "city": "San Andres y Providencia",
@@ -478,25 +478,25 @@
     "rooms": {
       "single": {
         "price": 1488580,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 25,
         "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
       },
       "double": {
         "price": 1200000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 18,
         "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
       },
       "triple": {
         "price": 1250000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 8,
         "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
       },
       "suite": {
         "price": 1300000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 4,
         "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
       }
@@ -529,25 +529,25 @@
     "rooms": {
       "single": {
         "price": 1550000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 40,
         "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
       },
       "double": {
         "price": 1300000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 50,
         "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
       },
       "triple": {
         "price": 1350000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 30,
         "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
       },
       "suite": {
         "price": 1450000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 30,
         "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
       }
@@ -566,12 +566,12 @@
       "stars": 3,
       "rating": 7.8,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/244479614.jpg?k=9ca4bd923470e5618726d101a09a073e5cae0ff1708bb7cf8c14d7ef9b2c1b04&o=&hp=1",
-      "description": "Cocoplum Beach Hotel in San Andrés offers a serene Caribbean escape with direct beach access, lush tropical surroundings, and comfortable accommodations. Guests enjoy ocean views, a beachfront restaurant, and activities like snorkeling, making it ideal for relaxation and adventure alike."
+      "description": "Cocoplum Beach Hotel in San Andr\u00e9s offers a serene Caribbean escape with direct beach access, lush tropical surroundings, and comfortable accommodations. Guests enjoy ocean views, a beachfront restaurant, and activities like snorkeling, making it ideal for relaxation and adventure alike."
     },
     "address": {
       "city": "San Andres y Providencia",
       "country": "Colombia",
-      "street": "Vía a San Luis # 43-39"
+      "street": "V\u00eda a San Luis # 43-39"
     },
     "availability": {
       "available": true,
@@ -580,25 +580,25 @@
     "rooms": {
       "single": {
         "price": 648000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 30,
         "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
       },
       "double": {
         "price": 1300000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 40,
         "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
       },
       "triple": {
         "price": 1350000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
       },
       "suite": {
         "price": 1450000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
       }
@@ -631,25 +631,25 @@
     "rooms": {
       "single": {
         "price": 429920,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 25,
         "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
       },
       "double": {
         "price": 500000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 30,
         "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
       },
       "triple": {
         "price": 550000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 15,
         "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
       },
       "suite": {
         "price": 600000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
       }
@@ -682,25 +682,25 @@
     "rooms": {
       "single": {
         "price": 797500,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 35,
         "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
       },
       "double": {
         "price": 800000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 40,
         "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
       },
       "triple": {
         "price": 820000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
       },
       "suite": {
         "price": 900000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
       }
@@ -733,25 +733,25 @@
     "rooms": {
       "single": {
         "price": 180760,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 15,
         "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
       },
       "double": {
         "price": 200000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 12,
         "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
       },
       "triple": {
         "price": 250000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
       },
       "suite": {
         "price": 400000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 8,
         "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
       }
@@ -784,25 +784,25 @@
     "rooms": {
       "single": {
         "price": 120000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
       },
       "double": {
         "price": 160000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 8,
         "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
       },
       "triple": {
         "price": 220000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 6,
         "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
       },
       "suite": {
         "price": 350000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 6,
         "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
       }
@@ -835,25 +835,25 @@
     "rooms": {
       "single": {
         "price": 375060,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
       },
       "double": {
         "price": 390000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 12,
         "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
       },
       "triple": {
         "price": 400000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
       },
       "suite": {
         "price": 550000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 8,
         "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
       }
@@ -886,25 +886,25 @@
     "rooms": {
       "single": {
         "price": 193040,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 30,
         "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
       },
       "double": {
         "price": 390000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 18,
         "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
       },
       "triple": {
         "price": 400000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 12,
         "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
       },
       "suite": {
         "price": 550000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
       }
@@ -937,25 +937,25 @@
     "rooms": {
       "single": {
         "price": 150000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Cozy single room with a single bed, high-speed internet, work desk, and a flat-screen TV."
       },
       "double": {
         "price": 280000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 15,
         "description": "Modern double room with a king bed, ocean view, private bathroom, and a mini-fridge."
       },
       "triple": {
         "price": 320000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious room for three, featuring a king bed and two single beds, with a large wardrobe and an en-suite bathroom."
       },
       "suite": {
         "price": 420000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 3,
         "description": "Premium suite with a king bed, private terrace, infinity pool, and access to a VIP lounge"
       }
@@ -969,7 +969,7 @@
     }
   },
   {
-    "name": "Hilton Bogotá",
+    "name": "Hilton Bogot\u00e1",
     "details": {
       "stars": 4,
       "rating": 4.6,
@@ -977,7 +977,7 @@
       "description": "An ideal hotel for relaxation, featuring modern facilities and stunning views of the city, providing guests with a peaceful escape from the hustle and bustle, while maintaining easy access to key attractions and events."
     },
     "address": {
-      "city": "Bogotá",
+      "city": "Bogot\u00e1",
       "country": "Colombia",
       "street": "Carrera 7 No. 72-41 , Chapinero"
     },
@@ -987,26 +987,26 @@
     },
     "rooms": {
       "single": {
-        "currency": "COP",
+        "currency": "USD",
         "price": 120000,
         "roomsLeft": 40,
         "description": "Single room with all basic amenities."
       },
       "double": {
         "price": 180000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Double room perfect for couples."
       },
       "triple": {
         "price": 250000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious triple room with modern design."
       },
       "suite": {
         "price": 450000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 15,
         "description": "Luxury suite with panoramic views."
       }
@@ -1020,7 +1020,7 @@
     }
   },
   {
-    "name": "NH Collection Bogotá Royal Teleport",
+    "name": "NH Collection Bogot\u00e1 Royal Teleport",
     "details": {
       "stars": 2,
       "rating": 4.2,
@@ -1028,7 +1028,7 @@
       "description": "A great option for budget travelers, providing simple yet comfortable accommodations, essential amenities, and a convenient location, making it the perfect choice for those looking for affordable yet reliable lodging."
     },
     "address": {
-      "city": "Bogotá",
+      "city": "Bogot\u00e1",
       "country": "Colombia",
       "street": "Avenida 18 N 117 - 50, Tilin"
     },
@@ -1038,26 +1038,26 @@
     },
     "rooms": {
       "single": {
-        "currency": "COP",
+        "currency": "USD",
         "price": 150000,
         "roomsLeft": 26,
         "description": "Simple single room without luxury."
       },
       "double": {
         "price": 200000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 24,
         "description": "Economical double room."
       },
       "triple": {
         "price": 400000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Basic triple room for budget-conscious groups."
       },
       "suite": {
         "price": 600000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Suite with minimalist design."
       }
@@ -1089,26 +1089,26 @@
     },
     "rooms": {
       "single": {
-        "currency": "COP",
+        "currency": "USD",
         "price": 600000,
         "roomsLeft": 40,
         "description": "Single room with modern amenities and ocean view."
       },
       "double": {
         "price": 800000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 50,
         "description": "Spacious double room with king-sized bed and panoramic views."
       },
       "triple": {
         "price": 1000000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Triple room with large windows and a relaxing atmosphere."
       },
       "suite": {
         "price": 1800000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Luxury suite with private terrace and stunning beach views."
       }
@@ -1140,26 +1140,26 @@
     },
     "rooms": {
       "single": {
-        "currency": "COP",
+        "currency": "USD",
         "price": 350000,
         "roomsLeft": 15,
-        "description": "Single room with stylish décor and comfortable amenities."
+        "description": "Single room with stylish d\u00e9cor and comfortable amenities."
       },
       "double": {
         "price": 500000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 20,
         "description": "Double room featuring vintage furnishings and elegant details."
       },
       "triple": {
         "price": 700000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious triple room with modern design and classic touches."
       },
       "suite": {
         "price": 1200000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Exclusive suite with luxury amenities and private terrace."
       }
@@ -1191,28 +1191,28 @@
     },
     "rooms": {
       "single": {
-        "currency": "COP",
+        "currency": "USD",
         "price": 200000,
         "roomsLeft": 40,
         "description": "Contemporary single room with essential amenities for business travelers."
       },
       "double": {
         "price": 400000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 30,
         "description": "Double room with a spacious layout and modern furnishings."
       },
       "triple": {
         "price": 600000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 15,
         "description": "Triple room with city views and a comfortable setup."
       },
       "suite": {
         "price": 1000000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
-        "description": "Stylish suite with modern décor and a relaxing lounge area."
+        "description": "Stylish suite with modern d\u00e9cor and a relaxing lounge area."
       }
     },
     "amenities": {
@@ -1242,26 +1242,26 @@
     },
     "rooms": {
       "single": {
-        "currency": "COP",
+        "currency": "USD",
         "price": 250000,
         "roomsLeft": 20,
-        "description": "Comfortable single room with minimalist décor."
+        "description": "Comfortable single room with minimalist d\u00e9cor."
       },
       "double": {
         "price": 400000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 25,
         "description": "Double room with relaxing atmosphere and modern furnishings."
       },
       "triple": {
         "price": 550000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
-        "description": "Spacious triple room with vibrant décor."
+        "description": "Spacious triple room with vibrant d\u00e9cor."
       },
       "suite": {
         "price": 950000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Elegant suite with luxurious amenities and a private balcony."
       }
@@ -1294,25 +1294,25 @@
     "rooms": {
       "single": {
         "price": 180000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 30,
         "description": "Economical single room with functional amenities."
       },
       "double": {
         "price": 300000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 25,
         "description": "Comfortable double room with all the necessary conveniences."
       },
       "triple": {
         "price": 450000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious triple room with a cozy atmosphere."
       },
       "suite": {
         "price": 800000,
-        "currency": "COP",
+        "currency": "USD",
         "roomsLeft": 5,
         "description": "Simple suite with private bathroom and essential amenities."
       }
@@ -1326,17 +1326,17 @@
     }
   },
   {
-    "name": "Hotel La Campiña",
+    "name": "Hotel La Campi\u00f1a",
     "details": {
       "stars": 4,
       "rating": 8.9,
       "imgUrl": "https://la-campina-club-spa.hotels-argentina.net/data/Pics/OriginalPhoto/2266/226655/226655528/la-campina-club-hotel-spa-santa-rosa-la-pampa-pic-1.JPEG",
-      "description": "Un hotel acogedor ubicado en el corazón de La Pampa, ideal para quienes buscan un ambiente tranquilo y relajante."
+      "description": "Un hotel acogedor ubicado en el coraz\u00f3n de La Pampa, ideal para quienes buscan un ambiente tranquilo y relajante."
     },
     "address": {
       "city": "Santa Rosa",
       "country": "Argentina",
-      "street": "Av. San Martín 1234"
+      "street": "Av. San Mart\u00edn 1234"
     },
     "availability": {
       "available": true,
@@ -1345,25 +1345,25 @@
     "rooms": {
       "single": {
         "price": 16000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 5,
-        "description": "Habitación individual con cama simple, ideal para viajeros solitarios."
+        "description": "Habitaci\u00f3n individual con cama simple, ideal para viajeros solitarios."
       },
       "double": {
         "price": 25000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 4,
-        "description": "Habitación doble con cama matrimonial, perfecta para parejas."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, perfecta para parejas."
       },
       "triple": {
         "price": 35000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación triple con tres camas simples, ideal para familias."
+        "description": "Habitaci\u00f3n triple con tres camas simples, ideal para familias."
       },
       "suite": {
         "price": 50000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
         "description": "Suite de lujo con jacuzzi y terraza privada, perfecta para una estancia especial."
       }
@@ -1382,12 +1382,12 @@
       "stars": 3,
       "rating": 8.1,
       "imgUrl": "https://pico.hotels-argentina.net/data/Pics/OriginalPhoto/7563/756388/756388954/hotel-pico-6360-general-pico-pic-14.JPEG",
-      "description": "Hotel moderno y funcional en General Pico, con cómodas instalaciones para estadías cortas."
+      "description": "Hotel moderno y funcional en General Pico, con c\u00f3modas instalaciones para estad\u00edas cortas."
     },
     "address": {
       "city": "General Pico",
       "country": "Argentina",
-      "street": "Calle 9 N°456"
+      "street": "Calle 9 N\u00b0456"
     },
     "availability": {
       "available": true,
@@ -1396,25 +1396,25 @@
     "rooms": {
       "single": {
         "price": 12000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 4,
-        "description": "Habitación individual sencilla con escritorio."
+        "description": "Habitaci\u00f3n individual sencilla con escritorio."
       },
       "double": {
         "price": 20000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con baño privado."
+        "description": "Habitaci\u00f3n doble con ba\u00f1o privado."
       },
       "triple": {
         "price": 28000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación triple con camas confortables."
+        "description": "Habitaci\u00f3n triple con camas confortables."
       },
       "suite": {
         "price": 40000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
         "description": "Suite con living y comedor privado."
       }
@@ -1433,7 +1433,7 @@
       "stars": 5,
       "rating": 9.5,
       "imgUrl": "https://ss-static-01.esmsv.com/id/72127/galeriaimagenes/obtenerimagen/?id=89&tipoEscala=stretch&width=2048&height=1365",
-      "description": "Una experiencia de lujo en un entorno natural, ideal para desconectar del estrés diario."
+      "description": "Una experiencia de lujo en un entorno natural, ideal para desconectar del estr\u00e9s diario."
     },
     "address": {
       "city": "Victorica",
@@ -1447,25 +1447,25 @@
     "rooms": {
       "single": {
         "price": 18000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación individual con vistas al campo."
+        "description": "Habitaci\u00f3n individual con vistas al campo."
       },
       "double": {
         "price": 32000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama king size."
+        "description": "Habitaci\u00f3n doble con cama king size."
       },
       "triple": {
         "price": 42000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Amplia habitación triple con sala de estar."
+        "description": "Amplia habitaci\u00f3n triple con sala de estar."
       },
       "suite": {
         "price": 60000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite presidencial con terraza privada."
       }
@@ -1498,15 +1498,15 @@
     "rooms": {
       "single": {
         "price": 15000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación individual con desayuno incluido."
+        "description": "Habitaci\u00f3n individual con desayuno incluido."
       },
       "double": {
         "price": 25000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 5,
-        "description": "Habitación doble con balcón privado."
+        "description": "Habitaci\u00f3n doble con balc\u00f3n privado."
       }
     },
     "amenities": {
@@ -1518,12 +1518,12 @@
     }
   },
   {
-    "name": "Hostería Las Pampas",
+    "name": "Hoster\u00eda Las Pampas",
     "details": {
       "stars": 3,
       "rating": 7.9,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/441889161.jpg?k=118ccd8e5752f8127b02545b818eaf0f691ef3ce31d701cde9408cad2171d2f0&o=&hp=1",
-      "description": "Una opción económica en Eduardo Castex, ideal para viajeros de paso."
+      "description": "Una opci\u00f3n econ\u00f3mica en Eduardo Castex, ideal para viajeros de paso."
     },
     "address": {
       "city": "Eduardo Castex",
@@ -1537,9 +1537,9 @@
     "rooms": {
       "double": {
         "price": 18000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
-        "description": "Habitación doble con vista al jardín."
+        "description": "Habitaci\u00f3n doble con vista al jard\u00edn."
       }
     },
     "amenities": {
@@ -1556,10 +1556,10 @@
       "stars": 4,
       "rating": 8.9,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/71456267.webp?k=7845c6032847eed60993307c7c92c909f8b156416593d41f55584a122fa851e1&o=",
-      "description": "Un hotel moderno y cómodo en el centro de Neuquén, con todas las comodidades necesarias para una estadía placentera."
+      "description": "Un hotel moderno y c\u00f3modo en el centro de Neuqu\u00e9n, con todas las comodidades necesarias para una estad\u00eda placentera."
     },
     "address": {
-      "city": "Neuquén",
+      "city": "Neuqu\u00e9n",
       "country": "Argentina",
       "street": "Av. Argentina 1200"
     },
@@ -1570,15 +1570,15 @@
     "rooms": {
       "single": {
         "price": 32000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 4,
-        "description": "Habitación individual con cama simple, ideal para viajeros solitarios."
+        "description": "Habitaci\u00f3n individual con cama simple, ideal para viajeros solitarios."
       },
       "double": {
         "price": 50000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 5,
-        "description": "Habitación doble con cama matrimonial, perfecta para parejas."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, perfecta para parejas."
       }
     },
     "amenities": {
@@ -1595,10 +1595,10 @@
       "stars": 2,
       "rating": 7.8,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/351074724.webp?k=eef3ea76cd87bef477ddf33522c8172ff68742759ae2bf917fc3b557a5f199a4&o=",
-      "description": "Un hotel sencillo y funcional en pleno centro de Neuquén, ideal para estancias cortas."
+      "description": "Un hotel sencillo y funcional en pleno centro de Neuqu\u00e9n, ideal para estancias cortas."
     },
     "address": {
-      "city": "Neuquén",
+      "city": "Neuqu\u00e9n",
       "country": "Argentina",
       "street": "Av. Olascoaga 765"
     },
@@ -1609,25 +1609,25 @@
     "rooms": {
       "single": {
         "price": 14500,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 4,
-        "description": "Habitación individual sencilla, ideal para viajes rápidos."
+        "description": "Habitaci\u00f3n individual sencilla, ideal para viajes r\u00e1pidos."
       },
       "double": {
         "price": 22000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 6,
-        "description": "Habitación doble con cama matrimonial, cómoda y accesible."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, c\u00f3moda y accesible."
       },
       "triple": {
         "price": 30000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación triple con camas individuales."
+        "description": "Habitaci\u00f3n triple con camas individuales."
       },
       "suite": {
         "price": 55000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite con jacuzzi privado y sala de estar."
       }
@@ -1646,10 +1646,10 @@
       "stars": 3,
       "rating": 7.5,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/566279306.webp?k=ad408c8952568d405ba9de209821420f13557c20b4b883c176db1fc5f2194902&o=",
-      "description": "Ubicada en un entorno natural, esta hostería ofrece una opción tranquila para quienes visitan Neuquén."
+      "description": "Ubicada en un entorno natural, esta hoster\u00eda ofrece una opci\u00f3n tranquila para quienes visitan Neuqu\u00e9n."
     },
     "address": {
-      "city": "Neuquén",
+      "city": "Neuqu\u00e9n",
       "country": "Argentina",
       "street": "Ruta 40, Km 1800"
     },
@@ -1660,15 +1660,15 @@
     "rooms": {
       "single": {
         "price": 12500,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación individual con cama simple y vista al jardín."
+        "description": "Habitaci\u00f3n individual con cama simple y vista al jard\u00edn."
       },
       "double": {
         "price": 18500,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial y vistas panorámicas."
+        "description": "Habitaci\u00f3n doble con cama matrimonial y vistas panor\u00e1micas."
       }
     },
     "amenities": {
@@ -1685,12 +1685,12 @@
       "stars": 3,
       "rating": 8.3,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/568117415.webp?k=df63c2e033a025938c6dfb4324086b43b75de7aecf689caedd1a9200f32f8626&o=",
-      "description": "Ubicado en una zona tranquila de Neuquén, este hotel ofrece servicios de calidad a un precio accesible."
+      "description": "Ubicado en una zona tranquila de Neuqu\u00e9n, este hotel ofrece servicios de calidad a un precio accesible."
     },
     "address": {
-      "city": "Neuquén",
+      "city": "Neuqu\u00e9n",
       "country": "Argentina",
-      "street": "Calle San Martín 150"
+      "street": "Calle San Mart\u00edn 150"
     },
     "availability": {
       "available": true,
@@ -1699,25 +1699,25 @@
     "rooms": {
       "single": {
         "price": 22000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación individual cómoda, ideal para viajes de negocios."
+        "description": "Habitaci\u00f3n individual c\u00f3moda, ideal para viajes de negocios."
       },
       "double": {
         "price": 35000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 4,
-        "description": "Habitación doble con baño privado y amenities."
+        "description": "Habitaci\u00f3n doble con ba\u00f1o privado y amenities."
       },
       "triple": {
         "price": 45000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con camas adicionales, perfecta para familias."
+        "description": "Habitaci\u00f3n triple con camas adicionales, perfecta para familias."
       },
       "suite": {
         "price": 65000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite de lujo con sala de estar separada y vista a la ciudad."
       }
@@ -1736,10 +1736,10 @@
       "stars": 3,
       "rating": 7.0,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/286012274.webp?k=857e3c67c1edd8e5bb07133e8b5c0e99e4d2c86d5f986a7da174e19356f1d0e8&o=",
-      "description": "Alojamiento económico en el corazón de Neuquén, ideal para aquellos que buscan un lugar cómodo y accesible."
+      "description": "Alojamiento econ\u00f3mico en el coraz\u00f3n de Neuqu\u00e9n, ideal para aquellos que buscan un lugar c\u00f3modo y accesible."
     },
     "address": {
-      "city": "Neuquén",
+      "city": "Neuqu\u00e9n",
       "country": "Argentina",
       "street": "Calle Rivadavia 480"
     },
@@ -1750,21 +1750,21 @@
     "rooms": {
       "single": {
         "price": 10000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación individual sencilla con servicios básicos."
+        "description": "Habitaci\u00f3n individual sencilla con servicios b\u00e1sicos."
       },
       "double": {
         "price": 16000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial, sencilla y accesible."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, sencilla y accesible."
       },
       "triple": {
         "price": 22000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con camas individuales."
+        "description": "Habitaci\u00f3n triple con camas individuales."
       }
     },
     "amenities": {
@@ -1781,7 +1781,7 @@
       "stars": 4,
       "rating": 8.7,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/121876372.webp?k=fedd5f070133addee42277adff390b4f853a72af928fb596485085d8689f528c&o=",
-      "description": "Con una ubicación excelente en Cipolletti, Ramada Hotel & Suites ofrece alojamiento de lujo con desayuno buffet."
+      "description": "Con una ubicaci\u00f3n excelente en Cipolletti, Ramada Hotel & Suites ofrece alojamiento de lujo con desayuno buffet."
     },
     "address": {
       "city": "Cipolletti",
@@ -1795,27 +1795,27 @@
     "rooms": {
       "single": {
         "price": 29000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación individual moderna con todos los servicios."
+        "description": "Habitaci\u00f3n individual moderna con todos los servicios."
       },
       "double": {
         "price": 42000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble amplia con cama matrimonial y minibar."
+        "description": "Habitaci\u00f3n doble amplia con cama matrimonial y minibar."
       },
       "triple": {
         "price": 52000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con cama king size y una individual."
+        "description": "Habitaci\u00f3n triple con cama king size y una individual."
       },
       "suite": {
         "price": 75000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
-        "description": "Suite de lujo con vista al río y sala de estar privada."
+        "description": "Suite de lujo con vista al r\u00edo y sala de estar privada."
       }
     },
     "amenities": {
@@ -1832,7 +1832,7 @@
       "stars": 3,
       "rating": 7.9,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/75753504.webp?k=e69f981063a81b8e209305f92f86563abb16f235ed627e397f74d08c18de96ce&o=",
-      "description": "Ubicado en el corazón de la ciudad de General Roca, Hotel Patagónico es una opción accesible para quienes buscan calidad y confort."
+      "description": "Ubicado en el coraz\u00f3n de la ciudad de General Roca, Hotel Patag\u00f3nico es una opci\u00f3n accesible para quienes buscan calidad y confort."
     },
     "address": {
       "city": "General Roca",
@@ -1846,27 +1846,27 @@
     "rooms": {
       "single": {
         "price": 18000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 4,
-        "description": "Habitación sencilla con cama individual y todos los servicios básicos."
+        "description": "Habitaci\u00f3n sencilla con cama individual y todos los servicios b\u00e1sicos."
       },
       "double": {
         "price": 26000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 5,
-        "description": "Habitación doble con cama matrimonial y desayuno incluido."
+        "description": "Habitaci\u00f3n doble con cama matrimonial y desayuno incluido."
       },
       "triple": {
         "price": 32000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación triple con tres camas simples."
+        "description": "Habitaci\u00f3n triple con tres camas simples."
       },
       "suite": {
         "price": 50000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
-        "description": "Suite premium con jacuzzi, vistas panorámicas y servicios exclusivos."
+        "description": "Suite premium con jacuzzi, vistas panor\u00e1micas y servicios exclusivos."
       }
     },
     "amenities": {
@@ -1878,12 +1878,12 @@
     }
   },
   {
-    "name": "Hotel y Casino Del Río - General Roca",
+    "name": "Hotel y Casino Del R\u00edo - General Roca",
     "details": {
       "stars": 2,
       "rating": 7.5,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/148467429.webp?k=9aa6e5a86fe813915d5f9a075a8887f040f2b916bbabc4dcc05f9a77da953e8f&o=",
-      "description": "Alojamiento económico en San Carlos de Bariloche, con excelente ubicación y cómodas instalaciones."
+      "description": "Alojamiento econ\u00f3mico en San Carlos de Bariloche, con excelente ubicaci\u00f3n y c\u00f3modas instalaciones."
     },
     "address": {
       "city": "San Carlos de Bariloche",
@@ -1897,15 +1897,15 @@
     "rooms": {
       "single": {
         "price": 13000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 4,
-        "description": "Habitación económica individual con todas las comodidades."
+        "description": "Habitaci\u00f3n econ\u00f3mica individual con todas las comodidades."
       },
       "double": {
         "price": 18000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con cama matrimonial y baño privado."
+        "description": "Habitaci\u00f3n doble con cama matrimonial y ba\u00f1o privado."
       }
     },
     "amenities": {
@@ -1917,7 +1917,7 @@
     }
   },
   {
-    "name": "Hotel y Casino Del Río - Cipolletti",
+    "name": "Hotel y Casino Del R\u00edo - Cipolletti",
     "details": {
       "stars": 4,
       "rating": 9.1,
@@ -1936,25 +1936,25 @@
     "rooms": {
       "single": {
         "price": 35000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación individual con vista al lago, moderna y elegante."
+        "description": "Habitaci\u00f3n individual con vista al lago, moderna y elegante."
       },
       "double": {
         "price": 50000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con cama king size y vista panorámica al lago."
+        "description": "Habitaci\u00f3n doble con cama king size y vista panor\u00e1mica al lago."
       },
       "triple": {
         "price": 60000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con camas individuales y vista directa al lago."
+        "description": "Habitaci\u00f3n triple con camas individuales y vista directa al lago."
       },
       "suite": {
         "price": 80000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite de lujo con jacuzzi privado y acceso exclusivo al spa."
       }
@@ -1973,7 +1973,7 @@
       "stars": 4,
       "rating": 8.5,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/576244057.webp?k=8d5b7ac60ffe432a0fa4c8ce0186653e28576559c1d46a5e3a7d35698ef728a1&o=",
-      "description": "Ubicado en la ciudad de Puerto Madryn, con vista al mar y un restaurante de alta gama, este hotel ofrece una experiencia única con comodidades de lujo."
+      "description": "Ubicado en la ciudad de Puerto Madryn, con vista al mar y un restaurante de alta gama, este hotel ofrece una experiencia \u00fanica con comodidades de lujo."
     },
     "address": {
       "city": "Puerto Madryn",
@@ -1987,27 +1987,27 @@
     "rooms": {
       "single": {
         "price": 30000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación individual moderna, con vista parcial al mar."
+        "description": "Habitaci\u00f3n individual moderna, con vista parcial al mar."
       },
       "double": {
         "price": 45000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con cama matrimonial, vista al mar y desayuno incluido."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, vista al mar y desayuno incluido."
       },
       "triple": {
         "price": 60000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales y vista panorámica."
+        "description": "Habitaci\u00f3n triple con tres camas individuales y vista panor\u00e1mica."
       },
       "suite": {
         "price": 90000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
-        "description": "Suite de lujo con jacuzzi, sala de estar y vista privilegiada al océano."
+        "description": "Suite de lujo con jacuzzi, sala de estar y vista privilegiada al oc\u00e9ano."
       }
     },
     "amenities": {
@@ -2019,12 +2019,12 @@
     }
   },
   {
-    "name": "Dormís Acá",
+    "name": "Dorm\u00eds Ac\u00e1",
     "details": {
       "stars": 3,
       "rating": 8.1,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/326764577.webp?k=7bf33baa41be7679d441daae4f50729f207006a81c368049d4a98842e84dacce&o=",
-      "description": "Situado a pasos de la playa, este hotel ofrece un ambiente relajado y cómodo, ideal para familias y turistas que visitan Puerto Madryn."
+      "description": "Situado a pasos de la playa, este hotel ofrece un ambiente relajado y c\u00f3modo, ideal para familias y turistas que visitan Puerto Madryn."
     },
     "address": {
       "city": "Puerto Madryn",
@@ -2038,25 +2038,25 @@
     "rooms": {
       "single": {
         "price": 21000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 5,
-        "description": "Habitación simple, económica, con vista parcial al mar."
+        "description": "Habitaci\u00f3n simple, econ\u00f3mica, con vista parcial al mar."
       },
       "double": {
         "price": 30000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 4,
-        "description": "Habitación doble con cama matrimonial y vista a la costanera."
+        "description": "Habitaci\u00f3n doble con cama matrimonial y vista a la costanera."
       },
       "triple": {
         "price": 40000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación triple con tres camas simples, ideal para grupos."
+        "description": "Habitaci\u00f3n triple con tres camas simples, ideal para grupos."
       },
       "suite": {
         "price": 70000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite de lujo con jacuzzi privado y vista al mar."
       }
@@ -2075,7 +2075,7 @@
       "stars": 2,
       "rating": 7.6,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/364217567.webp?k=72dc1185f9d0cd27970ffd9c03a0c8369c19e3f0459167589ecee57540cefec3&o=",
-      "description": "Hotel familiar en Trelew, con una ubicación privilegiada cerca de los principales atractivos turísticos de la ciudad."
+      "description": "Hotel familiar en Trelew, con una ubicaci\u00f3n privilegiada cerca de los principales atractivos tur\u00edsticos de la ciudad."
     },
     "address": {
       "city": "Trelew",
@@ -2089,21 +2089,21 @@
     "rooms": {
       "single": {
         "price": 14000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación individual sencilla, ideal para estancias cortas."
+        "description": "Habitaci\u00f3n individual sencilla, ideal para estancias cortas."
       },
       "double": {
         "price": 21000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con cama matrimonial, sencilla y cómoda."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, sencilla y c\u00f3moda."
       },
       "triple": {
         "price": 27000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas simples, ideal para grupos pequeños."
+        "description": "Habitaci\u00f3n triple con tres camas simples, ideal para grupos peque\u00f1os."
       }
     },
     "amenities": {
@@ -2120,10 +2120,10 @@
       "stars": 3,
       "rating": 7.8,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/523035140.webp?k=89bc36e1b269baf3e080547b4f92916b97c741bc713668853ee0faee83ebb860&o=",
-      "description": "Ubicado en Puerto Pirámides, este hotel es perfecto para los viajeros que buscan explorar la Península Valdés y disfrutar de la fauna local."
+      "description": "Ubicado en Puerto Pir\u00e1mides, este hotel es perfecto para los viajeros que buscan explorar la Pen\u00ednsula Vald\u00e9s y disfrutar de la fauna local."
     },
     "address": {
-      "city": "Puerto Pirámides",
+      "city": "Puerto Pir\u00e1mides",
       "country": "Argentina",
       "street": "Ruta 2, Km 26"
     },
@@ -2134,21 +2134,21 @@
     "rooms": {
       "single": {
         "price": 17000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación individual simple, ideal para una estadía tranquila en la naturaleza."
+        "description": "Habitaci\u00f3n individual simple, ideal para una estad\u00eda tranquila en la naturaleza."
       },
       "double": {
         "price": 23000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial, tranquila y cómoda."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, tranquila y c\u00f3moda."
       },
       "triple": {
         "price": 30000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas simples y vistas al mar."
+        "description": "Habitaci\u00f3n triple con tres camas simples y vistas al mar."
       }
     },
     "amenities": {
@@ -2160,17 +2160,17 @@
     }
   },
   {
-    "name": "Hotel Sur Sur Patagónico",
+    "name": "Hotel Sur Sur Patag\u00f3nico",
     "details": {
       "stars": 3,
       "rating": 8.0,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/584888054.webp?k=cbf8705e9c9a0932f528ca544a5576fdd8c4ed9785a1a806414f2c11fde557fe&o=",
-      "description": "Ubicado en la ciudad de Esquel, este hotel ofrece un ambiente cálido y confortable, ideal para los viajeros que disfrutan de la naturaleza y actividades al aire libre."
+      "description": "Ubicado en la ciudad de Esquel, este hotel ofrece un ambiente c\u00e1lido y confortable, ideal para los viajeros que disfrutan de la naturaleza y actividades al aire libre."
     },
     "address": {
       "city": "Esquel",
       "country": "Argentina",
-      "street": "Calle San Martín 300"
+      "street": "Calle San Mart\u00edn 300"
     },
     "availability": {
       "available": true,
@@ -2179,21 +2179,21 @@
     "rooms": {
       "single": {
         "price": 20000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación simple con cama individual, ideal para viajeros solitarios."
+        "description": "Habitaci\u00f3n simple con cama individual, ideal para viajeros solitarios."
       },
       "double": {
         "price": 28000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial, amplia y cómoda."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, amplia y c\u00f3moda."
       },
       "triple": {
         "price": 35000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales y un espacio acogedor."
+        "description": "Habitaci\u00f3n triple con tres camas individuales y un espacio acogedor."
       }
     },
     "amenities": {
@@ -2224,25 +2224,25 @@
     "rooms": {
       "single": {
         "price": 25000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación individual con vista al lago, decorada en estilo patagónico."
+        "description": "Habitaci\u00f3n individual con vista al lago, decorada en estilo patag\u00f3nico."
       },
       "double": {
         "price": 40000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial y balcón con vista panorámica."
+        "description": "Habitaci\u00f3n doble con cama matrimonial y balc\u00f3n con vista panor\u00e1mica."
       },
       "triple": {
         "price": 55000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales y vista al jardín."
+        "description": "Habitaci\u00f3n triple con tres camas individuales y vista al jard\u00edn."
       },
       "suite": {
         "price": 90000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite con jacuzzi, sala de estar y una vista privilegiada al lago y los glaciares."
       }
@@ -2261,7 +2261,7 @@
       "stars": 3,
       "rating": 8.1,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/590680508.webp?k=c607824a6468cdb8175e0512f824732fbcc5e0e0468eb86951f7a2abc8b4d22a&o=",
-      "description": "Ubicado en el centro de El Calafate, este hotel ofrece una excelente relación calidad-precio, con habitaciones cómodas y un restaurante que sirve platos locales."
+      "description": "Ubicado en el centro de El Calafate, este hotel ofrece una excelente relaci\u00f3n calidad-precio, con habitaciones c\u00f3modas y un restaurante que sirve platos locales."
     },
     "address": {
       "city": "El Calafate",
@@ -2275,21 +2275,21 @@
     "rooms": {
       "single": {
         "price": 16000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación sencilla, ideal para viajeros solitarios, con todas las comodidades necesarias."
+        "description": "Habitaci\u00f3n sencilla, ideal para viajeros solitarios, con todas las comodidades necesarias."
       },
       "double": {
         "price": 25000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con cama matrimonial, vista al jardín y desayuno incluido."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, vista al jard\u00edn y desayuno incluido."
       },
       "triple": {
         "price": 33000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales, perfecta para grupos de amigos o familias."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, perfecta para grupos de amigos o familias."
       }
     },
     "amenities": {
@@ -2306,7 +2306,7 @@
       "stars": 2,
       "rating": 7.5,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/300278066.webp?k=04c35e41b3f8f23ccff6455549e8addaf5324073fe6ec0dfb362a9bc54887582&o=",
-      "description": "Este pequeño hotel familiar en El Calafate es perfecto para quienes buscan una estancia económica y confortable cerca del centro de la ciudad."
+      "description": "Este peque\u00f1o hotel familiar en El Calafate es perfecto para quienes buscan una estancia econ\u00f3mica y confortable cerca del centro de la ciudad."
     },
     "address": {
       "city": "El Calafate",
@@ -2320,21 +2320,21 @@
     "rooms": {
       "single": {
         "price": 12000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación individual sencilla, con cama individual y baño privado."
+        "description": "Habitaci\u00f3n individual sencilla, con cama individual y ba\u00f1o privado."
       },
       "double": {
         "price": 18000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial, decoración sencilla pero acogedora."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, decoraci\u00f3n sencilla pero acogedora."
       },
       "triple": {
         "price": 25000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple, ideal para grupos, con tres camas individuales."
+        "description": "Habitaci\u00f3n triple, ideal para grupos, con tres camas individuales."
       }
     },
     "amenities": {
@@ -2351,12 +2351,12 @@
       "stars": 3,
       "rating": 7.8,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/547424135.webp?k=e21377ba6eacf413c137ad60d7c92bb7e50d39d213030160a783fe4e9c15629d&o=",
-      "description": "Un hotel de estilo rústico en El Chaltén, en las cercanías del Parque Nacional Los Glaciares, ideal para quienes buscan aventura y comodidad."
+      "description": "Un hotel de estilo r\u00fastico en El Chalt\u00e9n, en las cercan\u00edas del Parque Nacional Los Glaciares, ideal para quienes buscan aventura y comodidad."
     },
     "address": {
-      "city": "El Chaltén",
+      "city": "El Chalt\u00e9n",
       "country": "Argentina",
-      "street": "Calle Los Cóndores 350"
+      "street": "Calle Los C\u00f3ndores 350"
     },
     "availability": {
       "available": true,
@@ -2365,21 +2365,21 @@
     "rooms": {
       "single": {
         "price": 13000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación individual sencilla, cómoda, ideal para estancias cortas."
+        "description": "Habitaci\u00f3n individual sencilla, c\u00f3moda, ideal para estancias cortas."
       },
       "double": {
         "price": 19000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con cama matrimonial, cálida y confortable."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, c\u00e1lida y confortable."
       },
       "triple": {
         "price": 25000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales, ideal para familias o grupos."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para familias o grupos."
       }
     },
     "amenities": {
@@ -2396,12 +2396,12 @@
       "stars": 3,
       "rating": 8.3,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/430816783.webp?k=89bfd55c03888d0b2e214e5a893016daa7a0d0b96d5c7d20c75eb4a978e36c9b&o=",
-      "description": "Situado en Río Gallegos, este hotel es ideal para quienes buscan una opción cómoda para descansar antes de continuar su viaje por la región patagónica."
+      "description": "Situado en R\u00edo Gallegos, este hotel es ideal para quienes buscan una opci\u00f3n c\u00f3moda para descansar antes de continuar su viaje por la regi\u00f3n patag\u00f3nica."
     },
     "address": {
-      "city": "Río Gallegos",
+      "city": "R\u00edo Gallegos",
       "country": "Argentina",
-      "street": "Av. San Martín 1520"
+      "street": "Av. San Mart\u00edn 1520"
     },
     "availability": {
       "available": true,
@@ -2410,21 +2410,21 @@
     "rooms": {
       "single": {
         "price": 10000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación sencilla, perfecta para viajeros de paso, con cama individual."
+        "description": "Habitaci\u00f3n sencilla, perfecta para viajeros de paso, con cama individual."
       },
       "double": {
         "price": 16000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial, ideal para estancias más largas."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, ideal para estancias m\u00e1s largas."
       },
       "triple": {
         "price": 21000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales, muy acogedora."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, muy acogedora."
       }
     },
     "amenities": {
@@ -2436,12 +2436,12 @@
     }
   },
   {
-    "name": "Hotel y Cabañas Pulegan",
+    "name": "Hotel y Caba\u00f1as Pulegan",
     "details": {
       "stars": 5,
       "rating": 9.3,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/501641603.webp?k=5b511986365ee316a977cba05b475bb17c582b065ea14bff6b6c7f09f706b1f4&o=",
-      "description": "Un hotel de lujo frente al Canal Beagle, con vistas espectaculares, spa, restaurante gourmet y actividades al aire libre. Ideal para una experiencia única en Ushuaia."
+      "description": "Un hotel de lujo frente al Canal Beagle, con vistas espectaculares, spa, restaurante gourmet y actividades al aire libre. Ideal para una experiencia \u00fanica en Ushuaia."
     },
     "address": {
       "city": "Ushuaia",
@@ -2455,27 +2455,27 @@
     "rooms": {
       "single": {
         "price": 45000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación individual de lujo con vista al mar y acceso al spa."
+        "description": "Habitaci\u00f3n individual de lujo con vista al mar y acceso al spa."
       },
       "double": {
         "price": 65000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación doble con cama matrimonial, balcón privado y vista panorámica."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, balc\u00f3n privado y vista panor\u00e1mica."
       },
       "triple": {
         "price": 80000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
-        "description": "Habitación triple con tres camas individuales y acceso al spa."
+        "description": "Habitaci\u00f3n triple con tres camas individuales y acceso al spa."
       },
       "suite": {
         "price": 120000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
-        "description": "Suite exclusiva con jacuzzi, salón privado y vistas inigualables del Canal Beagle."
+        "description": "Suite exclusiva con jacuzzi, sal\u00f3n privado y vistas inigualables del Canal Beagle."
       }
     },
     "amenities": {
@@ -2492,12 +2492,12 @@
       "stars": 4,
       "rating": 8.5,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/525851608.webp?k=db9137a1c41ea68161248cbcf5ea4b501caccec8c371f33a315476751735e2d2&o=",
-      "description": "Situado en el centro de Ushuaia, Hotel Albatros es ideal para quienes buscan comodidad, excelente servicio y una ubicación estratégica."
+      "description": "Situado en el centro de Ushuaia, Hotel Albatros es ideal para quienes buscan comodidad, excelente servicio y una ubicaci\u00f3n estrat\u00e9gica."
     },
     "address": {
       "city": "Ushuaia",
       "country": "Argentina",
-      "street": "San Martín 798"
+      "street": "San Mart\u00edn 798"
     },
     "availability": {
       "available": true,
@@ -2506,21 +2506,21 @@
     "rooms": {
       "single": {
         "price": 20000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación sencilla, cómoda, ideal para una estancia corta en el centro de Ushuaia."
+        "description": "Habitaci\u00f3n sencilla, c\u00f3moda, ideal para una estancia corta en el centro de Ushuaia."
       },
       "double": {
         "price": 30000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con cama matrimonial, equipada con todos los servicios y desayuno incluido."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, equipada con todos los servicios y desayuno incluido."
       },
       "triple": {
         "price": 38000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales, ideal para familias o grupos."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para familias o grupos."
       }
     },
     "amenities": {
@@ -2532,17 +2532,17 @@
     }
   },
   {
-    "name": "Cabañas Porvenir Tierra del Fuego",
+    "name": "Caba\u00f1as Porvenir Tierra del Fuego",
     "details": {
       "stars": 3,
       "rating": 8.0,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/523757315.webp?k=3c5bafd366240736cc23aab772fe483055b3dd64adc842ba3ad493b88d7c3c3e&o=",
-      "description": "Una acogedora hostería en Ushuaia, rodeada de montañas y bosques, perfecta para quienes buscan un lugar tranquilo y cálido en la ciudad más austral del mundo."
+      "description": "Una acogedora hoster\u00eda en Ushuaia, rodeada de monta\u00f1as y bosques, perfecta para quienes buscan un lugar tranquilo y c\u00e1lido en la ciudad m\u00e1s austral del mundo."
     },
     "address": {
       "city": "Ushuaia",
       "country": "Argentina",
-      "street": "Av. Los Ñires 3045"
+      "street": "Av. Los \u00d1ires 3045"
     },
     "availability": {
       "available": true,
@@ -2551,21 +2551,21 @@
     "rooms": {
       "single": {
         "price": 12000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación sencilla con una cama individual y vista al jardín."
+        "description": "Habitaci\u00f3n sencilla con una cama individual y vista al jard\u00edn."
       },
       "double": {
         "price": 18000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial y baño privado."
+        "description": "Habitaci\u00f3n doble con cama matrimonial y ba\u00f1o privado."
       },
       "triple": {
         "price": 24000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales, ideal para grupos o familias."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para grupos o familias."
       }
     },
     "amenities": {
@@ -2582,12 +2582,12 @@
       "stars": 3,
       "rating": 7.8,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/413288855.webp?k=6b69dc32769118493f60471e9115038e213e2e7a1cc9f6122a5b651d8750cc0f&o=",
-      "description": "Ubicado a las afueras de Ushuaia, este hotel es ideal para quienes buscan una estancia tranquila, pero con fácil acceso a la ciudad y las principales atracciones turísticas."
+      "description": "Ubicado a las afueras de Ushuaia, este hotel es ideal para quienes buscan una estancia tranquila, pero con f\u00e1cil acceso a la ciudad y las principales atracciones tur\u00edsticas."
     },
     "address": {
       "city": "Ushuaia",
       "country": "Argentina",
-      "street": "Calle Löffler 1050"
+      "street": "Calle L\u00f6ffler 1050"
     },
     "availability": {
       "available": true,
@@ -2596,21 +2596,21 @@
     "rooms": {
       "single": {
         "price": 10000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación individual con cama individual y acceso a todos los servicios del hotel."
+        "description": "Habitaci\u00f3n individual con cama individual y acceso a todos los servicios del hotel."
       },
       "double": {
         "price": 15000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial, decoración rústica y acogedora."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, decoraci\u00f3n r\u00fastica y acogedora."
       },
       "triple": {
         "price": 20000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales, ideal para familias."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para familias."
       }
     },
     "amenities": {
@@ -2627,7 +2627,7 @@
       "stars": 2,
       "rating": 7.2,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/219172428.webp?k=884c4a94727f343efd728352c44608946bada93e0f74fc90554298b379483788&o=",
-      "description": "Un hotel de dos estrellas con una excelente ubicación en el centro de Ushuaia, ideal para viajeros que buscan opciones más económicas sin sacrificar comodidad."
+      "description": "Un hotel de dos estrellas con una excelente ubicaci\u00f3n en el centro de Ushuaia, ideal para viajeros que buscan opciones m\u00e1s econ\u00f3micas sin sacrificar comodidad."
     },
     "address": {
       "city": "Ushuaia",
@@ -2641,21 +2641,21 @@
     "rooms": {
       "single": {
         "price": 8000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación individual sencilla, con cama individual y baño privado."
+        "description": "Habitaci\u00f3n individual sencilla, con cama individual y ba\u00f1o privado."
       },
       "double": {
         "price": 12000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con cama matrimonial, ideal para estancias cortas."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, ideal para estancias cortas."
       },
       "triple": {
         "price": 16000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales, económica y cómoda."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, econ\u00f3mica y c\u00f3moda."
       }
     },
     "amenities": {
@@ -2672,7 +2672,7 @@
       "stars": 4,
       "rating": 8.8,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/484830285.webp?k=497b3ea60fc716798ad1d9ae634b588372e2047606bb8b01c9b7b148baf27825&o=",
-      "description": "Ubicado en las colinas de San Salvador de Jujuy, este hotel ofrece un entorno tranquilo y vistas panorámicas, con instalaciones de lujo, incluyendo spa y restaurante gourmet."
+      "description": "Ubicado en las colinas de San Salvador de Jujuy, este hotel ofrece un entorno tranquilo y vistas panor\u00e1micas, con instalaciones de lujo, incluyendo spa y restaurante gourmet."
     },
     "address": {
       "city": "San Salvador de Jujuy",
@@ -2686,21 +2686,21 @@
     "rooms": {
       "single": {
         "price": 22000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación individual con vistas al valle, cama cómoda y baño privado."
+        "description": "Habitaci\u00f3n individual con vistas al valle, cama c\u00f3moda y ba\u00f1o privado."
       },
       "double": {
         "price": 35000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial, aire acondicionado y acceso a todas las comodidades del hotel."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, aire acondicionado y acceso a todas las comodidades del hotel."
       },
       "triple": {
         "price": 45000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
-        "description": "Habitación triple con tres camas individuales, ideal para grupos o familias."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para grupos o familias."
       }
     },
     "amenities": {
@@ -2717,7 +2717,7 @@
       "stars": 3,
       "rating": 8.0,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/539907807.webp?k=8e40fd3bb3de8fec7e8e309663c9aa6fa756b00f57b6e6677976dd01fb64f55f&o=",
-      "description": "Este tranquilo hotel en Purmamarca se encuentra rodeado por las impresionantes montañas de la Quebrada de Humahuaca. Ofrece una experiencia única en la naturaleza, con un spa y un restaurante que sirve cocina regional."
+      "description": "Este tranquilo hotel en Purmamarca se encuentra rodeado por las impresionantes monta\u00f1as de la Quebrada de Humahuaca. Ofrece una experiencia \u00fanica en la naturaleza, con un spa y un restaurante que sirve cocina regional."
     },
     "address": {
       "city": "Purmamarca",
@@ -2731,21 +2731,21 @@
     "rooms": {
       "single": {
         "price": 14000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación individual con vista a las montañas y baño privado."
+        "description": "Habitaci\u00f3n individual con vista a las monta\u00f1as y ba\u00f1o privado."
       },
       "double": {
         "price": 25000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial, decorada con estilo local y desayuno incluido."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, decorada con estilo local y desayuno incluido."
       },
       "triple": {
         "price": 32000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales, ideal para grupos pequeños."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para grupos peque\u00f1os."
       }
     },
     "amenities": {
@@ -2762,7 +2762,7 @@
       "stars": 3,
       "rating": 8.3,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/359599761.webp?k=06fe29df3c7d6ced9b3207e8fefe09acf510f248d671f3e35df473d0cb180e38&o=",
-      "description": "Situado en un entorno natural en las afueras de San Salvador de Jujuy, este hotel combina confort y tranquilidad, con un restaurante que ofrece platos regionales y un entorno único."
+      "description": "Situado en un entorno natural en las afueras de San Salvador de Jujuy, este hotel combina confort y tranquilidad, con un restaurante que ofrece platos regionales y un entorno \u00fanico."
     },
     "address": {
       "city": "San Salvador de Jujuy",
@@ -2776,21 +2776,21 @@
     "rooms": {
       "single": {
         "price": 8000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación sencilla, ideal para estancias cortas, con cama individual y baño privado."
+        "description": "Habitaci\u00f3n sencilla, ideal para estancias cortas, con cama individual y ba\u00f1o privado."
       },
       "double": {
         "price": 13000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial y acceso a la piscina."
+        "description": "Habitaci\u00f3n doble con cama matrimonial y acceso a la piscina."
       },
       "triple": {
         "price": 17000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple, ideal para familias o grupos, con tres camas individuales."
+        "description": "Habitaci\u00f3n triple, ideal para familias o grupos, con tres camas individuales."
       }
     },
     "amenities": {
@@ -2807,7 +2807,7 @@
       "stars": 5,
       "rating": 9.5,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square600/38104628.webp?k=9e2140c0897aabb173d77d6ef1ae82333109390355ac6466b8eabc984441a8c5&o=",
-      "description": "Un hotel boutique de lujo en el corazón de Salta, donde se fusionan el estilo clásico y moderno, con atención personalizada y un ambiente acogedor. Ideal para disfrutar de la ciudad."
+      "description": "Un hotel boutique de lujo en el coraz\u00f3n de Salta, donde se fusionan el estilo cl\u00e1sico y moderno, con atenci\u00f3n personalizada y un ambiente acogedor. Ideal para disfrutar de la ciudad."
     },
     "address": {
       "city": "Salta",
@@ -2821,21 +2821,21 @@
     "rooms": {
       "single": {
         "price": 25000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación individual de lujo con detalles elegantes y una vista impresionante a las montañas."
+        "description": "Habitaci\u00f3n individual de lujo con detalles elegantes y una vista impresionante a las monta\u00f1as."
       },
       "double": {
         "price": 35000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial, decorada con estilo contemporáneo y todas las comodidades."
+        "description": "Habitaci\u00f3n doble con cama matrimonial, decorada con estilo contempor\u00e1neo y todas las comodidades."
       },
       "suite": {
         "price": 60000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 0,
-        "description": "Suite de lujo con salón privado, jacuzzi y vistas panorámicas a la ciudad."
+        "description": "Suite de lujo con sal\u00f3n privado, jacuzzi y vistas panor\u00e1micas a la ciudad."
       }
     },
     "amenities": {
@@ -2852,7 +2852,7 @@
       "stars": 2,
       "rating": 7.5,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/284156174.webp?k=f8369558a2895bb4c9149817d096a9c56f2220a5163f206d6b90c7203f38cacf&o=",
-      "description": "Un hotel sencillo y acogedor, con una excelente ubicación en el centro de San Salvador de Jujuy, ideal para quienes buscan una opción económica sin perder comodidad."
+      "description": "Un hotel sencillo y acogedor, con una excelente ubicaci\u00f3n en el centro de San Salvador de Jujuy, ideal para quienes buscan una opci\u00f3n econ\u00f3mica sin perder comodidad."
     },
     "address": {
       "city": "San Salvador de Jujuy",
@@ -2866,21 +2866,21 @@
     "rooms": {
       "single": {
         "price": 7000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación individual sencilla con todas las comodidades básicas para una estancia cómoda."
+        "description": "Habitaci\u00f3n individual sencilla con todas las comodidades b\u00e1sicas para una estancia c\u00f3moda."
       },
       "double": {
         "price": 12000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación doble con cama matrimonial y baño privado."
+        "description": "Habitaci\u00f3n doble con cama matrimonial y ba\u00f1o privado."
       },
       "triple": {
         "price": 16000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales, ideal para grupos pequeños."
+        "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para grupos peque\u00f1os."
       }
     },
     "amenities": {
@@ -2892,12 +2892,12 @@
     }
   },
   {
-    "name": "Hosteria Maimará",
+    "name": "Hosteria Maimar\u00e1",
     "details": {
       "stars": 2,
       "rating": 7.0,
       "imgUrl": "https://cf.bstatic.com/xdata/images/hotel/square200/284790209.webp?k=07cb2f4c4bd93c3198427b99f7b5bde9c58b0be2129239fb99b610e8cdc351f4&o=",
-      "description": "Un hotel pequeño pero acogedor en el corazón de Tilcara, en la Quebrada de Humahuaca, ideal para quienes buscan un ambiente cálido y familiar."
+      "description": "Un hotel peque\u00f1o pero acogedor en el coraz\u00f3n de Tilcara, en la Quebrada de Humahuaca, ideal para quienes buscan un ambiente c\u00e1lido y familiar."
     },
     "address": {
       "city": "Tilcara",
@@ -2911,21 +2911,21 @@
     "rooms": {
       "single": {
         "price": 5000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 2,
-        "description": "Habitación sencilla con cama individual y baño compartido."
+        "description": "Habitaci\u00f3n sencilla con cama individual y ba\u00f1o compartido."
       },
       "double": {
         "price": 8000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 3,
-        "description": "Habitación doble con cama matrimonial y baño privado."
+        "description": "Habitaci\u00f3n doble con cama matrimonial y ba\u00f1o privado."
       },
       "triple": {
         "price": 11000,
-        "currency": "ARS",
+        "currency": "USD",
         "roomsLeft": 1,
-        "description": "Habitación triple con tres camas individuales."
+        "description": "Habitaci\u00f3n triple con tres camas individuales."
       }
     },
     "amenities": {
