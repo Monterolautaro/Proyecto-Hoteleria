@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { User } from "@/interfaces/users";
 import UserBookings from "@/components/UserDashboard/UserBookings";
+import { userBookings } from "@/helpers/userDashboard/userBookings";
 
 const UserDashboardView = () => {
   const [view, setView] = useState("userInfo");
   const [user, setUser] = useState<User | null>(null);
-  const userBookings = ["first", "second"];
 
   useEffect(() => {
     console.log("This is user", user);
@@ -87,7 +87,7 @@ const UserDashboardView = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full flex flex-col p-4 px-6 border border-slate-300 rounded-lg min-h-[50dvh]">
+        <div className="w-full flex flex-col p-4 px-6 bg-white border border-slate-300 rounded-lg min-h-[50dvh]">
           <UserBookings bookings={userBookings} />
         </div>
       )}

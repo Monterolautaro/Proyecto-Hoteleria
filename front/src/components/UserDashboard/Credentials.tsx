@@ -71,7 +71,7 @@ const Credentials: React.FC<IUserCredentials> = ({
             ) : (
               <div className="w-full flex justify-between">
                 <input
-                  className="pl-1 py-1 focus:outline-none border-b-transparent border-b focus:border-b-black focus:border-b"
+                  className="pl-1 py-1 focus:outline-none border-b-transparent w-[80%] border-b focus:border-b-black focus:border-b"
                   type="text"
                   placeholder={email}
                   value={newEmail}
