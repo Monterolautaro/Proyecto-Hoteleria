@@ -54,11 +54,13 @@ export class MetricsRepository {
     //*SERVICIOS DE TIEMPO DEL USUARIO
 
     async startLogin(){
-
+        const inicio = new Date()
+        return inicio
     }
 
     async endLogin(){
-        
+        const end = new Date()
+        return end
     }
 
     //************************************************************ */
