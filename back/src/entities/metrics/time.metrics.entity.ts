@@ -16,26 +16,26 @@ export class TimeMetrics {
   @PrimaryGeneratedColumn('uuid')
   time_metrics_id: string = uuid();
 
-  @Column('timestamp')
+  /*@Column('timestamp')
   session_starts: Date;
 
   @Column('timestamp')
-  session_ends: Date;
+  session_ends: Date;*/
 
   @Column('time')
   session_duration: string;
 
-  @Column()
-  session_start_time: string;
+  @Column('timestamp')
+  session_start_time: number;
 
-  @Column()
-  session_end_time: string;
+  @Column('timestamp')
+  session_end_time: number;
 
   @ManyToOne(() => Metrics, (metrics) => metrics.time_metrics)
   @JoinColumn({ name: 'metrics_id' })
   metrics: Metrics;
 
-  @ManyToOne(() => User, (usuario) => usuario.time_metrics)
+  /*@ManyToOne(() => User, (usuario) => usuario.time_metrics)
   @JoinColumn({ name: 'user_id' })
-  user: User;
+  user: User;*/
 }
