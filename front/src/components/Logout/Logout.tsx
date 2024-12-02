@@ -29,7 +29,7 @@ const Logout: React.FC<{
   };
 
   return (
-    <button onClick={handleLogout} className={styles.bubbleLink}>
+    <button onClick={handleLogout} className={`${styles.bubbleLink} text-left`}>
       Logout
     </button>
   );
