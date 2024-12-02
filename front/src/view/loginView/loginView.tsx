@@ -13,7 +13,9 @@ const Login = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/");
+    router.push("/", {
+      scroll: false,
+    }); // Redirige a la página principal después del login
   };
 
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -76,7 +78,9 @@ const Login = () => {
               </label>
               <div className="relative">
                 <input
-                  type={key === "password" && !showPassword ? "password" : "text"} // Alternar entre tipo 'password' y 'text' según el estado
+                  type={
+                    key === "password" && !showPassword ? "password" : "text"
+                  } // Alternar entre tipo 'password' y 'text' según el estado
                   id={key}
                   name={key}
                   className="w-full p-2 pr-12 border bg-green-50 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400" // Ajustamos el padding derecho para que haya espacio para el ícono

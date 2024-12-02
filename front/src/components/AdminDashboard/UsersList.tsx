@@ -36,7 +36,6 @@ const UsersList: React.FC = () => {
     fetchUsers();
   }, []);
 
-  // Eliminar usuario
   const handleDelete = async (id: string): Promise<void> => {
     try {
       const token = Cookies.get('token');
@@ -57,6 +56,7 @@ const UsersList: React.FC = () => {
   const handleViewDetails = (id: string): void => {
     router.push(`/userdetail/${id}`);
   };
+  
 
   return (
     <div className="overflow-x-auto">

@@ -1,20 +1,21 @@
-'use client';
+/* eslint-disable @next/next/no-img-element */
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Cookies from 'js-cookie';
-import Logout from '../Logout/Logout';
-import { IUserSession } from '@/interfaces';
-import styles from './navbarbuttons.module.css';
-import { usePathname } from 'next/navigation';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Cookies from "js-cookie";
+import Logout from "../Logout/Logout";
+import { IUserSession } from "@/interfaces";
+import styles from "./navbarbuttons.module.css";
+import { usePathname } from "next/navigation";
 
 const NavbarButtons: React.FC = () => {
   const [userSession, setUserSession] = useState<IUserSession | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const token = Cookies.get('token'); 
-    const user = Cookies.get('user'); 
+    const token = Cookies.get("token");
+    const user = Cookies.get("user");
     if (token && user) {
       setUserSession({
         token,
@@ -41,7 +42,7 @@ const NavbarButtons: React.FC = () => {
 
     const { role } = userSession.user;
 
-    if (role.includes('admin')) {
+    if (role.includes("admin")) {
       return (
         <>
           <Link href="/admin" className={styles.bubbleLink}>
@@ -55,10 +56,11 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    if (role.includes('user')) {
+    if (role.includes("user")) {
       return (
         <>
           <Link href="/dashboard" className={styles.bubbleLink}>
+            <img src="/assets/profile.png" alt="Profile" className="w-5 h-5" />
             Profile
           </Link>
           <Logout setUserSession={setUserSession} />

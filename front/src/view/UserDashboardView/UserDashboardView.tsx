@@ -7,16 +7,21 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { User } from "@/interfaces/users";
 import UserBookings from "@/components/UserDashboard/UserBookings";
+import { userBookings } from "@/helpers/userDashboard/userBookings";
 
 const UserDashboardView = () => {
   const [view, setView] = useState("userInfo");
   const [user, setUser] = useState<User | null>(null);
-  const userBookings = ["first", "second"];
+
+  useEffect(() => {
+    console.log("This is user", user);
+  }, [user]);
 
   useEffect(() => {
     const getData = async () => {
       const token = Cookies.get("token");
       const user = JSON.parse(Cookies.get("user") || "{}");
+      console.log(token);
 
       if (token) {
         const userData = await getUserData(user.id, token);
@@ -31,7 +36,7 @@ const UserDashboardView = () => {
   };
 
   return (
-    <div className="flex gap-8 w-full h-[70vh] justify-center mx-auto py-5 px-[10%] bg-gradient-to-b from-[#d0f6e9] to-[#F3FFFC] mb-12">
+    <div className="flex gap-8 w-full h-[70vh] justify-center mx-auto py-5 px-[10%] bg-gradient-to-b from-[#d0f6e9] to-[#F3FFFC] mb-12 animate-fadeIn">
       <div className="flex flex-col rounded-lg overflow-hidden h-fit min-w-[30%] border bg-white border-slate-300 font-medium">
         <button
           className=" text-start px-3 py-5 border-b border-b-slate-300 transition-all duration-200 ease-in-out hover:pl-[30px] "
@@ -82,7 +87,7 @@ const UserDashboardView = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full flex flex-col p-4 px-6 border border-slate-300 rounded-lg min-h-[50dvh]">
+        <div className="w-full flex flex-col p-4 px-6 bg-white border border-slate-300 rounded-lg min-h-[50dvh]">
           <UserBookings bookings={userBookings} />
         </div>
       )}

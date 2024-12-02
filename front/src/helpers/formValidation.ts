@@ -16,9 +16,9 @@ export const validatePasswordLogin = (
   if (!password) {
     return "Password is required.";
   } else if (email) {
-    // Aquí simplemente se muestra un mensaje genérico, 
+    // Aquí simplemente se muestra un mensaje genérico,
     // ya que la lógica está en el backend.
-    return "The password does not match the email.";
+    // return "The password does not match the email.";
   }
   return undefined;
 };
@@ -43,7 +43,8 @@ export const validateBirthday = (birthday: string): string | undefined => {
 
 // Validación de contraseñas para registro
 export const validatePassword = (password: string): string | undefined => {
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}|\[\]\\:";'<>?,./`~])(?=.{8,})/;
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}|\[\]\\:";'<>?,./`~])(?=.{8,})/;
 
   if (!password) {
     return "Password is required.";

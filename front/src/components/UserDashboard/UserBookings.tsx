@@ -1,10 +1,15 @@
 "use client";
 
-const UserBookings: React.FC<{ bookings: string[] }> = ({ bookings }) => {
+import { IUserBookings } from "@/helpers/userDashboard/userBookings";
+import UserBooking from "../Bookings/userBooking";
+
+const UserBookings: React.FC<{ bookings: IUserBookings[] }> = ({
+  bookings,
+}) => {
   return (
-    <div>
+    <div className="flex flex-col gap-3 overflow-y-auto">
       {bookings.map((booking, key) => {
-        return <div key={key}>{booking}</div>;
+        return <UserBooking key={key} id={key} booking={booking} />;
       })}
     </div>
   );

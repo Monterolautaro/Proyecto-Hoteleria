@@ -9,9 +9,10 @@ import { IHotel } from "@/interfaces";
 
 const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
   const hotelInfo: IHotel | undefined = await getHotelById(params);
+  console.log(hotelInfo);
 
   return (
-    <div className="w-full min-h-fit bg-[#f3fffc] px-[10vw] py-6">
+    <div className="w-full min-h-fit bg-[#f3fffc] px-[10vw] animate-fadeIn py-6">
       <header className="flex justify-between items-center pr-[8%]">
         <div>
           <h2 className="text-[40px] font-medium">{hotelInfo?.name}</h2>
