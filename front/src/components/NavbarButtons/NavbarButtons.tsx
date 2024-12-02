@@ -46,7 +46,7 @@ const NavbarButtons: React.FC = () => {
       return (
         <>
           <Link href="/admin" className={styles.bubbleLink}>
-            Admin
+            Dashboard
           </Link>
           <Link href="/hotelcreation" className={styles.bubbleLink}>
             Hotel Creation
