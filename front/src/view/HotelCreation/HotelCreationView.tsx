@@ -4,19 +4,18 @@ import BasicInfoForm from "@/components/HotelBasicInfo/HotelBasicInfoForm";
 import { useHotelCreation } from "@/components/HotelCreationContext/HotelCreationProvider";
 import HotelDetailsForm from "@/components/HotelDetailsForm/HotelDetailsForm";
 import RoomInfoForm from "@/components/HotelRoomsForm/HotelRoomsForm";
-import createHotel from "@/helpers/hotelCreation/createHotel";
-// import createHotel from "@/helpers/hotelCreation/createHotel";
+import ImageUploadForm from "@/components/uploadImage/imageUpload";
 import { IHotelCreation } from "@/interfaces/hotelCreation";
 import { useEffect, useRef } from "react";
 
 const HotelCreationView = () => {
-  const { hotelInfo, hotelDetails, hotelRooms, step, setStep } =
+  const { hotelInfo, hotelDetails, hotelRooms, step, setStep, isFormValid } =
     useHotelCreation();
 
   const formStepThreeRef = useRef<HTMLDivElement>(null);
 
   const handleNext = (): void => {
-    if (step < 3) {
+    if (step < 4 && isFormValid) {
       setStep((prevStep) => prevStep + 1);
     }
   };
@@ -55,10 +54,10 @@ const HotelCreationView = () => {
       },
     };
 
-    await createHotel(newHotel);
+    console.log(newHotel);
+    // await createHotel(newHotel);
   };
 
-  // Scroll hacia el formulario de Step 3 cuando aparece
   useEffect(() => {
     if (step === 3 && formStepThreeRef.current) {
       formStepThreeRef.current.scrollIntoView({ behavior: "smooth" });
@@ -67,7 +66,6 @@ const HotelCreationView = () => {
 
   return (
     <div className="bg-[#00352A] min-h-screen p-6 text-white">
-      {/* Contenedor principal con texto y formularios */}
       <div className="flex justify-center items-center">
         <div className="flex items-center bg-[#00352A] min-h-screen text-white px-4">
           <div className="w-full md:w-2/3 ml-32">
@@ -83,25 +81,39 @@ const HotelCreationView = () => {
           </div>
         </div>
 
-        {/* Formulario principal para pasos 1 y 2 */}
-        {step !== 3 && (
+        {step === 1 && (
           <div className="w-full max-w-md bg-[#004D40] p-6 rounded-lg shadow-lg mr-14">
-            {step === 1 && <BasicInfoForm />}
-            {step === 2 && <HotelDetailsForm />}
-
+            <BasicInfoForm />
             <div className="flex justify-between mt-4">
-              {/* Mostrar "Previous" solo si estamos en el paso 2 */}
-              {step > 1 && (
-                <button
-                  onClick={handlePrevious}
-                  className="bg-gray-600 text-white px-4 py-2 rounded"
-                >
-                  Previous
-                </button>
-              )}
               <button
                 onClick={handleNext}
-                className="bg-[#00B894] text-white px-4 py-2 rounded ml-auto"
+                className={`bg-[#00B894] text-white px-4 py-2 rounded ml-auto ${
+                  !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                disabled={!isFormValid}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        )}
+
+        {step === 2 && (
+          <div className="w-full max-w-md bg-[#004D40] p-6 rounded-lg shadow-lg mr-14">
+            <HotelDetailsForm />
+            <div className="flex justify-between mt-4">
+              <button
+                onClick={handlePrevious}
+                className="bg-gray-600 text-white px-4 py-2 rounded"
+              >
+                Previous
+              </button>
+              <button
+                onClick={handleNext}
+                className={`bg-[#00B894] text-white px-4 py-2 rounded ${
+                  !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                disabled={!isFormValid}
               >
                 Next
               </button>
@@ -110,7 +122,6 @@ const HotelCreationView = () => {
         )}
       </div>
 
-      {/* Nuevo contenedor para el paso 3 */}
       {step === 3 && (
         <div
           ref={formStepThreeRef}
@@ -131,10 +142,39 @@ const HotelCreationView = () => {
               Previous
             </button>
             <button
+              onClick={handleNext}
+              className={`bg-[#00B894] text-white px-4 py-2 rounded ${
+                !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={!isFormValid}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      )}
+
+      {step === 4 && (
+        <div className="w-full flex flex-col justify-center items-center bg-[#00695C] min-h-screen">
+          <div className="w-full max-w-5xl bg-[#004C3F] p-8 rounded-lg shadow-lg">
+            <h2 className="text-3xl font-bold text-white mb-6">
+              Upload your images
+            </h2>
+            <ImageUploadForm />
+          </div>
+
+          <div className="flex justify-between mt-4 w-full max-w-5xl">
+            <button
+              onClick={handlePrevious}
+              className="bg-gray-600 text-white px-4 py-2 rounded"
+            >
+              Previous
+            </button>
+            <button
               onClick={handleSubmit}
               className="bg-[#00B894] text-white px-4 py-2 rounded"
             >
-              Submit
+              Finish register
             </button>
           </div>
         </div>

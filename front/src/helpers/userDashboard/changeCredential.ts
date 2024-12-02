@@ -48,3 +48,34 @@ export const changeUsername = async (
     });
   }
 };
+
+interface IPasswords {
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+export const changePassword = async (
+  passwords: IPasswords,
+  id: string,
+  token: string
+) => {
+  try {
+    const response = await axios.put(
+      `${API_URL}/users/changePassword/${id}`,
+      { password: passwords.oldPassword, newPassword: passwords.newPassword }, //Objeto para el body
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log(response.data);
+  } catch (error: any) {
+    Swal.fire({
+      title: error.response.data.message,
+      icon: "error",
+      confirmButtonColor: "#009375",
+    });
+  }
+};

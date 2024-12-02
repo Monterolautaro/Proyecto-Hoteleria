@@ -22,7 +22,7 @@ export class FilterRepository {
     const key = `hotels:${user_id}`;
     const hotelArray = await this.redisService.hGetHotels(key);
     
-      if (!hotelArray) throw new BadRequestException('No hay resultados almacenados en el caché');
+      if (!hotelArray) return [];
 
       let filteredHotels = hotelArray;
 
@@ -63,7 +63,7 @@ export class FilterRepository {
           amenitiesArray.every((amenity) => hotel.amenities[amenity] === true),
         );
       }
-
+      
       return filteredHotels;
     } catch (error) {
       console.log({ message: 'Error en el filtrado', error });
