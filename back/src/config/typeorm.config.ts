@@ -32,8 +32,8 @@ export const getDatabaseConfig = (): DataSourceOptions => {
       : process.env.DB_NAME_LOCAL,
     entities: ['dist/**/*.entity{.ts,.js}'],
     autoLoadEntities: true,
-    synchronize: false,
-    //dropSchema: true,
+    synchronize: true,
+    // dropSchema: true,
     logging: true,
     ssl: isProduction ? { rejectUnauthorized: false } : false,
   } as DataSourceOptions;

@@ -10,7 +10,7 @@ export class RedisService {
     async hSetHotels ( key, value ){
         const serializedHotels = JSON.stringify(value);
         await redis.hset(key, 'all' , serializedHotels);
-        await redis.expire(key, 120);
+        await redis.expire(key, 1200);
     }
 
     async hGetHotels ( key ){
