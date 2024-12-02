@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -14,8 +15,12 @@ export const changeEmail = async (email: string, id: string, token: string) => {
       }
     );
     console.log(response.data);
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    Swal.fire({
+      title: error.response.data.message,
+      icon: "error",
+      confirmButtonColor: "#009375",
+    });
   }
 };
 
@@ -26,7 +31,7 @@ export const changeUsername = async (
 ) => {
   try {
     const response = await axios.put(
-      `${API_URL}/users/changeEmail/${id}`,
+      `${API_URL}/users/changeUsername/${id}`,
       username,
       {
         headers: {
@@ -35,7 +40,11 @@ export const changeUsername = async (
       }
     );
     console.log(response.data);
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    Swal.fire({
+      title: error.response.data.message,
+      icon: "error",
+      confirmButtonColor: "#009375",
+    });
   }
 };

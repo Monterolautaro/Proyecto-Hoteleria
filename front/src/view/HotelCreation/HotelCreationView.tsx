@@ -1,10 +1,10 @@
-
 "use client";
 
 import BasicInfoForm from "@/components/HotelBasicInfo/HotelBasicInfoForm";
 import { useHotelCreation } from "@/components/HotelCreationContext/HotelCreationProvider";
 import HotelDetailsForm from "@/components/HotelDetailsForm/HotelDetailsForm";
 import RoomInfoForm from "@/components/HotelRoomsForm/HotelRoomsForm";
+import createHotel from "@/helpers/hotelCreation/createHotel";
 // import createHotel from "@/helpers/hotelCreation/createHotel";
 import { IHotelCreation } from "@/interfaces/hotelCreation";
 import { useEffect, useRef } from "react";
@@ -55,7 +55,7 @@ const HotelCreationView = () => {
       },
     };
 
-    // await createHotel(newHotel);
+    await createHotel(newHotel);
   };
 
   // Scroll hacia el formulario de Step 3 cuando aparece

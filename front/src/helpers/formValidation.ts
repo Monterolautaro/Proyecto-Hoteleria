@@ -8,11 +8,25 @@ export const validateEmail = (email: string): string | undefined => {
   return undefined;
 };
 
+// Validación simplificada para contraseñas en el login
+export const validatePasswordLogin = (
+  email: string,
+  password: string
+): string | undefined => {
+  if (!password) {
+    return "Password is required.";
+  } else if (email) {
+    // Aquí simplemente se muestra un mensaje genérico,
+    // ya que la lógica está en el backend.
+    // return "The password does not match the email.";
+  }
+  return undefined;
+};
+
+// Validación de cumpleaños
 export const validateBirthday = (birthday: string): string | undefined => {
   const minYear = 1900;
   const currentDate = new Date();
-
-  // Verifica si el valor ingresado puede convertirse en una fecha válida
   const enteredDate = new Date(birthday);
 
   if (!birthday) {
@@ -27,11 +41,10 @@ export const validateBirthday = (birthday: string): string | undefined => {
   return undefined;
 };
 
-
-
+// Validación de contraseñas para registro
 export const validatePassword = (password: string): string | undefined => {
-  // Validación: al menos una minúscula, una mayúscula, un símbolo, y longitud mínima de 8 caracteres
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}|\[\]\\:";'<>?,./`~])(?=.{8,})/;
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}|\[\]\\:";'<>?,./`~])(?=.{8,})/;
 
   if (!password) {
     return "Password is required.";
@@ -43,8 +56,9 @@ export const validatePassword = (password: string): string | undefined => {
   return undefined;
 };
 
+// Validación de nombres
 export const validateName = (name: string): string | undefined => {
-  const nameRegex = /^[a-zA-Z]+$/; // Solo letras
+  const nameRegex = /^[a-zA-Z]+$/;
   if (!name) {
     return "First name is required.";
   } else if (!nameRegex.test(name)) {
@@ -53,8 +67,9 @@ export const validateName = (name: string): string | undefined => {
   return undefined;
 };
 
+// Validación de apellidos
 export const validateLastName = (lastName: string): string | undefined => {
-  const lastNameRegex = /^[a-zA-Z]+$/; // Solo letras
+  const lastNameRegex = /^[a-zA-Z]+$/;
   if (!lastName) {
     return "Last name is required.";
   } else if (!lastNameRegex.test(lastName)) {
@@ -63,6 +78,7 @@ export const validateLastName = (lastName: string): string | undefined => {
   return undefined;
 };
 
+// Validación de confirmación de contraseñas
 export const validateConfirmPassword = (
   password: string,
   confirmPassword: string

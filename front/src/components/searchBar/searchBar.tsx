@@ -1,7 +1,7 @@
 "use client";
 import getResult from "@/helpers/searchBar";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const SearchBar = () => {
@@ -17,22 +17,21 @@ const SearchBar = () => {
       setLoading(true);
       const result = await getResult(e);
       setResult(result);
-      setVisible(true); 
+      setVisible(true);
       setLoading(false);
     } else {
       setResult([]);
-      setVisible(false); 
+      setVisible(false);
     }
   };
 
   const handleSelectResult = (selected: string) => {
-    setInputValue(selected); 
-    setVisible(false); 
-  
+    setInputValue(selected);
+    setVisible(false);
+
     const queryString = new URLSearchParams({ search: selected }).toString();
     router.push(`/search-results?${queryString}`);
   };
-  
 
   const SearchBarResults = ({
     results,
@@ -46,7 +45,7 @@ const SearchBar = () => {
     if (!visible) return null;
     return (
       <div
-        className={`w-full max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
+        className={`w-full  max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
       >
         {results.length >= 1 ? (
           results.map((result, index) => (
@@ -66,7 +65,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full py-8">
+    <div className="flex flex-col items-center justify-center w-full animate-fadeIn py-8">
       <h2 className="text-white text-2xl font-semibold mb-4">
         Looking for a place to travel?
       </h2>
@@ -84,6 +83,7 @@ const SearchBar = () => {
               pathname: "/search-results",
               query: { search: inputValue },
             }}
+            onClick={() => handleSelectResult(inputValue)}
             className="bg-teal-600 text-white font-semibold px-6 py-2 rounded-full border border-white hover:bg-teal-500"
           >
             Explore

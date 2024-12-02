@@ -19,7 +19,7 @@ const HotelsView = () => {
 
   const handleClick = (page: number) => {
     setPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 250, behavior: "smooth" });
   };
   return (
     <div className="w-full flex flex-col justify-center">
@@ -27,7 +27,8 @@ const HotelsView = () => {
         Here you can find all hotels{" "}
       </h2>
       <div className="w-[85%] max-w-[85%] flex-wrap gap-3 flex justify-center items-center mx-auto pt-4">
-        {hotels?.length &&
+        {hotels ? (
+          hotels?.length &&
           hotels.map((hotel, key) => {
             return (
               <div className="w-[250px]" key={key}>
@@ -41,7 +42,10 @@ const HotelsView = () => {
                 />
               </div>
             );
-          })}
+          })
+        ) : (
+          <div className="w-full h-[50vh] animate-fadeIn"></div>
+        )}
         <div className="w-full flex m-auto items-center justify-center gap-4 my-3">
           {pagesButton.map((pageNumber, key) => {
             return (
