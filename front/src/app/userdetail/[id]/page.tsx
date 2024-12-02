@@ -1,4 +1,4 @@
-import UserDetail from '@/components/UserDetail/UserDetail';
+/* import UserDetail from '@/components/UserDetail/UserDetail';
 
 const UserDetailPage = ({ params }: { params: { id: string } }) => {
   return (
@@ -9,3 +9,4 @@ const UserDetailPage = ({ params }: { params: { id: string } }) => {
 };
 
 export default UserDetailPage;
+ */
