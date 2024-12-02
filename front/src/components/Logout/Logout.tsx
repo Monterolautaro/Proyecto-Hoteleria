@@ -25,7 +25,7 @@ const Logout: React.FC<{ setUserSession: (params: IUserSession | null) => void }
   };
 
   return (
-    <button onClick={handleLogout} className={styles.bubbleLink}>
+    <button onClick={handleLogout} className={`${styles.bubbleLink} text-left`}>
       Logout
     </button>
   );

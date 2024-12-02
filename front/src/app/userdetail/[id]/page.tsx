@@ -1,9 +1,11 @@
-import React from 'react'
+import UserDetail from '@/components/UserDetail/UserDetail';
 
-const page = () => {
+const UserDetailPage = ({ params }: { params: { id: string } }) => {
   return (
-    <div>page</div>
-  )
-}
+    <div className="container mx-auto">
+      <UserDetail userId={params.id} />
+    </div>
+  );
+};
 
-export default page
+export default UserDetailPage;
