@@ -75,10 +75,9 @@ const AdminDashboardView: React.FC = () => {
               </div>
 
               <div className="flex-1 bg-gray-50 p-4 shadow-inner rounded-lg">
-                <h3 className="text-xl font-bold mb-4">Additional Component</h3>
+                <h3 className="text-xl font-bold mb-4">Metrics</h3>
                 <p>
-                  Aquí puedes renderizar otro componente, como una tabla con las reservas del
-                  usuario u otros detalles adicionales.
+               
                 </p>
               </div>
             </div>
