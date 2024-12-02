@@ -5,3 +5,7 @@ export interface IParams {
 export interface IParamsPayment {
   params: Promise<{ hotelName: string }>;
 }
+
+export interface IParamsUser {
+  params: Promise<{ idUser: string }>;
+}
