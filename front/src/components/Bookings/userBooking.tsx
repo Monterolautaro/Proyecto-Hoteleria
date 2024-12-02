@@ -27,9 +27,9 @@ const UserBooking: React.FC<{ booking: IUserBookings; id: number }> = ({
         Rooms:
         <p className="flex ml-3">
           {booking.rooms.map((room, key) => (
-            <p key={key} className="mr-4">{`${room.rooms} ${firstToUpperCase(
+            <span key={key} className="mr-4">{`${room.rooms} ${firstToUpperCase(
               room.type
-            )}`}</p>
+            )}`}</span>
           ))}
         </p>
       </h3>
