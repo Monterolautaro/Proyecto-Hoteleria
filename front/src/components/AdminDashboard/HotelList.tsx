@@ -10,7 +10,7 @@ const HotelsList = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const hotelsData = await getHotels(page, 6); 
+      const hotelsData = await getHotels(page, 12); 
       setHotels(hotelsData);
     };
     fetchData();
@@ -30,7 +30,6 @@ const HotelsList = () => {
 
   return (
     <div className="w-full flex flex-col">
-      <h2 className="mt-4 text-3xl font-bold pb-4 pl-6">Hotels List</h2>
       <div className="w-[85%] max-w-[85%] mx-auto">
         <table className="min-w-full bg-white border border-gray-200">
           <thead>
