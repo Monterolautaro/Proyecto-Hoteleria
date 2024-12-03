@@ -18,18 +18,13 @@ const Logout: React.FC<{
 
     setUserSession(null);
 
-    Toast.fire({
-      icon: "success",
-      title: "Logged out successfully",
-    });
-
     router.push("/", {
       scroll: false,
     });
   };
 
   return (
-    <button onClick={handleLogout} className={styles.bubbleLink}>
+    <button onClick={handleLogout} className={`${styles.bubbleLink} text-left`}>
       Logout
     </button>
   );

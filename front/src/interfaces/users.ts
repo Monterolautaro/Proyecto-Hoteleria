@@ -12,6 +12,8 @@ export interface User {
   role: string;
   bookings: number;
   birthday?: string;
+  total_visits?: number;
+  average_session_duration?: number;
 }
 
 export interface Hotel {
