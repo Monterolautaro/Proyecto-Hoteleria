@@ -3,7 +3,8 @@
 import axios from 'axios';
 import fs from 'fs';
 
-const PATH = 'C:\\Users\\Maxi Nievas\\Desktop\\PROYECTO FINAL\\Proyecto-Hoteleria\\back\\src\\helpers\\hotels\\hotels.json';
+const PATH = 'src\\helpers\\hotels\\hotels.json';
+
 
 const BATCH_SIZE = 5;
 

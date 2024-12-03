@@ -39,6 +39,8 @@ const HotelsView = () => {
                   location={hotel.address.country}
                   price={parseInt(hotel.room[0].room_type.price)}
                   stars={hotel.details.stars}
+                  rating={hotel.details.rating}
+                  currency={hotel.room[0].room_type.currency}
                 />
               </div>
             );

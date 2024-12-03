@@ -22,6 +22,7 @@ const HotelCard: React.FC<HotelCardProps> = ({
   stars,
   price,
   label,
+  currency,
 }) => {
   const numericPrice = parseFloat(price.toString()); // Nos aseguramos de que el precio sea un número
 
@@ -61,7 +62,7 @@ const HotelCard: React.FC<HotelCardProps> = ({
           <span className="text-gray-900 font-bold text-lg">
             {isNaN(numericPrice) || numericPrice <= 0
               ? "Price not available"
-              : `${numericPrice}`}
+              : `${numericPrice} ${currency}`}
           </span>
         </div>
       </div>
