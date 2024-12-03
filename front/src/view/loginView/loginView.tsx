@@ -3,6 +3,7 @@ import { loginUser } from "@/helpers/auth.helper";
 import { validateEmail, validatePasswordLogin } from "@/helpers/formValidation";
 import { Toast } from "@/helpers/toast";
 import firstToUpperCase from "@/helpers/upperCase";
+import { IGoogleSession } from "@/interfaces";
 import Cookies from "js-cookie";
 import { signIn, getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -64,7 +65,8 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     try {
-      const result = await signIn("google", { redirect: false });
+      const result: any = await signIn("google", { redirect: false }); 
+  
       if (result?.error) {
         Toast.fire({
           icon: "error",
@@ -73,14 +75,16 @@ const Login = () => {
         return;
       }
   
-      const session = await getSession();
-      if (session) {
-        Cookies.set("token", session.accessToken || "", { expires: 1 });
+      if (result) {
+        const googleSession: IGoogleSession = {
+          accessToken: result.access_token || "", 
+          role: ["user"], 
+        };
+  
+        Cookies.set("token", googleSession.accessToken, { expires: 1 });
         Cookies.set(
           "user",
-          JSON.stringify({
-            role: session.role || [], 
-          }),
+          JSON.stringify({ role: googleSession.role }),
           { expires: 1 }
         );
   
@@ -98,6 +102,7 @@ const Login = () => {
       });
     }
   };
+  
   
 
   const isFormIncomplete = !formData.email || !formData.password;
