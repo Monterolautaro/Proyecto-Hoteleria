@@ -46,9 +46,6 @@ export const authOptions = {
       if (account) {
         token.accessToken = account.access_token || token.accessToken;
         token.role = user?.role || token.role;
-      } else if (user) {
-        token.accessToken = user.token || token.accessToken;
-        token.role = user.role || token.role;
       }
       return token;
     },

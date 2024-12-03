@@ -190,7 +190,7 @@ const Register = () => {
 
           {/* Right Column */}
           <div className="w-full sm:w-2/5">
-            {["Email", "Username", "Password", "confirmPassword"].map((key) => (
+            {["email", "username", "password", "confirmPassword"].map((key) => (
               <div key={key} className="mb-1">
                 <label htmlFor={key} className="font-medium">
                   {key.replace("confirmPassword", "Confirm Password").replace(
