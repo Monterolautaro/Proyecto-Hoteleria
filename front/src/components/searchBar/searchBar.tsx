@@ -2,7 +2,7 @@
 import getResult from "@/helpers/searchBar";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const SearchBar = () => {
   const router = useRouter();
@@ -10,6 +10,7 @@ const SearchBar = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [visible, setVisible] = useState<boolean>(false);
+  const searchBarRef = useRef<HTMLDivElement>(null);
 
   const handleChange = async (e: string) => {
     setInputValue(e);
@@ -33,6 +34,22 @@ const SearchBar = () => {
     router.push(`/search-results?${queryString}`);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      searchBarRef.current &&
+      !searchBarRef.current.contains(event.target as Node)
+    ) {
+      setVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const SearchBarResults = ({
     results,
     onSelectResult,
@@ -45,7 +62,7 @@ const SearchBar = () => {
     if (!visible) return null;
     return (
       <div
-        className={`w-full  max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
+        className={`w-full max-w-3xl bg-teal-50 text-teal-700 rounded-2xl shadow-md mt-2 overflow-auto border border-teal-200 max-h-[205px]`}
       >
         {results.length >= 1 ? (
           results.map((result, index) => (
@@ -69,7 +86,10 @@ const SearchBar = () => {
       <h2 className="text-white text-2xl font-semibold mb-4">
         Looking for a place to travel?
       </h2>
-      <div className="flex flex-col w-full max-w-3xl relative">
+      <div
+        className="flex flex-col w-full max-w-3xl relative"
+        ref={searchBarRef}
+      >
         <div className="flex items-center bg-transparent border border-white rounded-full px-4 py-2">
           <input
             className="flex-grow bg-transparent text-white placeholder-white outline-none px-2"

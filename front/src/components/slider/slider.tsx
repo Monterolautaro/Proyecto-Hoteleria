@@ -18,6 +18,7 @@ export default function ComponentSlider(): JSX.Element {
       const response = await axios.get(`${API_URL}/hotels?page=1&limit=8`);
 
       const topRatedHotels = response.data;
+      console.log(topRatedHotels);
 
       // const topRatedHotels = data
       //   .filter((hotel: any) => hotel.details?.stars > 3)
@@ -92,6 +93,7 @@ export default function ComponentSlider(): JSX.Element {
                   rating={hotel.details?.rating || 0}
                   price={price}
                   label={""}
+                  currency={hotel.room[0].room_type.currency}
                 />
               </div>
             );
