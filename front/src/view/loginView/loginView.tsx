@@ -75,8 +75,14 @@ const Login = () => {
   
       const session = await getSession();
       if (session) {
-        Cookies.set("token", session.accessToken!, { expires: 1 });
-        Cookies.set("user", JSON.stringify({ role: session.role }), { expires: 1 });
+        Cookies.set("token", session.accessToken || "", { expires: 1 });
+        Cookies.set(
+          "user",
+          JSON.stringify({
+            role: session.role || [], 
+          }),
+          { expires: 1 }
+        );
   
         Toast.fire({
           icon: "success",
@@ -92,6 +98,7 @@ const Login = () => {
       });
     }
   };
+  
 
   const isFormIncomplete = !formData.email || !formData.password;
 
