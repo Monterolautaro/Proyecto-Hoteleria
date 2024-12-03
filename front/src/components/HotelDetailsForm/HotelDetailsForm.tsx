@@ -23,19 +23,25 @@ const HotelDetailsForm = () => {
   const validateFields = () => {
     const newErrors: any = {};
 
-    // Validación de las estrellas (entre 1 y 5)
-    if (!hotelDetails.stars) {
-      newErrors.stars = "Stars are required.";
-    } else if (hotelDetails.stars < 1 || hotelDetails.stars > 5) {
-      newErrors.stars = "Stars must be between 1 and 5.";
-    }
+   // Validación de las estrellas (entre 1 y 5)
+if (!hotelDetails.stars) {
+  newErrors.stars = "Stars are required.";
+} else {
+  const stars = Number(hotelDetails.stars); // Convertir a número
+  if (isNaN(stars) || stars < 1 || stars > 5) {
+    newErrors.stars = "Stars must be a number between 1 and 5.";
+  }
+}
 
-    // Validación de la calificación (entre 1 y 5)
-    if (!hotelDetails.rating) {
-      newErrors.rating = "Rating is required.";
-    } else if (hotelDetails.rating < 1 || hotelDetails.rating > 5) {
-      newErrors.rating = "Rating must be between 1 and 5.";
-    }
+// Validación de la calificación (entre 1 y 5)
+if (!hotelDetails.rating) {
+  newErrors.rating = "Rating is required.";
+} else {
+  const rating = Number(hotelDetails.rating); // Convertir a número
+  if (isNaN(rating) || rating < 1 || rating > 5) {
+    newErrors.rating = "Rating must be a number between 1 and 5.";
+  }
+}
 
     // Validación de la URL de la imagen
     if (!hotelDetails.img.trim()) {
@@ -55,15 +61,15 @@ const HotelDetailsForm = () => {
 
     // Validación final del formulario para habilitar el botón "Next"
     const isValid =
-      hotelDetails.stars &&
-      hotelDetails.stars >= 1 &&
-      hotelDetails.stars <= 5 &&
-      hotelDetails.rating &&
-      hotelDetails.rating >= 1 &&
-      hotelDetails.rating <= 5 &&
-      hotelDetails.img.trim() !== "" &&
-      /^https?:\/\/.*\.(jpg|jpeg|png|gif)$/i.test(hotelDetails.img) &&
-      hotelDetails.description.trim().length >= 10;
+    !isNaN(Number(hotelDetails.stars)) &&
+    Number(hotelDetails.stars) >= 1 &&
+    Number(hotelDetails.stars) <= 5 &&
+    !isNaN(Number(hotelDetails.rating)) &&
+    Number(hotelDetails.rating) >= 1 &&
+    Number(hotelDetails.rating) <= 5 &&
+    hotelDetails.img.trim() !== "" &&
+    /^https?:\/\/.*\.(jpg|jpeg|png|gif)$/i.test(hotelDetails.img) &&
+    hotelDetails.description.trim().length >= 10;
 
     validateForm("details", isValid);
   };

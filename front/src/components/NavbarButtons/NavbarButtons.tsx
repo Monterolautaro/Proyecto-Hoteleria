@@ -1,33 +1,35 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import Logout from "../Logout/Logout";
-import { IUserSession } from "@/interfaces";
+import { IUserSession, IGoogleSession } from "@/interfaces";
 import styles from "./navbarbuttons.module.css";
 import { usePathname } from "next/navigation";
 
 const NavbarButtons: React.FC = () => {
-  const [userSession, setUserSession] = useState<IUserSession | null>(null);
+  const [userSession, setUserSession] = useState<IUserSession | IGoogleSession | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     const token = Cookies.get("token");
     const user = Cookies.get("user");
+
     if (token && user) {
+      const parsedUser = JSON.parse(user);
+
       setUserSession({
-        token,
-        user: JSON.parse(user),
-      });
+        accessToken: token,
+        role: parsedUser.role, 
+      } as IGoogleSession);
     } else {
       setUserSession(null);
     }
   }, [pathname]);
 
   const renderLinks = () => {
-    if (!userSession?.token) {
+    if (!userSession) {
       return (
         <>
           <Link href="/login" className={styles.bubbleLink}>
@@ -40,7 +42,7 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    const { role } = userSession.user;
+    const role = userSession.role;
 
     if (role.includes("admin")) {
       return (
@@ -67,9 +69,10 @@ const NavbarButtons: React.FC = () => {
         </>
       );
     }
+
+    return <Logout setUserSession={setUserSession} />;
   };
 
   return <div className="flex items-center gap-3">{renderLinks()}</div>;
 };
-
 export default NavbarButtons;

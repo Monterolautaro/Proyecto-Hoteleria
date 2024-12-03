@@ -10,7 +10,10 @@ import {
 } from '@nestjs/common';
 import { SearchService } from './search.service';
 import { SetUUIDCookie } from 'decorators/uuid.cookie.decorator';
+import { ApiBody, ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags('search')
 @Controller('search')
 export class SearchController {
   constructor(private readonly searchService: SearchService) {}

@@ -14,7 +14,9 @@ import { AuthGuard } from 'src/auth/auth.guard';
 import { RolesDecorator } from 'decorators/roles.decorator';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'roles.enum';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Hotels')
 @Controller('hotels')
 export class HotelsController {
   constructor(private readonly hotelsService: HotelsService) {}
@@ -47,6 +49,7 @@ export class HotelsController {
   }
 
   @Post('/create/:id')
+  @ApiBearerAuth()
   @RolesDecorator(Roles.hotel_owner)
   @UseGuards(AuthGuard, RolesGuard)
   async createHotelByOwner(
