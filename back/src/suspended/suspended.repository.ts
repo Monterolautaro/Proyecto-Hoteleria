@@ -13,40 +13,40 @@ export class SuspendRepository {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
   ) {}
 
-  // async suspendUser(names: string): Promise<void> {
-  // try{
-  //   const user = await this.userRepository.findOne({
-  //     where: { name: names },
-  //   });
-  //   if (!user || user.isSuspend) {
-  //     throw new NotFoundException('Something got wrong getting suspend users');
-  //   }
-  //   user.isSuspend = true;
-  //   await this.userRepository.save(user);
+  async suspendUser(user_id: string): Promise<void> {
+  try{
+    const user = await this.userRepository.findOne({
+      where: { user_id: user_id },
+    });
+    if (!user) {
+      throw new NotFoundException('Something got wrong getting suspend users');
+    }
+    user.isSuspend = true;
+    await this.userRepository.save(user);
 
-  // } catch (error) {
-  //   throw new BadRequestException(
-  //     'Something got wrong getting suspend users',
-  //     error,
-  //   );
-  // }
-  // }
+  } catch (error) {
+    throw new BadRequestException(
+      'Something got wrong getting suspend users',
+      error,
+    );
+  }
+  }
 
-  // async unsuspendUser(names: string): Promise<void> {
-  // try{
-  //   const user = await this.userRepository.findOne({
-  //     where: { name: names },
-  //   });
-  //   if (!user || !user.isSuspend) {
-  //     throw new NotFoundException('Something got wrong getting suspend users');
-  //   }
-  //   user.isSuspend = false;
-  //   await this.userRepository.save(user);
-  // } catch (error) {
-  //   throw new BadRequestException(
-  //     'Something got wrong getting suspend users',
-  //     error,
-  //   );
-  // }
-  // }
+  async unsuspendUser(user_id: string): Promise<void> {
+  try{
+    const user = await this.userRepository.findOne({
+      where: { user_id: user_id },
+    });
+    if (!user) {
+      throw new NotFoundException('Something got wrong getting suspend users');
+    }
+    user.isSuspend = false;
+    await this.userRepository.save(user);
+  } catch (error) {
+    throw new BadRequestException(
+      'Something got wrong getting suspend users',
+      error,
+    );
+  }
+  }
 }
