@@ -3,10 +3,12 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import { IUserSession } from "@/interfaces";
+import { Toast } from "@/helpers/toast";
 import styles from "./logout.module.css";
 
 const Logout: React.FC<{
-  setUserSession: (params: null) => void;
+  setUserSession: (params: IUserSession | null) => void;
 }> = ({ setUserSession }) => {
   const router = useRouter();
 

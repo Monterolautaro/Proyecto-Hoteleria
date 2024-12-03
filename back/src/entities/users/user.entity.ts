@@ -55,11 +55,11 @@ export class User {
   @OneToMany(() => Booking, (booking) => booking.user)
   bookings!: Booking[];
 
-  @OneToMany(() => VisitsMetrics, (visitMetrics) => visitMetrics.user)
+  /*@OneToMany(() => VisitsMetrics, (visitMetrics) => visitMetrics.user)
   visit_metrics: VisitsMetrics[];
 
   @OneToMany(() => TimeMetrics, (timeMetrics) => timeMetrics.user)
-  time_metrics: TimeMetrics[];
+  time_metrics: TimeMetrics[];*/
 
   @OneToMany(() => Payment, (payment) => payment.user)
   @JoinColumn({ name: 'payment_id' })

@@ -1,5 +1,6 @@
 import axios from "axios";
 import GoogleProvider from "next-auth/providers/google";
+import Cookies from "js-cookie";
 
 const GOOGLE_AUTH_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID;
 const GOOGLE_AUTH_CLIENT_SECRET =
@@ -26,30 +27,37 @@ export const authOptions = {
           {}
         );
 
-        if (!response) {
+        if (!response || !response.data) {
           console.error("Error al validar el token con el backend");
           return false; // no se inicia sesión
         }
 
+        const { accessToken, user } = response.data;
+
+        Cookies.set("token", accessToken, { expires: 1 });
+        Cookies.set("user", JSON.stringify(user), { expires: 1 });
+
+        await response.data;
+
         return true; // se inicia sesión
       } catch (error) {
         console.error("Error during token validation:", error);
-
         return false;
       }
     },
 
     async jwt({ token, account, user }: any) {
-      if (account) {
-        token.accessToken = account.access_token || token.accessToken;
-        token.role = user?.role || token.role;
+      if (account && user) {
+        token.accessToken = account.access_token;
       }
       return token;
     },
 
     async session({ session, token }: any) {
-      session.accessToken = token.accessToken;
-      session.role = token.role || [];
+      // se agrega el token a la sesión
+      if (token.accessToken) {
+        session.accessToken = token.accessToken;
+      }
       return session;
     },
 

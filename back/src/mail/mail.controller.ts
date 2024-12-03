@@ -1,6 +1,4 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { SendEmailDto } from 'src/Interfaces/mail.interface';
-import { ModeloHTML } from './modelHTML/modelHtmlNotif';
 import { MailService } from './mail.service';
 /*npm install nodemailer
 npm i --save @nestjs/config
@@ -12,43 +10,22 @@ export class MailController {
 
   @Post('sendRegister')
   async sendEmailRegister(@Body() body: Record<string, string>) {
-    const { name, email } = body;
-    const dto: SendEmailDto = {
-      //from: { name: 'Lucy', address: 'lucy@example.com'}, Esto seria un ejmplo
-      recipients: [{ name: `${name}`, address: `${email}` }],
-      subject: 'Hotelify',
-      html: ModeloHTML,
-      codigo: 10,
-      //placeHolderReplacements: body,
-    };
-    //"<p><strong>hi %name%</strong>, your lucky number %number% won you $1.000.000</p><p>Cheers</p>"
-    return await this.mailService.sendEmail(dto);
+    const { name, to } = body;
+    this.mailService.setRecipient(to);
+    return this.mailService.mailNotifLogin(name)
   }
 
   @Post('sendPago')
-  async sendEmailPago(@Body() body: Record<string, string>) {
-    const dto: SendEmailDto = {
-      recipients: [{ name: '%name%', address: '%email%' }],
-      subject: 'Hotelify',
-      html: ModeloHTML,
-      codigo: 10,
-      //placeHolderReplacements: body,
-    };
-    return await this.mailService.sendEmail(dto);
+  async sendEmailComfirm(@Body() body: Record<string, string>) {
+    const { to } = body;
+    this.mailService.setRecipient(to);
+    return this.mailService.mailNotifComfirm();
   }
 
   @Post('sendHotel')
-  async sendEmailHotel(
-    @Body() /*body: Record<string, string>*/ name: string,
-    email: string,
-  ) {
-    const dto: SendEmailDto = {
-      recipients: [{ name: '%name%', address: '%email%' }],
-      subject: 'Hotelify',
-      html: ModeloHTML,
-      codigo: 10,
-      placeHolderReplacements: [name, email],
-    };
-    return await this.mailService.sendEmail(dto);
+  async sendEmailCode(@Body() body: Record<string, string>) {
+    const { to, codigo } = body;
+    this.mailService.setRecipient(to);
+    return this.mailService.mailNotifCode(codigo);
   }
 }
