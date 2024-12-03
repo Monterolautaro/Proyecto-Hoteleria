@@ -68,6 +68,7 @@ const Header: React.FC = () => {
     pathname === "/login" ||
     pathname === "/register" ||
     pathname === "/dashboard" ||
+    pathname === "/owner_register" ||
     pathname.startsWith("/payment")
   ) {
     return (

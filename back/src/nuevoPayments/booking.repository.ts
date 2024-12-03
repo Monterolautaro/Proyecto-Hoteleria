@@ -114,10 +114,10 @@ export class BookingRepository {
         start_date: checkIn,
         end_date: checkOut,
       });
-      await queryRunner.manager.save(booking);
-
       bookedRooms.booking = booking;
-
+      
+      
+      await queryRunner.manager.save(booking);
       await queryRunner.manager.save(bookedRooms);
 
       // Guardar los cambios en el hotel usando el queryRunner

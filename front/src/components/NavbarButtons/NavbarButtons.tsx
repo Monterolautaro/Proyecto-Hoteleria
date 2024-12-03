@@ -54,9 +54,7 @@ const NavbarButtons: React.FC = () => {
           <Logout setUserSession={setUserSession} />
         </>
       );
-    }
-
-    if (role.includes("user")) {
+    } else if (role.includes("user")) {
       return (
         <>
           <Link href="/dashboard" className={styles.bubbleLink}>

@@ -4,7 +4,7 @@ import { validateEmail, validatePasswordLogin } from "@/helpers/formValidation";
 import { Toast } from "@/helpers/toast";
 import firstToUpperCase from "@/helpers/upperCase";
 import Cookies from "js-cookie";
-import { signIn, getSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
@@ -15,20 +15,20 @@ const Login = () => {
   const handleClick = () => {
     router.push("/", {
       scroll: false,
-    });
+    }); // Redirige a la página principal después del login
   };
 
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleLocalLogin = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const newErrors = {
@@ -62,37 +62,18 @@ const Login = () => {
     }
   };
 
-  const handleGoogleLogin = async () => {
+
+  const handleGoogleSignIn = async () => {
     try {
-      const result = await signIn("google", { redirect: false });
-      if (result?.error) {
-        Toast.fire({
-          icon: "error",
-          title: "Google login failed",
-        });
-        return;
-      }
-  
-      const session = await getSession();
-      if (session) {
-        Cookies.set("token", session.accessToken!, { expires: 1 });
-        Cookies.set("user", JSON.stringify({ role: session.role }), { expires: 1 });
-  
-        Toast.fire({
-          icon: "success",
-          title: "Login successfully",
-        });
-  
-        handleClick();
-      }
+      await signIn("google", { callbackUrl: "/" });
     } catch (error) {
       Toast.fire({
         icon: "error",
-        title: "Google login failed",
+        title: "Google Login failed",
       });
     }
   };
-
+  
   const isFormIncomplete = !formData.email || !formData.password;
 
   return (
@@ -101,7 +82,7 @@ const Login = () => {
         <h2 className="text-xl font-bold text-center mb-6">
           Sign in with your account
         </h2>
-        <form onSubmit={handleLocalLogin}>
+        <form onSubmit={handleLogin}>
           {["email", "password"].map((key) => (
             <div key={key} className="mb-3 flex gap-1 flex-col">
               <label htmlFor={key} className="font-medium">
@@ -111,10 +92,10 @@ const Login = () => {
                 <input
                   type={
                     key === "password" && !showPassword ? "password" : "text"
-                  }
+                  } // Alternar entre tipo 'password' y 'text' según el estado
                   id={key}
                   name={key}
-                  className="w-full p-2 pr-12 border bg-green-50 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400"
+                  className="w-full p-2 pr-12 border bg-green-50 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400" // Ajustamos el padding derecho para que haya espacio para el ícono
                   placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
                   value={(formData as any)[key]}
                   onChange={handleChange}
@@ -122,8 +103,8 @@ const Login = () => {
                 {key === "password" && (
                   <button
                     type="button"
-                    className="absolute top-1/2 right-3 transform -translate-y-1/2"
-                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute top-1/2 right-3 transform -translate-y-1/2" // Posicionar el ícono al lado derecho
+                    onClick={() => setShowPassword(!showPassword)} // Alternar la visibilidad de la contraseña
                   >
                     {showPassword ? (
                       <FaEyeSlash className="text-[#009375]" />
@@ -154,12 +135,12 @@ const Login = () => {
           <span className="text-sm text-gray-600">or sign in with</span>
         </div>
         <div className="flex justify-center mt-4">
-          <button
-            onClick={handleGoogleLogin}
-            className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center hover:bg-[#009375] mt-1 transition group"
+        <button
+        onClick={handleGoogleSignIn}
+        className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center hover:bg-[#009375] mt-1 transition group"
           >
-            <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />
-          </button>
+          <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />
+        </button>;
         </div>
       </div>
     </div>

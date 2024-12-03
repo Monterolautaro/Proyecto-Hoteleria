@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
+import getUserData from "@/helpers/userDashboard/getUser";
 
 const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   const { startDateContext, endDateContext, people, setDiffDays } =
@@ -33,6 +34,18 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
     email: "",
   });
   const [errors, setErrors] = useState<IPaymentData>({ name: "", email: "" });
+
+  // Función para llenar la info del usuario con la misma de su cuenta
+  const handleClick = async () => {
+    const token = Cookies.get("token");
+    const userDetails = await getUserData(user.id, token!);
+    if (userDetails) {
+      setFormData({
+        name: userDetails.name,
+        email: userDetails.credential.email,
+      });
+    }
+  };
 
   //Funcion para leer el valor de los input
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,7 +107,6 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
         };
 
         const response = await SendPaymentData(data);
-        console.log(response);
 
         if (response.message) {
           Swal.fire({
@@ -111,15 +123,19 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
           Swal.fire({
             title: "We cannot process your payment, try again later",
             icon: "warning",
+            confirmButtonColor: "#009375",
           });
           setButton(false);
         }
       } catch (error: any) {
-        Swal.fire({
-          title: error.response.data.message,
-          icon: "error",
-        });
-        setButton(false);
+        if (error.response.status === 500) {
+          Swal.fire({
+            title: "We cannot process your payment, try again later",
+            icon: "error",
+            confirmButtonColor: "#009375",
+          });
+          setButton(false);
+        }
       }
     }
   };
@@ -173,7 +189,16 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
           onSubmit={handleSubmit}
           className="w-[40%] border  flex flex-col py-3 px-4 rounded-lg shadow-xl"
         >
-          <h2 className="font-bold text-xl mb-5">Insert your data</h2>
+          <h2 className="font-bold text-xl">Insert your payment data</h2>
+          <span className="text-base">or</span>
+          <button
+            type="button"
+            className="self-start mr-2 underline underline-offset-1 mb-4 text-[#095345] hover:text-[#009375] text-sm"
+            onClick={handleClick}
+          >
+            Use your info account
+          </button>
+
           {/* Campo Name */}
           <div className="flex flex-col mb-3">
             <label htmlFor="name">Name</label>

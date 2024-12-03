@@ -28,6 +28,7 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/jwt": "^10.2.0",
     "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/swagger": "^8.0.7",
     "@nestjs/typeorm": "^10.0.2",
     "@sendgrid/mail": "^8.1.4",
     "@types/express": "^5.0.0",
@@ -49,14 +50,16 @@
     "mercadopago": "^2.0.15",
     "nanoid": "^5.0.8",
     "nodemailer": "^6.9.16",
+    "openapi": "^1.0.1",
     "pg": "^8.13.1",
     "postgres": "^3.4.5",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "stripe": "^17.4.0",
+    "swagger": "^0.7.5",
     "typeorm": "^0.3.20",
     "uuid": "^11.0.2",
-    "vercel": "^39.0.3"
+    "vercel": "^32.3.0"
   },
   "devDependencies": {
     "@nestjs/schematics": "^10.0.0",

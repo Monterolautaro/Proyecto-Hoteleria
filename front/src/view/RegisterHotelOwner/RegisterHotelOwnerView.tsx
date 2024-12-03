@@ -1,38 +1,21 @@
 "use client";
 
-import { registerUser } from "@/helpers/auth.helper";
 import {
-  validateConfirmPassword,
-  validateEmail,
-  validateLastName,
-  validateName,
-  validatePassword,
+    validateConfirmPassword,
+    validateEmail,
+    validateLastName,
+    validateName,
+    validatePassword,
 } from "@/helpers/formValidation";
+import { sendVerificationCode } from "@/helpers/hotelowner/register";
 import { Toast } from "@/helpers/toast";
 import { format } from "date-fns";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import Swal from "sweetalert2";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const Register = () => {
+const RegisterHotelOwner = () => {
   const router = useRouter();
-
-  const handleClick = () => {
-    router.push("/login");
-  };
-
-  const handleGoogleSignIn = async () => {
-    try {
-      await signIn("google", { callbackUrl: "/" });
-    } catch (error) {
-      Toast.fire({
-        icon: "error",
-        title: "Google Login failed",
-      });
-    }
-  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -45,13 +28,12 @@ const Register = () => {
   });
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // Estado para alternar la visibilidad de la contraseña
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Estado para alternar la visibilidad de la confirmación de contraseña
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    // Manejo especial para el campo de fecha
     if (name === "birthday") {
       const formattedDate = value ? format(new Date(value), "yyyy-MM-dd") : "";
       setFormData({ ...formData, [name]: formattedDate });
@@ -106,22 +88,23 @@ const Register = () => {
 
     try {
       setIsSubmitting(true);
-      const user = await registerUser(formData);
+
+      // Send the verification code to the user's email
+      await sendVerificationCode(formData.email);
 
       Toast.fire({
         icon: "success",
-        title: "Registration successful!",
+        title: "Verification code sent to your email!",
       });
 
-      localStorage.setItem("user", JSON.stringify(user));
-      setIsSubmitting(false);
-      handleClick();
+      // Redirect to verification page with email as query param
+      router.push(`/verify-email?email=${encodeURIComponent(formData.email)}`);
     } catch (error: any) {
-      Swal.fire({
-        title: error.message,
+      Toast.fire({
         icon: "error",
-        confirmButtonColor: "#009375",
+        title: error.message || "An error occurred",
       });
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -138,7 +121,6 @@ const Register = () => {
           onSubmit={handleRegister}
           className="flex flex-wrap gap-4 justify-center w-full"
         >
-          {/* Left Column */}
           <div className="w-full sm:w-2/5">
             <div className="mb-1">
               <label htmlFor="name" className="font-medium">
@@ -148,7 +130,7 @@ const Register = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
@@ -169,7 +151,7 @@ const Register = () => {
                 type="text"
                 id="lastname"
                 name="lastname"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Last Name"
                 value={formData.lastname}
                 onChange={handleChange}
@@ -190,34 +172,22 @@ const Register = () => {
                 type="date"
                 id="birthday"
                 name="birthday"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 value={formData.birthday}
                 onChange={handleChange}
               />
-              <p
-                className={`text-red-500 text-xs mt-1 h-5 ${
-                  errors.birthday ? "visible" : "invisible"
-                }`}
-              >
-                {errors.birthday}
-              </p>
+              <p className="text-red-500 text-xs mt-1 h-5 invisible"></p>
             </div>
           </div>
 
-          {/* Right Column */}
           <div className="w-full sm:w-2/5">
             {["email", "username", "password", "confirmPassword"].map((key) => (
               <div key={key} className="mb-1">
                 <label htmlFor={key} className="font-medium">
-                  {key === "confirmPassword"
-                    ? key
-                        .replace("confirmPassword", "Confirm Password")
-                        .replace(/([A-Z])/g, " $1")
-                    : key === "username"
-                    ? key.replace("username", "Username")
-                    : key === "email"
-                    ? key.replace("email", "E-mail")
-                    : key === "password" && key.replace("password", "Password")}
+                  {key.replace("confirmPassword", "Confirm Password").replace(
+                    /([A-Z])/g,
+                    " $1"
+                  )}
                 </label>
                 <div className="relative">
                   <input
@@ -234,7 +204,7 @@ const Register = () => {
                     }
                     id={key}
                     name={key}
-                    className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                    className="w-full p-2 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                     placeholder={key
                       .replace("confirmPassword", "Confirm Password")
                       .replace(/([A-Z])/g, " $1")}
@@ -251,17 +221,13 @@ const Register = () => {
                           : setShowConfirmPassword(!showConfirmPassword)
                       }
                     >
-                      {key === "password" ? (
-                        showPassword ? (
-                          <FaEyeSlash className="text-[#009375]" />
-                        ) : (
-                          <FaEye className="text-[#009375]" />
-                        )
-                      ) : showConfirmPassword ? (
-                        <FaEyeSlash className="text-[#009375]" />
-                      ) : (
-                        <FaEye className="text-[#009375]" />
-                      )}
+                      {key === "password"
+                        ? showPassword
+                          ? <FaEyeSlash className="text-[#009375]" />
+                          : <FaEye className="text-[#009375]" />
+                        : showConfirmPassword
+                        ? <FaEyeSlash className="text-[#009375]" />
+                        : <FaEye className="text-[#009375]" />}
                     </button>
                   )}
                 </div>
@@ -285,18 +251,9 @@ const Register = () => {
         >
           Sign Up
         </button>
-
-        <div className="mt-4 flex justify-center w-full">
-          <button
-            onClick={handleGoogleSignIn}
-            className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center mt-1 transition duration-75 group hover:bg-[#009375]"
-          >
-            <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />
-          </button>
-        </div>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default RegisterHotelOwner;

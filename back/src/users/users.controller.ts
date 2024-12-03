@@ -16,13 +16,17 @@ import { UserService } from './users.service';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'roles.enum';
 import { RolesDecorator } from 'decorators/roles.decorator';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags('Users')
 @Controller('users')
 export class UserController {
   constructor(private readonly UserService: UserService) {}
 
   @HttpCode(200)
   @Get()
+  @ApiBearerAuth()
   @RolesDecorator(Roles.admin)
   @UseGuards(AuthGuard, RolesGuard)
   getUsers(): Promise<User[]> {
@@ -30,6 +34,7 @@ export class UserController {
   }
 
   @Get(':id')
+  @ApiBearerAuth()
   @RolesDecorator(Roles.admin, Roles.user, Roles.hotel_owner)
   @UseGuards(AuthGuard, RolesGuard)
   getUserById(@Param('id', ParseUUIDPipe) id: string): Promise<User> {
@@ -46,6 +51,7 @@ export class UserController {
   }
 
   @Delete(':id')
+  @ApiBearerAuth()
   @RolesDecorator(Roles.admin, Roles.user)
   @UseGuards(AuthGuard, RolesGuard)
   deleteUser(@Param('id', ParseUUIDPipe) id: string): Promise<any> {
@@ -53,6 +59,7 @@ export class UserController {
   }
 
   @Put('/changePassword/:id')
+  @ApiBearerAuth()
   @RolesDecorator(Roles.admin, Roles.user)
   @UseGuards(AuthGuard, RolesGuard)
   changePassword(
@@ -64,6 +71,7 @@ export class UserController {
   }
 
   @Put('/changeEmail/:id')
+  @ApiBearerAuth()
   @RolesDecorator(Roles.admin, Roles.user)
   @UseGuards(AuthGuard, RolesGuard)
   changeEmail(
@@ -75,6 +83,7 @@ export class UserController {
   }
 
   @Put('/changeUsername/:id')
+  @ApiBearerAuth()
   @RolesDecorator(Roles.admin, Roles.user)
   @UseGuards(AuthGuard, RolesGuard)
   changeUsername(
@@ -85,6 +94,7 @@ export class UserController {
   }
 
   @Put('/makeadmin/:id')
+  @ApiBearerAuth()
   @RolesDecorator(Roles.user, Roles.admin)
   @UseGuards(AuthGuard, RolesGuard)
   makeAdmin(@Param('id', ParseUUIDPipe) id: string): Promise<any> {

@@ -51,3 +51,14 @@ export interface IUserSession {
   token: string;
   user: IUser;
 }
+
+export interface IUserResponse {
+  accessToken: string;
+  user: {
+    email: string;
+    name: string;
+    role: string[];
+  };
+  message: string;
+  status: string;
+}
