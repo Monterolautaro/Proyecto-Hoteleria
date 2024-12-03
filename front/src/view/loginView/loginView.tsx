@@ -140,7 +140,7 @@ const Login = () => {
         className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center hover:bg-[#009375] mt-1 transition group"
           >
           <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />
-        </button>;
+        </button>
         </div>
       </div>
     </div>
