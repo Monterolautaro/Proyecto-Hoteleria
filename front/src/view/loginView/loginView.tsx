@@ -47,6 +47,8 @@ const Login = () => {
       Cookies.set("token", token, { expires: 1 });
       Cookies.set("user", JSON.stringify(user), { expires: 1 });
 
+
+      
       Toast.fire({
         icon: "success",
         title: "Login successfully",
@@ -62,18 +64,6 @@ const Login = () => {
     }
   };
 
-
-  const handleGoogleSignIn = async () => {
-    try {
-      await signIn("google", { callbackUrl: "/" });
-    } catch (error) {
-      Toast.fire({
-        icon: "error",
-        title: "Google Login failed",
-      });
-    }
-  };
-  
   const isFormIncomplete = !formData.email || !formData.password;
 
   return (
@@ -135,12 +125,12 @@ const Login = () => {
           <span className="text-sm text-gray-600">or sign in with</span>
         </div>
         <div className="flex justify-center mt-4">
-        <button
-        onClick={handleGoogleSignIn}
-        className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center hover:bg-[#009375] mt-1 transition group"
+          <button
+            onClick={() => signIn("google", { callbackUrl: "/" })}
+            className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center hover:bg-[#009375] mt-1 transition group"
           >
-          <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />
-        </button>;
+            <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />
+          </button>
         </div>
       </div>
     </div>

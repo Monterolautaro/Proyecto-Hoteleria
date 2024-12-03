@@ -2,6 +2,7 @@ import axios from 'axios';
 import GoogleProvider from 'next-auth/providers/google';
 import Cookies from "js-cookie";
 
+
 const GOOGLE_AUTH_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID;
 const GOOGLE_AUTH_CLIENT_SECRET = process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_SECRET;
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -26,54 +27,41 @@ export const authOptions = {
         });
     
         
-        if (!response) {
+        if (!response || !response.data) {
           console.error('Error al validar el token con el backend');
           return false;  // no se inicia sesión
         }
 
+        const { accessToken, user } = response.data;
+
+        Cookies.set("token", accessToken, { expires: 1 });
+        Cookies.set("user", JSON.stringify(user), { expires: 1 });
+
         await response.data;
 
+        
         return true;  // se inicia sesión 
       } catch (error) {
-
         console.error('Error during token validation:', error);
-
         return false; 
       }
     },
 
     async jwt({ token, account, user }: any) {
+      
       if (account && user) {
-        token.accessToken = account.access_token;
-        token.role = user.role || []; 
+        token.accessToken = account.access_token;  
       }
       return token;
     },
 
     async session({ session, token }: any) {
-      const userRole = token.role || session.user?.role || [];
-    
-      session.accessToken = token.accessToken;
-      session.user = {
-        email: session.user?.email || "",
-        name: session.user?.name || "",
-        role: userRole,
-      };
-    
-      Cookies.set("token", token.accessToken, { expires: 1 });
-      Cookies.set(
-        "user",
-        JSON.stringify({
-          email: session.user?.email,
-          name: session.user?.name,
-          role: userRole, 
-        }),
-        { expires: 1 }
-      );
-    
+     // se agrega el token a la sesión 
+      if (token.accessToken) {
+        session.accessToken = token.accessToken;
+      }
       return session;
     },
-    
 
     async redirect({ baseUrl }: any) {
       // después del login, se redirige a la página principal
