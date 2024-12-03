@@ -43,18 +43,19 @@ export const authOptions = {
     },
 
     async jwt({ token, account, user }: any) {
-      
-      if (account && user) {
-        token.accessToken = account.access_token;  
+      if (account) {
+        token.accessToken = account.access_token || token.accessToken;
+        token.role = user?.role || token.role;
+      } else if (user) {
+        token.accessToken = user.token || token.accessToken;
+        token.role = user.role || token.role;
       }
       return token;
     },
 
     async session({ session, token }: any) {
-     // se agrega el token a la sesión 
-      if (token.accessToken) {
-        session.accessToken = token.accessToken;
-      }
+      session.accessToken = token.accessToken;
+      session.role = token.role || [];
       return session;
     },
 

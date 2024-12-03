@@ -1,33 +1,45 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import Logout from "../Logout/Logout";
-import { IUserSession } from "@/interfaces";
+import { IUserSession, IGoogleSession } from "@/interfaces";
 import styles from "./navbarbuttons.module.css";
 import { usePathname } from "next/navigation";
 
 const NavbarButtons: React.FC = () => {
-  const [userSession, setUserSession] = useState<IUserSession | null>(null);
+  const [userSession, setUserSession] = useState<IUserSession | IGoogleSession | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     const token = Cookies.get("token");
     const user = Cookies.get("user");
+
     if (token && user) {
-      setUserSession({
-        token,
-        user: JSON.parse(user),
-      });
+      const parsedUser = JSON.parse(user);
+
+      // Distinguir entre sesión local y de Google
+      if (parsedUser.role) {
+        // Sesión de Google
+        setUserSession({
+          token,
+          role: parsedUser.role, // Rol en sesión de Google
+        } as IGoogleSession);
+      } else {
+        // Sesión local
+        setUserSession({
+          token,
+          user: parsedUser, // Usuario local completo
+        } as IUserSession);
+      }
     } else {
       setUserSession(null);
     }
   }, [pathname]);
 
   const renderLinks = () => {
-    if (!userSession?.token) {
+    if (!userSession) {
       return (
         <>
           <Link href="/login" className={styles.bubbleLink}>
@@ -40,13 +52,14 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    const { role } = userSession.user;
+    // Detectar si es sesión local o de Google
+    const role = "user" in userSession ? userSession.user.role : userSession.role;
 
-    if (role.includes("admin")) {
+    if (role?.includes("admin")) {
       return (
         <>
           <Link href="/admin" className={styles.bubbleLink}>
-            Admin
+            Dashboard
           </Link>
           <Link href="/hotelcreation" className={styles.bubbleLink}>
             Hotel Creation
@@ -56,7 +69,7 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    if (role.includes("user")) {
+    if (role?.includes("user")) {
       return (
         <>
           <Link href="/dashboard" className={styles.bubbleLink}>
@@ -67,6 +80,8 @@ const NavbarButtons: React.FC = () => {
         </>
       );
     }
+
+    return <Logout setUserSession={setUserSession} />;
   };
 
   return <div className="flex items-center gap-3">{renderLinks()}</div>;

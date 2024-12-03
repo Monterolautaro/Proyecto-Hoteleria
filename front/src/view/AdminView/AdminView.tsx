@@ -62,23 +62,11 @@ const AdminDashboardView: React.FC = () => {
       <div className="flex-1 p-6 overflow-y-auto">
         {view === 'userInfo' ? (
           <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="text-2xl font-bold mb-3">Personal Data</h3>
             <div className="flex gap-6">
-              <div className="w-[40%]">
-                <AdminData
-                  name={user?.name}
-                  lastname={user?.lastname}
-                  birthdate={user?.birthday}
-                  email={user?.credential.email}
-                  username={user?.credential.username}
-                />
-              </div>
 
               <div className="flex-1 bg-gray-50 p-4 shadow-inner rounded-lg">
                 <h3 className="text-xl font-bold mb-4">Metrics</h3>
-                <p>
-               
-                </p>
+             
               </div>
             </div>
           </div>
