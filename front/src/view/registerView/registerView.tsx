@@ -14,12 +14,24 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const router = useRouter();
 
   const handleClick = () => {
     router.push("/login");
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signIn("google", { callbackUrl: "/" });
+    } catch (error) {
+      Toast.fire({
+        icon: "error",
+        title: "Google Login failed",
+      });
+    }
   };
 
   const [formData, setFormData] = useState({
@@ -105,7 +117,11 @@ const Register = () => {
       setIsSubmitting(false);
       handleClick();
     } catch (error: any) {
-      alert(error.message);
+      Swal.fire({
+        title: error.message,
+        icon: "error",
+        confirmButtonColor: "#009375",
+      });
       setIsSubmitting(false);
     }
   };
@@ -132,7 +148,7 @@ const Register = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
@@ -153,7 +169,7 @@ const Register = () => {
                 type="text"
                 id="lastname"
                 name="lastname"
-                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Last Name"
                 value={formData.lastname}
                 onChange={handleChange}
@@ -174,7 +190,7 @@ const Register = () => {
                 type="date"
                 id="birthday"
                 name="birthday"
-                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 value={formData.birthday}
                 onChange={handleChange}
               />
@@ -190,13 +206,18 @@ const Register = () => {
 
           {/* Right Column */}
           <div className="w-full sm:w-2/5">
-            {["Email", "Username", "Password", "confirmPassword"].map((key) => (
+            {["email", "username", "password", "confirmPassword"].map((key) => (
               <div key={key} className="mb-1">
                 <label htmlFor={key} className="font-medium">
-                  {key.replace("confirmPassword", "Confirm Password").replace(
-                    /([A-Z])/g,
-                    " $1"
-                  )}
+                  {key === "confirmPassword"
+                    ? key
+                        .replace("confirmPassword", "Confirm Password")
+                        .replace(/([A-Z])/g, " $1")
+                    : key === "username"
+                    ? key.replace("username", "Username")
+                    : key === "email"
+                    ? key.replace("email", "E-mail")
+                    : key === "password" && key.replace("password", "Password")}
                 </label>
                 <div className="relative">
                   <input
@@ -213,7 +234,7 @@ const Register = () => {
                     }
                     id={key}
                     name={key}
-                    className="w-full p-2 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                    className="w-full p-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                     placeholder={key
                       .replace("confirmPassword", "Confirm Password")
                       .replace(/([A-Z])/g, " $1")}
@@ -230,13 +251,17 @@ const Register = () => {
                           : setShowConfirmPassword(!showConfirmPassword)
                       }
                     >
-                      {key === "password"
-                        ? showPassword
-                          ? <FaEyeSlash className="text-[#009375]" />
-                          : <FaEye className="text-[#009375]" />
-                        : showConfirmPassword
-                        ? <FaEyeSlash className="text-[#009375]" />
-                        : <FaEye className="text-[#009375]" />}
+                      {key === "password" ? (
+                        showPassword ? (
+                          <FaEyeSlash className="text-[#009375]" />
+                        ) : (
+                          <FaEye className="text-[#009375]" />
+                        )
+                      ) : showConfirmPassword ? (
+                        <FaEyeSlash className="text-[#009375]" />
+                      ) : (
+                        <FaEye className="text-[#009375]" />
+                      )}
                     </button>
                   )}
                 </div>
@@ -263,7 +288,7 @@ const Register = () => {
 
         <div className="mt-4 flex justify-center w-full">
           <button
-            onClick={() => signIn("google")}
+            onClick={handleGoogleSignIn}
             className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center mt-1 transition duration-75 group hover:bg-[#009375]"
           >
             <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />

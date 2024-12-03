@@ -1,6 +1,6 @@
 import axios from 'axios';
 import GoogleProvider from 'next-auth/providers/google';
-
+import Cookies from "js-cookie";
 
 const GOOGLE_AUTH_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID;
 const GOOGLE_AUTH_CLIENT_SECRET = process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_SECRET;
@@ -43,21 +43,37 @@ export const authOptions = {
     },
 
     async jwt({ token, account, user }: any) {
-      if (account) {
-        token.accessToken = account.access_token || token.accessToken;
-        token.role = user?.role || token.role;
-      } else if (user) {
-        token.accessToken = user.token || token.accessToken;
-        token.role = user.role || token.role;
+      if (account && user) {
+        token.accessToken = account.access_token;
+        token.role = user.role || []; 
       }
       return token;
     },
 
     async session({ session, token }: any) {
+      const userRole = token.role || session.user?.role || [];
+    
       session.accessToken = token.accessToken;
-      session.role = token.role || [];
+      session.user = {
+        email: session.user?.email || "",
+        name: session.user?.name || "",
+        role: userRole,
+      };
+    
+      Cookies.set("token", token.accessToken, { expires: 1 });
+      Cookies.set(
+        "user",
+        JSON.stringify({
+          email: session.user?.email,
+          name: session.user?.name,
+          role: userRole, 
+        }),
+        { expires: 1 }
+      );
+    
       return session;
     },
+    
 
     async redirect({ baseUrl }: any) {
       // después del login, se redirige a la página principal
