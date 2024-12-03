@@ -3,7 +3,7 @@
 import axios from 'axios';
 import fs from 'fs';
 
-const PATH = '/Users/macbook/Desktop/Hotelify broken/Proyecto-Hoteleria/back/src/helpers/hotels/hotels.json';
+const PATH = 'C:\\Users\\Maxi Nievas\\Desktop\\PROYECTO FINAL\\Proyecto-Hoteleria\\back\\src\\helpers\\hotels\\hotels.json';
 
 const BATCH_SIZE = 5;
 
