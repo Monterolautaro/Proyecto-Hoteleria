@@ -286,7 +286,7 @@ export class AuthRepository {
       if (!foundCode) throw new NotFoundException('Code not found');
 
       if (foundCode.code !== code)
-        throw new BadRequestException('Invalid code');
+        throw new BadRequestException('Invalid codes');
 
       await this.entityUserRepository.update({ user_id }, { verified: true });
 
