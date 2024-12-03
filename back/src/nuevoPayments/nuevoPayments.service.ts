@@ -8,6 +8,7 @@ import { Payment } from '../entities/payments.entity';
 import { PaymentDto } from 'src/dto/payment.dto';
 import { PaymentDetails } from 'src/entities/payments/paymentdetails.entity';
 import { User } from 'src/entities/users/user.entity';
+import { Booking } from 'src/entities/booking.entity';
 
 @Injectable()
 export class StripeService {
@@ -111,9 +112,11 @@ export class StripeService {
       paymentDetails.payment = payment;
 
       // guardo paymentdetails en booking
-      booking.payments_details = paymentDetails;
-
-      await queryRunner.manager.save(booking);
+      // booking.payments_details = paymentDetails;
+      await queryRunner.manager.update(Booking, booking.booking_id, {
+        payments_details: paymentDetails,
+      });
+      
       await queryRunner.manager.save(paymentDetails);
 
       // Confirmar la transacción

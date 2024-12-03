@@ -15,13 +15,17 @@ import { AuthGuard } from 'src/auth/auth.guard';
 import { RolesDecorator } from 'decorators/roles.decorator';
 import { Roles } from 'roles.enum';
 import { RolesGuard } from 'src/auth/roles.guard';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags('Files-upload')
 @Controller('files')
 @UseGuards(AuthGuard)
 export class FilesUploadController {
   constructor(private readonly filesUploadService: FilesUploadService) {}
 
   @Post('upload/:id')
+  @ApiBearerAuth()
   @RolesDecorator(Roles.admin, Roles.hotel_owner)
   @UseGuards(RolesGuard)
   @UseInterceptors(FileInterceptor('file'))
