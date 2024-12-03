@@ -13,15 +13,26 @@ const NavbarButtons: React.FC = () => {
   const [userSession, setUserSession] = useState<IUserSession | null>(null);
   const pathname = usePathname();
 
+  const [token, setToken] = useState<string | null>(null);
+
   useEffect(() => {
     const token = Cookies.get("token");
     const user = Cookies.get("user");
+    const accessToken = Cookies.get("next-auth.session-token");
     if (token && user) {
       setUserSession({
         token,
         user: JSON.parse(user),
       });
-    } else {
+    } else if( accessToken ){
+      console.log('este es el token', accessToken);
+      
+      setToken(accessToken);
+      setUserSession({
+        token: accessToken,
+        user: JSON.parse(user || "{}"),
+      });
+    }else {
       setUserSession(null);
     }
   }, [pathname]);
@@ -56,7 +67,7 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    if (role.includes("user")) {
+    if (role.includes("user") || token) {
       return (
         <>
           <Link href="/dashboard" className={styles.bubbleLink}>

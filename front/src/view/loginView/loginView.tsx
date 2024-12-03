@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
+
 const Login = () => {
   const router = useRouter();
 
@@ -22,6 +23,13 @@ const Login = () => {
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
+
+  const handleGoogleClick = async () => {
+    
+    const response = await signIn("google", { callbackUrl: "/" });
+    console.log('response', response);
+    
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -47,8 +55,6 @@ const Login = () => {
       Cookies.set("token", token, { expires: 1 });
       Cookies.set("user", JSON.stringify(user), { expires: 1 });
 
-
-      
       Toast.fire({
         icon: "success",
         title: "Login successfully",
@@ -126,7 +132,7 @@ const Login = () => {
         </div>
         <div className="flex justify-center mt-4">
           <button
-            onClick={() => signIn("google", { callbackUrl: "/" })}
+            onClick={handleGoogleClick}
             className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center hover:bg-[#009375] mt-1 transition group"
           >
             <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />
@@ -138,3 +144,4 @@ const Login = () => {
 };
 
 export default Login;
+

@@ -14,7 +14,6 @@ export const changeEmail = async (email: string, id: string, token: string) => {
         },
       }
     );
-    console.log(response.data);
   } catch (error: any) {
     Swal.fire({
       title: error.response.data.message,
@@ -39,7 +38,6 @@ export const changeUsername = async (
         },
       }
     );
-    console.log(response.data);
   } catch (error: any) {
     Swal.fire({
       title: error.response.data.message,
@@ -70,7 +68,6 @@ export const changePassword = async (
         },
       }
     );
-    console.log(response.data);
   } catch (error: any) {
     Swal.fire({
       title: error.response.data.message,

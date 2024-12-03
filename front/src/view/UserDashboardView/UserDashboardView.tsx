@@ -14,14 +14,12 @@ const UserDashboardView = () => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    console.log("This is user", user);
   }, [user]);
 
   useEffect(() => {
     const getData = async () => {
       const token = Cookies.get("token");
       const user = JSON.parse(Cookies.get("user") || "{}");
-      console.log(token);
 
       if (token) {
         const userData = await getUserData(user.id, token);
