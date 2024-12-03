@@ -41,18 +41,24 @@ export interface IHotel {
   amenities: IAmenities;
 }
 export interface IUser {
-  id?: string;
-  email?: string;
+  id: string;
+  email: string;
   role: string[];
-  verified?: boolean;
+  verified: boolean;
 }
 
 export interface IUserSession {
   token: string;
-  role: string[];
+  user: IUser;
 }
 
-export interface IGoogleSession {
-  accessToken: string; 
-  role: string[];
+export interface IUserResponse {
+  accessToken: string;
+  user: {
+    email: string;
+    name: string;
+    role: string[];
+  };
+  message: string;
+  status: string;
 }
