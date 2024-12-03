@@ -19,20 +19,10 @@ const NavbarButtons: React.FC = () => {
     if (token && user) {
       const parsedUser = JSON.parse(user);
 
-      // Distinguir entre sesión local y de Google
-      if (parsedUser.role) {
-        // Sesión de Google
-        setUserSession({
-          token,
-          role: parsedUser.role, // Rol en sesión de Google
-        } as IGoogleSession);
-      } else {
-        // Sesión local
-        setUserSession({
-          token,
-          user: parsedUser, // Usuario local completo
-        } as IUserSession);
-      }
+      setUserSession({
+        accessToken: token,
+        role: parsedUser.role, 
+      } as IGoogleSession);
     } else {
       setUserSession(null);
     }
@@ -52,10 +42,9 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    // Detectar si es sesión local o de Google
-    const role = "user" in userSession ? userSession.user.role : userSession.role;
+    const role = userSession.role;
 
-    if (role?.includes("admin")) {
+    if (role.includes("admin")) {
       return (
         <>
           <Link href="/admin" className={styles.bubbleLink}>
@@ -69,7 +58,7 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    if (role?.includes("user")) {
+    if (role.includes("user")) {
       return (
         <>
           <Link href="/dashboard" className={styles.bubbleLink}>
@@ -86,5 +75,4 @@ const NavbarButtons: React.FC = () => {
 
   return <div className="flex items-center gap-3">{renderLinks()}</div>;
 };
-
 export default NavbarButtons;

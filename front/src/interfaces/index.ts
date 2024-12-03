@@ -49,10 +49,10 @@ export interface IUser {
 
 export interface IUserSession {
   token: string;
-  user: IUser;
+  role: string[];
 }
 
 export interface IGoogleSession {
-  token: string; 
-  role: string[]; 
+  accessToken: string; 
+  role: string[];
 }
