@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Post } from "@nestjs/common";
 import { MetricsService } from "./metrics.service";
 
 
@@ -10,6 +10,11 @@ export class MetricsController {
     @Get()
     async getMetrics() {
         return this.metricsService.getMetrics();
+    }
+
+    @Post()
+    async postMetrics() {
+        return this.metricsService.postMetrics();
     }
 }
 

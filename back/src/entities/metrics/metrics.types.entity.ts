@@ -20,5 +20,5 @@ export class MetricTypes {
 
   @OneToMany(() => Metrics, (metrics) => metrics.metric_type)
   @JoinColumn({ name: 'metrics_id' })
-  metrics: Metrics[];
+  metrics: Metrics;
 }

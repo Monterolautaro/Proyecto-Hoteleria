@@ -8,4 +8,8 @@ export class MetricsService {
     getMetrics() {
         return this.metrics.getMetrics();
     }
+
+    postMetrics() {
+        return this.metrics.insertMetrics();
+    }
 }
