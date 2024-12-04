@@ -1,29 +1,45 @@
 'use client';
 
-import getUserData from '@/helpers/userDashboard/getUser';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import { User } from '@/interfaces/users';
-import AdminData from '@/components/AdminDashboard/AdminData';
+import { getMetrics } from '@/helpers/getMetrics';
 import UsersList from '@/components/AdminDashboard/UsersList';
 import HotelList from '@/components/AdminDashboard/HotelList';
 
+interface MetricsData {
+  totalBookings: number;
+  totalVisits: number;
+  totalTime: number;
+  totalSearches: number;
+  totalHotels: number;
+  totalUsers: number;
+}
+
 const AdminDashboardView: React.FC = () => {
   const [view, setView] = useState('userInfo');
-  const [user, setUser] = useState<User | null>(null);
+  const [metrics, setMetrics] = useState<MetricsData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
 
   useEffect(() => {
-    const getData = async () => {
-      const token = Cookies.get('token');
-      const user = JSON.parse(Cookies.get('user') || '{}');
-
-      if (token) {
-        const userData = await getUserData(user.id, token);
-        setUser(userData);
+    const fetchMetrics = async () => {
+      try {
+        const token = Cookies.get('token'); // Asume que el token está en las cookies
+        if (!token) {
+          throw new Error('No token found');
+        }
+        const data = await getMetrics(token);
+        setMetrics(data);
+      } catch (error) {
+        console.error('Error fetching metrics:', error);
+      } finally {
+        setLoading(false);
       }
     };
-    getData();
+
+    fetchMetrics();
   }, []);
+
 
   const handleClick = (value: string): void => {
     setView(value);
@@ -63,11 +79,38 @@ const AdminDashboardView: React.FC = () => {
         {view === 'userInfo' ? (
           <div className="bg-white shadow-lg rounded-lg p-6">
             <div className="flex gap-6">
-
-              <div className="flex-1 bg-gray-50 p-4 shadow-inner rounded-lg">
-                <h3 className="text-xl font-bold mb-4">Metrics</h3>
-             
-              </div>
+              {loading ? (
+                <p>Loading metrics...</p>
+              ) : metrics ? (
+                <>
+                  <div className="flex-1 bg-gray-50 p-4 shadow-inner rounded-lg">
+                    <h3 className="text-xl font-bold mb-4">Booking Metrics</h3>
+                    <p className="text-lg">{metrics.totalBookings}</p>
+                  </div>
+                  <div className="flex-1 bg-gray-50 p-4 shadow-inner rounded-lg">
+                    <h3 className="text-xl font-bold mb-4">Visit Metrics</h3>
+                    <p className="text-lg">{metrics.totalVisits}</p>
+                  </div>
+                  <div className="flex-1 bg-gray-50 p-4 shadow-inner rounded-lg">
+                    <h3 className="text-xl font-bold mb-4">Time Metrics</h3>
+                    <p className="text-lg">{metrics.totalTime}</p>
+                  </div>
+                  <div className="flex-1 bg-gray-50 p-4 shadow-inner rounded-lg">
+                    <h3 className="text-xl font-bold mb-4">Search Metrics</h3>
+                    <p className="text-lg">{metrics.totalSearches}</p>
+                  </div>
+                  <div className="flex-1 bg-gray-50 p-4 shadow-inner rounded-lg">
+                    <h3 className="text-xl font-bold mb-4">Total Hotels</h3>
+                    <p className="text-lg">{metrics.totalHotels}</p>
+                  </div>
+                  <div className="flex-1 bg-gray-50 p-4 shadow-inner rounded-lg">
+                    <h3 className="text-xl font-bold mb-4">Total Users</h3>
+                    <p className="text-lg">{metrics.totalUsers}</p>
+                  </div>
+                </>
+              ) : (
+                <p>Failed to load metrics.</p>
+              )}
             </div>
           </div>
         ) : view === 'users' ? (
