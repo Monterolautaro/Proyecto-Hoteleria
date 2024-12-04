@@ -255,6 +255,15 @@ export class AuthRepository {
       
       return { success: "You're logged in successfully", token, user: payload };
     } catch (error) {
+
+      if(error instanceof NotFoundException){
+        throw new NotFoundException('User not registered');
+      }
+
+      if(error instanceof UnauthorizedException){
+        throw new UnauthorizedException('Invalid credentials');
+      }
+
       throw new BadRequestException('Something got wrong signing in', error);
     }
   }

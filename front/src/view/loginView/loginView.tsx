@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
+
 const Login = () => {
   const router = useRouter();
 
@@ -25,6 +26,13 @@ const Login = () => {
 
   const handleGoogleClick = async () => {
     await signIn();
+  };
+
+  const handleGoogleClick = async () => {
+    
+    const response = await signIn("google", { callbackUrl: "/" });
+    console.log('response', response);
+    
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -140,3 +148,4 @@ const Login = () => {
 };
 
 export default Login;
+

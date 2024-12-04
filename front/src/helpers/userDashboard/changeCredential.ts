@@ -8,7 +8,8 @@ export const changeEmail = async (email: string, id: string, token: string) => {
   try {
     const response = await axios.put(
       `${API_URL}/users/changeEmail/${id}`,
-      { email: email },
+      {email: email},
+
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -39,7 +40,7 @@ export const changeUsername = async (
   try {
     const response = await axios.put(
       `${API_URL}/users/changeUsername/${id}`,
-      { username: username },
+    {username: username},
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -83,6 +84,7 @@ export const changePassword = async (
         },
       }
     );
+
     if (response.status === 200) {
       Toast.fire({
         title: response.data.message,

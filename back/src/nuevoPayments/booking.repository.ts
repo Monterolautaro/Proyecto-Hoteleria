@@ -105,8 +105,10 @@ export class BookingRepository {
           'totalRoomsLeft',
           totalRooms,
         );
-
-      // crear la reserva
+        
+        // crear la reserva
+        await queryRunner.manager.save(bookedRooms);
+      
       const booking: Booking = await queryRunner.manager.create(Booking, {
         user: user,
         hotel: hotel,
@@ -114,15 +116,15 @@ export class BookingRepository {
         start_date: checkIn,
         end_date: checkOut,
       });
+      
       bookedRooms.booking = booking;
       
-      
+    
       await queryRunner.manager.save(booking);
-      await queryRunner.manager.save(bookedRooms);
 
       // Guardar los cambios en el hotel usando el queryRunner
       await queryRunner.manager.save(hotel);
-
+      
       // Retornar la reserva creada
       return booking;
     } catch (error) {
