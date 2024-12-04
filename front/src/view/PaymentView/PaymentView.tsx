@@ -11,22 +11,46 @@ import { IPaymentData } from "@/interfaces/paymentDataForm";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { differenceInDays } from "date-fns";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 import getUserData from "@/helpers/userDashboard/getUser";
+import {
+  IUserCookies,
+  IUserGoogleCookies,
+  IUserGoogleData,
+} from "@/interfaces";
+import getUserGoogleData from "@/helpers/userDashboard/getGoogleUser";
 
 const PaymentView: React.FC<{ params: string }> = ({ params }) => {
   const { startDateContext, endDateContext, people, setDiffDays } =
     useDateContext(); //Fechas y numero de personas
   const { bookingRooms, resetRooms } = useRoomsContext(); //Numero de habitaciones
   const { bookingPrice, resetPrice, hotelId, currency } = usePriceContext(); //Precio total
+  const [user, setUser] = useState<IUserCookies | null>(null);
+  const [userGoogleCookie, setUserGoogleCookie] =
+    useState<IUserGoogleCookies | null>(null);
+  const [googleUser, setGoogleUser] = useState<IUserGoogleData | null>(null); //Google user con toda la data
   const [button, setButton] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
   const router = useRouter();
 
-  const user = JSON.parse(Cookies.get("user") || "{}");
+  useEffect(() => {
+    const user = JSON.parse(Cookies.get("user") || "{}");
+
+    const getGoogleData = async () => {
+      const googleUserCookie = JSON.parse(Cookies.get("googleUser") || "{}");
+
+      if (googleUserCookie) {
+        setUserGoogleCookie(googleUserCookie);
+        const userData = await getUserGoogleData(googleUserCookie!.email);
+        if (userData) setGoogleUser(userData);
+      }
+    };
+    setUser(user);
+    getGoogleData();
+  }, []);
 
   //Creo estado para el formulario de los datos
   const [formData, setFormData] = useState<IPaymentData>({
@@ -37,12 +61,22 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
 
   // Función para llenar la info del usuario con la misma de su cuenta
   const handleClick = async () => {
+    //* Datos de usuario común
     const token = Cookies.get("token");
-    const userDetails = await getUserData(user.id, token!);
-    if (userDetails) {
+    if (token && user) {
+      const userDetails = await getUserData(user.id, token!);
+      if (userDetails) {
+        setFormData({
+          name: userDetails.name,
+          email: userDetails.credential.email,
+        });
+      }
+    }
+    //* Datos del usuario por google
+    else if (googleUser) {
       setFormData({
-        name: userDetails.name,
-        email: userDetails.credential.email,
+        name: googleUser.name,
+        email: googleUser.credential.email,
       });
     }
   };
@@ -97,7 +131,7 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
       try {
         const data: IStripeData = {
           id,
-          userId: user.id,
+          userId: user?.id || googleUser?.user_id!,
           amount: totalPrice,
           hotelId: hotelId!,
           rooms: bookingRooms,
@@ -108,7 +142,7 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
 
         const response = await SendPaymentData(data);
 
-        if (response === 'succeeded') {
+        if (response === "succeeded") {
           Swal.fire({
             title: `Payment status: ${response}`,
             icon: "success",
