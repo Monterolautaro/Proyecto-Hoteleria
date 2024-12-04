@@ -30,9 +30,11 @@ const Logout: React.FC<ILogoutProps> = ({
     }
     setUserSession(null);
 
-    router.push("/", {
-      scroll: false,
-    });
+    setTimeout(() => {
+      router.push("/", {
+        scroll: false,
+      });
+    }, 1500);
   };
 
   return (
