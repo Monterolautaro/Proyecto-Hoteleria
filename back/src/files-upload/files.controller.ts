@@ -20,14 +20,14 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Files-upload')
 @Controller('files')
-@UseGuards(AuthGuard)
+// @UseGuards(AuthGuard)
 export class FilesUploadController {
   constructor(private readonly filesUploadService: FilesUploadService) {}
 
   @Post('upload/:id')
   @ApiBearerAuth()
-  @RolesDecorator(Roles.admin, Roles.hotel_owner)
-  @UseGuards(RolesGuard)
+  // @RolesDecorator(Roles.admin, Roles.hotel_owner)
+  // @UseGuards(RolesGuard)
   @UseInterceptors(FileInterceptor('file'))
   async uploadImage(
     @Param('id') roomId: string,
@@ -49,8 +49,8 @@ export class FilesUploadController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
-  @RolesDecorator(Roles.admin, Roles.hotel_owner)
-  @UseGuards(RolesGuard)
+  // @RolesDecorator(Roles.admin, Roles.hotel_owner)
+  // @UseGuards(RolesGuard)
   async createRoomAndImage(
     @UploadedFile(
       new ParseFilePipe({
@@ -66,5 +66,29 @@ export class FilesUploadController {
     file: Express.Multer.File,
   ) {
     return await this.filesUploadService.createRoomAndImage(file);
+  }
+
+  @Post('upload/profile/:id')
+  @UseInterceptors(FileInterceptor('file'))
+  @RolesDecorator(Roles.admin, Roles.hotel_owner)
+  @UseGuards(AuthGuard, RolesGuard)
+  async uploadProfileImage(
+    @Param('id') user_id: string,
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [
+          new MaxFileSizeValidator({
+            maxSize: 1000000 /*  1mb  */,
+            message: 'file is too heavy',
+          }),
+          new FileTypeValidator({ fileType: /jpg|jpeg|png|gif|webp|svg|ico/ }),
+        ],
+      }),
+    )
+    file: Express.Multer.File,
+  ) {
+    
+    // return await this.filesUploadService.createRoomAndImage(file);
+    return 'listo'
   }
 }

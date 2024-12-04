@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { NextAuthOptions } from "next-auth";
 
@@ -16,6 +17,7 @@ export const authOptions: NextAuthOptions = {
     async signIn({ account }) {
       if (account?.access_token) {
         account.accessToken = account.id_token;
+
       }
       return true; // Permite el inicio de sesión
     },

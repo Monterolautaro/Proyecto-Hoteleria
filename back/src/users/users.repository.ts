@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities/users/user.entity';
 import { Repository } from 'typeorm';
@@ -6,7 +6,6 @@ import { NotFoundException } from '@nestjs/common';
 import { Credentials } from 'src/entities/credentials.entity';
 import * as bcrypt from 'bcryptjs';
 import { Roles } from 'roles.enum';
-import { log } from 'console';
 
 @Injectable()
 export class UserRepository {
@@ -96,14 +95,16 @@ export class UserRepository {
         where: { user_id },
         relations: { credential: true },
       });
-
+      
+      if (!user) throw new NotFoundException(`User ${user_id} not found`);
+      
       const verifyPassword = await bcrypt.compare(
         password,
         user.credential.password,
       );
-      if (!verifyPassword) throw new BadRequestException('Incorrect password');
-
-      if (!user) throw new NotFoundException(`User ${user_id} not found`);
+      
+      
+      if (!verifyPassword) throw new UnauthorizedException('Incorrect password');
 
       const hashedPassword = await bcrypt.hash(newPassword, 10);
       const credential_id = user.credential.credential_id;
@@ -112,12 +113,21 @@ export class UserRepository {
         { credential_id },
         { password: hashedPassword },
       );
-
+      
       return {
         status: 200,
         message: `User ${user_id} password has been updated to ${newPassword}`,
       };
     } catch (error) {
+
+      if(error instanceof UnauthorizedException){
+        throw new UnauthorizedException('Incorrect password');
+      }
+
+      if(error instanceof NotFoundException){
+        throw new NotFoundException(`User ${user_id} not found`);
+      }
+
       throw new BadRequestException(
         'Something got wrong changing password',
         error,
@@ -152,12 +162,19 @@ export class UserRepository {
 
   async changeUsername(user_id: string, newUsername: string): Promise<any> {
     try {
-      const user = await this.userRepository.findOneBy({
-        user_id,
+      const user = await this.userRepository.findOne({
+       where: { user_id },
+       relations: { credential: true },
       });
+
+      console.log('este es el user', user);
+      
+
       if (!user) throw new NotFoundException(`User ${user_id} not found`);
       
       const credential_id = user.credential.credential_id;
+
+      if(!user.credential) throw new NotFoundException(`User ${user_id} not found`);
       
       await this.credentialsRepository.update(
         { credential_id },
