@@ -1,5 +1,5 @@
 export const getCoordinates = async (address: string) => {
-  const API_KEY = "a57afff3483a4946a7d4934c3914f8cc";
+  const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY;
   const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
     address
   )}&key=${API_KEY}`;
