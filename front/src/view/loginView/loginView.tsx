@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
-
 const Login = () => {
   const router = useRouter();
 
@@ -141,4 +140,3 @@ const Login = () => {
 };
 
 export default Login;
-

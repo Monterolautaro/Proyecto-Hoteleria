@@ -28,7 +28,6 @@ const NavbarButtons: React.FC = () => {
 
       // Verificamos si las cookies existen y luego actualizamos el estado
       if (googleUser && googleUserToken) {
-        console.log("se hace el set de google:", googleUser);
         setUserGoogleSession({
           accessToken: googleUserToken,
           user: googleUser,
@@ -36,7 +35,7 @@ const NavbarButtons: React.FC = () => {
       } else {
         setUserGoogleSession(null); // Asegúrate de limpiar el estado si no hay datos
       }
-    } else console.log("chau");
+    }
   }, [pathname, session]);
 
   useEffect(() => {
@@ -54,11 +53,7 @@ const NavbarButtons: React.FC = () => {
   }, [pathname]);
 
   const renderLinks = () => {
-    console.log("Log1:", userSession);
-    console.log("log2:", userGoogleSession);
-
     if (!userSession?.token && !userGoogleSession?.accessToken) {
-      console.log("estamos en el normal");
       return (
         <>
           <Link href="/login" className={styles.bubbleLink}>
@@ -88,8 +83,6 @@ const NavbarButtons: React.FC = () => {
     }
 
     if (userGoogleSession || userSession?.user.role.includes("user")) {
-      console.log("estamos en el user");
-
       return (
         <>
           <Link href="/dashboard" className={styles.bubbleLink}>
