@@ -25,7 +25,6 @@ const NavbarButtons: React.FC = () => {
         user: JSON.parse(user),
       });
     } else if( accessToken ){
-      console.log('este es el token', accessToken);
       
       setToken(accessToken);
       setUserSession({
