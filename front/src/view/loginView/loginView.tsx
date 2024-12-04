@@ -6,11 +6,16 @@ import firstToUpperCase from "@/helpers/upperCase";
 import Cookies from "js-cookie";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const router = useRouter();
+
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState<Record<string, string | undefined>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
 
   const handleClick = () => {
     router.push("/", {
@@ -18,14 +23,8 @@ const Login = () => {
     }); // Redirige a la página principal después del login
   };
 
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const [errors, setErrors] = useState<Record<string, string | undefined>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
-
   const handleGoogleClick = async () => {
-    const response = await signIn("google", { callbackUrl: "/" });
-    console.log(response);
+    await signIn();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
