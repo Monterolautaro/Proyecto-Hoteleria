@@ -14,6 +14,7 @@ export interface User {
   birthday?: string;
   total_visits?: number;
   average_session_duration?: number;
+  isSuspend?: boolean;
 }
 
 export interface Hotel {
@@ -34,6 +35,7 @@ export interface IUserCredentials {
   email: string | undefined;
   username: string | undefined;
   password?: string;
+  handleRefresh?: () => void;
 }
 
 export interface IAdminData {

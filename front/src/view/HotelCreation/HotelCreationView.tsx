@@ -6,12 +6,13 @@ import HotelDetailsForm from "@/components/HotelDetailsForm/HotelDetailsForm";
 import RoomInfoForm from "@/components/HotelRoomsForm/HotelRoomsForm";
 import ImageUploadForm from "@/components/uploadImage/imageUpload";
 import { IHotelCreation } from "@/interfaces/hotelCreation";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 const HotelCreationView = () => {
   const { hotelInfo, hotelDetails, hotelRooms, step, setStep, isFormValid } =
     useHotelCreation();
-
+  const router = useRouter();
   const formStepThreeRef = useRef<HTMLDivElement>(null);
 
   const handleNext = (): void => {
@@ -55,7 +56,10 @@ const HotelCreationView = () => {
     };
 
     console.log(newHotel);
-    // await createHotel(newHotel);
+    // await createHotel(newHotel); // Llamada a la función para crear el hotel
+
+    // Redirigir a /admin después de la creación
+    router.push("/admin");
   };
 
   useEffect(() => {
@@ -65,18 +69,30 @@ const HotelCreationView = () => {
   }, [step]);
 
   return (
-    <div className="bg-[#00352A] min-h-screen p-6 text-white">
+    <div className="bg-[#00352A] min-h-screen p-6 text-white relative">
+      {/* Botón fijo en la esquina superior izquierda */}
+      <div className="fixed top-6 left-6 z-10">
+        <button
+          onClick={() => router.push("/admin")} // Cambia "/" por la ruta deseada
+          className="bg-[#00D1B2] text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+        >
+          Back
+        </button>
+      </div>
+
       <div className="flex justify-center items-center">
         <div className="flex items-center bg-[#00352A] min-h-screen text-white px-4">
           <div className="w-full md:w-2/3 ml-32">
-            <h1 className="text-5xl font-bold text-white mb-2">Welcome to</h1>
+            <h1 className="text-5xl font-bold text-white mb-2">Hotel</h1>
             <h1 className="text-5xl font-bold text-white mb-2">
-              <span className="text-[#00D1B2]">Hotel</span>
+              <span className="text-[#00D1B2]">Registration</span>
             </h1>
-            <h1 className="text-5xl font-bold text-white mb-4">Registration</h1>
+            <h1 className="text-5xl font-bold text-white mb-4">Dashboard</h1>
             <p className="text-lg text-white leading-relaxed">
-              Please fill out the form below to register a new hotel. Provide
-              accurate details to ensure everything is set up correctly.
+              Use this form to register hotels into the system. Ensure all
+              provided details are accurate and verified before submission. This
+              information will be used to manage and display the hotel's
+              availability and details.
             </p>
           </div>
         </div>
@@ -174,7 +190,7 @@ const HotelCreationView = () => {
               onClick={handleSubmit}
               className="bg-[#00B894] text-white px-4 py-2 rounded"
             >
-              Finish register
+              Create Hotel
             </button>
           </div>
         </div>

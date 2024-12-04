@@ -40,12 +40,12 @@ export class StripeService {
    */
   async createPaymentIntent(
     paymentData: PaymentDto,
-  ): Promise<Stripe.PaymentIntent> {
+  ): Promise<Partial<Stripe.PaymentIntent>> {
     // Crear un queryRunner para gestionar la transacción
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
-
+    
     try {
       const { amount, id, userId, hotelId, rooms, checkIn, checkOut } =
         paymentData;
@@ -60,6 +60,7 @@ export class StripeService {
         });
         throw new BadRequestException(error.message);
       }
+      
       const paymentIntent = await this.stripe.paymentIntents.create({
         amount,
         currency: 'USD',
@@ -75,6 +76,7 @@ export class StripeService {
       if (!paymentIntent || paymentIntent.status !== 'succeeded') {
         throw new BadRequestException('Error during payment intent creation');
       }
+      
 
       // Crear la reserva y actualizar las métricas utilizando el queryRunner
       const booking = await this.bookingRepository.createBooking(
@@ -103,26 +105,26 @@ export class StripeService {
           method: 'stripe',
           stripePaymentIntentId: paymentIntent.id,
           status: paymentIntent.status,
-          user: user,
-          payment_details: paymentDetails,
         }),
       );
+      
+      // establezco relaciones de payment
+      payment.user = user;
+      payment.payment_details = paymentDetails;
 
       // guardo payment en paymentdetails
       paymentDetails.payment = payment;
 
       // guardo paymentdetails en booking
-      // booking.payments_details = paymentDetails;
-      await queryRunner.manager.update(Booking, booking.booking_id, {
-        payments_details: paymentDetails,
-      });
+      booking.payments_details = paymentDetails;
       
       await queryRunner.manager.save(paymentDetails);
 
       // Confirmar la transacción
       await queryRunner.commitTransaction();
       // Retornar la intención de pago creada
-      return paymentIntent;
+      
+      return { status: paymentIntent.status };
     } catch (error: any) {
       // Revertir la transacción si algo falla
 

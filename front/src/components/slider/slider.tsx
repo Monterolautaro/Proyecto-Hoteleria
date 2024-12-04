@@ -18,7 +18,6 @@ export default function ComponentSlider(): JSX.Element {
       const response = await axios.get(`${API_URL}/hotels?page=1&limit=8`);
 
       const topRatedHotels = response.data;
-      console.log(topRatedHotels);
 
       // const topRatedHotels = data
       //   .filter((hotel: any) => hotel.details?.stars > 3)

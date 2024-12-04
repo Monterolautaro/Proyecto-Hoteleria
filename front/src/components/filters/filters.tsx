@@ -54,7 +54,6 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       const response = await axios.get(
         `${API_URL}/filter/hotel?${queryParams.toString()}`
       );
-      console.log("esto llega", response);
 
       onFiltersApplied(response.data);
     } catch (error) {

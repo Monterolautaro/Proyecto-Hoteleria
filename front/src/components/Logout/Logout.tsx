@@ -3,24 +3,38 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import { IUserSession } from "@/interfaces";
-import { Toast } from "@/helpers/toast";
-import styles from "./logout.module.css";
+import { ILogoutProps } from "@/interfaces";
 
-const Logout: React.FC<{
-  setUserSession: (params: IUserSession | null) => void;
-}> = ({ setUserSession }) => {
+import styles from "./logout.module.css";
+import { signOut } from "next-auth/react";
+
+const Logout: React.FC<ILogoutProps> = ({
+  setUserSession,
+  setUserGoogleSession,
+}) => {
   const router = useRouter();
 
   const handleLogout = () => {
     Cookies.remove("token");
     Cookies.remove("user");
 
+    if (setUserGoogleSession) {
+      Cookies.remove("googleUser");
+      Cookies.remove("googleUserToken");
+      Cookies.remove("next-auth.session-token");
+      setUserGoogleSession(null);
+
+      signOut({
+        redirect: false, // No redirigir automáticamente (lo haremos manualmente)
+      });
+    }
     setUserSession(null);
 
-    router.push("/", {
-      scroll: false,
-    });
+    setTimeout(() => {
+      router.push("/", {
+        scroll: false,
+      });
+    }, 1500);
   };
 
   return (
