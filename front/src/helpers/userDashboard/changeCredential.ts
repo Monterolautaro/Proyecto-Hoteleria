@@ -1,5 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Toast } from "../toast";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -7,14 +8,20 @@ export const changeEmail = async (email: string, id: string, token: string) => {
   try {
     const response = await axios.put(
       `${API_URL}/users/changeEmail/${id}`,
-      email,
+      { email: email },
       {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       }
     );
-    console.log(response.data);
+    if (response.status === 200) {
+      Toast.fire({
+        title: response.data.message,
+        icon: "success",
+      });
+      return true;
+    }
   } catch (error: any) {
     Swal.fire({
       title: error.response.data.message,
@@ -32,14 +39,20 @@ export const changeUsername = async (
   try {
     const response = await axios.put(
       `${API_URL}/users/changeUsername/${id}`,
-      username,
+      { username: username },
       {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       }
     );
-    console.log(response.data);
+    if (response.status === 200) {
+      Toast.fire({
+        title: response.data.message,
+        icon: "success",
+      });
+      return true;
+    }
   } catch (error: any) {
     Swal.fire({
       title: error.response.data.message,
@@ -70,7 +83,13 @@ export const changePassword = async (
         },
       }
     );
-    console.log(response.data);
+    if (response.status === 200) {
+      Toast.fire({
+        title: response.data.message,
+        icon: "success",
+      });
+      return true;
+    }
   } catch (error: any) {
     Swal.fire({
       title: error.response.data.message,
