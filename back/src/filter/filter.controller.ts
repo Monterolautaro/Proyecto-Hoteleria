@@ -15,8 +15,6 @@ export class FilterController {
 
   @Get('hotel')
   async searchBar(@Query() query: FiltersDto, @SetUUIDCookie() id: string) {
-   
-    console.log('esta llegando la query', query);
     
       return await this.filterService.searchFilter(query, id);
   }

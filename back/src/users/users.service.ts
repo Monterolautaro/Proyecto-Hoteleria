@@ -29,30 +29,20 @@ export class UserService {
   }
 
   getUserByUsername(username: string) {
-    try {
       return this.userRepository.getUserByUsername(username);
-    } catch (error) {
-      throw new BadRequestException('Something got wrong getting user', error);
-    }
+ 
   }
 
   deleteUser(id: string) {
-    try {
+   
       return this.userRepository.deleteUser(id);
-    } catch (error) {
-      throw new BadRequestException('Something got wrong deleting user', error);
-    }
+  
   }
 
   changePassword(id: string, password: string, newPassword: string) {
-    try {
+
       return this.userRepository.changePassword(id, password, newPassword);
-    } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong changing password',
-        error,
-      );
-    }
+  
   }
 
   changeEmail(id: string, email: string) {
@@ -60,21 +50,13 @@ export class UserService {
   }
 
   changeUsername(id: string, username: string) {
-    try {
+  
       return this.userRepository.changeUsername(id, username);
-    } catch (error) {
-      throw new BadRequestException(
-        'Something got wrong changing username',
-        error,
-      );
-    }
+
   }
 
   makeAdmin(id: string) {
-    try {
       return this.userRepository.makeAdmin(id);
-    } catch (error) {
-      throw new BadRequestException('Something got wrong making admin', error);
-    }
-  }
+
+}
 }
