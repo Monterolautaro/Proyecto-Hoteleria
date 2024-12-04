@@ -11,6 +11,7 @@ import { User } from 'src/entities/users/user.entity';
 
 @Injectable()
 export class MetricsRepository {
+    private recipient: number | null = null; // Inicialmente sin valor
     constructor(
         @InjectRepository(Metrics)
         private readonly metricsRepository: Repository<Metrics>,
@@ -54,13 +55,22 @@ export class MetricsRepository {
     //*SERVICIOS DE TIEMPO DEL USUARIO
 
     async startLogin(){
-        const inicio = new Date()
-        return inicio
+        const now = new Date();
+const totalMinutesSince1970 = Math.floor(now.getTime() / (1000 * 60)); // Convierte milisegundos a minutos
+this.recipient=totalMinutesSince1970;
+
+//console.log(`Minutos totales desde 1970: ${totalMinutesSince1970}`);
+
     }
 
     async endLogin(){
-        const end = new Date()
-        return end
+        const now = new Date();
+        const totalMinutesSince1970 = Math.floor(now.getTime() / (1000 * 60)); // Convierte milisegundos a minutos
+        
+       // console.log(`Minutos totales desde 1970: ${totalMinutesSince1970}`);
+
+        const valor=totalMinutesSince1970-this.recipient
+        return valor
     }
 
     //************************************************************ */

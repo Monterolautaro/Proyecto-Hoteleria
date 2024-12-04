@@ -13,8 +13,6 @@ import { UserRepository } from 'src/users/users.repository';
 import { CreateUserDto } from 'src/dto/user.dto';
 import { Roles } from 'roles.enum';
 
-import { SendEmailDto } from 'src/Interfaces/mail.interface';
-import { ModeloHTML } from 'src/mail/modelHTML/modelHtmlNotif';
 import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { randomBytes } from 'crypto';
@@ -37,77 +35,62 @@ export class AuthRepository {
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
-
+    
+  
     try {
-      const foundEmail = await this.userRepository.getUserByEmail(
-        userData.email,
-      );
-      const foundUsername = await this.userRepository.getUserByUsername(
-        userData.username,
-      );
-
-      if (foundEmail !== null)
-        throw new BadRequestException('email already in use');
-
-      if (foundUsername !== null)
-        throw new BadRequestException('username already in use');
-
-      if (userData.password !== userData.confirmPassword)
-        throw new BadRequestException('Passwords do not match');
-
+      const foundEmail = await this.userRepository.getUserByEmail(userData.email);
+      const foundUsername = await this.userRepository.getUserByUsername(userData.username);
+      console.log('Usuario existente verificado');
+  
+      if (foundEmail !== null) throw new BadRequestException('email already in use');
+      if (foundUsername !== null) throw new BadRequestException('username already in use');
+      if (userData.password !== userData.confirmPassword) throw new BadRequestException('Passwords do not match');
+  
       const hashedPassword = await bcrypt.hash(userData.password, 10);
-
-      const user = await queryRunner.manager.create(User, {
+      console.log('Contraseña encriptada');
+  
+      const user = queryRunner.manager.create(User, {
         name: userData.name,
         lastname: userData.lastname,
         birthday: userData.birthday,
         role: [Roles.user],
       });
-
       await queryRunner.manager.save(user);
-
-      const credential = await queryRunner.manager.create(Credentials, {
+      console.log('Usuario guardado');
+  
+      const credential = queryRunner.manager.create(Credentials, {
         username: userData.username,
         email: userData.email,
         password: hashedPassword,
         user,
       });
-
       await queryRunner.manager.save(credential);
-
+      console.log('Credenciales guardadas');
+  
       await queryRunner.manager.update(User, user.user_id, {
         credential,
       });
-
-      //iMPLEMENTACION DEL METODO NODEMAILER
-      /*const dto: SendEmailDto = {
-        recipients: [{ name: '%name%', address: '%email%' }],
-        subject: 'Hotelify',
-        html: ModeloHTML,
-        placeHolderReplacements: [
-          'name',
-          userData.name,
-          'email',
-          userData.email,
-        ],
-      };*/
-
+      console.log('Usuario actualizado');
+  
       this.mailService.setRecipient(userData.email);
       this.mailService.mailNotifLogin(userData.name);
-
+      console.log('Correo enviado');
+  
       await queryRunner.commitTransaction();
+      console.log('Transacción comprometida');
       return { status: 201, message: 'User created successfully' };
     } catch (error) {
-      queryRunner.rollbackTransaction();
-
-      throw new BadRequestException(
-        'An error has ocurred creating user',
-        error,
-      );
+      console.log('Error:', error);
+      await queryRunner.rollbackTransaction();
+      console.log('Transacción revertida');
+  
+      throw new BadRequestException('An error has occurred creating user', error);
     } finally {
-      queryRunner.release();
+      await queryRunner.release();
+      console.log('Query runner liberado');
     }
   }
+  
 
   async signUpGoogleUser(userData: any): Promise<any> {
     const queryRunner = this.dataSource.createQueryRunner();
@@ -137,8 +120,7 @@ export class AuthRepository {
         credential,
       });
 
-      //iMPLEMENTACION DEL METODO NODEMAILER // TERMINAR
-
+     
       this.mailService.setRecipient(userData.email);
       this.mailService.mailNotifLogin(userData.name);
 
@@ -216,9 +198,8 @@ export class AuthRepository {
       );
       await queryRunner.manager.save(verificationCode);
 
-      // MANDAR CODIGO POR MAIL // TERMINAR
+    
 
-      this.mailService.setRecipient(userData.email);
       this.mailService.mailNotifCode(verificationCode.code);
 
       await queryRunner.commitTransaction();
@@ -286,13 +267,12 @@ export class AuthRepository {
       if (!foundCode) throw new NotFoundException('Code not found');
 
       if (foundCode.code !== code)
-        throw new BadRequestException('Invalid codes');
+        throw new BadRequestException('Invalid code');
 
       await this.entityUserRepository.update({ user_id }, { verified: true });
 
-      // MANDAR EMAIL DE CONFIRMACION DE CUENTA // TERMINAR
+      
 
-      //this.mailService.setRecipient(userData.email);
       this.mailService.mailNotifComfirm();
 
       return { status: 200, message: 'Account verified successfully' };
