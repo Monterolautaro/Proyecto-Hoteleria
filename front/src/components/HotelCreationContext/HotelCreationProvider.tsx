@@ -3,6 +3,7 @@
 import { uploadImages } from "@/helpers/imageUpload/imageUpload";
 import { HotelRooms } from "@/interfaces/hotelCreation";
 import React, { createContext, ReactNode, useContext, useState } from "react";
+import Cookies from "js-cookie";
 
 interface IHotelCreationContext {
   hotelInfo: {
@@ -130,12 +131,14 @@ export const HotelCreationProvider = ({
   };
 
   const uploadHotelImages = async (): Promise<string> => {
+    const user = JSON.parse(Cookies.get("user") || "{}");
+
     if (images.length === 0) {
       return "No images to upload.";
     }
 
     try {
-      const result = await uploadImages(images);
+      const result = await uploadImages(images, user.id || "test-token");
       return result;
     } catch (error) {
       console.error("Error uploading images:", error);

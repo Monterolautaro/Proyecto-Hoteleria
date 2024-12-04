@@ -1,9 +1,12 @@
+"use client";
+
 import { useHotelCreation } from "@/components/HotelCreationContext/HotelCreationProvider";
 import Image from "next/image";
 import React, { useState } from "react";
 
 const ImageUpload = () => {
   const { images, setImages, uploadHotelImages } = useHotelCreation();
+
   const [uploadStatus, setUploadStatus] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false); // Estado para manejar visualización de drag
 
