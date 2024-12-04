@@ -63,8 +63,6 @@ export class FilterRepository {
           amenitiesArray.every((amenity) => hotel.amenities[amenity] === true),
         );
       }
-
-      console.log('esto va al front ', filteredHotels);
       
       
       return filteredHotels;

@@ -1,10 +1,10 @@
-import { UserBookings } from "@/interfaces/bookings";
+import { UsersBookings } from "@/interfaces/bookings";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-const getBookingsByUserId = async (id: string): Promise<UserBookings[] | undefined> => {
+const getBookingsByUserId = async (id: string): Promise<UsersBookings[] | undefined> => {
   try {
     const token = Cookies.get("token");
     if (!token) {

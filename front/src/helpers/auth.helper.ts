@@ -12,6 +12,8 @@ export const registerUser = async (userData: {
   password: string;
   confirmPassword: string;
 }) => {
+  console.log("Works", userData);
+
   const response = await fetch(`${API_URL}/auth/signUp`, {
     method: "POST",
     headers: {
@@ -21,7 +23,12 @@ export const registerUser = async (userData: {
   });
 
   if (!response.ok) {
+    console.log("Error", JSON.stringify(userData));
+    console.log("This is the api:", API_URL);
+
     const error = await response.json();
+    console.log(error);
+
     throw new Error(error.message || "Registration failed");
   }
 

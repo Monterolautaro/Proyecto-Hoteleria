@@ -67,6 +67,7 @@ export class UserController {
     @Body('password') password: string,
     @Body('newPassword') newPassword: string,
   ): Promise<any> {
+    
     return this.UserService.changePassword(user_id, password, newPassword);
   }
 
@@ -78,7 +79,7 @@ export class UserController {
     @Param('id', ParseUUIDPipe) id: string,
     @Body('email') email: string,
   ): Promise<any> {
-    
+
     return this.UserService.changeEmail(id, email);
   }
 
@@ -90,6 +91,7 @@ export class UserController {
     @Param('id', ParseUUIDPipe) id: string,
     @Body('username') username: string,
   ): Promise<any> {
+    
     return this.UserService.changeUsername(id, username);
   }
 

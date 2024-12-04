@@ -5,17 +5,44 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import Logout from "../Logout/Logout";
-import { IUserSession } from "@/interfaces";
+import { IGoogleUser, IUserSession } from "@/interfaces";
 import styles from "./navbarbuttons.module.css";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const NavbarButtons: React.FC = () => {
   const [userSession, setUserSession] = useState<IUserSession | null>(null);
+  const [userGoogleSession, setUserGoogleSession] =
+    useState<IGoogleUser | null>(null);
   const pathname = usePathname();
+
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session && session.accessToken) {
+      Cookies.set("googleUser", JSON.stringify(session.user));
+      Cookies.set("googleUserToken", session.accessToken);
+
+      const googleUser = JSON.parse(Cookies.get("googleUser") || "{}");
+      const googleUserToken = Cookies.get("googleUserToken");
+
+      // Verificamos si las cookies existen y luego actualizamos el estado
+      if (googleUser && googleUserToken) {
+        console.log("se hace el set de google:", googleUser);
+        setUserGoogleSession({
+          accessToken: googleUserToken,
+          user: googleUser,
+        });
+      } else {
+        setUserGoogleSession(null); // Asegúrate de limpiar el estado si no hay datos
+      }
+    } else console.log("chau");
+  }, [pathname, session]);
 
   useEffect(() => {
     const token = Cookies.get("token");
     const user = Cookies.get("user");
+
     if (token && user) {
       setUserSession({
         token,
@@ -27,7 +54,11 @@ const NavbarButtons: React.FC = () => {
   }, [pathname]);
 
   const renderLinks = () => {
-    if (!userSession?.token) {
+    console.log("Log1:", userSession);
+    console.log("log2:", userGoogleSession);
+
+    if (!userSession?.token && !userGoogleSession?.accessToken) {
+      console.log("estamos en el normal");
       return (
         <>
           <Link href="/login" className={styles.bubbleLink}>
@@ -40,9 +71,9 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    const { role } = userSession.user;
+    // const { role } = userSession?.user;
 
-    if (role.includes("admin")) {
+    if (userSession?.user.role.includes("admin")) {
       return (
         <>
           <Link href="/admin" className={styles.bubbleLink}>
@@ -56,14 +87,19 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    if (role.includes("user")) {
+    if (userGoogleSession || userSession?.user.role.includes("user")) {
+      console.log("estamos en el user");
+
       return (
         <>
           <Link href="/dashboard" className={styles.bubbleLink}>
             <img src="/assets/profile.png" alt="Profile" className="w-5 h-5" />
             Profile
           </Link>
-          <Logout setUserSession={setUserSession} />
+          <Logout
+            setUserSession={setUserSession}
+            setUserGoogleSession={setUserGoogleSession}
+          />
         </>
       );
     }

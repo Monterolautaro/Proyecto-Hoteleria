@@ -12,4 +12,10 @@ export class MetricsService {
     postMetrics() {
         return this.metrics.insertMetrics();
     }
+    startLlogi() {
+        return this.metrics.startLogin();
+}
+endlogi() {
+    return this.metrics.endLogin();
+}
 }

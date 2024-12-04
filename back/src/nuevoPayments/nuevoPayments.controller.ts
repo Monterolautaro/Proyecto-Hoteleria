@@ -8,8 +8,7 @@ export class StripeController {
   constructor(private readonly stripeService: StripeService) {}
 
   @Post('create-payment')
-  async createPaymentIntent(@Body() paymentData: PaymentDto) {
-    console.log(paymentData);
+  async createPaymentIntent(@Body() paymentData: any) {
     
     return await this.stripeService.createPaymentIntent(paymentData);
   }

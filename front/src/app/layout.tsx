@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/footer/footer";
@@ -6,6 +5,7 @@ import Header from "@/components/header/header";
 import { DateProvider } from "@/helpers/hotelDetail/dateContext";
 import { RoomsProvider } from "@/helpers/hotelDetail/roomsContext";
 import { PriceProvider } from "@/helpers/hotelDetail/priceContext";
+import { Providers } from "@/helpers/Providers";
 
 export const metadata: Metadata = {
   title: "Hotelify",
@@ -20,17 +20,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#f3fffc]">
-        <DateProvider>
-          <RoomsProvider>
-            <PriceProvider>
-              <Header />
+        <Providers>
+          <DateProvider>
+            <RoomsProvider>
+              <PriceProvider>
+                <Header />
 
-              {children}
+                {children}
 
-              <Footer />
-            </PriceProvider>
-          </RoomsProvider>
-        </DateProvider>
+                <Footer />
+              </PriceProvider>
+            </RoomsProvider>
+          </DateProvider>
+        </Providers>
       </body>
     </html>
   );

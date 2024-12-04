@@ -108,9 +108,9 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
 
         const response = await SendPaymentData(data);
 
-        if (response.message) {
+        if (response === 'succeeded') {
           Swal.fire({
-            title: response.message,
+            title: `Payment status: ${response}`,
             icon: "success",
           });
           elements.getElement(CardElement)?.clear();

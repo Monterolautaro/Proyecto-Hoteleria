@@ -19,6 +19,7 @@ export class AuthGuard implements CanActivate {
     const request = context.switchToHttp().getRequest();
 
     try {
+      
       const token = request.headers['authorization'].split(' ')[1] ?? '';
 
       if (!token) throw new ForbiddenException('No token provided');

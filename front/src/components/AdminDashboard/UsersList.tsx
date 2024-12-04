@@ -21,7 +21,7 @@ const UsersList: React.FC = () => {
           return;
         }
 
-        const response = await axios.get<User[]>(`${API_URL}/users`, {
+        const response = await axios.get(`${API_URL}/users`, {
           headers: {
             Authorization: `Bearer ${token}`, 
           },
@@ -36,23 +36,42 @@ const UsersList: React.FC = () => {
     fetchUsers();
   }, []);
 
-  const handleDelete = async (id: string): Promise<void> => {
+ 
+
+  const suspendUser = async (userId: string): Promise<void> => {
     try {
-      const token = Cookies.get('token');
-      if (!token) return;
-
-      await axios.delete(`${API_URL}/users/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      setUsers(users.filter((user) => user.user_id !== id));
+      const response = await axios.put(`${API_URL}/admin/users/suspend/${userId}`);
+  
+      console.log('User suspended:', response.data);
+  
+      // Actualizar el estado local
+      setUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user.user_id === userId ? { ...user, isSuspend: true } : user
+        )
+      );
     } catch (error) {
-      console.error('Error deleting user:', error);
+      console.error('Error suspending user:', error);
     }
   };
-
+  
+  const unsuspendUser = async (userId: string): Promise<void> => {
+    try {
+      const response = await axios.put(`${API_URL}/admin/users/unsuspend/${userId}`);
+  
+      console.log('User unsuspended:', response.data);
+  
+      // Actualizar el estado local
+      setUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user.user_id === userId ? { ...user, isSuspend: false } : user
+        )
+      );
+    } catch (error) {
+      console.error('Error unsuspending user:', error);
+    }
+  };
+  
   const handleViewDetails = (id: string): void => {
     router.push(`/userdetail/${id}`);
   };
@@ -81,12 +100,21 @@ const UsersList: React.FC = () => {
                   >
                     Details
                   </button>
-                  <button
-                    onClick={() => handleDelete(user.user_id!)}
-                    className="bg-red-500 text-white font-bold py-1 px-3 rounded"
-                  >
-                    Delete
-                  </button>
+                  {user.isSuspend ? (
+                    <button
+                      onClick={() => unsuspendUser(user.user_id!)}
+                      className="bg-green-500 text-white font-bold py-1 px-3 rounded"
+                    >
+                      Enable
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => suspendUser(user.user_id!)}
+                      className="bg-red-500 text-white font-bold py-1 px-3 rounded"
+                    >
+                      Disable
+                    </button>
+                  )}
                 </td>
               </tr>
             ))
