@@ -10,6 +10,7 @@ import {
   changeUsername,
 } from "@/helpers/userDashboard/changeCredential";
 import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 const Credentials: React.FC<IUserCredentials> = ({
   email,
@@ -23,6 +24,7 @@ const Credentials: React.FC<IUserCredentials> = ({
   const [changePswrd, setChangePswrd] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isUsernameValid, setIsUsernameValid] = useState(true);
+  const router = useRouter();
 
   const [passwords, setPasswords] = useState({
     oldPassword: "",
@@ -49,11 +51,13 @@ const Credentials: React.FC<IUserCredentials> = ({
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const buttonName = (e.target as HTMLButtonElement).name;
     if (buttonName === "email" && userId && token && isEmailValid) {
-      await changeEmail(newEmail, userId, token);
+      const result = await changeEmail(newEmail, userId, token);
+      if (result) router.refresh();
       setEdit("");
     }
     if (buttonName === "username" && userId && token && isUsernameValid) {
-      await changeUsername(newUsername, userId, token);
+      const result = await changeUsername(newUsername, userId, token);
+      if (result) router.refresh();
       setEdit("");
     }
   };
@@ -120,7 +124,11 @@ const Credentials: React.FC<IUserCredentials> = ({
 
     if (!Object.values(errors).some((err) => err) && userId && token) {
       //! Hacer la petición al backend :)
-      await changePassword(passwords, userId, token);
+      const result = await changePassword(passwords, userId, token);
+      if (result) {
+        setChangePswrd(false);
+        router.refresh();
+      }
     }
   };
 
