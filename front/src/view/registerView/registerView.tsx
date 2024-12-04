@@ -14,6 +14,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const router = useRouter();
@@ -106,7 +107,11 @@ const Register = () => {
       setIsSubmitting(false);
       handleClick();
     } catch (error: any) {
-      alert(error.message);
+      Swal.fire({
+        title: error.message,
+        icon: "error",
+        confirmButtonColor: "#009375",
+      });
       setIsSubmitting(false);
     }
   };
@@ -133,7 +138,7 @@ const Register = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
@@ -154,7 +159,7 @@ const Register = () => {
                 type="text"
                 id="lastname"
                 name="lastname"
-                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 placeholder="Last Name"
                 value={formData.lastname}
                 onChange={handleChange}
@@ -175,7 +180,7 @@ const Register = () => {
                 type="date"
                 id="birthday"
                 name="birthday"
-                className="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#009375] placeholder-gray-400 mt-1"
                 value={formData.birthday}
                 onChange={handleChange}
               />
@@ -194,10 +199,15 @@ const Register = () => {
             {["email", "username", "password", "confirmPassword"].map((key) => (
               <div key={key} className="mb-1">
                 <label htmlFor={key} className="font-medium">
-                  {key.replace("confirmPassword", "Confirm Password").replace(
-                    /([A-Z])/g,
-                    " $1"
-                  )}
+                  {key === "confirmPassword"
+                    ? key
+                        .replace("confirmPassword", "Confirm Password")
+                        .replace(/([A-Z])/g, " $1")
+                    : key === "username"
+                    ? key.replace("username", "Username")
+                    : key === "email"
+                    ? key.replace("email", "E-mail")
+                    : key === "password" && key.replace("password", "Password")}
                 </label>
                 <div className="relative">
                   <input
@@ -231,13 +241,17 @@ const Register = () => {
                           : setShowConfirmPassword(!showConfirmPassword)
                       }
                     >
-                      {key === "password"
-                        ? showPassword
-                          ? <FaEyeSlash className="text-[#009375]" />
-                          : <FaEye className="text-[#009375]" />
-                        : showConfirmPassword
-                        ? <FaEyeSlash className="text-[#009375]" />
-                        : <FaEye className="text-[#009375]" />}
+                      {key === "password" ? (
+                        showPassword ? (
+                          <FaEyeSlash className="text-[#009375]" />
+                        ) : (
+                          <FaEye className="text-[#009375]" />
+                        )
+                      ) : showConfirmPassword ? (
+                        <FaEyeSlash className="text-[#009375]" />
+                      ) : (
+                        <FaEye className="text-[#009375]" />
+                      )}
                     </button>
                   )}
                 </div>

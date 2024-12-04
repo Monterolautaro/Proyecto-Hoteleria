@@ -49,7 +49,7 @@ export const loginUser = async (credentials: {
 
   if (!response.ok) {
     const error = await response.json();
-    throw new Error(error.message || "Login failed");
+    throw new Error("The server is not working now, try again later");
   }
 
   return response.json();

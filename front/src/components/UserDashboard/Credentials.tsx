@@ -16,6 +16,7 @@ const Credentials: React.FC<IUserCredentials> = ({
   email,
   username,
   userId,
+  handleRefresh,
 }) => {
   const [edit, setEdit] = useState("");
   const [newEmail, setNewEmail] = useState("");
@@ -52,12 +53,12 @@ const Credentials: React.FC<IUserCredentials> = ({
     const buttonName = (e.target as HTMLButtonElement).name;
     if (buttonName === "email" && userId && token && isEmailValid) {
       const result = await changeEmail(newEmail, userId, token);
-      if (result) router.refresh();
+      if (result && handleRefresh) handleRefresh();
       setEdit("");
     }
     if (buttonName === "username" && userId && token && isUsernameValid) {
       const result = await changeUsername(newUsername, userId, token);
-      if (result) router.refresh();
+      if (result && handleRefresh) handleRefresh();
       setEdit("");
     }
   };
