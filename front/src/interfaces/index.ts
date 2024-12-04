@@ -62,3 +62,16 @@ export interface IUserResponse {
   message: string;
   status: string;
 }
+
+export interface IGoogleUser {
+  accessToken: string;
+  user: {
+    name: string;
+    email: string;
+  };
+}
+
+export interface ILogoutProps {
+  setUserSession: (params: IUserSession | null) => void;
+  setUserGoogleSession?: (params: IGoogleUser | null) => void;
+}
