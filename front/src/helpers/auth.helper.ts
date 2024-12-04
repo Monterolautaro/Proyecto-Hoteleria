@@ -46,6 +46,7 @@ export const loginUser = async (credentials: {
     },
     body: JSON.stringify(credentials),
   });
+  
 
   if (!response.ok) {
     const error = await response.json();
