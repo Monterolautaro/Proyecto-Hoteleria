@@ -1,40 +1,27 @@
 "use client";
-import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { LatLngExpression } from "leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
-// Configurar los íconos predeterminados
-L.Icon.Default.mergeOptions({
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
+import { LatLngExpression } from "leaflet";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+import { getCoordinates } from "@/helpers/hotelDetail/getCoordinates";
+
+const DynamicMap = dynamic(() => import("./DynamicMap"), {
+  ssr: false, // Solo renderizado en cliente
 });
 
-const MapComponent: React.FC = () => {
-  const position: LatLngExpression = [4.711, -74.0721]; // Coordenadas de ejemplo (Londres)
+const MapComponent: React.FC<{ location: string }> = ({ location }) => {
+  const [position, setPosition] = useState<LatLngExpression>([4.711, -74.0721]);
 
-  return (
-    <div style={{ height: "100%" }}>
-      <MapContainer
-        center={position}
-        zoom={13}
-        style={{ width: "100%", height: "100%" }}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-      </MapContainer>
-    </div>
-  );
+  useEffect(() => {
+    const getLocation = async () => {
+      const coordinates = await getCoordinates(location);
+      console.log(coordinates);
+      if (coordinates) setPosition([coordinates.lat, coordinates.lng]);
+    };
+    getLocation();
+  }, []);
+
+  return <DynamicMap position={position} />;
 };
 
 export default MapComponent;

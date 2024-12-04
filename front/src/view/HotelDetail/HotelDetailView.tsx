@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+
 import Amenities from "@/components/hotelDetail/Amenitites";
 import DateRangePicker from "@/components/hotelDetail/DateSelector";
 import MapComponent from "@/components/hotelDetail/Map";
-import SimpleMap from "@/components/hotelDetail/Map";
 import PeopleSelector from "@/components/hotelDetail/PeopleSelector";
 import RoomsCard from "@/components/hotelDetail/RoomsCard";
 import TotalPrice from "@/components/hotelDetail/TotalPrice";
@@ -55,8 +55,8 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
           </div>
           <div className="w-[25%] flex flex-col gap-3 justify-between rounded-lg">
             <Amenities amenities={hotelInfo?.amenities} />
-            <div className="w-full bg-[#009375] rounded-lg  h-[45%]">
-              <MapComponent />
+            <div className="w-full bg-[#009375] rounded-lg overflow-hidden h-[45%]">
+              <MapComponent location={hotelInfo?.address.city!} />
             </div>
           </div>
         </div>
