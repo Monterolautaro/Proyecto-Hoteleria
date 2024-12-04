@@ -24,10 +24,13 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 export class FilesUploadController {
   constructor(private readonly filesUploadService: FilesUploadService) {}
 
+
+  // http://localhost:4000/files/upload/:id
+
   @Post('upload/:id')
   @ApiBearerAuth()
-  // @RolesDecorator(Roles.admin, Roles.hotel_owner)
-  // @UseGuards(RolesGuard)
+  @RolesDecorator(Roles.admin, Roles.hotel_owner)
+  @UseGuards(RolesGuard)
   @UseInterceptors(FileInterceptor('file'))
   async uploadImage(
     @Param('id') roomId: string,
@@ -47,10 +50,15 @@ export class FilesUploadController {
     return await this.filesUploadService.uploadImageToCloudById(file, roomId);
   }
 
+
+
+  //http://localhost:4000/files/upload/          TERMINAR
+
   @Post('upload')
+  @ApiBearerAuth()
   @UseInterceptors(FileInterceptor('file'))
-  // @RolesDecorator(Roles.admin, Roles.hotel_owner)
-  // @UseGuards(RolesGuard)
+  @RolesDecorator(Roles.admin, Roles.hotel_owner)
+  @UseGuards(RolesGuard)
   async createRoomAndImage(
     @UploadedFile(
       new ParseFilePipe({
@@ -68,9 +76,14 @@ export class FilesUploadController {
     return await this.filesUploadService.createRoomAndImage(file);
   }
 
+
+
+  // http://localhost:4000/files/upload/profile/:id
+
   @Post('upload/profile/:id')
+  @ApiBearerAuth()
   @UseInterceptors(FileInterceptor('file'))
-  @RolesDecorator(Roles.admin, Roles.hotel_owner)
+  @RolesDecorator(Roles.admin, Roles.hotel_owner, Roles.user)
   @UseGuards(AuthGuard, RolesGuard)
   async uploadProfileImage(
     @Param('id') user_id: string,
@@ -87,8 +100,6 @@ export class FilesUploadController {
     )
     file: Express.Multer.File,
   ) {
-    
-    // return await this.filesUploadService.createRoomAndImage(file);
-    return 'listo'
+    return await this.filesUploadService.uploadProfilePhoto(file, user_id);
   }
 }

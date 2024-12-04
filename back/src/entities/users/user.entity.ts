@@ -46,6 +46,13 @@ export class User {
   @Column('boolean', { default: false })
   isSuspend: boolean;
 
+  @Column(
+    {
+      default: 'https://res.cloudinary.com/dln87ugim/image/upload/v1733280421/profile_xvxiir.png',
+      nullable: true
+    })
+  profile_photo: string;
+
   @OneToOne(() => Credentials, (credential) => credential.user, {
     onDelete: 'CASCADE',
   })

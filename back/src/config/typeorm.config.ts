@@ -13,7 +13,7 @@ dotenvConfig({
 // para iniciar la api en produccion:           NODE_ENV=production npm run dev
 
 export const getDatabaseConfig = (): DataSourceOptions => {
-  const isProduction = process.env.NODE_ENV !== 'production';
+  const isProduction = process.env.NODE_ENV === 'production';
 
   return {
     type: 'postgres',
@@ -32,7 +32,7 @@ export const getDatabaseConfig = (): DataSourceOptions => {
       : process.env.DB_NAME_LOCAL,
     entities: ['dist/**/*.entity{.ts,.js}'],
     autoLoadEntities: true,
-    synchronize: false,
+    synchronize: true,
     // dropSchema: true,
     logging: true,
     ssl: isProduction ? { rejectUnauthorized: false } : false,
