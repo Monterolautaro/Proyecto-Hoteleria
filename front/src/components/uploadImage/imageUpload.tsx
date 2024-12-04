@@ -1,4 +1,5 @@
 import { useHotelCreation } from "@/components/HotelCreationContext/HotelCreationProvider";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const ImageUpload = () => {
@@ -10,12 +11,15 @@ const ImageUpload = () => {
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files ? Array.from(event.target.files) : [];
     handleFiles(files);
+
+    // Limpia el valor del input para permitir subir los mismos archivos nuevamente
+    event.target.value = "";
   };
 
   // Manejar archivos arrastrados
   const handleFiles = (files: File[]) => {
     const validImages = files.filter((file) => file.type.startsWith("image/"));
-    setImages([...images, ...validImages]);
+    setImages((prevImages) => [...prevImages, ...validImages]); // Garantiza el uso del estado más reciente
   };
 
   // Subir imágenes
@@ -64,7 +68,9 @@ const ImageUpload = () => {
         {images.length === 0 && (
           <div>
             <p className="text-gray-600">
-              {isDragging ? "Drop your images here!" : "Drag and drop your images here"}
+              {isDragging
+                ? "Drop your images here!"
+                : "Drag and drop your images here"}
             </p>
             <p className="text-sm text-gray-500 mt-2">or</p>
           </div>
@@ -87,10 +93,12 @@ const ImageUpload = () => {
                 </button>
 
                 {/* Imagen */}
-                <img
+                <Image
                   src={URL.createObjectURL(image)}
                   alt={image.name}
-                  className="object-contain w-full h-full" // Cambié a object-contain para mostrar la imagen completa
+                  className="object-contain w-full h-full"
+                  width={500} // Reemplaza con el tamaño deseado
+                  height={500} // Reemplaza con el tamaño deseado
                 />
               </div>
             ))}

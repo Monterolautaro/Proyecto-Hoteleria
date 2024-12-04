@@ -12,7 +12,7 @@ const HotelRoomsForm = () => {
       description: "",
       roomsLeft: 0,
       price: 0,
-      currency: "",
+      currency: "USD",
       enabled: true,
     },
     {
@@ -21,7 +21,7 @@ const HotelRoomsForm = () => {
       description: "",
       roomsLeft: 0,
       price: 0,
-      currency: "",
+      currency: "USD",
       enabled: false,
     },
     {
@@ -30,7 +30,7 @@ const HotelRoomsForm = () => {
       description: "",
       roomsLeft: 0,
       price: 0,
-      currency: "",
+      currency: "USD",
       enabled: false,
     },
     {
@@ -39,7 +39,7 @@ const HotelRoomsForm = () => {
       description: "",
       roomsLeft: 0,
       price: 0,
-      currency: "",
+      currency: "USD",
       enabled: false,
     },
   ]);
@@ -48,7 +48,7 @@ const HotelRoomsForm = () => {
     description: "",
     roomsLeft: "",
     price: "",
-    currency: "",
+    currency: "USD",
   });
 
   const [touched, setTouched] = useState({
@@ -116,11 +116,11 @@ const HotelRoomsForm = () => {
           isValid = false;
         }
 
-        // Validación de moneda
-        if (!room.currency.trim()) {
-          newErrors.currency = "Currency required.";
-          isValid = false;
-        }
+        // Validación de moneda (ya no es necesario, ya que está fija en USD)
+        // if (!room.currency.trim()) {
+        //   newErrors.currency = "Currency required.";
+        //   isValid = false;
+        // }
       }
     });
 
@@ -232,20 +232,14 @@ const HotelRoomsForm = () => {
                   {touched.price && errors.price}
                 </div>
               </div>
+
+              {/* Aquí cambiaremos la moneda para que sea fija y no editable */}
               <div>
-                <input
-                  type="text"
-                  value={room.currency}
-                  onChange={(e) =>
-                    handleInputChange(room.id, "currency", e.target.value)
-                  }
-                  onBlur={() => handleBlur("currency")}
-                  disabled={!room.enabled}
-                  className="w-full p-2 text-white rounded bg-gray-800 border border-green-400"
-                  placeholder="Currency (e.g., USD)"
-                />
+                <span className="w-full p-2 text-white rounded bg-gray-800 border border-green-400">
+                  USD
+                </span>
                 <div className="col-span-5 text-red-500 text-xs mt-2 min-h-[20px]">
-                  {touched.currency && errors.currency}
+                  {/* Aquí puedes manejar si hay errores de validación, aunque no sería necesario */}
                 </div>
               </div>
             </div>
