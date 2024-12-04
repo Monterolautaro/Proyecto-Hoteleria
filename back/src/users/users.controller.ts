@@ -41,6 +41,9 @@ export class UserController {
     return this.UserService.getUserById(id);
   }
   @Post('email')
+  @ApiBearerAuth()
+  @RolesDecorator(Roles.admin, Roles.user, Roles.hotel_owner)
+  @UseGuards(AuthGuard, RolesGuard)
   getUserByEmail(@Body('email') email: string) {
     return this.UserService.getUserByEmail(email);
   }
