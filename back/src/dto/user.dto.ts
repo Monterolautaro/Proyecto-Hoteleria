@@ -29,7 +29,6 @@ export class CreateUserDto {
   lastname: string;
 
   @IsNotEmpty()
-  @IsDate()
   @ApiProperty({
     description: 'Birthday of the user to be created',
     example: '1990-01-01',
