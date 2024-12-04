@@ -28,13 +28,6 @@ const Login = () => {
     await signIn();
   };
 
-  const handleGoogleClick = async () => {
-    
-    const response = await signIn("google", { callbackUrl: "/" });
-    console.log('response', response);
-    
-  };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
