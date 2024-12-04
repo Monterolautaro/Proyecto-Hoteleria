@@ -42,6 +42,7 @@ const Register = () => {
     // Manejo especial para el campo de fecha
     if (name === "birthday") {
       const formattedDate = value ? format(new Date(value), "yyyy-MM-dd") : "";
+
       setFormData({ ...formData, [name]: formattedDate });
     } else {
       setFormData({ ...formData, [name]: value });
@@ -94,14 +95,14 @@ const Register = () => {
 
     try {
       setIsSubmitting(true);
-      const user = await registerUser(formData);
+      await registerUser(formData);
 
       Toast.fire({
         icon: "success",
         title: "Registration successful!",
       });
 
-      localStorage.setItem("user", JSON.stringify(user));
+      // localStorage.setItem("user", JSON.stringify(user));
       setIsSubmitting(false);
       handleClick();
     } catch (error: any) {

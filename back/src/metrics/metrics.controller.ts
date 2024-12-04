@@ -12,9 +12,19 @@ export class MetricsController {
         return this.metricsService.getMetrics();
     }
 
-    @Post()
+   @Post()
     async postMetrics() {
         return this.metricsService.postMetrics();
     }
+
+    @Post("/logi")
+    async startLogi() {
+        return this.metricsService.startLlogi();
+    }
+    @Post("/endlogi")
+    async endtLogi() {
+        return this.metricsService.endlogi();
+    }
 }
 
+ 
