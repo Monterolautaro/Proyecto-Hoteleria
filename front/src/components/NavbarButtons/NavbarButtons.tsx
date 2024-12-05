@@ -100,7 +100,8 @@ const NavbarButtons: React.FC = () => {
     if (userGoogleSession || userSession?.user.role.includes("suspended")) {
       return (
         <>
-          
+
+      <span className="text-red-500 font-bold">Suspended</span>
           <Logout
             setUserSession={setUserSession}
             setUserGoogleSession={setUserGoogleSession}

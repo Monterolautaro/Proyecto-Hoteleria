@@ -1,3 +1,5 @@
+import { IBooking } from "./bookings";
+
 export interface User {
   user_id: string | undefined;
   name: string;
@@ -10,12 +12,14 @@ export interface User {
     username: string | undefined;
   };
   role: string;
-  bookings: number;
+  bookings: IBooking[];
   birthday?: string;
   total_visits?: number;
   average_session_duration?: number;
   isSuspend?: boolean;
   profile_photo: string;
+  
+
 }
 
 export interface Hotel {
