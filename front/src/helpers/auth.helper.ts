@@ -12,7 +12,6 @@ export const registerUser = async (userData: {
   password: string;
   confirmPassword: string;
 }) => {
-  console.log("Works", userData);
 
   const response = await fetch(`${API_URL}/auth/signUp`, {
     method: "POST",

@@ -50,7 +50,6 @@ const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
 
     try {
       const token = Cookies.get("token");
-      console.log('este es el token', token);
       
       const response = await axios.post(uploadEndpoint, formData, {
         headers: {

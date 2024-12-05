@@ -39,7 +39,6 @@ const UsersList: React.FC = () => {
  
 
   const suspendUser = async (id: string): Promise<void> => {
-    console.log(id);
     try {
         const token = Cookies.get('token');
         if (!token) {
@@ -56,8 +55,6 @@ const UsersList: React.FC = () => {
                 },
             }
         );
-
-        console.log('User suspended:', response.data);
 
         setUsers((prevUsers) =>
             prevUsers.map((user) =>
@@ -88,8 +85,6 @@ const UsersList: React.FC = () => {
                 },
             }
         );
-
-        console.log('User unsuspended:', response.data);
 
         // Actualizar el estado local
         setUsers((prevUsers) =>
