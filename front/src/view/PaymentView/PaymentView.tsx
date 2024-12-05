@@ -41,10 +41,14 @@ const PaymentView: React.FC<{ params: string }> = ({ params }) => {
 
     const getGoogleData = async () => {
       const googleUserCookie = JSON.parse(Cookies.get("googleUser") || "{}");
+      const googleToken = Cookies.get("googleUserToken");
 
-      if (googleUserCookie) {
+      if (googleUserCookie && googleToken) {
         setUserGoogleCookie(googleUserCookie);
-        const userData = await getUserGoogleData(googleUserCookie!.email);
+        const userData = await getUserGoogleData(
+          googleUserCookie!.email,
+          googleToken
+        );
         if (userData) setGoogleUser(userData);
       }
     };

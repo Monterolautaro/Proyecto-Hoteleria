@@ -26,8 +26,9 @@ export interface Hotel {
 }
 export interface IUserData {
   name: string | undefined;
-  lastname: string | undefined;
-  birthdate: string | undefined;
+  lastname?: string | undefined;
+  birthdate?: string | undefined;
+  email?: string | undefined;
 }
 
 export interface IUserCredentials {

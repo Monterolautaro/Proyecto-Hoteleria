@@ -10,17 +10,33 @@ import UserBookings from "@/components/UserDashboard/UserBookings";
 import { userBookings } from "@/helpers/userDashboard/userBookings";
 import ProfilePhotoUploader from "@/components/profilePhotoUploader/profilePhotoUploader";
 import Swal from "sweetalert2";
-import { useRouter } from "next/navigation";
+import getUserGoogleData from "@/helpers/userDashboard/getGoogleUser";
+import { IUserGoogleData } from "@/interfaces";
 
 const UserDashboardView = () => {
   const [view, setView] = useState("userInfo");
   const [user, setUser] = useState<User | null>(null);
-  const router = useRouter();
+  const [userGoogle, setUserGoogle] = useState<IUserGoogleData | null>(null);
+  const [googleImg, setGoogleImg] = useState("");
+  const [sessionToken, setSessionToken] = useState("");
 
   useEffect(() => {
     const getData = async () => {
       const token = Cookies.get("token");
       const user = JSON.parse(Cookies.get("user") || "{}");
+      const googleToken = Cookies.get("googleUserToken");
+      const googleUser = JSON.parse(Cookies.get("googleUser") || "{}");
+
+      if (googleUser && googleToken) {
+        setSessionToken(googleToken);
+        setGoogleImg(googleUser.image);
+        console.log(googleUser);
+        const googleUserData = await getUserGoogleData(
+          googleUser.email,
+          googleToken
+        );
+        setUserGoogle(googleUserData);
+      }
 
       if (token) {
         const userData = await getUserData(user.id, token);
@@ -33,8 +49,9 @@ const UserDashboardView = () => {
   const handleRefresh = async () => {
     const token = Cookies.get("token");
     const user = JSON.parse(Cookies.get("user") || "{}");
-    console.log("refresh done");
+
     if (token) {
+      setSessionToken(token);
       const userData = await getUserData(user.id, token);
       setUser(userData);
     }
@@ -109,33 +126,73 @@ const UserDashboardView = () => {
       </div>
       {view === "userInfo" ? (
         <div className="w-full flex flex-col p-4 px-6 border border-slate-300 bg-white shadow-lg rounded-lg h-fit">
-          <div className="flex flex-row-reverse justify-between">
-            <div className="flex flex-col w-fit items-end relative">
-              <ProfilePhotoUploader
-                uploadEndpoint={`${API_URL}/files/upload/profile/${userId}`} // endpoint del back
-                currentPhoto="https://res.cloudinary.com/dln87ugim/image/upload/v1733280421/profile_xvxiir.png" // url predeterminada para perfiles sin foto
-              />
-            </div>
-            <div className="w-[60%]">
-              <h2 className="text-3xl font-bold mb-3">Personal Data </h2>
-              <h3 className="text-lg mb-8 w-full">
-                Here you can see and modify your personal data
-              </h3>
-            </div>
-          </div>
-          <div className="flex justify-cente">
-            <PersonalData
-              name={user?.name}
-              lastname={user?.lastname}
-              birthdate={user?.birthday}
-            />
-            <Credentials
-              username={user?.credential.username}
-              email={user?.credential.email}
-              userId={user?.user_id}
-              handleRefresh={handleRefresh}
-            />
-          </div>
+          {user ? (
+            <>
+              <div className="flex flex-row-reverse justify-between">
+                <div className="flex flex-col w-fit items-end relative">
+                  {userId && (
+                    <ProfilePhotoUploader
+                      token={sessionToken}
+                      uploadEndpoint={`${API_URL}/files/upload/profile/${userId}`} // endpoint del back
+                      currentPhoto="https://res.cloudinary.com/dln87ugim/image/upload/v1733280421/profile_xvxiir.png" // url predeterminada para perfiles sin foto
+                    />
+                  )}
+                </div>
+                <div className="w-[60%]">
+                  <h2 className="text-3xl font-bold mb-3">Personal Data </h2>
+                  <h3 className="text-lg mb-8 w-full">
+                    Here you can see and modify your personal data
+                  </h3>
+                </div>
+              </div>
+              <div className="flex justify-cente">
+                <PersonalData
+                  name={user?.name}
+                  lastname={user?.lastname}
+                  birthdate={user?.birthday}
+                />
+                <Credentials
+                  username={user?.credential.username}
+                  email={user?.credential.email}
+                  userId={user?.user_id}
+                  handleRefresh={handleRefresh}
+                />
+              </div>
+            </>
+          ) : (
+            userGoogle && (
+              <>
+                {" "}
+                <div className="flex flex-row-reverse justify-between">
+                  <div className="flex flex-col w-fit items-end relative">
+                    <div
+                      className="w-[120px] h-[120px] rounded-full bg-cover shadow-xl mr-4"
+                      style={{
+                        backgroundImage: googleImg
+                          ? `url(${googleImg})`
+                          : `url('https://via.placeholder.com/100')`,
+                      }} // url predeterminada para perfiles sin foto
+                    />
+                  </div>
+                  <div className="w-[60%]">
+                    <h2 className="text-3xl font-bold mb-3">Personal Data </h2>
+                    <h3 className="text-lg mb-1 w-full">
+                      Here you can see and modify your personal data
+                    </h3>
+                    <h3 className="font-light text-[#009375]">
+                      You are logged as google user
+                    </h3>
+                  </div>
+                </div>
+                <div className="flex justify-cente">
+                  <PersonalData
+                    name={userGoogle?.name}
+                    email={userGoogle.credential.email}
+                  />
+                </div>
+              </>
+            )
+          )}
         </div>
       ) : (
         <div className="w-full flex flex-col p-4 px-6 bg-white border border-slate-300 rounded-lg min-h-[50dvh]">

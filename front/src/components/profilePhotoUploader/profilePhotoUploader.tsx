@@ -5,11 +5,13 @@ import axios from "axios";
 interface ProfilePhotoUploaderProps {
   uploadEndpoint: string;
   currentPhoto: string;
+  token: string;
 }
 
 const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
   uploadEndpoint,
   currentPhoto,
+  token,
 }) => {
   const [file, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(currentPhoto);
@@ -43,7 +45,12 @@ const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
     formData.append("file", file);
 
     try {
-      const response = await axios.post(uploadEndpoint, formData);
+      const response = await axios.post(uploadEndpoint, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
 
       // Actualiza la imagen al nuevo URL devuelto por el backend
       setPreview(response.data.imageUrl);
