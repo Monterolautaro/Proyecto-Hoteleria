@@ -5,7 +5,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const getUserGoogleData = async (email: string, token: string) => {
   try {
     const response = await axios.post(
-      `${API_URL}/users/email`,
+      `${API_URL}/users/email/google`,
       {
         email: email,
       },

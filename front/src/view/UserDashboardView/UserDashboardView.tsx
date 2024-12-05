@@ -11,6 +11,7 @@ import ProfilePhotoUploader from "@/components/profilePhotoUploader/profilePhoto
 import Swal from "sweetalert2";
 import getUserGoogleData from "@/helpers/userDashboard/getGoogleUser";
 import { IUserGoogleData } from "@/interfaces";
+import { IUserBookings } from "@/helpers/userDashboard/userBookings";
 
 const UserDashboardView = () => {
   const [view, setView] = useState("userInfo");
@@ -18,7 +19,8 @@ const UserDashboardView = () => {
   const [userGoogle, setUserGoogle] = useState<IUserGoogleData | null>(null);
   const [googleImg, setGoogleImg] = useState("");
   const [sessionToken, setSessionToken] = useState("");
-  const [bookings, setBookings] = useState(null);
+  const [bookings, setBookings] = useState<IUserBookings[] | null>(null);
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     const getData = async () => {
@@ -36,13 +38,15 @@ const UserDashboardView = () => {
           googleToken
         );
         console.log(googleUserData);
-
+        setBookings(googleUserData.bookings);
         setUserGoogle(googleUserData);
       }
 
       if (token) {
         const userData = await getUserData(user.id, token); // Recibe info del usuario al montarse
-        console.log(userData);
+
+        setBookings(userData.bookings);
+
         setUser(userData);
       }
     };
@@ -56,8 +60,9 @@ const UserDashboardView = () => {
     if (token) {
       setSessionToken(token);
       const userData = await getUserData(user.id, token);
-
+      console.log("New image: ", userData.profile_photo);
       setUser(userData);
+      setImage(userData.profile_photo);
     }
   };
 
@@ -136,9 +141,10 @@ const UserDashboardView = () => {
                 <div className="flex flex-col w-fit items-end relative">
                   {userId && (
                     <ProfilePhotoUploader
+                      handleRefresh={handleRefresh}
                       token={sessionToken && sessionToken}
                       uploadEndpoint={`${API_URL}/files/upload/profile/${userId}`} // endpoint del back
-                      currentPhoto="https://res.cloudinary.com/dln87ugim/image/upload/v1733280421/profile_xvxiir.png" // url predeterminada para perfiles sin foto
+                      currentPhoto={image ? image : user.profile_photo} // url predeterminada para perfiles sin foto
                     />
                   )}
                 </div>
@@ -200,7 +206,7 @@ const UserDashboardView = () => {
         </div>
       ) : (
         <div className="w-full flex flex-col p-4 px-6 bg-white border border-slate-300 rounded-lg min-h-[50dvh]">
-          {/* <UserBookings bookings={userBookings} /> */}
+          {bookings && <UserBookings bookings={bookings} />}
         </div>
       )}
     </div>

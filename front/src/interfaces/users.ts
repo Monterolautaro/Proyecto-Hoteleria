@@ -15,6 +15,7 @@ export interface User {
   total_visits?: number;
   average_session_duration?: number;
   isSuspend?: boolean;
+  profile_photo: string;
 }
 
 export interface Hotel {
