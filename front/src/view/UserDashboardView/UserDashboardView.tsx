@@ -37,7 +37,7 @@ const UserDashboardView = () => {
           googleUser.email,
           googleToken
         );
-        console.log(googleUserData);
+
         setBookings(googleUserData.bookings);
         setUserGoogle(googleUserData);
       }
