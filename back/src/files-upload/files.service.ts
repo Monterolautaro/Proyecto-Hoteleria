@@ -25,7 +25,7 @@ export class FilesUploadService {
     try {
       // Buscamos la habitación que queremos subir la foto
       const room = await this.roomRepository.findOneBy({ room_id: roomId });
-
+      
       if (!room) throw new NotFoundException('Room not found');
 
       // Subimos la imagen a Cloudinary
@@ -51,9 +51,13 @@ export class FilesUploadService {
     }
   }
 
-  // EndPoint para crear la habitación, con las imagenes (rol: hotel_owner)
   createRoomAndImage(file: Express.Multer.File) {
-    throw new Error('Method not implemented.');
+    
+    // const room = new Room();
+    // room.type = 'Single';
+    // room.amount = 100;
+
+
   }
 
   async uploadProfilePhoto(file: Express.Multer.File, user_id: string): Promise<any> {

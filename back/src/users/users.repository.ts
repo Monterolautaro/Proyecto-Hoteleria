@@ -186,10 +186,7 @@ export class UserRepository {
       const user = await this.userRepository.findOne({
        where: { user_id },
        relations: { credential: true },
-      });
-
-      console.log('este es el user', user);
-      
+      });      
 
       if (!user) throw new NotFoundException(`User ${user_id} not found`);
       
