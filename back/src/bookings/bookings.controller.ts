@@ -1,4 +1,4 @@
-import { Controller, Param, ParseUUIDPipe, Put, UseGuards } from "@nestjs/common";
+import { Body, Controller, Param, ParseUUIDPipe, Put, UseGuards } from "@nestjs/common";
 import { ApiBearerAuth } from "@nestjs/swagger";
 import { RolesDecorator } from "decorators/roles.decorator";
 import { Roles } from "roles.enum";
@@ -19,7 +19,10 @@ export class BookingsController{
     @ApiBearerAuth()
     @RolesDecorator(Roles.admin, Roles.user, Roles.hotel_owner)
     @UseGuards(AuthGuard, RolesGuard)
-    softDeleteBooks(@Param('id', ParseUUIDPipe) booking_id: string) {
+    softDeleteBooks(@Param('id', ParseUUIDPipe) booking_id: string, @Body('note') note: string) {
+
+        console.log(note);
+        
         return this.bookingsService.softDeleteBooks(booking_id);
     }
 
