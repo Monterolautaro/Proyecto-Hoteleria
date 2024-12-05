@@ -1,17 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 interface ProfilePhotoUploaderProps {
   uploadEndpoint: string;
   currentPhoto: string;
-  token: string;
+  token?: string;
 }
 
 const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
   uploadEndpoint,
   currentPhoto,
-  token,
 }) => {
   const [file, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(currentPhoto);
@@ -28,6 +28,7 @@ const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
 
   const handleFileChange = (e: any) => {
     const file = e.target.files[0];
+
     if (file) {
       setSelectedFile(file);
       setPreview(URL.createObjectURL(file)); // Crear previsualización
@@ -45,6 +46,7 @@ const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
     formData.append("file", file);
 
     try {
+      const token = Cookies.get("token");
       const response = await axios.post(uploadEndpoint, formData, {
         headers: {
           Authorization: `Bearer ${token}`,

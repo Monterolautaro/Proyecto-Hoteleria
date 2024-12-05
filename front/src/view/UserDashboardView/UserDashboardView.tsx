@@ -30,7 +30,7 @@ const UserDashboardView = () => {
       if (googleUser && googleToken) {
         setSessionToken(googleToken);
         setGoogleImg(googleUser.image);
-        console.log(googleUser);
+
         const googleUserData = await getUserGoogleData(
           googleUser.email,
           googleToken
@@ -132,7 +132,7 @@ const UserDashboardView = () => {
                 <div className="flex flex-col w-fit items-end relative">
                   {userId && (
                     <ProfilePhotoUploader
-                      token={sessionToken}
+                      token={sessionToken && sessionToken}
                       uploadEndpoint={`${API_URL}/files/upload/profile/${userId}`} // endpoint del back
                       currentPhoto="https://res.cloudinary.com/dln87ugim/image/upload/v1733280421/profile_xvxiir.png" // url predeterminada para perfiles sin foto
                     />
