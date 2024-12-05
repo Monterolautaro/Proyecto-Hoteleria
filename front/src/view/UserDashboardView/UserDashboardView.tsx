@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { User } from "@/interfaces/users";
 import UserBookings from "@/components/UserDashboard/UserBookings";
-import { userBookings } from "@/helpers/userDashboard/userBookings";
 import ProfilePhotoUploader from "@/components/profilePhotoUploader/profilePhotoUploader";
 import Swal from "sweetalert2";
 import getUserGoogleData from "@/helpers/userDashboard/getGoogleUser";
@@ -19,6 +18,7 @@ const UserDashboardView = () => {
   const [userGoogle, setUserGoogle] = useState<IUserGoogleData | null>(null);
   const [googleImg, setGoogleImg] = useState("");
   const [sessionToken, setSessionToken] = useState("");
+  const [bookings, setBookings] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -41,7 +41,8 @@ const UserDashboardView = () => {
       }
 
       if (token) {
-        const userData = await getUserData(user.id, token);
+        const userData = await getUserData(user.id, token); // Recibe info del usuario al montarse
+        console.log(userData);
         setUser(userData);
       }
     };
@@ -55,7 +56,6 @@ const UserDashboardView = () => {
     if (token) {
       setSessionToken(token);
       const userData = await getUserData(user.id, token);
-      console.log(userData);
 
       setUser(userData);
     }
@@ -200,7 +200,7 @@ const UserDashboardView = () => {
         </div>
       ) : (
         <div className="w-full flex flex-col p-4 px-6 bg-white border border-slate-300 rounded-lg min-h-[50dvh]">
-          <UserBookings bookings={userBookings} />
+          {/* <UserBookings bookings={userBookings} /> */}
         </div>
       )}
     </div>
