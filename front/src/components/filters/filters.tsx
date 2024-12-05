@@ -54,6 +54,7 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
       const response = await axios.get(
         `${API_URL}/filter/hotel?${queryParams.toString()}`
       );
+      console.log("esto recibe", response.data);
 
       if (response.data.length === 0) response.data.push("empty");
 
