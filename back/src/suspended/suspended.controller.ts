@@ -13,23 +13,23 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 export class AdminUserController {
   constructor(private readonly suspendService: SuspendService) {}
 
-  @Put('/suspend')
+  @Put('/suspend/:id')
   @ApiBearerAuth()
   @RolesDecorator(Roles.admin)
   @UseGuards(AuthGuard, RolesGuard)
-  async suspendUser(@Param('user_id', ParseUUIDPipe) user_id: string) {
+  async suspendUser(@Param('id', ParseUUIDPipe) id: string) {
 
-      return await this.suspendService.suspendUser(user_id);
+      return await this.suspendService.suspendUser(id);
 
   }
 
-  @Put('/unsuspend')
+  @Put('/unsuspend/:id')
   @ApiBearerAuth()
   @RolesDecorator(Roles.admin)
   @UseGuards(AuthGuard, RolesGuard)
-  async unsuspendUser(@Param('user_id', ParseUUIDPipe) user_id: string) {
+  async unsuspendUser(@Param('id', ParseUUIDPipe) id: string) {
 
-      return await this.suspendService.unsuspendUser(user_id);
+      return await this.suspendService.unsuspendUser(id);
 
   }
 }

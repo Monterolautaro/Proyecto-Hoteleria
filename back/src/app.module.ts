@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
-
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config as dotenvConfig } from 'dotenv';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -18,6 +17,9 @@ import { StripeModule } from './nuevoPayments/nuevoPayments.module';
 import { MailModule } from './mail/mail.module';
 import { MercadopagoModule } from './mercadopago/mercadopago.module';
 import { MetricsModule } from './metrics/metrics.module';
+import { SuspendedModule } from './suspended/suspended.module';
+import { BookingsModule } from './bookings/bookings.module';
+
 
 dotenvConfig({
   path: '.env',
@@ -34,6 +36,7 @@ dotenvConfig({
         configService.get('typeorm'),
     }),
     MailModule,
+    BookingsModule,
     MetricsModule,
     MercadopagoModule,
     StripeModule,
@@ -45,6 +48,7 @@ dotenvConfig({
     HotelsModule,
     AuthModule,
     UsersModule,
+    SuspendedModule,
     JwtModule.register({
       global: true,
       signOptions: { expiresIn: '35m' },

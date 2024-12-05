@@ -24,7 +24,7 @@ const AdminDashboardView: React.FC = () => {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const token = Cookies.get('token'); // Asume que el token está en las cookies
+        const token = Cookies.get('token'); 
         if (!token) {
           throw new Error('No token found');
         }

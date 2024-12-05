@@ -38,40 +38,70 @@ const UsersList: React.FC = () => {
 
  
 
-  const suspendUser = async (userId: string): Promise<void> => {
+  const suspendUser = async (id: string): Promise<void> => {
+    console.log(id);
     try {
-      const response = await axios.put(`${API_URL}/admin/users/suspend/${userId}`);
-  
-      console.log('User suspended:', response.data);
-  
-      // Actualizar el estado local
-      setUsers((prevUsers) =>
-        prevUsers.map((user) =>
-          user.user_id === userId ? { ...user, isSuspend: true } : user
-        )
-      );
+        const token = Cookies.get('token');
+        if (!token) {
+            console.error('No token found in cookies');
+            return;
+        }
+
+        const response = await axios.put(
+            `${API_URL}/admin/users/suspend/${id}`,
+            {}, 
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+
+        console.log('User suspended:', response.data);
+
+        setUsers((prevUsers) =>
+            prevUsers.map((user) =>
+                user.user_id === id ? { ...user, isSuspend: true } : user
+            )
+        );
     } catch (error) {
-      console.error('Error suspending user:', error);
+        console.error('Error suspending user:', error);
     }
-  };
+};
+
   
-  const unsuspendUser = async (userId: string): Promise<void> => {
+  const unsuspendUser = async (id: string): Promise<void> => {
     try {
-      const response = await axios.put(`${API_URL}/admin/users/unsuspend/${userId}`);
-  
-      console.log('User unsuspended:', response.data);
-  
-      // Actualizar el estado local
-      setUsers((prevUsers) =>
-        prevUsers.map((user) =>
-          user.user_id === userId ? { ...user, isSuspend: false } : user
-        )
-      );
+        const token = Cookies.get('token');
+        if (!token) {
+            console.error('No token found in cookies');
+            return;
+        }
+
+        // Pasar headers correctamente
+        const response = await axios.put(
+            `${API_URL}/admin/users/unsuspend/${id}`,
+            {}, // No hay body en la solicitud, así que pasamos un objeto vacío
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`, 
+                },
+            }
+        );
+
+        console.log('User unsuspended:', response.data);
+
+        // Actualizar el estado local
+        setUsers((prevUsers) =>
+            prevUsers.map((user) =>
+                user.user_id === id ? { ...user, isSuspend: false } : user
+            )
+        );
     } catch (error) {
-      console.error('Error unsuspending user:', error);
+        console.error('Error unsuspending user:', error);
     }
-  };
-  
+};
+
   const handleViewDetails = (id: string): void => {
     router.push(`/userdetail/${id}`);
   };
@@ -103,14 +133,14 @@ const UsersList: React.FC = () => {
                   {user.isSuspend ? (
                     <button
                       onClick={() => unsuspendUser(user.user_id!)}
-                      className="bg-green-500 text-white font-bold py-1 px-3 rounded"
+                      className="bg-[#009375] text-white font-bold py-1 px-3 rounded"
                     >
                       Enable
                     </button>
                   ) : (
                     <button
                       onClick={() => suspendUser(user.user_id!)}
-                      className="bg-red-500 text-white font-bold py-1 px-3 rounded"
+                      className="bg-red-400 text-white font-bold py-1 px-3 rounded"
                     >
                       Disable
                     </button>
