@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseUUIDPipe,
@@ -57,5 +58,13 @@ export class HotelsController {
     @Body() hotelData: any,
   ) {
     return await this.hotelsService.createHotelByOwner(user_id, hotelData);
+  }
+
+  @Delete(':id')
+  @ApiBearerAuth()
+  @RolesDecorator(Roles.admin, Roles.user)
+  @UseGuards(AuthGuard, RolesGuard)
+  deleteUser(@Param('id', ParseUUIDPipe) id: string): Promise<any> {
+    return this.hotelsService.deleteHotel(id);
   }
 }
