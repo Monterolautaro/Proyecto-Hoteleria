@@ -17,6 +17,4 @@ export async function whenRegister(email: string) {
     text: 'Te has registrado correctamente en Hotelify', // plain text body
     html: '<b>Hello world?</b>', // html body
   });
-
-  console.log('Message sent: %s', info.messageId);
 }

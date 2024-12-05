@@ -40,14 +40,12 @@ export class AuthRepository {
     try {
       const foundEmail = await this.userRepository.getUserByEmail(userData.email);
       const foundUsername = await this.userRepository.getUserByUsername(userData.username);
-      console.log('Usuario existente verificado');
   
       if (foundEmail !== null) throw new BadRequestException('email already in use');
       if (foundUsername !== null) throw new BadRequestException('username already in use');
       if (userData.password !== userData.confirmPassword) throw new BadRequestException('Passwords do not match');
   
       const hashedPassword = await bcrypt.hash(userData.password, 10);
-      console.log('Contraseña encriptada');
   
       const user = queryRunner.manager.create(User, {
         name: userData.name,
@@ -56,7 +54,6 @@ export class AuthRepository {
         role: [Roles.user],
       });
       await queryRunner.manager.save(user);
-      console.log('Usuario guardado');
   
       const credential = queryRunner.manager.create(Credentials, {
         username: userData.username,
@@ -65,29 +62,26 @@ export class AuthRepository {
         user,
       });
       await queryRunner.manager.save(credential);
-      console.log('Credenciales guardadas');
   
       await queryRunner.manager.update(User, user.user_id, {
         credential,
       });
-      console.log('Usuario actualizado');
   
       this.mailService.setRecipient(userData.email);
       this.mailService.mailNotifLogin(userData.name);
-      console.log('Correo enviado');
   
       await queryRunner.commitTransaction();
-      console.log('Transacción comprometida');
+     
       return { status: 201, message: 'User created successfully' };
     } catch (error) {
-      console.log('Error:', error);
+    
       await queryRunner.rollbackTransaction();
-      console.log('Transacción revertida');
+     
   
       throw new BadRequestException('An error has occurred creating user', error);
     } finally {
       await queryRunner.release();
-      console.log('Query runner liberado');
+    
     }
   }
   
@@ -231,7 +225,9 @@ export class AuthRepository {
   async signIn(email: string, password: string) {
     try {
       if (!email || !password) return 'data is required';
+      
       const foundUser = await this.userRepository.getUserByEmail(email);
+      
       if (foundUser === null)
         throw new NotFoundException('User not registered');
       
@@ -242,7 +238,7 @@ export class AuthRepository {
       
       if (!isPasswordValid)
         throw new UnauthorizedException('Invalid credentials');
-
+      
       const payload = {
         id: foundUser.user_id,
         email,
@@ -257,11 +253,11 @@ export class AuthRepository {
     } catch (error) {
 
       if(error instanceof NotFoundException){
-        throw new NotFoundException('User not registered');
+        throw error
       }
 
       if(error instanceof UnauthorizedException){
-        throw new UnauthorizedException('Invalid credentials');
+        throw error
       }
 
       throw new BadRequestException('Something got wrong signing in', error);
