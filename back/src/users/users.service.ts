@@ -21,11 +21,15 @@ export class UserService {
   }
 
   getUserByEmail(email: string) {
-    try {
+ 
       return this.userRepository.getUserByEmail(email);
-    } catch (error) {
-      throw new BadRequestException('Something got wrong getting user', error);
-    }
+ 
+  }
+
+  getUserByEmailFromGoogle(email: string) {
+  
+      return this.userRepository.getUserByEmailFromGoogle(email);
+  
   }
 
   getUserByUsername(username: string) {
