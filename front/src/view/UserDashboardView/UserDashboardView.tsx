@@ -56,13 +56,24 @@ const UserDashboardView = () => {
   const handleRefresh = async () => {
     const token = Cookies.get("token");
     const user = JSON.parse(Cookies.get("user") || "{}");
+    const googleToken = Cookies.get("googleUserToken");
+    const googleUser = JSON.parse(Cookies.get("googleUser") || "{}");
 
     if (token) {
       setSessionToken(token);
       const userData = await getUserData(user.id, token);
       console.log("New image: ", userData.profile_photo);
+      setBookings(userData.bookings);
       setUser(userData);
       setImage(userData.profile_photo);
+    }
+
+    if (googleToken && googleUser) {
+      const googleUserData = await getUserGoogleData(
+        googleUser.email,
+        googleToken
+      );
+      setBookings(googleUserData.bookings);
     }
   };
 

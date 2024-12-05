@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -17,8 +18,11 @@ const cancelBooking = async (bookId: string, token: string) => {
     console.log(response.data);
 
     return true;
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    Swal.fire({
+      title: error.message,
+      icon: "error",
+    });
   }
 };
 

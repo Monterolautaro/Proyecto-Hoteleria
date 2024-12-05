@@ -14,7 +14,9 @@ const UserBooking: React.FC<{ booking: IUserBookings; id: number }> = ({
             <div>
               <CancelButton bookId={booking.booking_id} />
             </div>
-          ) : null}
+          ) : (
+            <p>Status: Cancelled</p>
+          )}
         </h3>
       </div>
       <h3 className="text-lg font-medium">{booking.hotel.name}</h3>
