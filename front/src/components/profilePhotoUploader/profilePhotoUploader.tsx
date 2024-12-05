@@ -50,7 +50,7 @@ const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
       const response = await axios.post(uploadEndpoint, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'multipart/form-data',
         },
       });
 
