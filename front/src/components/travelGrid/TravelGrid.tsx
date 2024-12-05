@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 // components/TravelGrid.tsx
+
+import Link from "next/link";
 import React from "react";
 
 interface TravelCardProps {
@@ -9,16 +11,20 @@ interface TravelCardProps {
 
 const TravelCard: React.FC<TravelCardProps> = ({ image, location }) => {
   return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg h-full">
-      <img
-        src={image}
-        alt={location}
-        className="max-w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-25 flex items-end p-3">
-        <h3 className="text-white font-bold text-lg">{location}</h3>
+    <Link href={`/search-results?search=${encodeURIComponent(location)}`}>
+
+      <div className="relative overflow-hidden rounded-lg shadow-lg h-full cursor-pointer hover:shadow-lg transition-shadow duration-300">
+        <img
+          src={image}
+          alt={location}
+          className="max-w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-25 flex items-end p-3">
+          <h3 className="text-white font-bold text-lg">{location}</h3>
+        </div>
+
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -33,8 +39,8 @@ const TravelGrid: React.FC = () => {
       location: "Medellin",
     },
     {
-      image: "/assets/mendoza.jpg",
-      location: "Mendoza",
+      image: "/assets/salta.jpg",
+      location: "Salta",
     },
     {
       image: "/assets/San-andres.webp",
@@ -49,16 +55,16 @@ const TravelGrid: React.FC = () => {
       location: "Bogota",
     },
     {
-      image: "https://via.placeholder.com/600x400?text=Buenos+Aires",
-      location: "Buenos Aires",
+      image: "/assets/neuquen.jpg",
+      location: "Neuquén",
     },
     {
-      image: "https://via.placeholder.com/600x400?text=Barranquilla",
-      location: "Barranquilla",
+      image: "/assets/puertomadryn.webp",
+      location: "Puerto Madryn",
     },
     {
-      image: "https://via.placeholder.com/600x400?text=Bogota",
-      location: "Bogota",
+      image: "/assets/ushuaia.webp",
+      location: "Ushuaia",
     },
   ];
 

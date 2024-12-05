@@ -1,8 +1,7 @@
+// import { config } from "dotenv";
+// config({ path: ".env" });
 
-import { config } from "dotenv";
-config({ path: ".env" });
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL;;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const registerUser = async (userData: {
   name: string;
@@ -13,20 +12,19 @@ export const registerUser = async (userData: {
   password: string;
   confirmPassword: string;
 }) => {
-  const response = await fetch(
-    `${API_URL}/auth/signUp`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
+  console.log("Works", userData);
 
-    }
-  );
+  const response = await fetch(`${API_URL}/auth/signUp`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  });
 
   if (!response.ok) {
     const error = await response.json();
+
     throw new Error(error.message || "Registration failed");
   }
 
@@ -47,7 +45,7 @@ export const loginUser = async (credentials: {
 
   if (!response.ok) {
     const error = await response.json();
-    throw new Error(error.message || "Login failed");
+    throw new Error(error.message);
   }
 
   return response.json();

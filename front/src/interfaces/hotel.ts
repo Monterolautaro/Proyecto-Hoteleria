@@ -1,13 +1,31 @@
 export interface Hotel {
-    id: number;
-    imageUrl: string;
-    title: string;
-    location: string;
-    description: string;
-    price: number;
+  hotel_id: string;
+  name: string;
+  address: {
+    city: string;
+    country: string;
+    street: string;
+  };
+  details: {
+    stars: number;
     rating: number;
-  }
-  
+    imgUrl: string;
+    description: string;
+  };
+  room: {
+    type: string;
+    room_type: {
+      price: string;
+      currency: string;
+      description: string;
+    };
+  }[];
+  availability?: {
+    available: boolean;
+    totalRoomsLeft: number;
+}
+};
+
   export interface Filters {
     price: string[];
     country: string[];

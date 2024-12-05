@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { Metrics } from './metrics.entity';
 import { v4 as uuid } from 'uuid';
-import { User } from '../user.entity';
+import { User } from '../users/user.entity';
 
 @Entity({
   name: 'visits_metrics',
@@ -26,7 +26,7 @@ export class VisitsMetrics {
   @JoinColumn({ name: 'metrics_id' })
   metrics: Metrics;
 
-  @ManyToOne(() => User, (usuario) => usuario.visit_metrics)
+  /*@ManyToOne(() => User, (usuario) => usuario.visit_metrics)
   @JoinColumn({ name: 'user_id' })
-  user: User;
+  user: User;*/
 }

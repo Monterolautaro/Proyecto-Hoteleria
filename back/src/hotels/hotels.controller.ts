@@ -14,15 +14,14 @@ import { AuthGuard } from 'src/auth/auth.guard';
 import { RolesDecorator } from 'decorators/roles.decorator';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'roles.enum';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Hotels')
 @Controller('hotels')
 export class HotelsController {
   constructor(private readonly hotelsService: HotelsService) {}
 
   @Post('/batch')
-  @RolesDecorator(Roles.admin)
-  @UseGuards(AuthGuard)
-  @UseGuards(RolesGuard)
   async insertHotel(@Body() hotelData: any) {
     try {
       return this.hotelsService.inserHotel(hotelData);
@@ -49,6 +48,14 @@ export class HotelsController {
     }
   }
 
-
-
+  @Post('/create/:id')
+  @ApiBearerAuth()
+  @RolesDecorator(Roles.hotel_owner)
+  @UseGuards(AuthGuard, RolesGuard)
+  async createHotelByOwner(
+    @Param('id', ParseUUIDPipe) user_id: string,
+    @Body() hotelData: any,
+  ) {
+    return await this.hotelsService.createHotelByOwner(user_id, hotelData);
+  }
 }

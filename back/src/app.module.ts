@@ -1,6 +1,6 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
-
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config as dotenvConfig } from 'dotenv';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -12,6 +12,14 @@ import { SearchModule } from './search/search.module';
 import { PaymentsModule } from './payments/payments.module';
 import { FilesUploadModule } from './files-upload/files.module';
 import { UsersModule } from './users/users.module';
+import { FilterModule } from './filter/filter.module';
+import { StripeModule } from './nuevoPayments/nuevoPayments.module';
+import { MailModule } from './mail/mail.module';
+import { MercadopagoModule } from './mercadopago/mercadopago.module';
+import { MetricsModule } from './metrics/metrics.module';
+import { SuspendedModule } from './suspended/suspended.module';
+import { BookingsModule } from './bookings/bookings.module';
+
 
 dotenvConfig({
   path: '.env',
@@ -27,16 +35,23 @@ dotenvConfig({
       useFactory: (configService: ConfigService) =>
         configService.get('typeorm'),
     }),
+    MailModule,
+    BookingsModule,
+    MetricsModule,
+    MercadopagoModule,
+    StripeModule,
+    FilterModule,
     FilesUploadModule,
     SearchModule,
-    // PaymentsModule,
+    PaymentsModule,
     IaModule,
     HotelsModule,
     AuthModule,
     UsersModule,
+    SuspendedModule,
     JwtModule.register({
       global: true,
-      signOptions: { expiresIn: '15m' },
+      signOptions: { expiresIn: '35m' },
       secret: process.env.JWT_SECRET,
     }),
   ],

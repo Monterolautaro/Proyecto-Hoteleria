@@ -1,18 +1,19 @@
+/* eslint-disable prettier/prettier */
 import {
   Column,
   Entity,
   JoinColumn,
+  ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { v4 as uuid } from 'uuid';
-import { User } from './user.entity';
+import { User } from './users/user.entity';
 import { PaymentDetails } from './payments/paymentdetails.entity';
 
 @Entity()
 export class Payment {
   @PrimaryGeneratedColumn('uuid')
-  payment_id: string = uuid();
+  payment_id: string;
 
   @Column()
   amount: number;
@@ -23,11 +24,17 @@ export class Payment {
   @Column()
   method: string;
 
-  @OneToOne(() => User, (user) => user.payment)
+  @Column()
+  status: string;
+
+  @Column( { nullable: true })
+  stripePaymentIntentId: string;
+
+  @ManyToOne(() => User, (user) => user.payment)
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @OneToOne(() => PaymentDetails, (paymentDetails) => paymentDetails.details)
+  @OneToOne(() => PaymentDetails, (paymentDetails) => paymentDetails.payment)
   @JoinColumn({ name: 'payment_details_id' })
   payment_details: PaymentDetails;
 }

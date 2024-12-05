@@ -36,9 +36,18 @@ export const ModeloHTMLPago = `
     </style>
 </head>
 <body>
+<<<<<<< HEAD
     <h1>Certificado de pago</h1>
     <img src="./logoEmp.jpg" alt="Imagen representativa">
     <p>Se proceso correctamente el pago por el hotel</p>
 </body>
 </html>
 `;
+=======
+    <h1>Verificacion del pago</h1>
+    <img src="./logoEmp.jpg" alt="Imagen representativa">
+    <p>Agregar luego el mensaje del pago.</p>
+</body>
+</html>
+`;
+>>>>>>> af11fb3d8cb9531aae96de2c3b69dc1249047869

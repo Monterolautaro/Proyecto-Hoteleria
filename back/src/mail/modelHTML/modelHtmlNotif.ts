@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 export const ModeloHTMLNotif = `
+=======
+export const ModeloHTML = `
+>>>>>>> af11fb3d8cb9531aae96de2c3b69dc1249047869
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +42,11 @@ export const ModeloHTMLNotif = `
 <body>
     <h1>Bienvenido a Hotelefy</h1>
     <img src="./logoEmp.jpg" alt="Imagen representativa">
+<<<<<<< HEAD
     <p>Felicidades, su usuario %name% ha sido registrado nen nuestro sistema exitosamente. Muchas gracias por inscribirse en nuestra página.</p>
+=======
+    <p>Felicidades, su usuario %name% ha sido creado exitosamente. Muchas gracias por inscribirse en nuestra página Hotelefy.</p>
+>>>>>>> af11fb3d8cb9531aae96de2c3b69dc1249047869
 </body>
 </html>
 `;

@@ -7,10 +7,11 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { User } from './user.entity';
+import { User } from './users/user.entity';
 import { Hotel } from './hotel/hotel.entity';
 import { BookingMetrics } from './metrics/booking.metric.entity';
 import { PaymentDetails } from './payments/paymentdetails.entity';
+import { BookedRooms } from './hotel/rooms/booked.rooms.entity';
 
 @Entity({
   name: 'booking',
@@ -19,14 +20,14 @@ export class Booking {
   @PrimaryGeneratedColumn('uuid')
   booking_id: string = uuid();
 
-  @Column('uuid')
-  room_id: string;
+  @Column('date')
+  start_date: Date;
 
   @Column('date')
-  checkIn: Date;
+  end_date: Date;
 
-  @Column('date')
-  checkOut: Date;
+  @Column({default: false})
+  isDeleted: boolean;
 
   @ManyToOne(() => User, (user) => user.bookings)
   @JoinColumn({ name: 'user_id' })
@@ -36,12 +37,12 @@ export class Booking {
   @JoinColumn({ name: 'hotel_id' })
   hotel!: Hotel;
 
-  @OneToOne(() => BookingMetrics, (bookingMetrics) => bookingMetrics.booking)
-  booking_metrics!: BookingMetrics;
-
   //conexion uno a uno con paymentsdetails
   @OneToOne(() => PaymentDetails, (paymentsDetails) => paymentsDetails.booking)
   @JoinColumn({ name: 'payments_details_id' })
   payments_details!: PaymentDetails;
 
+  @OneToOne(() => BookedRooms, (room) => room.booking)
+  @JoinColumn({ name: 'booked_rooms_id' })
+  booked_rooms?: BookedRooms;
 }
