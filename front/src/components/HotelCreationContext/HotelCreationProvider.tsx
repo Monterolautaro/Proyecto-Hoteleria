@@ -138,7 +138,8 @@ export const HotelCreationProvider = ({
     }
 
     try {
-      const result = await uploadImages(images, user.id || "test-token");
+      const token = Cookies.get("token");
+      const result = await uploadImages(images, user.id || "test-token", token!);
       return result;
     } catch (error) {
       console.error("Error uploading images:", error);

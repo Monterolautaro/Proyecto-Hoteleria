@@ -50,12 +50,16 @@ const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
 
     try {
       const token = Cookies.get("token");
+      console.log('este es el token', token);
+      
       const response = await axios.post(uploadEndpoint, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
-      });
+      }
+    );
+    
 
       // Actualiza la imagen al nuevo URL devuelto por el backend
       setPreview(response.data.imageUrl);
