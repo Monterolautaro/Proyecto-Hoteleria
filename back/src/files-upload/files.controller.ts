@@ -45,6 +45,7 @@ export class FilesUploadController {
     )
     file: Express.Multer.File,
   ) {
+    
     return await this.filesUploadService.uploadImageToCloudById(file, roomId);
   }
 
