@@ -50,20 +50,18 @@ export class FilterRepository {
         );
       }
 
-      
-
+    
       // filtro por amenities
       if (amenities) {
         const amenitiesArray = amenities
           .trim()
           .split(',')
-          .map((name) => name.trim());
+          .map((name) => name.trim().toLowerCase());
     
         filteredHotels = filteredHotels.filter((hotel) =>
           amenitiesArray.every((amenity) => hotel.amenities[amenity] === true),
         );
       }
-      
       
       return filteredHotels;
     } catch (error) {

@@ -3,7 +3,7 @@ export const uploadImages = async (files: File[], id: string, token: string): Pr
   
   const formData = new FormData();
   files.forEach((file) => {
-    formData.append("images", file);
+    formData.append("file", file);
   });
 
   try {
@@ -12,7 +12,6 @@ export const uploadImages = async (files: File[], id: string, token: string): Pr
       method: "POST",
       body: formData,
       headers: {
-        
         Authorization: `Bearer ${token}`,
       }
     });
