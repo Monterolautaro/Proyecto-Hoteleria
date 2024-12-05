@@ -42,6 +42,8 @@ const UserDashboardView = () => {
 
       if (token) {
         const userData = await getUserData(user.id, token);
+        console.log(' este es el user data', userData);
+        
         setUser(userData);
       }
     };
