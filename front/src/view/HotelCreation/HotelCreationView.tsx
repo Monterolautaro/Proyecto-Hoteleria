@@ -33,7 +33,7 @@ const HotelCreationView = () => {
       name: hotelInfo.name,
       details: {
         stars: parseInt(hotelDetails.stars, 10),
-        rating: parseFloat(hotelDetails.rating),
+        rating: 4,
         imgUrl: hotelDetails.img,
         description: hotelDetails.description,
       },
@@ -49,9 +49,9 @@ const HotelCreationView = () => {
       rooms: hotelRooms,
       amenities: {
         pool: false,
-        spa: false,
-        gym: false,
-        restaurant: false,
+        spa: true,
+        gym: true,
+        restaurant: true,
         bar: false,
       },
     };

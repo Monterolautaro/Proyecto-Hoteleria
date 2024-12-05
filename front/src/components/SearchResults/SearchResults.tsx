@@ -19,8 +19,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotelsData }) => {
 
   useEffect(() => {
     if (query && hotelsData?.length! === 0) {
-      console.log("aquí renderiza cuando no hay .length");
-
       const fetchHotels = async () => {
         setLoading(true);
         try {
@@ -53,10 +51,16 @@ const SearchResults: React.FC<SearchResultsProps> = ({ hotelsData }) => {
             hotels.map((hotel, key) => (
               <HotelCardResults key={key} hotel={hotel as Hotel} />
             ))
+          ) : hotels[0] === "empty" ? (
+            <>
+              <p className="text-gray-600">No results found for this filter</p>
+            </>
           ) : (
-            <p className="text-gray-600">
-              No results found{query && ` for "${query}"`}
-            </p>
+            <>
+              <p className="text-gray-600">
+                No results found{query && ` for "${query}"`}
+              </p>
+            </>
           )}
         </div>
       )}
