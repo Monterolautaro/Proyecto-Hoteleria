@@ -96,7 +96,10 @@ const NavbarButtons: React.FC = () => {
       );
     }
 
-    if (userGoogleSession || userSession?.user.role.includes("user")) {
+    if (
+      (userGoogleSession && googleUser?.role.includes("user")) ||
+      userSession?.user.role.includes("user")
+    ) {
       return (
         <>
           <Link href="/dashboard" className={styles.bubbleLink}>
