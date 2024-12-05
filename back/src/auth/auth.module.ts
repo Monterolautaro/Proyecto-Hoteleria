@@ -10,6 +10,7 @@ import { UsersModule } from 'src/users/users.module';
 import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { MailModule } from 'src/mail/mail.module';
 import { MailService } from 'src/mail/mail.service';
+import { MetricsRepository } from 'src/metrics/metrics.repository';
 
 @Module({
   imports: [
@@ -18,6 +19,6 @@ import { MailService } from 'src/mail/mail.service';
     MailModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, AuthRepository, UserRepository, MailService],
+  providers: [AuthService, AuthRepository, UserRepository, MailService, MetricsRepository],
 })
 export class AuthModule {}

@@ -10,6 +10,7 @@ import { Details } from 'src/entities/hotel/hotel.details.entity';
 import { Availability } from 'src/entities/hotel/hotel.availability.entity';
 import { Amenities } from 'src/entities/hotel/hotel.amenities.entity';
 import { Address } from 'src/entities/hotel/hotel.address.entity';
+import { UserRepository } from 'src/users/users.repository';
 
 @Module({
   imports: [

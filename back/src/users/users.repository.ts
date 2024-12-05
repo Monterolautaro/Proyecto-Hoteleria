@@ -6,6 +6,7 @@ import { NotFoundException } from '@nestjs/common';
 import { Credentials } from 'src/entities/credentials.entity';
 import * as bcrypt from 'bcryptjs';
 import { Roles } from 'roles.enum';
+import { MetricsRepository } from 'src/metrics/metrics.repository';
 
 @Injectable()
 export class UserRepository {
@@ -13,6 +14,7 @@ export class UserRepository {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
     @InjectRepository(Credentials)
     private readonly credentialsRepository: Repository<Credentials>,
+    private readonly metricsRepository: MetricsRepository,
   ) {}
 
   async getUsers(): Promise<User[]> {
@@ -32,7 +34,7 @@ export class UserRepository {
        relations: { credential: true , bookings: { hotel: true, booked_rooms: true, payments_details: true }, payment: true },
       });
       if (!user) throw new NotFoundException(`User ${user_id} not found`);
-
+      this.metricsRepository.endLogin(user_id);
       return user;
     } catch (error) {
       throw new BadRequestException(

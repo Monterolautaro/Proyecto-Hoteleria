@@ -17,6 +17,7 @@ import { VerificationCode } from 'src/entities/verification-codes.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { randomBytes } from 'crypto';
 import { MailService } from 'src/mail/mail.service';
+import { MetricsRepository } from 'src/metrics/metrics.repository';
 
 @Injectable()
 export class AuthRepository {
@@ -29,6 +30,7 @@ export class AuthRepository {
     private readonly verificationCodeRepository: Repository<VerificationCode>,
     @InjectRepository(User)
     private readonly entityUserRepository: Repository<User>,
+    private readonly metricRepository: MetricsRepository,
   ) {}
 
   async signUp(userData: CreateUserDto): Promise<any> {
@@ -69,6 +71,8 @@ export class AuthRepository {
   
       this.mailService.setRecipient(userData.email);
       this.mailService.mailNotifLogin(userData.name);
+      this.metricRepository.startLogin(user.user_id)
+
   
       await queryRunner.commitTransaction();
      

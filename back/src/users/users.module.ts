@@ -6,6 +6,7 @@ import { Credentials } from 'src/entities/credentials.entity';
 import { UserRepository } from './users.repository';
 import { UserService } from './users.service';
 import { UserController } from './users.controller';
+import { MetricsRepository } from 'src/metrics/metrics.repository';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { UserController } from './users.controller';
     forwardRef(() => AuthModule),
   ],
   controllers: [UserController],
-  providers: [UserRepository, UserService],
-  exports: [UserRepository],
+  providers: [UserRepository, UserService, MetricsRepository],
+  exports: [UserRepository, MetricsRepository],
 })
 export class UsersModule {}

@@ -1,32 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
-import { Metrics } from '../entities/metrics/metrics.entity';
-import { BookingMetrics } from 'src/entities/metrics/booking.metric.entity';
-import { MetricTypes } from 'src/entities/metrics/metrics.types.entity';
-import { SearchMetrics } from 'src/entities/metrics/search.metric.entity';
-import { TimeMetrics } from 'src/entities/metrics/time.metrics.entity';
-import { VisitsMetrics } from 'src/entities/metrics/visits.metric.entity';
 import { User } from 'src/entities/users/user.entity';
+import { Client } from 'pg';
 
 @Injectable()
 export class MetricsRepository {
-    private recipient: number | null = null; // Inicialmente sin valor
+    private recipient: number | null = 0; // Inicialmente sin valor
+
     constructor(
-        @InjectRepository(Metrics)
-        private readonly metricsRepository: Repository<Metrics>,
+        /*@InjectRepository(Metrics)
+        private readonly metricsRepository: Repository<Metrics>,*/
 
         private readonly dataSource: DataSource,
-        @InjectRepository(BookingMetrics)
-        private bookingMetricsRepository: Repository<BookingMetrics>,
-        @InjectRepository(MetricTypes)
-        private metricTypesRepository: Repository<MetricTypes>,
-        @InjectRepository(SearchMetrics)
-        private searchMetricsRepository: Repository<SearchMetrics>,
-        @InjectRepository(TimeMetrics)
-        private timeMetricsRepository: Repository<TimeMetrics>,
-        @InjectRepository(VisitsMetrics)
-        private visitsMetricsRepository: Repository<VisitsMetrics>,
         @InjectRepository(User)
         private userRepository: Repository<User>,
         /*@InjectRepository(RoomType)
@@ -34,21 +20,25 @@ export class MetricsRepository {
     ) { }
 
 
+    async contarUsuariosYHoteles() {
+        
+    }
+
     async getMetrics() {
-        try {
+        /*try {
             return this.metricsRepository.find();
         } catch (error) {
             console.log('error', error);
-        }
+        }*/
 
     }
 
     async postMetrics() {
-        try {
+        /*try {
             return this.metricsRepository.find();
         } catch (error) {
             console.log('ERROR: ', error);
-        }
+        }*/
 
     }
 
@@ -89,7 +79,6 @@ export class MetricsRepository {
         const totalMinutesSince1970 = Math.floor(now.getTime() / (1000 * 60)); // Convierte milisegundos a minutos
 
         const valor = totalMinutesSince1970 - this.recipient
-        
 
         user.average_session_duration += valor;
 
