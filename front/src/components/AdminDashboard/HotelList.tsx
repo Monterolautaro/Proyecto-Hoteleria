@@ -5,14 +5,12 @@ import { Hotel } from '@/interfaces/hotel';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useRouter } from 'next/navigation';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const HotelsList = () => {
   const [page, setPage] = useState(1);
   const [hotels, setHotels] = useState<Hotel[] | null>(null);
-  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,12 +53,7 @@ const HotelsList = () => {
     <div className="w-full flex flex-col">
       <div className="w-[85%] max-w-[85%] mx-auto">
         <div className="flex justify-between items-center mb-4">
-          <button
-            onClick={() => router.push('/hotelcreation')}
-            className="px-4 py-2 rounded-lg bg-[#009375] text-white font-semibold hover:bg-[#007c5f]"
-          >
-            Create Hotel
-          </button>
+          
         </div>
         <table className="min-w-full bg-white border border-gray-200">
           <thead>
@@ -85,12 +78,7 @@ const HotelsList = () => {
                       : 'Not available'}
                   </td>
                   <td className="border border-gray-200 px-4 py-2 text-center flex justify-center gap-2">
-                    <button
-                      className="px-2 py-1 rounded bg-[#FAB432] text-white font-semibold"
-                      onClick={() => console.log('Edit button clicked')} // Sin funcionalidad por ahora
-                    >
-                      Edit
-                    </button>
+                    
                     <button
                       className="px-2 py-1 rounded bg-red-500 text-white font-semibold hover:bg-red-600"
                       onClick={() => handleDelete(hotel.hotel_id)}

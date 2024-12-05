@@ -32,6 +32,7 @@ const UserDetail: React.FC<{ params: string }> = ({ params }) => {
   return (
     <div className="p-6 w-[80%] mx-auto">
       <div className="flex gap-6">
+        {/* User Details Section */}
         <div className="bg-white shadow rounded-lg p-4 mb-6 w-[50%]">
           <h2 className="text-2xl font-bold mb-4">User Details</h2>
           <p>
@@ -60,6 +61,7 @@ const UserDetail: React.FC<{ params: string }> = ({ params }) => {
           </p>
         </div>
 
+        {/* Bookings Section */}
         <div className="bg-white shadow rounded-lg p-4 mb-6 w-[50%]">
           <h2 className="text-2xl font-bold mb-4">Bookings</h2>
           {bookings && bookings.length > 0 ? (
@@ -74,6 +76,7 @@ const UserDetail: React.FC<{ params: string }> = ({ params }) => {
         </div>
       </div>
 
+      {/* Go Back Button */}
       <div className="flex justify-center mt-6">
         <button
           onClick={() => router.push("/admin")}

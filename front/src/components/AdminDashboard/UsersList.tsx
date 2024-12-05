@@ -135,14 +135,14 @@ const UsersList: React.FC = () => {
                       onClick={() => unsuspendUser(user.user_id!)}
                       className="bg-[#009375] text-white font-bold py-1 px-3 rounded"
                     >
-                      Enable
+                      Unsuspend
                     </button>
                   ) : (
                     <button
                       onClick={() => suspendUser(user.user_id!)}
-                      className="bg-red-400 text-white font-bold py-1 px-3 rounded"
+                      className="bg-[#9b9b9b] text-white font-bold py-1 px-3 rounded"
                     >
-                      Disable
+                      Suspend
                     </button>
                   )}
                 </td>
