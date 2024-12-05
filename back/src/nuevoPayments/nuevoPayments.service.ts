@@ -96,6 +96,7 @@ export class StripeService {
 
       // guardo booking en paymentdetails
       paymentDetails.booking = booking;
+      await queryRunner.manager.save(paymentDetails);
 
       const payment = await queryRunner.manager.save(
         // Guardar los detalles del pago en la base de datos usando stripePaymentIntentId
@@ -111,14 +112,16 @@ export class StripeService {
       // establezco relaciones de payment
       payment.user = user;
       payment.payment_details = paymentDetails;
+      await queryRunner.manager.save(payment);
 
       // guardo payment en paymentdetails
       paymentDetails.payment = payment;
+      await queryRunner.manager.save(paymentDetails);
 
       // guardo paymentdetails en booking
       booking.payments_details = paymentDetails;
+      await queryRunner.manager.save(booking);
       
-      await queryRunner.manager.save(paymentDetails);
 
       // Confirmar la transacción
       await queryRunner.commitTransaction();

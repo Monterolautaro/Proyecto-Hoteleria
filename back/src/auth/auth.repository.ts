@@ -231,7 +231,9 @@ export class AuthRepository {
   async signIn(email: string, password: string) {
     try {
       if (!email || !password) return 'data is required';
+      
       const foundUser = await this.userRepository.getUserByEmail(email);
+      
       if (foundUser === null)
         throw new NotFoundException('User not registered');
       
@@ -242,7 +244,7 @@ export class AuthRepository {
       
       if (!isPasswordValid)
         throw new UnauthorizedException('Invalid credentials');
-
+      
       const payload = {
         id: foundUser.user_id,
         email,
@@ -257,11 +259,11 @@ export class AuthRepository {
     } catch (error) {
 
       if(error instanceof NotFoundException){
-        throw new NotFoundException('User not registered');
+        throw error
       }
 
       if(error instanceof UnauthorizedException){
-        throw new UnauthorizedException('Invalid credentials');
+        throw error
       }
 
       throw new BadRequestException('Something got wrong signing in', error);

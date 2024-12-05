@@ -48,7 +48,7 @@ export class UserRepository {
         where: { credential: { email } },
         relations: { credential: true },
       });
-
+      
       return user || null;
     } catch (error) {
       throw new BadRequestException(
