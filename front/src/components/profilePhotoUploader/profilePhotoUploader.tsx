@@ -1,15 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
+import { Toast } from "@/helpers/toast";
 
 interface ProfilePhotoUploaderProps {
   uploadEndpoint: string;
   currentPhoto: string;
+  token?: string;
+  handleRefresh: () => void;
 }
 
 const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
   uploadEndpoint,
   currentPhoto,
+  handleRefresh,
 }) => {
   const [file, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(currentPhoto);
@@ -26,6 +31,7 @@ const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
 
   const handleFileChange = (e: any) => {
     const file = e.target.files[0];
+
     if (file) {
       setSelectedFile(file);
       setPreview(URL.createObjectURL(file)); // Crear previsualización
@@ -43,11 +49,26 @@ const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
     formData.append("file", file);
 
     try {
-      const response = await axios.post(uploadEndpoint, formData);
+      const token = Cookies.get("token");
+      console.log('este es el token', token);
+      
+      const response = await axios.post(uploadEndpoint, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    
 
       // Actualiza la imagen al nuevo URL devuelto por el backend
       setPreview(response.data.imageUrl);
-      alert("¡Imagen subida con éxito!");
+      handleRefresh();
+      Toast.fire({
+        title: "Image uploaded succesfully",
+        icon: "success",
+      });
+      setEditImage(false);
     } catch (error) {
       console.error("Error al subir la imagen:", error);
       alert("Hubo un error al subir la imagen.");

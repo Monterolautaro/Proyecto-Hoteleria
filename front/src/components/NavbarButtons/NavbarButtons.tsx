@@ -96,6 +96,18 @@ const NavbarButtons: React.FC = () => {
         </>
       );
     }
+
+    if (userGoogleSession || userSession?.user.role.includes("suspended")) {
+      return (
+        <>
+          
+          <Logout
+            setUserSession={setUserSession}
+            setUserGoogleSession={setUserGoogleSession}
+          />
+        </>
+      );
+    }
   };
 
   return <div className="flex items-center gap-3">{renderLinks()}</div>;

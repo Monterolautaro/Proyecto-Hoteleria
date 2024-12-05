@@ -59,8 +59,25 @@ export class AuthService {
           'Please verify your email with Google before continue',
         );
 
-      // Si el usuario existe en la DB, lo logueo
-      const foundUser = await this.userRepository.getUserByEmail(payload.email);
+        const foundUser = await this.userRepository.getUserByEmail(payload.email);
+        
+        // si el usuario existe pero está suspendido, lo logeo como suspended user
+        if(foundUser && payload.email === foundUser.credential.email && foundUser.isSuspend === true) {
+          const user = {
+            email: payload.email,
+            name: payload.name,
+            role: [Roles.suspended],
+          };
+          
+          return {
+            accessToken: this.jwtService.sign(user),
+            user,
+            message: 'User logged in successfully via Google Authentication as a suspended user',
+            status: 'logged in as suspended user'
+          }
+        }
+        
+        // Si el usuario existe en la DB, lo logueo
       if (foundUser && payload.email === foundUser.credential.email) {
         const user = {
           email: payload.email,

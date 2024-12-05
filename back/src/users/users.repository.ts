@@ -58,6 +58,27 @@ export class UserRepository {
     }
   }
 
+  async getUserByEmailFromGoogle(email: string): Promise<User> {
+    try {
+      const user: User = await this.userRepository.findOne({
+        where: { credential: { email } },
+        relations: { credential: true , bookings: { hotel: true, booked_rooms: true, payments_details: true }, payment: true },
+      });
+
+      if(!user) throw new NotFoundException(`User with ${email} not found`);
+      
+      return user;
+    } catch (error) {
+
+      if(error instanceof NotFoundException) throw error;
+
+      throw new BadRequestException(
+        'Something got wrong getting user by email',
+        error,
+      );
+    }
+  }
+
   async getUserByUsername(username: string): Promise<User> {
     try {
       const user: User = await this.userRepository.findOne({
