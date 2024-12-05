@@ -55,6 +55,9 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
         `${API_URL}/filter/hotel?${queryParams.toString()}`
       );
 
+      console.log("Esto llega de los filtros", response.data);
+      if (response.data.length === 0) response.data.push("empty");
+
       onFiltersApplied(response.data);
     } catch (error) {
       console.error("Error fetching hotels:", error);

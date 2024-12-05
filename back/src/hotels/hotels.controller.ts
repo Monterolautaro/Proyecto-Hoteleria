@@ -50,7 +50,7 @@ export class HotelsController {
 
   @Post('/create/:id')
   @ApiBearerAuth()
-  @RolesDecorator(Roles.hotel_owner)
+  @RolesDecorator(Roles.hotel_owner, Roles.admin)
   @UseGuards(AuthGuard, RolesGuard)
   async createHotelByOwner(
     @Param('id', ParseUUIDPipe) user_id: string,

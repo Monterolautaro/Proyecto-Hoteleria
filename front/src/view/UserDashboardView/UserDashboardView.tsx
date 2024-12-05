@@ -28,6 +28,7 @@ const UserDashboardView = () => {
       const user = JSON.parse(Cookies.get("user") || "{}");
       const googleToken = Cookies.get("googleUserToken");
       const googleUser = JSON.parse(Cookies.get("googleUser") || "{}");
+      console.log(user.id);
 
       if (googleUser && googleToken) {
         setSessionToken(googleToken);

@@ -186,9 +186,6 @@ export class HotelsRepository {
         where: { user_id: owner_id },
       });
 
-      if (owner.verified === false)
-        throw new BadRequestException('User not verified');
-
       const hotel: Hotel = this.hotelRepository.create({
         name: hotelData.name,
         owner: owner,
