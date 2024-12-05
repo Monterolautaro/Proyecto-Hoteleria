@@ -62,7 +62,7 @@ export class HotelsController {
 
   @Delete(':id')
   @ApiBearerAuth()
-  @RolesDecorator(Roles.admin, Roles.user)
+  @RolesDecorator(Roles.admin, Roles.hotel_owner)
   @UseGuards(AuthGuard, RolesGuard)
   deleteUser(@Param('id', ParseUUIDPipe) id: string): Promise<any> {
     return this.hotelsService.deleteHotel(id);
