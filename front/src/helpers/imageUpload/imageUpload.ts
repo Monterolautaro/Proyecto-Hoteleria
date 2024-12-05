@@ -1,17 +1,20 @@
-export const uploadImages = async (files: File[], id: string): Promise<string> => {
+export const uploadImages = async (files: File[], id: string, token: string): Promise<string> => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL; // Asegúrate de que esta variable de entorno esté configurada correctamente
   
   const formData = new FormData();
   files.forEach((file) => {
     formData.append("images", file);
   });
-console.log("Endpoint llamado:", `${API_URL}/files/upload/${id}`);
 
   try {
     // Interpolación del ID en la URL
     const response = await fetch(`${API_URL}/files/upload/${id}`, {
       method: "POST",
       body: formData,
+      headers: {
+        
+        Authorization: `Bearer ${token}`,
+      }
     });
 
     if (response.ok) {

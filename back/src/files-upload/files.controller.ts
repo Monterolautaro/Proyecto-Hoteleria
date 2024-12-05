@@ -20,7 +20,6 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Files-upload')
 @Controller('files')
-// @UseGuards(AuthGuard)
 export class FilesUploadController {
   constructor(private readonly filesUploadService: FilesUploadService) {}
 
@@ -29,7 +28,7 @@ export class FilesUploadController {
   @Post('upload/:id')
   @ApiBearerAuth()
   @RolesDecorator(Roles.admin, Roles.hotel_owner)
-  @UseGuards(RolesGuard)
+  @UseGuards(AuthGuard, RolesGuard)
   @UseInterceptors(FileInterceptor('file'))
   async uploadImage(
     @Param('id') roomId: string,
@@ -55,7 +54,7 @@ export class FilesUploadController {
   @ApiBearerAuth()
   @UseInterceptors(FileInterceptor('file'))
   @RolesDecorator(Roles.admin, Roles.hotel_owner)
-  @UseGuards(RolesGuard)
+  @UseGuards(AuthGuard, RolesGuard)
   async createRoomAndImage(
     @UploadedFile(
       new ParseFilePipe({
