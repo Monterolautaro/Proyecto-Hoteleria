@@ -15,19 +15,19 @@ export class Amenities {
   @PrimaryGeneratedColumn('uuid')
   amenities_id: string = uuid();
 
-  @Column()
+  @Column({ default: false })
   pool: boolean;
 
-  @Column()
+  @Column({ default: false })
   gym: boolean;
 
-  @Column()
+  @Column({ default: false })
   spa: boolean;
 
-  @Column()
+  @Column({ default: false })
   restaurant: boolean;
 
-  @Column()
+  @Column({ default: false })
   bar: boolean;
 
   @OneToOne(() => Hotel, (hotel) => hotel.amenities, { onDelete: 'CASCADE' })
