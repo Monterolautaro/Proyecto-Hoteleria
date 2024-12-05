@@ -4,10 +4,11 @@ import BasicInfoForm from "@/components/HotelBasicInfo/HotelBasicInfoForm";
 import { useHotelCreation } from "@/components/HotelCreationContext/HotelCreationProvider";
 import HotelDetailsForm from "@/components/HotelDetailsForm/HotelDetailsForm";
 import RoomInfoForm from "@/components/HotelRoomsForm/HotelRoomsForm";
-import ImageUploadForm from "@/components/uploadImage/imageUpload";
+import createHotel from "@/helpers/hotelCreation/createHotel";
 import { IHotelCreation } from "@/interfaces/hotelCreation";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
+import Cookies from "js-cookie";
 
 const HotelCreationView = () => {
   const { hotelInfo, hotelDetails, hotelRooms, step, setStep, isFormValid } =
@@ -32,7 +33,7 @@ const HotelCreationView = () => {
       name: hotelInfo.name,
       details: {
         stars: parseInt(hotelDetails.stars, 10),
-        rating: parseFloat(hotelDetails.rating),
+        rating: 4,
         imgUrl: hotelDetails.img,
         description: hotelDetails.description,
       },
@@ -43,23 +44,25 @@ const HotelCreationView = () => {
       },
       availability: {
         available: true,
-        totalRoomsLeft: 0,
+        totalRoomsLeft: 50,
       },
       rooms: hotelRooms,
       amenities: {
         pool: false,
-        spa: false,
-        gym: false,
-        restaurant: false,
+        spa: true,
+        gym: true,
+        restaurant: true,
         bar: false,
       },
     };
 
-    console.log(newHotel);
-    // await createHotel(newHotel); // Llamada a la función para crear el hotel
-
-    // Redirigir a /admin después de la creación
-    router.push("/admin");
+    const token = Cookies.get("token");
+    const user = JSON.parse(Cookies.get("user") || "{}");
+    console.log("Este es el hotel que se crea", newHotel);
+    if (token && user) {
+      const result = await createHotel(newHotel, token, user.id);
+      if (result) router.push("/admin");
+    }
   };
 
   useEffect(() => {
@@ -158,7 +161,7 @@ const HotelCreationView = () => {
               Previous
             </button>
             <button
-              onClick={handleNext}
+              onClick={handleSubmit}
               className={`bg-[#00B894] text-white px-4 py-2 rounded ${
                 !isFormValid ? "opacity-50 cursor-not-allowed" : ""
               }`}
@@ -170,7 +173,7 @@ const HotelCreationView = () => {
         </div>
       )}
 
-      {step === 4 && (
+      {/* {step === 4 && (
         <div className="w-full flex flex-col justify-center items-center bg-[#00695C] min-h-screen">
           <div className="w-full max-w-5xl bg-[#004C3F] p-8 rounded-lg shadow-lg">
             <h2 className="text-3xl font-bold text-white mb-6">
@@ -194,7 +197,7 @@ const HotelCreationView = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -278,7 +278,7 @@ const Register = () => {
 
         <div className="mt-4 flex justify-center w-full">
           <button
-            onClick={() => signIn("google")}
+            onClick={() => signIn("google", { redirect: false })}
             className="w-14 h-14 bg-white rounded-full border border-[#009375] flex items-center justify-center mt-1 transition duration-75 group hover:bg-[#009375]"
           >
             <FaGoogle className="text-[#009375] w-8 h-8 group-hover:text-white" />

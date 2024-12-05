@@ -7,9 +7,9 @@ const UserBooking: React.FC<{
   handleRefresh: () => void;
 }> = ({ booking, id, handleRefresh }) => {
   return (
-    <div className="flex flex-col group border rounded-lg p-3 shadow-lg hover:bg-gradient-to-l hover:from-[#d0f6e988] transition-all duration-100 hover:to-transparent">
+    <div className="flex flex-col group border rounded-lg cursor-default p-3 bg-white shadow-lg hover:bg-gradient-to-l hover:from-[#00937511] transition-all duration-100 hover:to-transparent">
       <div className="flex justify-between">
-        <h2>Ref # {id}</h2>
+        <h2 className="font-medium text-[#009375]">Ref # {id}</h2>
         <h3>
           {!booking.isDeleted ? (
             <div>
@@ -19,7 +19,7 @@ const UserBooking: React.FC<{
               />
             </div>
           ) : (
-            <p>Status: Cancelled</p>
+            <p className="font-medium">Cancelled</p>
           )}
         </h3>
       </div>

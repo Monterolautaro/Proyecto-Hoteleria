@@ -55,9 +55,11 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
         `${API_URL}/filter/hotel?${queryParams.toString()}`
       );
 
+      if (response.data.length === 0) response.data.push("empty");
+
       onFiltersApplied(response.data);
     } catch (error) {
-      console.error("Error fetching hotels:", error);
+      console.log("Error fetching hotels:", error);
     } finally {
       setLoading(false);
     }
@@ -99,7 +101,6 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
             )
           )}
         </div>
-        <button className="text-teal-600 text-sm mt-2">Show more</button>
       </div>
 
       <div>
@@ -138,7 +139,6 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
             </label>
           ))}
         </div>
-        <button className="text-teal-600 text-sm mt-2">Show more</button>
       </div>
 
       <button

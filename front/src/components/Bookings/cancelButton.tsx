@@ -14,7 +14,8 @@ const CancelButton: React.FC<{ bookId: string; handleRefresh: () => void }> = ({
       const status = await cancelBooking(bookId, token);
       if (status) handleRefresh();
     } else if (googleToken) {
-      await cancelBooking(bookId, googleToken);
+      const status = await cancelBooking(bookId, googleToken);
+      if (status) handleRefresh();
     }
   };
 
@@ -22,7 +23,7 @@ const CancelButton: React.FC<{ bookId: string; handleRefresh: () => void }> = ({
     <>
       <button
         onClick={handleClick}
-        className="border-2 rounded-lg border-[#009375] bg-white px-3 py-1 rounded-lgopacity-0 transition-all duration-70 "
+        className="border-2 rounded-lg border-[#009375] hover:bg-[#009375] hover:text-white font-medium bg-white px-3 py-1 rounded-lgopacity-0 transition-all duration-70 "
       >
         Cancel
       </button>

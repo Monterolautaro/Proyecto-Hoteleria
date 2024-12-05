@@ -7,14 +7,12 @@ const HotelDetailsForm = () => {
   const { hotelDetails, setHotelDetails, validateForm } = useHotelCreation();
   const [errors, setErrors] = useState({
     stars: "",
-    rating: "",
     img: "",
     description: "",
   });
 
   const [touched, setTouched] = useState({
     stars: false,
-    rating: false,
     img: false,
     description: false,
   });
@@ -23,31 +21,21 @@ const HotelDetailsForm = () => {
   const validateFields = () => {
     const newErrors: any = {};
 
-   // Validación de las estrellas (entre 1 y 5)
-if (!hotelDetails.stars) {
-  newErrors.stars = "Stars are required.";
-} else {
-  const stars = Number(hotelDetails.stars); // Convertir a número
-  if (isNaN(stars) || stars < 1 || stars > 5) {
-    newErrors.stars = "Stars must be a number between 1 and 5.";
-  }
-}
+    // Validación de las estrellas (entre 1 y 5)
+    if (!hotelDetails.stars) {
+      newErrors.stars = "Stars are required.";
+    } else {
+      const stars = Number(hotelDetails.stars); // Convertir a número
+      if (isNaN(stars) || stars < 1 || stars > 5) {
+        newErrors.stars = "Stars must be a number between 1 and 5.";
+      }
+    }
 
-// Validación de la calificación (entre 1 y 5)
-if (!hotelDetails.rating) {
-  newErrors.rating = "Rating is required.";
-} else {
-  const rating = Number(hotelDetails.rating); // Convertir a número
-  if (isNaN(rating) || rating < 1 || rating > 5) {
-    newErrors.rating = "Rating must be a number between 1 and 5.";
-  }
-}
+    // Validación de la calificación (entre 1 y 5)
 
     // Validación de la URL de la imagen
     if (!hotelDetails.img.trim()) {
       newErrors.img = "Image URL is required.";
-    } else if (!/^https?:\/\/.*\.(jpg|jpeg|png|gif)$/i.test(hotelDetails.img)) {
-      newErrors.img = "Invalid image URL.";
     }
 
     // Validación de la descripción (mínimo 10 caracteres)
@@ -61,15 +49,11 @@ if (!hotelDetails.rating) {
 
     // Validación final del formulario para habilitar el botón "Next"
     const isValid =
-    !isNaN(Number(hotelDetails.stars)) &&
-    Number(hotelDetails.stars) >= 1 &&
-    Number(hotelDetails.stars) <= 5 &&
-    !isNaN(Number(hotelDetails.rating)) &&
-    Number(hotelDetails.rating) >= 1 &&
-    Number(hotelDetails.rating) <= 5 &&
-    hotelDetails.img.trim() !== "" &&
-    /^https?:\/\/.*\.(jpg|jpeg|png|gif)$/i.test(hotelDetails.img) &&
-    hotelDetails.description.trim().length >= 10;
+      !isNaN(Number(hotelDetails.stars)) &&
+      Number(hotelDetails.stars) >= 1 &&
+      Number(hotelDetails.stars) <= 5 &&
+      hotelDetails.img.trim() !== "" &&
+      hotelDetails.description.trim().length >= 10;
 
     validateForm("details", isValid);
   };
@@ -91,13 +75,17 @@ if (!hotelDetails.rating) {
         <div>
           <label htmlFor="stars" className="block text-sm font-medium mb-2">
             Stars{" "}
-            {touched.stars && errors.stars && <span className="text-red-500">*</span>}
+            {touched.stars && errors.stars && (
+              <span className="text-red-500">*</span>
+            )}
           </label>
           <input
             type="number"
             id="stars"
             value={hotelDetails.stars}
-            onChange={(e) => setHotelDetails({ ...hotelDetails, stars: e.target.value })}
+            onChange={(e) =>
+              setHotelDetails({ ...hotelDetails, stars: e.target.value })
+            }
             onBlur={() => handleBlur("stars")}
             className="w-full p-3 rounded bg-gray-800 text-white border border-green-400"
             placeholder="Stars (1-5)"
@@ -111,37 +99,19 @@ if (!hotelDetails.rating) {
         </div>
 
         <div>
-          <label htmlFor="rating" className="block text-sm font-medium mb-2">
-            Rating{" "}
-            {touched.rating && errors.rating && <span className="text-red-500">*</span>}
-          </label>
-          <input
-            type="number"
-            id="rating"
-            value={hotelDetails.rating}
-            onChange={(e) => setHotelDetails({ ...hotelDetails, rating: e.target.value })}
-            onBlur={() => handleBlur("rating")}
-            className="w-full p-3 rounded bg-gray-800 text-white border border-green-400"
-            placeholder="Rating (1-5)"
-          />
-          {/* Espacio fijo con tamaño de mensaje reducido */}
-          <div className="h-4">
-            {touched.rating && errors.rating && (
-              <p className="text-red-500 text-xs">{errors.rating}</p>
-            )}
-          </div>
-        </div>
-
-        <div>
           <label htmlFor="img" className="block text-sm font-medium mb-2">
             Image URL{" "}
-            {touched.img && errors.img && <span className="text-red-500">*</span>}
+            {touched.img && errors.img && (
+              <span className="text-red-500">*</span>
+            )}
           </label>
           <input
             type="text"
             id="img"
             value={hotelDetails.img}
-            onChange={(e) => setHotelDetails({ ...hotelDetails, img: e.target.value })}
+            onChange={(e) =>
+              setHotelDetails({ ...hotelDetails, img: e.target.value })
+            }
             onBlur={() => handleBlur("img")}
             className="w-full p-3 rounded bg-gray-800 text-white border border-green-400"
             placeholder="Image URL"
@@ -155,14 +125,21 @@ if (!hotelDetails.rating) {
         </div>
 
         <div>
-          <label htmlFor="description" className="block text-sm font-medium mb-2">
+          <label
+            htmlFor="description"
+            className="block text-sm font-medium mb-2"
+          >
             Description{" "}
-            {touched.description && errors.description && <span className="text-red-500">*</span>}
+            {touched.description && errors.description && (
+              <span className="text-red-500">*</span>
+            )}
           </label>
           <textarea
             id="description"
             value={hotelDetails.description}
-            onChange={(e) => setHotelDetails({ ...hotelDetails, description: e.target.value })}
+            onChange={(e) =>
+              setHotelDetails({ ...hotelDetails, description: e.target.value })
+            }
             onBlur={() => handleBlur("description")}
             className="w-full p-3 rounded bg-gray-800 text-white border border-green-400"
             placeholder="Hotel description"

@@ -31,7 +31,7 @@ export interface HotelRooms {
 interface RoomDetails {
   price: number;
   currency: string;
-  rooms_left: number;
+  roomsLeft: number;
   description: string;
 }
 

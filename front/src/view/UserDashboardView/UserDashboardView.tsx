@@ -28,6 +28,7 @@ const UserDashboardView = () => {
       const user = JSON.parse(Cookies.get("user") || "{}");
       const googleToken = Cookies.get("googleUserToken");
       const googleUser = JSON.parse(Cookies.get("googleUser") || "{}");
+      console.log(user.id);
 
       if (googleUser && googleToken) {
         setSessionToken(googleToken);
@@ -37,7 +38,7 @@ const UserDashboardView = () => {
           googleUser.email,
           googleToken
         );
-        console.log(googleUserData);
+
         setBookings(googleUserData.bookings);
         setUserGoogle(googleUserData);
       }
@@ -176,6 +177,7 @@ const UserDashboardView = () => {
                   username={user?.credential.username}
                   email={user?.credential.email}
                   userId={user?.user_id}
+                  password={user.credential.password}
                   handleRefresh={handleRefresh}
                 />
               </div>

@@ -1,9 +1,7 @@
 "use client";
 
-import { uploadImages } from "@/helpers/imageUpload/imageUpload";
 import { HotelRooms } from "@/interfaces/hotelCreation";
 import React, { createContext, ReactNode, useContext, useState } from "react";
-import Cookies from "js-cookie";
 
 interface IHotelCreationContext {
   hotelInfo: {
@@ -52,13 +50,8 @@ interface IHotelCreationContext {
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 
-  images: File[];
-  setImages: React.Dispatch<React.SetStateAction<File[]>>;
-
   isFormValid: boolean;
   validateForm: (formName: string, isValid: boolean) => void;
-
-  uploadHotelImages: () => Promise<string>;
 }
 
 const HotelCreationContext = createContext<IHotelCreationContext | undefined>(
@@ -88,12 +81,11 @@ export const HotelCreationProvider = ({
     single: {
       price: 0,
       currency: "USD",
-      rooms_left: 0,
+      roomsLeft: 0,
       description: "",
     },
   });
 
-  const [images, setImages] = useState<File[]>([]);
   const [isFormValid, setIsFormValid] = useState(false);
 
   const setHotelRooms = (
@@ -116,7 +108,7 @@ export const HotelCreationProvider = ({
       rooms[room.type as keyof HotelRooms] = {
         price: room.price,
         currency: room.currency,
-        rooms_left: room.roomsLeft,
+        roomsLeft: room.roomsLeft,
         description: room.description,
       };
     });
@@ -130,23 +122,6 @@ export const HotelCreationProvider = ({
     setIsFormValid(isValid);
   };
 
-  const uploadHotelImages = async (): Promise<string> => {
-    const user = JSON.parse(Cookies.get("user") || "{}");
-
-    if (images.length === 0) {
-      return "No images to upload.";
-    }
-
-    try {
-      const token = Cookies.get("token");
-      const result = await uploadImages(images, user.id || "test-token", token!);
-      return result;
-    } catch (error) {
-      console.error("Error uploading images:", error);
-      return "Error uploading images.";
-    }
-  };
-
   return (
     <HotelCreationContext.Provider
       value={{
@@ -158,11 +133,9 @@ export const HotelCreationProvider = ({
         setHotelRooms,
         step,
         setStep,
-        images,
-        setImages,
+
         isFormValid,
         validateForm,
-        uploadHotelImages,
       }}
     >
       {children}

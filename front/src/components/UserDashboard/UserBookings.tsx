@@ -9,18 +9,28 @@ const UserBookings: React.FC<{
   handleRefresh: () => void;
 }> = ({ bookings, handleRefresh }) => {
   return (
-    <div className="flex flex-col gap-3 overflow-y-auto hover:bg-[#009375] transition group duration-1000 rounded-lg">
+    <div
+      className={
+        bookings
+          ? `flex flex-col gap-3 overflow-y-auto`
+          : `flex flex-col gap-3 overflow-y-auto hover:bg-[#009375] transition group duration-1000 rounded-lg`
+      }
+    >
       {bookings.length > 0 ? (
-        bookings.map((booking, key) => {
-          return (
-            <UserBooking
-              key={key}
-              id={key}
-              booking={booking}
-              handleRefresh={handleRefresh}
-            />
-          );
-        })
+        bookings
+          .slice()
+          .reverse()
+          .map((booking, index) => {
+            const reversedKey = bookings.length - 1 - index;
+            return (
+              <UserBooking
+                key={reversedKey} // Clave basada en el índice invertido
+                id={reversedKey}
+                booking={booking}
+                handleRefresh={handleRefresh}
+              />
+            );
+          })
       ) : (
         <div className="flex flex-col gap-4 items-center justify-center h-[360px] w-full">
           <h2 className="text-center font-bold text-2xl">

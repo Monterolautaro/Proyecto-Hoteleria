@@ -16,6 +16,7 @@ const Credentials: React.FC<IUserCredentials> = ({
   email,
   username,
   userId,
+  password,
   handleRefresh,
 }) => {
   const [edit, setEdit] = useState("");
@@ -102,6 +103,11 @@ const Credentials: React.FC<IUserCredentials> = ({
     } else if (name === "newPassword") {
       setPasswordErrors((prev) => ({
         ...prev,
+        newPassword: value.trim().length < 8 || value === passwords.oldPassword, // Validación adicional
+      }));
+    } else if (name === "newPassword") {
+      setPasswordErrors((prev) => ({
+        ...prev,
         newPassword: value.trim().length < 8,
       }));
     } else if (name === "confirmPassword") {
@@ -117,7 +123,9 @@ const Credentials: React.FC<IUserCredentials> = ({
 
     const errors = {
       oldPassword: passwords.oldPassword.trim() === "",
-      newPassword: passwords.newPassword.trim().length < 8,
+      newPassword:
+        passwords.newPassword.trim().length < 8 ||
+        passwords.newPassword === passwords.oldPassword,
       confirmPassword: passwords.newPassword !== passwords.confirmPassword,
     };
 
