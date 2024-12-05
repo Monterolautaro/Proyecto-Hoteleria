@@ -1,10 +1,11 @@
 import { IUserBookings } from "@/helpers/userDashboard/userBookings";
 import CancelButton from "./cancelButton";
 
-const UserBooking: React.FC<{ booking: IUserBookings; id: number }> = ({
-  booking,
-  id,
-}) => {
+const UserBooking: React.FC<{
+  booking: IUserBookings;
+  id: number;
+  handleRefresh: () => void;
+}> = ({ booking, id, handleRefresh }) => {
   return (
     <div className="flex flex-col group border rounded-lg p-3 shadow-lg hover:bg-gradient-to-l hover:from-[#d0f6e988] transition-all duration-100 hover:to-transparent">
       <div className="flex justify-between">
@@ -12,7 +13,10 @@ const UserBooking: React.FC<{ booking: IUserBookings; id: number }> = ({
         <h3>
           {!booking.isDeleted ? (
             <div>
-              <CancelButton bookId={booking.booking_id} />
+              <CancelButton
+                bookId={booking.booking_id}
+                handleRefresh={handleRefresh}
+              />
             </div>
           ) : (
             <p>Status: Cancelled</p>

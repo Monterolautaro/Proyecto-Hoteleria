@@ -217,7 +217,9 @@ const UserDashboardView = () => {
         </div>
       ) : (
         <div className="w-full flex flex-col p-4 px-6 bg-white border border-slate-300 rounded-lg min-h-[50dvh]">
-          {bookings && <UserBookings bookings={bookings} />}
+          {bookings && (
+            <UserBookings bookings={bookings} handleRefresh={handleRefresh} />
+          )}
         </div>
       )}
     </div>
