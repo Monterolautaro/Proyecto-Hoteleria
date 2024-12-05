@@ -230,7 +230,32 @@ export class AuthRepository {
       
       if (foundUser === null)
         throw new NotFoundException('User not registered');
+
+      // si es un usuario suspendido
+      if(foundUser.isSuspend === true) {
+
+        const isPasswordValid = await bcrypt.compare(
+          password,
+          foundUser.credential.password,
+        );
+        
+        if (!isPasswordValid)
+          throw new UnauthorizedException('Invalid credentials');
+
+        const payload = {
+          id: foundUser.user_id,
+          email,
+          verified: foundUser.verified,
+          role: [Roles.suspended],
+        };
+
+        const token = this.jwtService.sign(payload);
       
+        return { success: "You're logged as suspended user", token, user: payload };
+      }
+
+      // si no es un usuario suspendido
+       
       const isPasswordValid = await bcrypt.compare(
         password,
         foundUser.credential.password,
@@ -253,11 +278,11 @@ export class AuthRepository {
     } catch (error) {
 
       if(error instanceof NotFoundException){
-        throw error
+        throw error.message
       }
 
       if(error instanceof UnauthorizedException){
-        throw error
+        throw error.message
       }
 
       throw new BadRequestException('Something got wrong signing in', error);
