@@ -9,13 +9,10 @@ export class MetricsService {
         return this.metrics.getMetrics();
     }
 
-    postMetrics() {
-        return this.metrics.insertMetrics();
-    }
-    startLlogi() {
-        return this.metrics.startLogin();
+    startLlogi(user_id: string) {
+        return this.metrics.startLogin(user_id);
 }
-endlogi() {
-    return this.metrics.endLogin();
+endlogi(user_id: string) {
+    return this.metrics.endLogin(user_id);
 }
 }

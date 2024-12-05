@@ -26,7 +26,7 @@ export class VisitsMetrics {
   @JoinColumn({ name: 'metrics_id' })
   metrics: Metrics;
 
-  /*@ManyToOne(() => User, (usuario) => usuario.visit_metrics)
+  @ManyToOne(() => User, (usuario) => usuario.visit_metrics)
   @JoinColumn({ name: 'user_id' })
-  user: User;*/
+  user: User;
 }

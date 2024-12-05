@@ -35,7 +35,7 @@ export class TimeMetrics {
   @JoinColumn({ name: 'metrics_id' })
   metrics: Metrics;
 
-  /*@ManyToOne(() => User, (usuario) => usuario.time_metrics)
+  @ManyToOne(() => User, (usuario) => usuario.time_metrics)
   @JoinColumn({ name: 'user_id' })
-  user: User;*/
+  user: User;
 }

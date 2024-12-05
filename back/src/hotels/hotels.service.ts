@@ -13,6 +13,12 @@ export class HotelsService {
     }
   }
 
+  async deleteHotel(id: string) {
+   
+    return await this.hotelsRepository.deleteHotel(id);
+
+}
+
   async getHotels(page, limit) {
     try {
       return await this.hotelsRepository.getHotels(page, limit);
