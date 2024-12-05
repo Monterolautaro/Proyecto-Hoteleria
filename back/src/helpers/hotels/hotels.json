@@ -18,25 +18,25 @@
     },
     "rooms": {
       "single": {
-        "price": 410000,
+        "price": 5,
         "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 670000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
-        "price": 940000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
-        "price": 2350000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
@@ -69,25 +69,25 @@
     },
     "rooms": {
       "single": {
-        "price": 210000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 470000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
-        "price": 740000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
-        "price": 3350000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
@@ -120,25 +120,25 @@
     },
     "rooms": {
       "single": {
-        "price": 110000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 770000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
-        "price": 1040000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
-        "price": 4350000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
@@ -171,25 +171,25 @@
     },
     "rooms": {
       "single": {
-        "price": 3010000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 5700000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
-        "price": 8400000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
-        "price": 13500001,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
@@ -222,25 +222,25 @@
     },
     "rooms": {
       "single": {
-        "price": 310000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 40,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 570000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
-        "price": 840000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
-        "price": 1350000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
@@ -273,25 +273,25 @@
     },
     "rooms": {
       "single": {
-        "price": 364000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 50,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 370000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 25,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
-        "price": 400000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 15,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
-        "price": 500000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 8,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
@@ -324,25 +324,25 @@
     },
     "rooms": {
       "single": {
-        "price": 269000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 50,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 500000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 40,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
-        "price": 950000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
-        "price": 1800000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
@@ -375,25 +375,25 @@
     },
     "rooms": {
       "single": {
-        "price": 150000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Compact single room with a full bed, high-speed Wi-Fi, a small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 300000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 25,
         "description": "Spacious double room with a queen bed, city view, modern bathroom, and coffee maker."
       },
       "triple": {
-        "price": 500000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 15,
         "description": "Ideal for families, it has three single beds, a private bathroom and additional space."
       },
       "suite": {
-        "price": 800000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 30,
         "description": "Luxury suite featuring a king bed, jacuzzi, private balcony, and access to an exclusive lounge"
@@ -426,25 +426,25 @@
     },
     "rooms": {
       "single": {
-        "price": 450000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 25,
         "description": "Cozy single room with a comfortable bed, high-speed Wi-Fi, work desk, and LED TV."
       },
       "double": {
-        "price": 520000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Elegant double room with a queen-sized bed, city view, modern bathroom, and minibar."
       },
       "triple": {
-        "price": 780000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious triple room, ideal for groups, featuring three beds, private bathroom, and lounge area."
       },
       "suite": {
-        "price": 1280000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Exclusive suite with a king-size bed, private jacuzzi, balcony, and VIP lounge access."
@@ -477,25 +477,25 @@
     },
     "rooms": {
       "single": {
-        "price": 1488580,
+        "price": 5580,
         "currency": "USD",
         "roomsLeft": 25,
         "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
       },
       "double": {
-        "price": 1200000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 18,
         "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
       },
       "triple": {
-        "price": 1250000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 8,
         "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
       },
       "suite": {
-        "price": 1300000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
@@ -528,25 +528,25 @@
     },
     "rooms": {
       "single": {
-        "price": 1550000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 40,
         "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
       },
       "double": {
-        "price": 1300000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 50,
         "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
       },
       "triple": {
-        "price": 1350000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 30,
         "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
       },
       "suite": {
-        "price": 1450000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 30,
         "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
@@ -579,25 +579,25 @@
     },
     "rooms": {
       "single": {
-        "price": 648000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 30,
         "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
       },
       "double": {
-        "price": 1300000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 40,
         "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
       },
       "triple": {
-        "price": 1350000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
       },
       "suite": {
-        "price": 1450000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
@@ -630,25 +630,25 @@
     },
     "rooms": {
       "single": {
-        "price": 429920,
+        "price": 520,
         "currency": "USD",
         "roomsLeft": 25,
         "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
       },
       "double": {
-        "price": 500000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 30,
         "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
       },
       "triple": {
-        "price": 550000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 15,
         "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
       },
       "suite": {
-        "price": 600000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
@@ -681,25 +681,25 @@
     },
     "rooms": {
       "single": {
-        "price": 797500,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 35,
         "description": "Comfortable single room with a queen bed, free Wi-Fi, work desk, and a smart TV."
       },
       "double": {
-        "price": 800000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 40,
         "description": "Bright double room with a queen bed, ocean view, private bathroom, and minibar"
       },
       "triple": {
-        "price": 820000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Spacious room for three, featuring three single beds, large closet, and private balcony"
       },
       "suite": {
-        "price": 900000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxurious suite with a king bed, oceanfront terrace, Jacuzzi, and exclusive lounge access."
@@ -732,25 +732,25 @@
     },
     "rooms": {
       "single": {
-        "price": 180760,
+        "price": 560,
         "currency": "USD",
         "roomsLeft": 15,
         "description": "Cozy single room with a twin bed, Wi-Fi, a compact desk, and an LCD TV."
       },
       "double": {
-        "price": 200000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 12,
         "description": "Comfortable double room with a double bed, garden view, private bathroom, and mini-fridge."
       },
       "triple": {
-        "price": 250000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious room for three, offering three twin beds, ample storage, and a private bathroom."
       },
       "suite": {
-        "price": 400000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 8,
         "description": "Elegant suite with a king bed, a private terrace, hot tub, and complimentary lounge access."
@@ -783,25 +783,25 @@
     },
     "rooms": {
       "single": {
-        "price": 120000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 160000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 8,
         "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
       },
       "triple": {
-        "price": 220000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 6,
         "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
       },
       "suite": {
-        "price": 350000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 6,
         "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
@@ -834,25 +834,25 @@
     },
     "rooms": {
       "single": {
-        "price": 375060,
+        "price": 560,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 390000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 12,
         "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
       },
       "triple": {
-        "price": 400000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
       },
       "suite": {
-        "price": 550000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 8,
         "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
@@ -885,25 +885,25 @@
     },
     "rooms": {
       "single": {
-        "price": 193040,
+        "price": 540,
         "currency": "USD",
         "roomsLeft": 30,
         "description": "Compact single room with a single bed, Wi-Fi, small desk, and a flat-screen TV."
       },
       "double": {
-        "price": 390000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 18,
         "description": "Spacious double room with a queen bed, city view, private bathroom, and a mini-bar."
       },
       "triple": {
-        "price": 400000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 12,
         "description": "Large room for three, featuring three single beds, plenty of closet space, and an en-suite bathroom."
       },
       "suite": {
-        "price": 550000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Luxurious suite with a queen bed, private balcony, jacuzzi, and access to an exclusive lounge"
@@ -936,25 +936,25 @@
     },
     "rooms": {
       "single": {
-        "price": 150000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Cozy single room with a single bed, high-speed internet, work desk, and a flat-screen TV."
       },
       "double": {
-        "price": 280000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 15,
         "description": "Modern double room with a king bed, ocean view, private bathroom, and a mini-fridge."
       },
       "triple": {
-        "price": 320000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious room for three, featuring a king bed and two single beds, with a large wardrobe and an en-suite bathroom."
       },
       "suite": {
-        "price": 420000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Premium suite with a king bed, private terrace, infinity pool, and access to a VIP lounge"
@@ -993,19 +993,19 @@
         "description": "Single room with all basic amenities."
       },
       "double": {
-        "price": 180000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Double room perfect for couples."
       },
       "triple": {
-        "price": 250000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious triple room with modern design."
       },
       "suite": {
-        "price": 450000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 15,
         "description": "Luxury suite with panoramic views."
@@ -1044,19 +1044,19 @@
         "description": "Simple single room without luxury."
       },
       "double": {
-        "price": 200000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 24,
         "description": "Economical double room."
       },
       "triple": {
-        "price": 400000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Basic triple room for budget-conscious groups."
       },
       "suite": {
-        "price": 600000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Suite with minimalist design."
@@ -1095,19 +1095,19 @@
         "description": "Single room with modern amenities and ocean view."
       },
       "double": {
-        "price": 800000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 50,
         "description": "Spacious double room with king-sized bed and panoramic views."
       },
       "triple": {
-        "price": 1000000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Triple room with large windows and a relaxing atmosphere."
       },
       "suite": {
-        "price": 1800000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Luxury suite with private terrace and stunning beach views."
@@ -1146,19 +1146,19 @@
         "description": "Single room with stylish d\u00e9cor and comfortable amenities."
       },
       "double": {
-        "price": 500000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 20,
         "description": "Double room featuring vintage furnishings and elegant details."
       },
       "triple": {
-        "price": 700000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious triple room with modern design and classic touches."
       },
       "suite": {
-        "price": 1200000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Exclusive suite with luxury amenities and private terrace."
@@ -1197,19 +1197,19 @@
         "description": "Contemporary single room with essential amenities for business travelers."
       },
       "double": {
-        "price": 400000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 30,
         "description": "Double room with a spacious layout and modern furnishings."
       },
       "triple": {
-        "price": 600000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 15,
         "description": "Triple room with city views and a comfortable setup."
       },
       "suite": {
-        "price": 1000000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Stylish suite with modern d\u00e9cor and a relaxing lounge area."
@@ -1248,19 +1248,19 @@
         "description": "Comfortable single room with minimalist d\u00e9cor."
       },
       "double": {
-        "price": 400000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 25,
         "description": "Double room with relaxing atmosphere and modern furnishings."
       },
       "triple": {
-        "price": 550000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious triple room with vibrant d\u00e9cor."
       },
       "suite": {
-        "price": 950000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Elegant suite with luxurious amenities and a private balcony."
@@ -1293,25 +1293,25 @@
     },
     "rooms": {
       "single": {
-        "price": 180000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 30,
         "description": "Economical single room with functional amenities."
       },
       "double": {
-        "price": 300000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 25,
         "description": "Comfortable double room with all the necessary conveniences."
       },
       "triple": {
-        "price": 450000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 10,
         "description": "Spacious triple room with a cozy atmosphere."
       },
       "suite": {
-        "price": 800000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Simple suite with private bathroom and essential amenities."
@@ -1344,25 +1344,25 @@
     },
     "rooms": {
       "single": {
-        "price": 16000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Habitaci\u00f3n individual con cama simple, ideal para viajeros solitarios."
       },
       "double": {
-        "price": 25000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Habitaci\u00f3n doble con cama matrimonial, perfecta para parejas."
       },
       "triple": {
-        "price": 35000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n triple con tres camas simples, ideal para familias."
       },
       "suite": {
-        "price": 50000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Suite de lujo con jacuzzi y terraza privada, perfecta para una estancia especial."
@@ -1395,25 +1395,25 @@
     },
     "rooms": {
       "single": {
-        "price": 12000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Habitaci\u00f3n individual sencilla con escritorio."
       },
       "double": {
-        "price": 20000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con ba\u00f1o privado."
       },
       "triple": {
-        "price": 28000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n triple con camas confortables."
       },
       "suite": {
-        "price": 40000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Suite con living y comedor privado."
@@ -1446,25 +1446,25 @@
     },
     "rooms": {
       "single": {
-        "price": 18000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n individual con vistas al campo."
       },
       "double": {
-        "price": 32000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama king size."
       },
       "triple": {
-        "price": 42000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Amplia habitaci\u00f3n triple con sala de estar."
       },
       "suite": {
-        "price": 60000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite presidencial con terraza privada."
@@ -1497,13 +1497,13 @@
     },
     "rooms": {
       "single": {
-        "price": 15000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n individual con desayuno incluido."
       },
       "double": {
-        "price": 25000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Habitaci\u00f3n doble con balc\u00f3n privado."
@@ -1536,7 +1536,7 @@
     },
     "rooms": {
       "double": {
-        "price": 18000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Habitaci\u00f3n doble con vista al jard\u00edn."
@@ -1569,13 +1569,13 @@
     },
     "rooms": {
       "single": {
-        "price": 32000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Habitaci\u00f3n individual con cama simple, ideal para viajeros solitarios."
       },
       "double": {
-        "price": 50000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Habitaci\u00f3n doble con cama matrimonial, perfecta para parejas."
@@ -1608,25 +1608,25 @@
     },
     "rooms": {
       "single": {
-        "price": 14500,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Habitaci\u00f3n individual sencilla, ideal para viajes r\u00e1pidos."
       },
       "double": {
-        "price": 22000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 6,
         "description": "Habitaci\u00f3n doble con cama matrimonial, c\u00f3moda y accesible."
       },
       "triple": {
-        "price": 30000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n triple con camas individuales."
       },
       "suite": {
-        "price": 55000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite con jacuzzi privado y sala de estar."
@@ -1659,13 +1659,13 @@
     },
     "rooms": {
       "single": {
-        "price": 12500,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n individual con cama simple y vista al jard\u00edn."
       },
       "double": {
-        "price": 18500,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial y vistas panor\u00e1micas."
@@ -1698,25 +1698,25 @@
     },
     "rooms": {
       "single": {
-        "price": 22000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n individual c\u00f3moda, ideal para viajes de negocios."
       },
       "double": {
-        "price": 35000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Habitaci\u00f3n doble con ba\u00f1o privado y amenities."
       },
       "triple": {
-        "price": 45000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con camas adicionales, perfecta para familias."
       },
       "suite": {
-        "price": 65000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite de lujo con sala de estar separada y vista a la ciudad."
@@ -1749,19 +1749,19 @@
     },
     "rooms": {
       "single": {
-        "price": 10000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n individual sencilla con servicios b\u00e1sicos."
       },
       "double": {
-        "price": 16000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial, sencilla y accesible."
       },
       "triple": {
-        "price": 22000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con camas individuales."
@@ -1794,25 +1794,25 @@
     },
     "rooms": {
       "single": {
-        "price": 29000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n individual moderna con todos los servicios."
       },
       "double": {
-        "price": 42000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble amplia con cama matrimonial y minibar."
       },
       "triple": {
-        "price": 52000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con cama king size y una individual."
       },
       "suite": {
-        "price": 75000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite de lujo con vista al r\u00edo y sala de estar privada."
@@ -1845,25 +1845,25 @@
     },
     "rooms": {
       "single": {
-        "price": 18000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Habitaci\u00f3n sencilla con cama individual y todos los servicios b\u00e1sicos."
       },
       "double": {
-        "price": 26000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Habitaci\u00f3n doble con cama matrimonial y desayuno incluido."
       },
       "triple": {
-        "price": 32000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n triple con tres camas simples."
       },
       "suite": {
-        "price": 50000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite premium con jacuzzi, vistas panor\u00e1micas y servicios exclusivos."
@@ -1896,13 +1896,13 @@
     },
     "rooms": {
       "single": {
-        "price": 13000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Habitaci\u00f3n econ\u00f3mica individual con todas las comodidades."
       },
       "double": {
-        "price": 18000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con cama matrimonial y ba\u00f1o privado."
@@ -1935,25 +1935,25 @@
     },
     "rooms": {
       "single": {
-        "price": 35000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n individual con vista al lago, moderna y elegante."
       },
       "double": {
-        "price": 50000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con cama king size y vista panor\u00e1mica al lago."
       },
       "triple": {
-        "price": 60000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con camas individuales y vista directa al lago."
       },
       "suite": {
-        "price": 80000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite de lujo con jacuzzi privado y acceso exclusivo al spa."
@@ -1986,25 +1986,25 @@
     },
     "rooms": {
       "single": {
-        "price": 30000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n individual moderna, con vista parcial al mar."
       },
       "double": {
-        "price": 45000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con cama matrimonial, vista al mar y desayuno incluido."
       },
       "triple": {
-        "price": 60000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales y vista panor\u00e1mica."
       },
       "suite": {
-        "price": 90000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite de lujo con jacuzzi, sala de estar y vista privilegiada al oc\u00e9ano."
@@ -2037,25 +2037,25 @@
     },
     "rooms": {
       "single": {
-        "price": 21000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 5,
         "description": "Habitaci\u00f3n simple, econ\u00f3mica, con vista parcial al mar."
       },
       "double": {
-        "price": 30000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 4,
         "description": "Habitaci\u00f3n doble con cama matrimonial y vista a la costanera."
       },
       "triple": {
-        "price": 40000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n triple con tres camas simples, ideal para grupos."
       },
       "suite": {
-        "price": 70000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite de lujo con jacuzzi privado y vista al mar."
@@ -2088,19 +2088,19 @@
     },
     "rooms": {
       "single": {
-        "price": 14000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n individual sencilla, ideal para estancias cortas."
       },
       "double": {
-        "price": 21000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con cama matrimonial, sencilla y c\u00f3moda."
       },
       "triple": {
-        "price": 27000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas simples, ideal para grupos peque\u00f1os."
@@ -2133,19 +2133,19 @@
     },
     "rooms": {
       "single": {
-        "price": 17000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n individual simple, ideal para una estad\u00eda tranquila en la naturaleza."
       },
       "double": {
-        "price": 23000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial, tranquila y c\u00f3moda."
       },
       "triple": {
-        "price": 30000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas simples y vistas al mar."
@@ -2178,19 +2178,19 @@
     },
     "rooms": {
       "single": {
-        "price": 20000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n simple con cama individual, ideal para viajeros solitarios."
       },
       "double": {
-        "price": 28000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial, amplia y c\u00f3moda."
       },
       "triple": {
-        "price": 35000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales y un espacio acogedor."
@@ -2223,25 +2223,25 @@
     },
     "rooms": {
       "single": {
-        "price": 25000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n individual con vista al lago, decorada en estilo patag\u00f3nico."
       },
       "double": {
-        "price": 40000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial y balc\u00f3n con vista panor\u00e1mica."
       },
       "triple": {
-        "price": 55000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales y vista al jard\u00edn."
       },
       "suite": {
-        "price": 90000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite con jacuzzi, sala de estar y una vista privilegiada al lago y los glaciares."
@@ -2274,19 +2274,19 @@
     },
     "rooms": {
       "single": {
-        "price": 16000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n sencilla, ideal para viajeros solitarios, con todas las comodidades necesarias."
       },
       "double": {
-        "price": 25000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con cama matrimonial, vista al jard\u00edn y desayuno incluido."
       },
       "triple": {
-        "price": 33000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales, perfecta para grupos de amigos o familias."
@@ -2319,19 +2319,19 @@
     },
     "rooms": {
       "single": {
-        "price": 12000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n individual sencilla, con cama individual y ba\u00f1o privado."
       },
       "double": {
-        "price": 18000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial, decoraci\u00f3n sencilla pero acogedora."
       },
       "triple": {
-        "price": 25000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple, ideal para grupos, con tres camas individuales."
@@ -2364,19 +2364,19 @@
     },
     "rooms": {
       "single": {
-        "price": 13000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n individual sencilla, c\u00f3moda, ideal para estancias cortas."
       },
       "double": {
-        "price": 19000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con cama matrimonial, c\u00e1lida y confortable."
       },
       "triple": {
-        "price": 25000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para familias o grupos."
@@ -2409,19 +2409,19 @@
     },
     "rooms": {
       "single": {
-        "price": 10000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n sencilla, perfecta para viajeros de paso, con cama individual."
       },
       "double": {
-        "price": 16000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial, ideal para estancias m\u00e1s largas."
       },
       "triple": {
-        "price": 21000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales, muy acogedora."
@@ -2454,25 +2454,25 @@
     },
     "rooms": {
       "single": {
-        "price": 45000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n individual de lujo con vista al mar y acceso al spa."
       },
       "double": {
-        "price": 65000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n doble con cama matrimonial, balc\u00f3n privado y vista panor\u00e1mica."
       },
       "triple": {
-        "price": 80000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Habitaci\u00f3n triple con tres camas individuales y acceso al spa."
       },
       "suite": {
-        "price": 120000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite exclusiva con jacuzzi, sal\u00f3n privado y vistas inigualables del Canal Beagle."
@@ -2505,19 +2505,19 @@
     },
     "rooms": {
       "single": {
-        "price": 20000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n sencilla, c\u00f3moda, ideal para una estancia corta en el centro de Ushuaia."
       },
       "double": {
-        "price": 30000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con cama matrimonial, equipada con todos los servicios y desayuno incluido."
       },
       "triple": {
-        "price": 38000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para familias o grupos."
@@ -2550,19 +2550,19 @@
     },
     "rooms": {
       "single": {
-        "price": 12000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n sencilla con una cama individual y vista al jard\u00edn."
       },
       "double": {
-        "price": 18000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial y ba\u00f1o privado."
       },
       "triple": {
-        "price": 24000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para grupos o familias."
@@ -2595,19 +2595,19 @@
     },
     "rooms": {
       "single": {
-        "price": 10000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n individual con cama individual y acceso a todos los servicios del hotel."
       },
       "double": {
-        "price": 15000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial, decoraci\u00f3n r\u00fastica y acogedora."
       },
       "triple": {
-        "price": 20000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para familias."
@@ -2640,19 +2640,19 @@
     },
     "rooms": {
       "single": {
-        "price": 8000,
+        "price": 5,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n individual sencilla, con cama individual y ba\u00f1o privado."
       },
       "double": {
-        "price": 12000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con cama matrimonial, ideal para estancias cortas."
       },
       "triple": {
-        "price": 16000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales, econ\u00f3mica y c\u00f3moda."
@@ -2685,19 +2685,19 @@
     },
     "rooms": {
       "single": {
-        "price": 22000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n individual con vistas al valle, cama c\u00f3moda y ba\u00f1o privado."
       },
       "double": {
-        "price": 35000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial, aire acondicionado y acceso a todas las comodidades del hotel."
       },
       "triple": {
-        "price": 45000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para grupos o familias."
@@ -2730,19 +2730,19 @@
     },
     "rooms": {
       "single": {
-        "price": 14000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n individual con vista a las monta\u00f1as y ba\u00f1o privado."
       },
       "double": {
-        "price": 25000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial, decorada con estilo local y desayuno incluido."
       },
       "triple": {
-        "price": 32000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para grupos peque\u00f1os."
@@ -2775,19 +2775,19 @@
     },
     "rooms": {
       "single": {
-        "price": 8000,
+        "price": 5,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n sencilla, ideal para estancias cortas, con cama individual y ba\u00f1o privado."
       },
       "double": {
-        "price": 13000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial y acceso a la piscina."
       },
       "triple": {
-        "price": 17000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple, ideal para familias o grupos, con tres camas individuales."
@@ -2820,19 +2820,19 @@
     },
     "rooms": {
       "single": {
-        "price": 25000,
+        "price": 50,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n individual de lujo con detalles elegantes y una vista impresionante a las monta\u00f1as."
       },
       "double": {
-        "price": 35000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial, decorada con estilo contempor\u00e1neo y todas las comodidades."
       },
       "suite": {
-        "price": 60000,
+        "price": 120,
         "currency": "USD",
         "roomsLeft": 0,
         "description": "Suite de lujo con sal\u00f3n privado, jacuzzi y vistas panor\u00e1micas a la ciudad."
@@ -2865,19 +2865,19 @@
     },
     "rooms": {
       "single": {
-        "price": 7000,
+        "price": 5,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n individual sencilla con todas las comodidades b\u00e1sicas para una estancia c\u00f3moda."
       },
       "double": {
-        "price": 12000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n doble con cama matrimonial y ba\u00f1o privado."
       },
       "triple": {
-        "price": 16000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales, ideal para grupos peque\u00f1os."
@@ -2910,19 +2910,19 @@
     },
     "rooms": {
       "single": {
-        "price": 5000,
+        "price": 5,
         "currency": "USD",
         "roomsLeft": 2,
         "description": "Habitaci\u00f3n sencilla con cama individual y ba\u00f1o compartido."
       },
       "double": {
-        "price": 8000,
+        "price": 70,
         "currency": "USD",
         "roomsLeft": 3,
         "description": "Habitaci\u00f3n doble con cama matrimonial y ba\u00f1o privado."
       },
       "triple": {
-        "price": 11000,
+        "price": 90,
         "currency": "USD",
         "roomsLeft": 1,
         "description": "Habitaci\u00f3n triple con tres camas individuales."
