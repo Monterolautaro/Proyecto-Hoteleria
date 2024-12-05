@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { IUser} from "@/interfaces/bookings"; // Asegúrate de importar la interfaz correcta
+import { IUser} from "@/interfaces/bookings"; 
 import getUserById from "@/helpers/getUserDetail";
 
 const UserDetail: React.FC<{ params: string }> = ({ params }) => {
@@ -24,7 +24,6 @@ const UserDetail: React.FC<{ params: string }> = ({ params }) => {
 
   return (
     <div className="p-6 w-[80%] mx-auto">
-      {/* User Details */}
       <div className="bg-white shadow rounded-lg p-4 mb-6">
         <h2 className="text-2xl font-bold mb-4">User Details</h2>
         <p><strong>Name:</strong> {userInfo.name}</p>
@@ -37,7 +36,6 @@ const UserDetail: React.FC<{ params: string }> = ({ params }) => {
         <p><strong>Average Session Duration:</strong> {userInfo.average_session_duration}</p>
       </div>
 
-      {/* Booking Details */}
       <div className="bg-white shadow rounded-lg p-4 mb-6">
         <h2 className="text-2xl font-bold mb-4">Booking Details</h2>
         {userInfo.bookings.map((booking, index) => (
@@ -50,7 +48,6 @@ const UserDetail: React.FC<{ params: string }> = ({ params }) => {
         ))}
       </div>
 
-      {/* Go Back Button */}
       <div className="flex justify-center mt-6">
         <button
           onClick={() => router.push("/admin")}
