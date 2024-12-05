@@ -17,7 +17,9 @@ import { StripeModule } from './nuevoPayments/nuevoPayments.module';
 import { MailModule } from './mail/mail.module';
 import { MercadopagoModule } from './mercadopago/mercadopago.module';
 import { MetricsModule } from './metrics/metrics.module';
+import { SuspendedModule } from './suspended/suspended.module';
 import { BookingsModule } from './bookings/bookings.module';
+
 
 dotenvConfig({
   path: '.env',
@@ -46,6 +48,7 @@ dotenvConfig({
     HotelsModule,
     AuthModule,
     UsersModule,
+    SuspendedModule,
     JwtModule.register({
       global: true,
       signOptions: { expiresIn: '35m' },

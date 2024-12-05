@@ -28,8 +28,8 @@ const AboutUsView = () => {
     </div>
     <div className="md:w-1/2 flex flex-col justify-center">
       <h2 className="text-3xl font-semibold text-black mb-4 text-center">Our Mission</h2>
-      <p className="text-black leading-relaxed">
-        To empower individuals and organizations by delivering innovative solutions that drive growth, efficiency, and success.
+      <p className="text-black leading-relaxed text-center">
+      To empower travelers and hospitality providers by delivering innovative, seamless, and user-friendly solutions for hotel reservations. Hotelify is dedicated to driving growth, efficiency, and unforgettable experiences by connecting users to tailored accommodations while optimizing the booking process for businesses. We aim to redefine convenience, build trust, and inspire travel through technology-driven solutions that enhance every step of the journey.
       </p>
     </div>
   </div>
@@ -37,8 +37,8 @@ const AboutUsView = () => {
   <div className="flex flex-col md:flex-row items-center text-center md:text-left">
     <div className="md:w-1/2 flex flex-col justify-center">
       <h2 className="text-3xl font-semibold text-black mb-4 text-center">Our Vision</h2>
-      <p className="text-black leading-relaxed">
-        To be a global leader recognized for transforming challenges into opportunities and making a meaningful impact on society.
+      <p className="text-black leading-relaxed text-center">
+      To be a global leader recognized for revolutionizing the hospitality industry by transforming booking challenges into opportunities, fostering seamless travel experiences, and making a meaningful impact on society. Hotelify aspires to set the standard in innovation, trust, and sustainability, creating a world where every traveler’s journey is effortless and every hotel thrives in a digitally connected ecosystem.
       </p>
     </div>
     <div className="md:w-1/2 flex justify-center">
@@ -87,12 +87,14 @@ const AboutUsView = () => {
             <p className="text-black italic mb-4">
               "Exceptional service and innovative solutions. Highly recommend!"
             </p>
+            <br></br>
             <p className="text-black font-bold">- Emily Carter</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-6">
             <p className="text-black italic mb-4">
               "Their commitment to excellence is unmatched. I am thrilled with the results."
             </p>
+            <br></br>
             <p className="text-black font-bold">- Michael Smith</p>
           </div>
         </div>
