@@ -106,10 +106,10 @@ const Filters: React.FC<FilterProps> = ({ onFiltersApplied }) => {
         <h3 className="text-lg font-semibold text-gray-700 mb-2">Price</h3>
         <div className="space-y-2 text-sm">
           {[
-            "0 USD - 150000 USD",
-            "150000 USD - 400000 USD",
-            "400000 USD - 800000 USD",
-            "+800000 USD",
+            "0 USD - 149999 USD",
+            "150000 USD - 399999 USD",
+            "400000 USD - 799999 USD",
+            "800000 USD - 1600000 USD",
           ].map((range) => (
             <label key={range} className="flex items-center space-x-2">
               <input

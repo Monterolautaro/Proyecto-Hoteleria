@@ -48,6 +48,14 @@ export class UserController {
     return this.UserService.getUserByEmail(email);
   }
 
+  @Post('email/google')
+  @ApiBearerAuth()
+  @RolesDecorator(Roles.admin, Roles.user, Roles.hotel_owner)
+  @UseGuards(AuthGuard, RolesGuard)
+  getUserByEmailFromGoogle(@Body('email') email: string) {
+    return this.UserService.getUserByEmailFromGoogle(email);
+  }
+
   @Post('username')
   getUserByUsername(@Body('username') username: string): Promise<User> {
     return this.UserService.getUserByUsername(username);
