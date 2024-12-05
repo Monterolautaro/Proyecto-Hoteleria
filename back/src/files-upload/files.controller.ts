@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   Controller,
   FileTypeValidator,
@@ -17,13 +18,11 @@ import { Roles } from 'roles.enum';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-
 @ApiTags('Files-upload')
 @Controller('files')
 // @UseGuards(AuthGuard)
 export class FilesUploadController {
   constructor(private readonly filesUploadService: FilesUploadService) {}
-
 
   // http://localhost:4000/files/upload/:id
 
@@ -50,8 +49,6 @@ export class FilesUploadController {
     return await this.filesUploadService.uploadImageToCloudById(file, roomId);
   }
 
-
-
   //http://localhost:4000/files/upload/          TERMINAR
 
   @Post('upload')
@@ -75,8 +72,6 @@ export class FilesUploadController {
   ) {
     return await this.filesUploadService.createRoomAndImage(file);
   }
-
-
 
   // http://localhost:4000/files/upload/profile/:id
 

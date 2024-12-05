@@ -1,5 +1,6 @@
 import {
   BadRequestException,
+  ConflictException,
   Inject,
   Injectable,
   NotFoundException,
@@ -50,17 +51,20 @@ export class BookingRepository {
   ): Promise<Booking> {
     await queryRunner.connect();
 
+    
     try {
       // Buscar al usuario por ID usando el queryRunner
       const user: User = await queryRunner.manager.findOne(User, {
         where: { user_id: userId },
       });
-
+      
       // Buscar al hotel por ID usando el queryRunner
       const hotel: Hotel = await queryRunner.manager.findOne(Hotel, {
         where: { hotel_id: hotelId },
       });
-
+      
+      if(hotel.availability.totalRoomsLeft <= 5 ) throw new ConflictException('Not enough rooms available in hotel');
+      
       // Verificar si el usuario o el hotel existen
       if (!hotel) throw new NotFoundException('Hotel no encontrados');
       if (!user) throw new NotFoundException('Usuario no encontrados');
@@ -99,9 +103,6 @@ export class BookingRepository {
         );
       });
 
-      if (totalRooms > hotel.availability.totalRoomsLeft)
-        throw new BadRequestException('Not enough rooms available in hotel');
-
       //actualizo availability del hotel
       if (totalRooms > 0)
         await queryRunner.manager.decrement(
@@ -135,6 +136,10 @@ export class BookingRepository {
       // Retornar la reserva creada
       return booking;
     } catch (error) {
+      if(error instanceof ConflictException) throw error
+      
+      if(error instanceof NotFoundException) throw error
+
       throw new BadRequestException('Error creating booking', error);
     }
   }

@@ -1,160 +1,18 @@
-export const userBookings = [
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: false,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: true,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: true,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: false,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: true,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: true,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: true,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: false,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: true,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: true,
-  },
-  {
-    hotel: "Test Hotel",
-    startDate: "03/11/2024",
-    endDate: "04/11/2024",
-    nights: 4,
-    rooms: [
-      { type: "Single", rooms: 4 },
-      { type: "Double", rooms: 3 },
-      { type: "Triple", rooms: 1 },
-    ],
-    travelers: 6,
-    status: true,
-  },
-];
+import { Hotel } from "@/interfaces/hotel";
 
 export interface IUserBookings {
-  hotel: string;
-  startDate: string;
-  endDate: string;
-  nights: number;
-  rooms: IRoomsTest[];
-  travelers: number;
-  status: boolean;
-}
-
-interface IRoomsTest {
-  type: string;
-  rooms: number;
+  booked_rooms: {
+    booked_rooms_id?: string;
+    single_room_id?: string;
+    double_room_id?: string;
+    triple_room_id?: string;
+    suite_room_id?: string;
+    number_of_rooms?: number;
+  };
+  booking_id: string;
+  start_date: string;
+  end_date: string;
+  hotel: Hotel;
+  payments_details?: string;
+  isDeleted: boolean;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { LatLngExpression } from "leaflet";
@@ -15,7 +16,7 @@ const MapComponent: React.FC<{ location: string }> = ({ location }) => {
   useEffect(() => {
     const getLocation = async () => {
       const coordinates = await getCoordinates(location);
-      console.log(coordinates);
+
       if (coordinates) setPosition([coordinates.lat, coordinates.lng]);
     };
     getLocation();

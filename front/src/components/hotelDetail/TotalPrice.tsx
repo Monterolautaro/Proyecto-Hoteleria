@@ -14,12 +14,15 @@ const TotalPrice: React.FC<{
 }> = ({ hotelName, hotelId, currency }) => {
   const { bookingPrice, setHotelId, setCurrency } = usePriceContext();
   const { bookingRooms } = useRoomsContext();
+  const [googleUser, setGoogleUser] = useState("");
   const [total, setTotal] = useState(0);
   const [totalRooms, setTotalRooms] = useState(0);
   const [userId, setUserId] = useState("");
 
   useEffect(() => {
+    const googleUser = JSON.parse(Cookies.get("googleUser") || "{}");
     const { id } = JSON.parse(Cookies.get("user") || "{}");
+    setGoogleUser(googleUser.email);
     setUserId(id);
   }, []);
 
@@ -47,7 +50,7 @@ const TotalPrice: React.FC<{
         </span>
       </p>
       {total !== 0 ? (
-        userId ? (
+        userId || googleUser ? (
           <Link
             href={`/payment/${hotelName}`}
             className="bg-[#009375] min-w-fit py-2 px-4 text-white font-medium text-xl rounded-md self-end hover:bg-[#3fceb1] transition duration-150 animate-fadeIn"

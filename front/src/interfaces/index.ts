@@ -75,3 +75,34 @@ export interface ILogoutProps {
   setUserSession: (params: IUserSession | null) => void;
   setUserGoogleSession?: (params: IGoogleUser | null) => void;
 }
+
+export interface IUserCookies {
+  email: string;
+  id: string;
+  role: string[];
+  verified: boolean;
+}
+
+export interface IUserGoogleCookies {
+  email: string;
+  image: string;
+  name: string;
+}
+
+export interface IUserGoogleData {
+  user_id: string;
+  name: string;
+  lastname: string;
+  birthday: string;
+  total_visits: 0;
+  average_session_duration: 0;
+  role: string[];
+  isSuspend: boolean;
+  verified: boolean;
+  credential: {
+    credential_id: string;
+    username: string;
+    email: string;
+    password: string;
+  };
+}

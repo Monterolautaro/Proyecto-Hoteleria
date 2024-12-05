@@ -26,6 +26,9 @@ export class Booking {
   @Column('date')
   end_date: Date;
 
+  @Column({default: false})
+  isDeleted: boolean;
+
   @ManyToOne(() => User, (user) => user.bookings)
   @JoinColumn({ name: 'user_id' })
   user!: User;
