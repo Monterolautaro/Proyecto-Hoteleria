@@ -96,8 +96,11 @@ const HotelDetailView: React.FC<{ params: string }> = async ({ params }) => {
             </div>
           </div>
           {/* Reviews */}
-          <div className="w-full h-[240px] bg-[#d0f6e9] flex justify-center items-center font-semibold rounded-xl">
-            Reviews
+          <div className="w-full h-[240px] bg-gradient-to-tl px-8 text-pretty from-[#009375] to-[#d0f6e9] p-4 text-center flex justify-center items-center font-semibold rounded-xl">
+            <h3 className="w-fit">
+              Hotelify uses this information to know more about our travelers,
+              their favorite places and destinations
+            </h3>
           </div>
         </section>
         {/* Rooms */}
