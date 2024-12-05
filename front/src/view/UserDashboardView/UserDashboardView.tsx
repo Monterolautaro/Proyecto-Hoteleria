@@ -35,6 +35,8 @@ const UserDashboardView = () => {
           googleUser.email,
           googleToken
         );
+        console.log(googleUserData);
+
         setUserGoogle(googleUserData);
       }
 
@@ -53,6 +55,8 @@ const UserDashboardView = () => {
     if (token) {
       setSessionToken(token);
       const userData = await getUserData(user.id, token);
+      console.log(userData);
+
       setUser(userData);
     }
   };
