@@ -58,8 +58,7 @@ const HotelCreationView = () => {
 
     const token = Cookies.get("token");
     const user = JSON.parse(Cookies.get("user") || "{}");
-    console.log(user);
-    console.log(newHotel);
+    console.log("Este es el hotel que se crea", newHotel);
     if (token && user) {
       const result = await createHotel(newHotel, token, user.id);
       if (result) router.push("/admin");

@@ -24,7 +24,7 @@ const Login = () => {
   };
 
   const handleGoogleClick = async () => {
-    await signIn();
+    await signIn("google", { redirect: false });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -177,6 +177,7 @@ const UserDashboardView = () => {
                   username={user?.credential.username}
                   email={user?.credential.email}
                   userId={user?.user_id}
+                  password={user.credential.password}
                   handleRefresh={handleRefresh}
                 />
               </div>
