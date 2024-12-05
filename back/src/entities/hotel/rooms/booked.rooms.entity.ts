@@ -33,7 +33,14 @@ export class BookedRooms {
   })
   suite_room_id: string;
 
-  @OneToOne(() => Booking, (booking) => booking.booked_rooms)
+  @Column({
+    nullable: true
+  })
+  number_of_rooms: number
+
+  @OneToOne(() => Booking, (booking) => booking.booked_rooms, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'booking_id' })
   booking?: Booking;
 }

@@ -32,8 +32,7 @@ export class AuthController {
   async signIn(
     @Body('email') email: string,
     @Body('password') password: string,
-  ): Promise<any> {
-    
+  ): Promise<any> { 
     return this.authService.signIn(email, password);
   }
 

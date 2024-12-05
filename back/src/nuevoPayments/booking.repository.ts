@@ -78,6 +78,11 @@ export class BookingRepository {
         if (room.type === 'triple') bookedRooms.triple_room_id = room.roomId;
         if (room.type === 'suite') bookedRooms.suite_room_id = room.roomId;
 
+        // actualizo el number of rooms
+        if(!bookedRooms.number_of_rooms) bookedRooms.number_of_rooms = 0
+        bookedRooms.number_of_rooms += room.rooms;
+
+
         // actualizo las habitaciónes de cada tipo, y además las voy añadiendo a total rooms
         totalRooms += room.rooms;
 
@@ -106,21 +111,23 @@ export class BookingRepository {
           totalRooms,
         );
         
-        // crear la reserva
         await queryRunner.manager.save(bookedRooms);
-      
-      const booking: Booking = await queryRunner.manager.create(Booking, {
-        user: user,
-        hotel: hotel,
-        booked_rooms: bookedRooms,
-        start_date: checkIn,
-        end_date: checkOut,
-      });
-      
-      bookedRooms.booking = booking;
-      
-    
-      await queryRunner.manager.save(booking);
+        // crear la reserva
+        
+        const booking: Booking = await queryRunner.manager.create(Booking, {
+          user: user,
+          hotel: hotel,
+          booked_rooms: bookedRooms,
+          start_date: checkIn,
+          end_date: checkOut,
+        });
+        await queryRunner.manager.save(booking);
+        
+        // bookedRooms.booking = booking;
+        
+        await queryRunner.manager.update(BookedRooms, bookedRooms.booked_rooms_id, {
+          booking: booking
+        })
 
       // Guardar los cambios en el hotel usando el queryRunner
       await queryRunner.manager.save(hotel);
