@@ -4,14 +4,22 @@ import { IUserBookings } from "@/helpers/userDashboard/userBookings";
 import UserBooking from "../Bookings/userBooking";
 import Link from "next/link";
 
-const UserBookings: React.FC<{ bookings: IUserBookings[] }> = ({
-  bookings,
-}) => {
+const UserBookings: React.FC<{
+  bookings: IUserBookings[];
+  handleRefresh: () => void;
+}> = ({ bookings, handleRefresh }) => {
   return (
     <div className="flex flex-col gap-3 overflow-y-auto hover:bg-[#009375] transition group duration-1000 rounded-lg">
       {bookings.length > 0 ? (
         bookings.map((booking, key) => {
-          return <UserBooking key={key} id={key} booking={booking} />;
+          return (
+            <UserBooking
+              key={key}
+              id={key}
+              booking={booking}
+              handleRefresh={handleRefresh}
+            />
+          );
         })
       ) : (
         <div className="flex flex-col gap-4 items-center justify-center h-[360px] w-full">

@@ -3,12 +3,16 @@
 import cancelBooking from "@/helpers/userDashboard/cancelBooking";
 import Cookies from "js-cookie";
 
-const CancelButton: React.FC<{ bookId: string }> = ({ bookId }) => {
+const CancelButton: React.FC<{ bookId: string; handleRefresh: () => void }> = ({
+  bookId,
+  handleRefresh,
+}) => {
   const handleClick = async () => {
     const token = Cookies.get("token");
     const googleToken = Cookies.get("googleUserToken");
     if (token) {
-      await cancelBooking(bookId, token);
+      const status = await cancelBooking(bookId, token);
+      if (status) handleRefresh();
     } else if (googleToken) {
       await cancelBooking(bookId, googleToken);
     }
