@@ -324,12 +324,19 @@ export class HotelsRepository {
 
   async deleteHotel(hotel_id: string): Promise<any> {
     try {
-      if (!hotel_id) throw new NotFoundException(`Hotel ${hotel_id} not found`);
+      const foundHotel = await this.hotelRepository.findOneBy({ hotel_id })
+      
+      if (!foundHotel) throw new NotFoundException(`Hotel not found`);
 
       await this.hotelRepository.delete({ hotel_id });
 
-      return { status: 'success', message: `Hotel ${hotel_id} has been deleted` };
+      return { status: 'success', message: `Hotel has been deleted` };
     } catch (error) {
+      
+      if(error instanceof NotFoundException){
+        throw error.message
+      }
+      
       throw new BadRequestException('Something got wrong deleting hotel', error);
     }
   }
