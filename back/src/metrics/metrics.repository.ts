@@ -95,7 +95,4 @@ export class MetricsRepository {
 
         return {horaYmin, visitas}
     }
-
-    //************************************************************ */
-
 }
