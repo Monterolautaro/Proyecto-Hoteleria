@@ -13,9 +13,9 @@ export class HotelsService {
     }
   }
 
-  deleteHotel(id: string) {
+  async deleteHotel(id: string) {
    
-    return this.hotelsRepository.deleteHotel(id);
+    return await this.hotelsRepository.deleteHotel(id);
 
 }
 
